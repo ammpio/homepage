@@ -153,7 +153,9 @@ function Page() {
         </div>
 
         <div className="mt-12">
-          <SectionHeading eyebrow={current.label} title={current.title} intro={"intro" in current ? current.intro : undefined} />
+          {"intro" in current
+            ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} />
+            : <SectionHeading eyebrow={current.label} title={current.title} />}
           <div className="mt-10">{panels[active]}</div>
         </div>
       </Band>
