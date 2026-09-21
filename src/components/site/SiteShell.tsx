@@ -3,8 +3,9 @@ import { ArrowUpRight, Linkedin } from "lucide-react";
 import ammpLogo from "@/assets/ammp-logo.png";
 
 const nav = [
-  ["Product", "/product"], ["Integrations", "/integrations"], ["Use cases", "/use-cases/asset-managers"],
-  ["Case studies", "/case-studies"], ["Pricing", "/pricing"], ["AI coworkers", "/ai"],
+  ["Product", "/product"], ["AI coworkers", "/ai"], ["Integrations", "/integrations"],
+  ["Use cases", "/use-cases/asset-managers"], ["Case studies", "/case-studies"],
+  ["Pricing", "/pricing"], ["Blog", "/blog"],
 ] as const;
 
 export function SiteShell() {
