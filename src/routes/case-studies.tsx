@@ -79,12 +79,9 @@ function Page() {
         intro="See how C&I solar developers across Africa use AMMP, and now AI coworkers grounded in that same operating data, to scale their operations and deliver exceptional results."
       />
 
-      <Band tone="grey">
-        <p className="text-sm text-muted-foreground">Trusted by Daystar Power (a Shell company), Broadreach Energy, SolarSaver, and more.</p>
-      </Band>
 
       {caseStudies.map((study, index) => (
-        <Band key={study.id} tone={index % 2 === 0 ? "white" : "grey"}>
+        <Band key={study.id} tone={index % 2 === 0 ? "grey" : "white"}>
           <div className="grid overflow-hidden rounded-xl border border-border bg-card lg:grid-cols-2">
             <div className="p-8 lg:p-12">
               <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
@@ -130,7 +127,7 @@ function Page() {
         </Band>
       ))}
 
-      <Band tone={caseStudies.length % 2 === 0 ? "grey" : "white"}>
+      <Band tone="white">
         <SectionHeading eyebrow="What's next" title="The same evidence, now with a coworker attached" center />
         <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 rounded-xl border border-border bg-card p-6">
           <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
