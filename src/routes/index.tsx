@@ -46,10 +46,7 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="site-container grid items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-24">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-primary" />
-          </div>
-          <h1 className="mt-6 max-w-[13ch] text-balance font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
+          <h1 className="max-w-[13ch] text-balance font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
              Put AI to work across your renewable energy portfolio
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
