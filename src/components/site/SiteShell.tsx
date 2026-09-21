@@ -14,10 +14,10 @@ export function SiteShell() {
       <div className="site-container flex h-16 items-center justify-between gap-6">
         <Link to="/" aria-label="AMMP home"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-          {nav.map(([label, to]) => <Link key={to} to={to} className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground" activeProps={{ className: "text-foreground" }}>{label}</Link>)}
+          {nav.map(([label, to]) => <Link key={to} to={to} className="rounded-md whitespace-nowrap px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground" activeProps={{ className: "text-foreground" }}>{label}</Link>)}
         </nav>
         <div className="hidden items-center gap-2 lg:flex">
-          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="px-3 py-2 text-sm font-medium">Log in</a>
+          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap px-3 py-2 text-sm font-medium">Log in</a>
           <Link to="/demo" className="button button-ghost">Try demo</Link>
           <Link to="/contact" className="button button-primary">Contact sales</Link>
         </div>
