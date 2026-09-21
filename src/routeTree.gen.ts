@@ -30,6 +30,7 @@ import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
 import { Route as UsRouteImport } from './routes/us'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
@@ -162,6 +163,11 @@ const UsRoute = UsRouteImport.update({
   id: '/us',
   path: '/us',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
   id: '/compare/ammp-vs-alsoenergy',
@@ -311,7 +317,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -328,6 +334,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
   '/us': typeof UsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -361,7 +368,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -378,6 +385,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
   '/us': typeof UsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -412,7 +420,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -429,6 +437,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
   '/us': typeof UsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -481,6 +490,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/trial'
     | '/us'
+    | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -531,6 +541,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/trial'
     | '/us'
+    | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -581,6 +592,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/trial'
     | '/us'
+    | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -615,7 +627,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
   BetaRoute: typeof BetaRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
@@ -810,6 +822,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/compare/ammp-vs-alsoenergy': {
       id: '/compare/ammp-vs-alsoenergy'
       path: '/compare/ammp-vs-alsoenergy'
@@ -1002,12 +1021,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
   BetaRoute: BetaRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
