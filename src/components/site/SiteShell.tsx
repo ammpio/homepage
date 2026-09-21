@@ -49,5 +49,5 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
 }
 
 export function PageCta() {
-  return <section className="border-t border-border bg-foreground py-16 text-background"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow text-signal">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button bg-background text-foreground hover:opacity-90">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
+  return <section className="border-t border-border bg-background py-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
 }
