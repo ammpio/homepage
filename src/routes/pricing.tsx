@@ -142,10 +142,10 @@ function Page() {
             </thead>
             <tbody className="divide-y divide-border">
               {comparisonData.map((row, i) => (
-                <>
-                  {row.category && <tr key={`cat-${row.category}`} className="bg-secondary/30"><td colSpan={5} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
-                  <tr key={i}><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.detect} /></td><td className="p-4 text-center"><Cell v={row.operate} /></td><td className="p-4 text-center"><Cell v={row.insight} /></td><td className="p-4 text-center"><Cell v={row.finance} /></td></tr>
-                </>
+                <Fragment key={i}>
+                  {row.category && <tr className="bg-secondary/30"><td colSpan={5} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
+                  <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.detect} /></td><td className="p-4 text-center"><Cell v={row.operate} /></td><td className="p-4 text-center"><Cell v={row.insight} /></td><td className="p-4 text-center"><Cell v={row.finance} /></td></tr>
+                </Fragment>
               ))}
             </tbody>
           </table>
