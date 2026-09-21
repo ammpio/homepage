@@ -1,24 +1,55 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Activity, ArrowRight, Bell, Bot, Check, Code, Database, FileOutput, Gauge, MessageSquare, Monitor, Plug, Radio, Server, Settings, ShieldCheck, Ticket, Users, Wrench } from "lucide-react";
+import alertsDashboard from "@/assets/alerts-dashboard.png";
+import ammpIntelligence from "@/assets/ammp-intelligence.png";
+import financialReport from "@/assets/financial-impact-report.png";
+import integrations from "@/assets/integrations.png";
+import energyMix from "@/assets/energy-mix.png";
+import { PageCta } from "@/components/site/SiteShell";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({ meta: [
+    { title: "AMMP — AI coworkers for renewable energy portfolios" },
+    { name: "description", content: "AMMP combines renewable energy portfolio software with AI coworkers that investigate, prioritise and prepare work." },
+    { property: "og:title", content: "AMMP — AI coworkers for renewable energy portfolios" },
+    { property: "og:description", content: "Give every portfolio team AI coworkers grounded in the same trusted operational context." },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
+  ]}), component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+const coworkers = [
+  ["Portfolio analyst", "Investigates underperformance and explains what changed, with evidence.", Activity],
+  ["Alarm triage", "Ranks issues by operational and commercial impact before they become noise.", Bell],
+  ["Reporting coworker", "Prepares recurring reports, narratives and source detail for review.", FileOutput],
+  ["Compliance coworker", "Checks obligations, deadlines and portfolio-wide contract performance.", ShieldCheck],
+] as const;
+
+const modules = [["Monitoring","Live performance across every site and device.",Monitor],["Ticketing","Work tracked from fault to resolution.",Ticket],["Alerting","Rules that reach the right person quickly.",Bell],["Reporting","Operational and investor reports.",FileOutput],["Commercials","Savings, billing and contract performance.",Gauge],["Integrations","30+ vendors and third-party tools.",Plug],["Customisations","Dashboards, KPIs and views built to fit.",Settings],["API","Your data in your own systems.",Code],["MCP server","Portfolio context for any AI assistant.",Server]] as const;
+
+function HomePage() {
+  return <>
+    <section className="technical-grid overflow-hidden border-b border-border py-16 md:py-24"><div className="site-container grid items-center gap-14 lg:grid-cols-[.95fr_1.05fr]">
+      <div><p className="eyebrow">AI coworkers for renewable energy</p><h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">Your team, plus a few more.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.</p><div className="mt-8 flex flex-wrap gap-3"><Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link><Link to="/ai" className="button button-ghost">See how it works</Link></div><div className="mt-10 flex flex-wrap gap-8 border-t border-border pt-6"><Metric value="10,000+" label="sites connected"/><Metric value="35+" label="countries"/><Metric value="30+" label="integrations"/></div></div>
+      <Workspace />
+    </div></section>
+
+    <section className="py-20 md:py-28"><div className="site-container"><div className="max-w-3xl"><p className="eyebrow">01 · Coworkers</p><h2 className="mt-4 text-4xl font-semibold sm:text-5xl">Built for the work between alerts and decisions.</h2><p className="mt-5 text-lg leading-8 text-muted-foreground">Each coworker has a clear role. Together, they turn portfolio context into work your team can review and trust.</p></div><div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2">{coworkers.map(([title,text,Icon],i)=><article key={title} className="bg-card p-7 md:p-9"><div className="flex items-start justify-between"><Icon className="size-6 text-primary"/><span className="text-xs text-muted-foreground">0{i+1}</span></div><h3 className="mt-10 text-2xl font-semibold">{title}</h3><p className="mt-3 max-w-md leading-7 text-muted-foreground">{text}</p></article>)}</div></div></section>
+
+    <section className="border-y border-border bg-foreground py-20 text-background md:py-28"><div className="site-container"><p className="eyebrow text-signal">03 · Shared by design</p><h2 className="mt-4 max-w-4xl text-4xl font-semibold sm:text-5xl">Same workspace. Same evidence. Humans stay in control.</h2><div className="mt-12 grid gap-8 md:grid-cols-3">{[["Ask","Start in Slack, Teams or AMMP with a question in plain language."],["Reason","The right coworker checks the portfolio context and source evidence."],["Review","Your team sees the answer, assumptions and proposed next action."]].map(([t,d],i)=><div key={t} className="border-t border-background/20 pt-6"><span className="text-xs text-signal">0{i+1}</span><h3 className="mt-3 text-xl font-semibold">{t}</h3><p className="mt-3 leading-7 text-background/65">{d}</p></div>)}</div></div></section>
+
+    <section className="technical-grid py-20 md:py-28"><div className="site-container grid items-center gap-12 lg:grid-cols-2"><div><p className="eyebrow">Context, not guesswork</p><h2 className="mt-4 text-4xl font-semibold sm:text-5xl">AMMP AI has the context to be useful.</h2><p className="mt-5 text-lg leading-8 text-muted-foreground">AI can only work with what it understands. AMMP provides a unified view of sites, technologies, KPIs, contracts, timeseries and operating history.</p><Link to="/ai" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-primary">Explore the AI foundation <ArrowRight className="size-4"/></Link></div><DataFoundation /></div></section>
+
+    <PlatformSection />
+
+    <section className="bg-secondary/50 py-20 md:py-28"><div className="site-container"><div className="grid gap-6 lg:grid-cols-[.85fr_1.15fr]"><div><p className="eyebrow">One operating layer</p><h2 className="mt-4 text-4xl font-semibold sm:text-5xl">A screen when you’re watching. A coworker when you’re not.</h2><p className="mt-5 text-lg leading-8 text-muted-foreground">AMMP OS remains the system your team uses every day. AI coworkers sit on top of it—not in place of it—carrying context into every task.</p><img src={energyMix} alt="AMMP OS portfolio dashboard" className="mt-8 w-full rounded-md border border-border shadow-lg"/></div><div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">{modules.map(([t,d,Icon])=><Link key={t} to="/product" className="bg-card p-6 hover:bg-secondary"><Icon className="size-5 text-muted-foreground"/><h3 className="mt-7 font-semibold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p></Link>)}</div></div></div></section>
+
+    <section className="py-20 md:py-28"><div className="site-container"><div className="mx-auto max-w-3xl text-center"><p className="eyebrow">Results already delivered</p><h2 className="mt-4 text-4xl font-semibold sm:text-5xl">Proven across live portfolios.</h2></div><div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">{[["99.9%","platform uptime","Daystar Power"],["Minutes","to portfolio insight","SolarSaver"],["170+","sites in one portal","Broadreach"]].map(([v,l,c])=><article key={l} className="bg-card p-8 text-center"><strong className="font-display text-4xl">{v}</strong><p className="mt-3 text-sm text-muted-foreground">{l}</p><Link to="/case-studies" className="mt-5 inline-flex text-sm font-semibold text-primary">{c}</Link></article>)}</div></div></section>
+    <PageCta />
+  </>;
 }
+
+function Metric({value,label}:{value:string;label:string}) { return <div><strong className="font-display text-2xl">{value}</strong><span className="mt-1 block text-xs text-muted-foreground">{label}</span></div> }
+function Workspace() { const [done,setDone]=useState(false); return <div><div className="overflow-hidden rounded-lg border border-border bg-card shadow-2xl"><div className="flex justify-between border-b border-border bg-secondary/60 px-4 py-3 text-xs"><span className="flex items-center gap-2"><MessageSquare className="size-4"/># portfolio-ops</span><span className="text-signal">● 4 coworkers online</span></div><div className="space-y-5 p-5"><div className="flex gap-3"><span className="grid size-9 place-items-center rounded-md bg-muted text-xs">MO</span><div><span className="text-xs text-muted-foreground">M. Okafor · 09:41</span><p className="mt-1 text-sm">Why is the East Mesa array underproducing this week?</p></div></div><div className="flex gap-3"><span className="grid size-9 place-items-center rounded-md border border-signal/40 bg-signal/10 text-signal"><Radio className="size-4"/></span><div className="min-w-0 flex-1"><span className="text-xs font-medium text-signal">Portfolio analyst</span><div className="mt-2 rounded-md border border-border bg-background p-4"><p className="text-sm leading-6">Yield is <b className="text-signal">6.8% below model</b>. The pattern points to inverter IV-204 on block C.</p><div className="mt-4 rounded-md bg-secondary p-3 text-xs text-muted-foreground"><div className="flex justify-between"><span>Root-cause evidence</span><span>3 sources</span></div><div className="mt-2 h-1.5 rounded-full bg-muted"><div className="h-full w-2/3 rounded-full bg-signal"/></div></div><button onClick={()=>setDone(true)} className="button button-primary mt-4">{done?<Check className="size-4"/>:<Wrench className="size-4"/>}{done?"Work order opened":"Open work order"}</button></div></div></div></div></div><p className="mt-3 text-xs text-muted-foreground">Every request, source and next action stays visible to the team.</p></div> }
+function DataFoundation(){return <div className="rounded-lg border border-border bg-card p-6"><div className="grid grid-cols-[1fr_auto_1fr] gap-4"><div className="space-y-2">{["Solar · block A","Wind · ridge 2","Storage · site 14","Hydro · reservoir"].map(x=><div key={x} className="rounded-md border border-border bg-secondary px-3 py-3 text-sm">{x}</div>)}</div><div className="my-auto w-8 border-t border-dashed border-signal"/><div className="grid place-items-center rounded-md border border-signal/40 bg-signal/5 p-4 text-center"><Database className="size-7 text-signal"/><strong className="font-display">Unified data layer</strong><span className="text-xs text-muted-foreground">standardised portfolio-wide</span></div></div><div className="mt-4 rounded-md border border-border px-4 py-3 text-xs text-muted-foreground">One context layer feeds every coworker.</div></div>}
+function PlatformSection(){const [active,setActive]=useState(0);const items=[["Operate","See and prioritise issues",alertsDashboard],["Report","Prepare outcomes for stakeholders",financialReport],["Connect","Unify technologies and tools",integrations],["Explore","Ask questions across the portfolio",ammpIntelligence]] as const;const current=items[active]??items[0];return <section className="border-y border-border py-20 md:py-28"><div className="site-container"><p className="eyebrow">The operating platform</p><h2 className="mt-4 max-w-4xl text-4xl font-semibold sm:text-5xl">AI can only work with what it understands.</h2><p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">AMMP standardises the data underneath every workflow, so people and AI work from the same picture.</p><div className="mt-12 grid overflow-hidden rounded-lg border border-border lg:grid-cols-[.75fr_1.25fr]"><div>{items.map(([t,d],i)=><button key={t} onClick={()=>setActive(i)} className={`w-full border-b border-border p-5 text-left last:border-0 ${i===active?"bg-foreground text-background":"bg-card hover:bg-secondary"}`}><strong>{t}</strong><span className={`mt-1 block text-sm ${i===active?"text-background/60":"text-muted-foreground"}`}>{d}</span></button>)}</div><div className="grid min-h-96 place-items-center bg-secondary p-6"><img src={current[2]} alt={`AMMP ${current[0]} interface`} className="w-full rounded-md border border-border shadow-xl"/></div></div></div></section>}
