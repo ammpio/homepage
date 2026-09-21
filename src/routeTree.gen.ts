@@ -165,9 +165,9 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
   id: '/compare/ammp-vs-alsoenergy',
@@ -643,6 +643,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
   UsRoute: typeof UsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
@@ -824,10 +825,10 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/compare/ammp-vs-alsoenergy': {
       id: '/compare/ammp-vs-alsoenergy'
@@ -1042,6 +1043,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
   UsRoute: UsRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
   CompareBazefieldRoute: CompareBazefieldRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
