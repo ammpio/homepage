@@ -5,7 +5,7 @@ import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { blogPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({ meta: [
     { title: "AMMP Insights — AMMP" },
     { name: "description", content: "Ideas and practical guidance for renewable energy portfolio operations, customer stories and product news from AMMP." },
