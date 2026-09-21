@@ -46,7 +46,7 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="site-container grid items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-24">
         <div>
-          <h1 className="max-w-[13ch] text-balance font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
+          <h1 className="max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.05] md:text-6xl">
             Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -55,9 +55,6 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link>
             <Link to="/ai" className="button button-ghost">See how it works</Link>
-          </div>
-          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <span>10,000+ sites</span><span aria-hidden="true">/</span><span>35+ countries</span><span aria-hidden="true">/</span><span>30+ integrations</span>
           </div>
         </div>
         <WorkspacePanel />
@@ -133,7 +130,7 @@ function ScaleBand() {
       <div className="site-container grid gap-7 py-8 md:grid-cols-3">
         {metrics.map(([value, label]) => (
           <div key={label}>
-            <div className="font-display text-3xl font-bold">{value}</div>
+            <div className="font-display text-3xl font-medium">{value}</div>
             <div className="mt-1 text-sm text-muted-foreground">{label}</div>
           </div>
         ))}
@@ -155,7 +152,7 @@ function AgentsSection() {
     <section className="bg-background py-20 md:py-28">
       <div className="site-container">
         <div className="max-w-5xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Your team, plus a few more</h2>
+          <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Your team, plus a few more</h2>
           <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -181,7 +178,7 @@ function CoworkersSection() {
         <div className="flex flex-wrap items-end justify-between gap-7">
           <div>
              <p className="eyebrow">THE COWORKERS</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
+            <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
           </div>
           <p className="max-w-[42ch] text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
@@ -199,7 +196,7 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
   return (
     <div className="bg-background p-6 lg:p-9">
       <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" />{proactive ? "Proactive · portfolio triage" : "On demand · ask anything"}</div>
-      <h3 className="mt-4 font-display text-2xl font-semibold">{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
+      <h3 className="mt-4 font-display text-2xl font-medium">{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
       <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-muted-foreground">{proactive ? "Continuously scans the fleet and surfaces the issues that deserve attention before they grow." : "Ask in Slack or Teams for a diagnosis, contract check, report, or exploration of your portfolio data."}</p>
       {proactive ? (
         <div className="mt-6 space-y-2.5">
@@ -233,14 +230,14 @@ function SharedByDesign() {
          <p className="eyebrow">SHARED BY DESIGN</p>
         <div className="mt-4 grid gap-10 lg:grid-cols-[.82fr_1.18fr]">
           <div>
-            <h2 className="font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Same workspace.<br />Same evidence.<br />Humans stay in control.</h2>
+            <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Same workspace.<br />Same evidence.<br />Humans stay in control.</h2>
             <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Everyone can see what was requested, review the work, and add their own knowledge. Capabilities spread naturally because the learning happens together.</p>
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
             {outcomes.map(({ icon: Icon, title, text }) => (
               <div key={title} className="bg-background p-6">
                 <Icon className="size-5 text-primary" />
-                <h3 className="mt-5 font-display text-lg font-semibold">{title}</h3>
+                <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
                 <ChevronRight className="mt-5 size-4 text-muted-foreground" />
               </div>
@@ -265,7 +262,7 @@ function BrainSection() {
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Context, not guesswork</p>
-          <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl md:text-5xl">AMMP AI has the context to be useful.</h2>
+          <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AMMP AI has the context to be useful.</h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">AI can only work with what it understands. AMMP provides a unified view of sites, technologies, KPIs, contracts, timeseries and operating history.</p>
         </div>
         <div className="mx-auto mt-14 max-w-6xl">
@@ -281,7 +278,7 @@ function BrainSection() {
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
             <div className="flex min-h-64 flex-col items-center justify-center rounded-lg border border-primary/30 bg-card p-8 text-center shadow-xl">
               <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary text-primary-foreground"><Database className="h-7 w-7" /></div>
-              <h3 className="mt-5 text-2xl font-bold">AMMP AI</h3>
+              <h3 className="mt-5 text-2xl font-medium">AMMP AI</h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/70 px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
             </div>
@@ -314,7 +311,7 @@ function PlatformSection() {
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="eyebrow">AI built on an operating platform</p>
-            <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl md:text-5xl">AI can only work with what it understands</h2>
+            <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AI can only work with what it understands</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
@@ -352,15 +349,15 @@ function TwoInterfaces() {
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <p className="eyebrow">One system of record. Two ways to use it.</p>
-            <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
+            <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
           </div>
-          <Link to="/product" className="group flex items-center gap-2 text-sm font-bold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
+          <Link to="/product" className="group flex items-center gap-2 text-sm font-semibold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
         <div className="grid gap-5 lg:grid-cols-2">
           <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-card">
             <div className="p-7 sm:p-9">
               <span className="eyebrow text-muted-foreground">For the team on shift</span>
-              <h3 className="mt-3 font-display text-3xl font-semibold">AMMP OS</h3>
+              <h3 className="mt-3 font-display text-2xl font-medium">AMMP OS</h3>
               <p className="mt-3 max-w-md text-muted-foreground">Live portfolio views, alarms, performance analytics, and drill-down to the asset.</p>
             </div>
             <div className="mt-auto overflow-hidden border-t border-border bg-secondary"><img src={energyMix} alt="AMMP OS energy mix dashboard" className="h-auto w-full" /></div>
@@ -368,7 +365,7 @@ function TwoInterfaces() {
           <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-card">
             <div className="p-7 sm:p-9">
               <span className="eyebrow">For the work nobody gets to</span>
-              <h3 className="mt-3 font-display text-3xl font-semibold">AMMP AI coworkers</h3>
+              <h3 className="mt-3 font-display text-2xl font-medium">AMMP AI coworkers</h3>
               <p className="mt-3 max-w-md text-muted-foreground">Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.</p>
             </div>
             <div className="mt-auto overflow-hidden border-t border-border bg-secondary"><img src={ammpIntelligence} alt="AMMP AI intelligence with portfolio dashboard" className="h-auto w-full" /></div>
@@ -398,7 +395,7 @@ function PlatformGrid() {
       <div className="site-container">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-5xl">
-             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">AMMP OS when you need it</h2>
+             <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AMMP OS when you need it</h2>
              <p className="mt-4 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
@@ -431,12 +428,12 @@ function ResultsSection() {
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>
-          <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl md:text-5xl">Proven across live portfolios.</h2>
+          <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proven across live portfolios.</h2>
         </div>
         <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
           {results.map((result) => (
             <div key={result.customer} className="bg-card p-7 text-center md:p-9">
-              <p className="font-display text-4xl font-bold text-foreground">{result.value}</p>
+              <p className="font-display text-4xl font-medium text-foreground">{result.value}</p>
               <p className="mt-3 text-sm text-muted-foreground">{result.label}</p>
               <Link to="/case-studies" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:underline">{result.customer}<ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
             </div>
