@@ -78,9 +78,8 @@ function Page() {
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 rounded-2xl border-2 border-dashed border-border bg-secondary/20 p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Provided by AMMP</p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <DiagramCard title="Clay agent" subtitle="Slack and Teams coworker" items={["Remembers your context", "Learns from feedback", "Combines data sources", "Builds reports and exports"]} />
-              <DiagramCard title="Ray agent" subtitle="On-demand visualisation" items={["Built into AMMP OS", "Interactive charts", "Live dashboards", "On-the-fly troubleshooting"]} />
+            <div className="mt-4">
+              <DiagramCard title="AI coworker" subtitle="In Slack, Teams and AMMP OS" items={["Remembers your context and learns from feedback", "Combines data sources into one answer", "Builds reports, exports and interactive charts", "Live dashboards and on-the-fly troubleshooting"]} />
             </div>
             <div className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-5 text-center">
               <div className="inline-flex items-center gap-2 font-semibold text-primary"><Server className="size-5" />MCP server</div>
