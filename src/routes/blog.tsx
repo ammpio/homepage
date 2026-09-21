@@ -24,7 +24,7 @@ function formatDate(iso: string) {
 function BlogIndexPage() {
   const [activeCategory, setActiveCategory] = useState<Filter>("All");
   const sorted = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
-  const featured = sorted[0];
+  const featured = sorted[0]!;
   const rest = sorted.slice(1);
   const filtered = activeCategory === "All" ? rest : rest.filter((post) => post.category === activeCategory);
 
