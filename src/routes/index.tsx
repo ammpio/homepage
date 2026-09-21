@@ -10,7 +10,7 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "AMMP — {"\n"} portfolios" },
+    { title: "AMMP — AI coworkers for renewable energy portfolios" },
     { name: "description", content: "AMMP combines renewable energy portfolio software with AI coworkers that investigate, prioritise and prepare work." },
     { property: "og:title", content: "AMMP — AI coworkers for renewable energy portfolios" },
     { property: "og:description", content: "Give every portfolio team AI coworkers grounded in the same trusted operational context." },
@@ -30,7 +30,7 @@ const modules = [["Monitoring","Live performance across every site and device.",
 function HomePage() {
   return <>
     <section className="overflow-hidden border-b border-border bg-background py-16 md:py-24"><div className="site-container grid items-center gap-14 lg:grid-cols-[.95fr_1.05fr]">
-      <div><p className="eyebrow">AI coworkers for renewable energy</p><h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">Your team, plus a few more.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.</p><div className="mt-8 flex flex-wrap gap-3"><Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link><Link to="/ai" className="button button-ghost">See how it works</Link></div><div className="mt-10 flex flex-wrap gap-8 border-t border-border pt-6"><Metric value="10,000+" label="sites connected"/><Metric value="35+" label="countries"/><Metric value="30+" label="integrations"/></div></div>
+      <div><div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" />AI coworkers · live in Slack &amp; Teams</div><h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">Your team, plus a few more.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.</p><div className="mt-8 flex flex-wrap gap-3"><Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link><Link to="/ai" className="button button-ghost">See how it works</Link></div><div className="mt-10 flex flex-wrap gap-8 border-t border-border pt-6"><Metric value="10,000+" label="sites connected"/><Metric value="35+" label="countries"/><Metric value="30+" label="integrations"/></div></div>
       <Workspace />
     </div></section>
 
