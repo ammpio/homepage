@@ -1,43 +1,97 @@
 import { Link, Outlet } from "@tanstack/react-router";
-import { ArrowUpRight, Linkedin } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Linkedin } from "lucide-react";
 import ammpLogo from "@/assets/ammp-logo.png";
 
-const nav = [
-  ["Product", "/product"], ["AI coworkers", "/ai"], ["Integrations", "/integrations"],
-  ["Use cases", "/use-cases/asset-managers"], ["Case studies", "/case-studies"],
-  ["Pricing", "/pricing"], ["Blog", "/blog"],
-] as const;
+type NavLink = readonly [string, string];
+type NavItem = { label: string; to?: string; children?: readonly NavLink[] };
+
+const nav: readonly NavItem[] = [
+  {
+    label: "Product",
+    to: "/product",
+    children: [
+      ["Product overview", "/product"],
+      ["AI coworkers", "/ai"],
+      ["Integrations", "/integrations"],
+      ["Customisation", "/customization"],
+      ["Security", "/security"],
+    ],
+  },
+  {
+    label: "Use cases",
+    children: [
+      ["Asset managers", "/use-cases/asset-managers"],
+      ["O&M providers", "/use-cases/om-providers"],
+    ],
+  },
+  { label: "Case studies", to: "/case-studies" },
+  { label: "Pricing", to: "/pricing" },
+];
+
+const navLinkClass =
+  "rounded-md whitespace-nowrap px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground";
+
+function NavDropdown({ item }: { item: NavItem }) {
+  return (
+    <div className="group relative">
+      <Link
+        to={item.to ?? item.children![0]![1]}
+        className={`${navLinkClass} inline-flex items-center gap-1`}
+        activeProps={{ className: "text-foreground" }}
+      >
+        {item.label}
+        <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" />
+      </Link>
+      <div className="invisible absolute left-0 top-full z-50 w-60 pt-2 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div className="rounded-lg border border-border bg-card p-2 shadow-xl">
+          {item.children!.map(([label, to]) => (
+            <Link key={to} to={to} className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground">
+              {label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function SiteShell() {
   return <div className="min-h-screen bg-background text-foreground">
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl">
-      <div className="site-container flex h-16 items-center justify-between gap-6">
+      <div className="site-container flex h-16 items-center justify-between gap-8">
         <Link to="/" aria-label="AMMP home"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link>
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-          {nav.map(([label, to]) => <Link key={to} to={to} className="rounded-md whitespace-nowrap px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground" activeProps={{ className: "text-foreground" }}>{label}</Link>)}
+        <nav className="hidden flex-1 items-center gap-1 lg:flex" aria-label="Main navigation">
+          {nav.map((item) => item.children
+            ? <NavDropdown key={item.label} item={item} />
+            : <Link key={item.label} to={item.to!} className={navLinkClass} activeProps={{ className: "text-foreground" }}>{item.label}</Link>)}
         </nav>
-        <div className="hidden items-center gap-2 lg:flex">
-          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap px-3 py-2 text-sm font-medium">Log in</a>
-          <Link to="/demo" className="button button-ghost whitespace-nowrap">Try demo</Link>
-          <Link to="/contact" className="button button-primary whitespace-nowrap">Contact sales</Link>
+        <div className="hidden items-center gap-3 lg:flex">
+          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Log in</a>
+          <Link to="/demo" className="button button-ghost h-10 whitespace-nowrap">Try demo</Link>
+          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">Contact sales</Link>
         </div>
         <details className="relative lg:hidden">
           <summary className="cursor-pointer list-none rounded-md border border-border px-3 py-2 text-sm font-semibold">Menu</summary>
           <div className="absolute right-0 top-12 w-72 rounded-md border border-border bg-card p-3 shadow-xl">
-            {nav.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{label}</Link>)}
+            {nav.map((item) => item.children
+              ? <div key={item.label} className="mb-2">
+                  <p className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{item.label}</p>
+                  {item.children.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2 text-sm hover:bg-secondary">{label}</Link>)}
+                </div>
+              : <Link key={item.label} to={item.to!} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{item.label}</Link>)}
             <div className="mt-2 grid gap-2 border-t border-border pt-3"><Link to="/demo" className="button button-ghost">Try demo</Link><Link to="/contact" className="button button-primary">Contact sales</Link></div>
           </div>
         </details>
       </div>
     </header>
     <main><Outlet /></main>
-    <footer className="border-t border-border bg-secondary/40">
+    <footer className="bg-secondary">
       <div className="site-container py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">The operating system and AI coworkers for renewable energy portfolios.</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
           <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["AI coworkers","/ai"],["Customisation","/customization"],["Security","/security"]]} />
-          <FooterColumn title="Solutions" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Portfolio operators","/use-cases/portfolio-operators"],["System integrators","/use-cases/system-integrators"],["Solar monitoring","/solutions/solar-monitoring"],["Energy assets","/solutions/energy-asset-management"]]} />
-          <FooterColumn title="Company" links={[["About","/about"],["Blog","/blog"],["Careers","/careers"],["Contact","/contact"],["Switch to AMMP","/switch"],["FAQ","/faq"],["United States","/us"],["Brazil","/brazil"]]} />
+          <FooterColumn title="Solutions" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Case studies","/case-studies"],["Switch to AMMP","/switch"]]} />
+          <FooterColumn title="Company" links={[["About","/about"],["Blog","/blog"],["Careers","/careers"],["Contact","/contact"],["FAQ","/faq"],["United States","/us"],["Brazil","/brazil"]]} />
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 AMMP Technologies</span><div className="flex gap-5"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/security">Security</Link></div></div>
       </div>
@@ -50,5 +104,5 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
 }
 
 export function PageCta() {
-  return <section className="border-t border-border bg-background py-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
+  return <section className="bg-secondary pt-16 pb-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
 }

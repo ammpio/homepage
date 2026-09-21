@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, Calendar, Check, Linkedin, Mail } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
+import { BookMeeting } from "@/components/site/BookMeeting";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
@@ -86,7 +87,7 @@ function Page() {
           <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
             <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
-            <a href="mailto:contact@ammp.io?subject=Book a meeting" className="button button-primary mt-6 w-full justify-center">Request a time <ArrowRight className="size-4" /></a>
+            <BookMeeting className="mt-6" />
           </div>
         </div>
       </Band>

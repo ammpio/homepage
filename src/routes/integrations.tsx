@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bot, Cloud, HardDrive, Plug, Zap } from "lucide-react";
-import { Band, PageHero, SectionHeading } from "@/components/site/sections";
+import { useState } from "react";
+import { ArrowRight, Bot, Cloud, HardDrive, Plug, Search, X, Zap } from "lucide-react";
+import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { BrandGrid } from "@/components/site/BrandGrid";
+import { apiIntegrations, softwareAddons, edgeFeatures, type Brand } from "@/data/integrations";
 
 export const Route = createFileRoute("/integrations")({
   head: () => ({ meta: [
@@ -13,42 +16,29 @@ export const Route = createFileRoute("/integrations")({
   ]}), component: Page,
 });
 
-const inverters = ["Solis", "Sungrow", "GoodWe", "Huawei", "SMA", "Fronius", "Victron", "SolarEdge", "Deye", "Growatt", "ATESS", "Phocos", "Solarman", "Solar-Log", "SunSynk", "SigEnergy"];
-const meters = ["LiveWire", "Elmeasure"];
-const batteries = ["Victron", "Huawei", "AlphaESS", "APSystems", "FreedomWon", "Ingeteam", "Ageto", "SolarMD", "AccuEnergy", "ATESS"];
-const ems = ["Higeco", "Elum Energy", "Energitrack (former DataGuru)", "ComAp", "Encombi", "Polar Monitoring"];
-const dataServices = ["Solcast", "SolarGIS"];
-
-const softwareAddons = [
-  { name: "Google Looker Studio", category: "Reporting", description: "Custom reporting and business intelligence dashboards" },
-  { name: "Microsoft Power BI", category: "Reporting", description: "Advanced analytics and data visualization" },
-  { name: "Slack / Microsoft Teams", category: "Notifications", description: "Real-time alert notifications in your team's chat" },
-  { name: "SmartHelio", category: "Analytics", description: "AI-driven PV analytics for predictive maintenance and yield optimisation" },
-  { name: "60Hertz", category: "Operations", description: "Maintenance management and work order tracking" },
-];
-
-const edgeFeatures = [
-  { title: "Non-API Device Support", description: "Connect legacy equipment and devices without cloud APIs via Modbus, serial, or other protocols." },
-  { title: "Fuel Level Sensors", description: "Monitor diesel tank levels for hybrid systems with real-time fuel consumption tracking." },
-  { title: "Temperature Sensors", description: "Track ambient and equipment temperatures for performance optimisation." },
-  { title: "Diesel Generator Controllers", description: "Integrate genset controllers for complete hybrid system visibility." },
-  { title: "Smart Meters", description: "Connect utility meters for accurate grid import/export measurement." },
-  { title: "Custom Sensors", description: "Support for custom I/O and sensor configurations for unique requirements." },
-];
-
-function BrandGroup({ title, brands }: { title: string; brands: string[] }) {
-  if (brands.length === 0) return null;
-  return (
-    <div>
-      <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{title}</h3>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {brands.map((b) => <span key={b} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium">{b}</span>)}
-      </div>
-    </div>
-  );
-}
+const tabs = [
+  { key: "api", label: "API integrations", short: "API", icon: Cloud },
+  { key: "software", label: "Software add-ons", short: "Software", icon: Plug },
+  { key: "edge", label: "AMMP Edge", short: "Edge", icon: HardDrive },
+] as const;
 
 function Page() {
+  const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("api");
+  const [query, setQuery] = useState("");
+
+  const filter = (brands: Brand[]) => {
+    const q = query.trim().toLowerCase();
+    return q ? brands.filter((b) => b.name.toLowerCase().includes(q)) : brands;
+  };
+  const groups = [
+    { title: "Inverters & hybrid systems", brands: filter(apiIntegrations.inverters) },
+    { title: "Smart meters", brands: filter(apiIntegrations.meters) },
+    { title: "Battery systems", brands: filter(apiIntegrations.batteries) },
+    { title: "Energy management systems", brands: filter(apiIntegrations.energyManagementSystems) },
+    { title: "Data services", brands: filter(apiIntegrations.dataServices) },
+  ];
+  const hasResults = groups.some((g) => g.brands.length > 0);
+
   return (
     <>
       <PageHero
@@ -61,40 +51,84 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="flex items-center gap-3"><Cloud className="size-6 text-primary" /><SectionHeading title="API integrations" intro="AMMP connects directly to manufacturer cloud platforms, pulling data automatically without additional hardware. Zero configuration at the site level." /></div>
-        <div className="mt-10 space-y-10">
-          <BrandGroup title="Inverters & Hybrid Systems" brands={inverters} />
-          <BrandGroup title="Smart Meters" brands={meters} />
-          <BrandGroup title="Battery Systems" brands={batteries} />
-          <BrandGroup title="Energy Management Systems" brands={ems} />
-          <BrandGroup title="Data Services" brands={dataServices} />
-        </div>
-        <p className="mt-8 text-sm text-muted-foreground">Don't see your equipment? <Link to="/contact" className="text-primary hover:underline">Contact us</Link>, we're adding new integrations regularly.</p>
-      </Band>
-
-      <Band>
-        <div className="flex items-center gap-3"><Plug className="size-6 text-primary" /><SectionHeading title="Software add-ons & integrations" intro="Extend AMMP with specialized tools for analytics, maintenance, notifications, and reporting." /></div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {softwareAddons.map((addon) => (
-            <div key={addon.name} className="rounded-xl border border-border bg-card p-6">
-              <p className="text-xs font-medium text-primary">{addon.category}</p>
-              <h3 className="mt-1 font-semibold">{addon.name}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{addon.description}</p>
-            </div>
+        <div className="mx-auto grid max-w-lg grid-cols-3 gap-1 rounded-lg border border-border bg-card p-1">
+          {tabs.map(({ key, label, short, icon: Icon }) => (
+            <button key={key} type="button" onClick={() => setTab(key)}
+              className={`inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${tab === key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              <Icon className="size-4" />
+              <span className="hidden sm:inline">{label}</span>
+              <span className="sm:hidden">{short}</span>
+            </button>
           ))}
         </div>
-      </Band>
 
-      <Band tone="grey">
-        <div className="flex items-center gap-3"><HardDrive className="size-6 text-primary" /><SectionHeading title="AMMP Edge data logger" intro="AMMP Edge is a hardware gateway that interfaces with on-site devices and connects them to the AMMP platform." /></div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {edgeFeatures.map((f) => (
-            <div key={f.title} className="rounded-xl border border-border bg-card p-6">
-              <div className="flex items-center gap-2"><Zap className="size-4 text-primary" /><h3 className="font-semibold">{f.title}</h3></div>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.description}</p>
+        {tab === "api" && (
+          <div className="mx-auto mt-12 max-w-5xl">
+            <div className="text-center">
+              <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><Cloud className="size-8 text-primary" /></div>
+              <h2 className="mt-4 text-2xl font-bold">Cloud-to-cloud API integrations</h2>
+              <p className="mt-3 text-muted-foreground">AMMP connects directly to manufacturer cloud platforms, pulling data automatically without additional hardware. Zero configuration at the site level.</p>
             </div>
-          ))}
-        </div>
+            <div className="relative mx-auto mb-10 mt-8 max-w-md">
+              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for your equipment brand…" aria-label="Search integrations"
+                className="h-11 w-full rounded-md border border-border bg-card pl-10 pr-10 text-sm outline-none focus:border-primary" />
+              {query && (
+                <button type="button" onClick={() => setQuery("")} aria-label="Clear search" className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                  <X className="size-4" />
+                </button>
+              )}
+            </div>
+            {!hasResults && query && (
+              <p className="mb-8 text-center text-muted-foreground">
+                No integrations found for "{query}". <Link to="/contact" className="text-primary hover:underline">Contact us</Link> and we'll look into it.
+              </p>
+            )}
+            <div className="space-y-10">
+              {groups.map((g) => <BrandGrid key={g.title} title={g.title} brands={g.brands} />)}
+            </div>
+            <p className="mt-8 text-center text-sm text-muted-foreground">
+              Don't see your equipment? <Link to="/contact" className="text-primary hover:underline">Contact us</Link>, we're adding new integrations regularly.
+            </p>
+          </div>
+        )}
+
+        {tab === "software" && (
+          <div className="mx-auto mt-12 max-w-4xl">
+            <div className="text-center">
+              <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><Plug className="size-8 text-primary" /></div>
+              <h2 className="mt-4 text-2xl font-bold">Software add-ons & integrations</h2>
+              <p className="mt-3 text-muted-foreground">Extend AMMP with specialised tools for analytics, maintenance, notifications, and reporting.</p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {softwareAddons.map((addon) => (
+                <div key={addon.name} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50">
+                  <p className="text-xs font-medium text-primary">{addon.category}</p>
+                  <h3 className="mt-1 font-semibold">{addon.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{addon.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {tab === "edge" && (
+          <div className="mx-auto mt-12 max-w-4xl">
+            <div className="text-center">
+              <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><HardDrive className="size-8 text-primary" /></div>
+              <h2 className="mt-4 text-2xl font-bold">AMMP Edge data logger</h2>
+              <p className="mt-3 text-muted-foreground">AMMP Edge is a hardware gateway that interfaces with on-site devices and connects them to the AMMP platform.</p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {edgeFeatures.map((f) => (
+                <div key={f.title} className="rounded-xl border border-border bg-card p-6">
+                  <div className="flex items-center gap-2"><Zap className="size-4 text-primary" /><h3 className="font-semibold">{f.title}</h3></div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </Band>
 
       <Band>

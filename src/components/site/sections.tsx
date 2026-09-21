@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 
 export function Band({ tone = "white", className = "", children }: { tone?: "white" | "grey"; className?: string; children: ReactNode }) {
   return (
-    <section className={`${tone === "grey" ? "bg-secondary/35" : "bg-background"} border-b border-border/70 py-16 md:py-24 ${className}`}>
+    <section className={`${tone === "grey" ? "bg-secondary" : "bg-background"} border-b border-border/70 py-16 md:py-24 ${className}`}>
       <div className="site-container">{children}</div>
     </section>
   );

@@ -129,7 +129,7 @@ function ScaleBand() {
     ["30+", "Integrations across devices and workflows"],
   ] as const;
   return (
-    <section className="border-b border-border bg-secondary/40" aria-label="AMMP portfolio scale">
+    <section className="border-b border-border bg-secondary" aria-label="AMMP portfolio scale">
       <div className="site-container grid gap-7 py-8 md:grid-cols-3">
         {metrics.map(([value, label]) => (
           <div key={label}>
@@ -154,9 +154,9 @@ function AgentsSection() {
   return (
     <section className="bg-background py-20 md:py-28">
       <div className="site-container">
-        <div className="max-w-2xl">
+        <div className="max-w-5xl">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Your team, plus a few more</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Each coworker has a clear job. They add capacity to the people you already have.</p>
+          <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {agents.map((agent) => (
@@ -176,12 +176,12 @@ function AgentsSection() {
 /* 4 — Coworkers: proactive / on demand (AMMP AI Co-Pilots) */
 function CoworkersSection() {
   return (
-    <section className="border-y border-border bg-secondary/30">
+    <section className="border-y border-border bg-secondary">
       <div className="site-container py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-7">
           <div>
              <p className="eyebrow">THE COWORKERS</p>
-            <h2 className="mt-4 max-w-[19ch] text-balance font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Proactive when you don’t ask. On demand when you do.</h2>
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
           </div>
           <p className="max-w-[42ch] text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
@@ -233,7 +233,7 @@ function SharedByDesign() {
          <p className="eyebrow">SHARED BY DESIGN</p>
         <div className="mt-4 grid gap-10 lg:grid-cols-[.82fr_1.18fr]">
           <div>
-            <h2 className="max-w-[16ch] text-balance font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Same workspace. Same evidence. Humans stay in control.</h2>
+            <h2 className="font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Same workspace.<br />Same evidence.<br />Humans stay in control.</h2>
             <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Everyone can see what was requested, review the work, and add their own knowledge. Capabilities spread naturally because the learning happens together.</p>
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
@@ -261,7 +261,7 @@ function BrainSection() {
     { icon: Activity, label: "Time-series data" },
   ];
   return (
-    <section className="bg-secondary/35 py-20 md:py-28">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Context, not guesswork</p>
@@ -347,12 +347,12 @@ function PlatformSection() {
 /* 8a — A screen when you're watching (AI Co-Pilot Homepage) */
 function TwoInterfaces() {
   return (
-    <section className="overflow-hidden bg-secondary/35 py-20 lg:py-28">
+    <section className="overflow-hidden bg-secondary py-20 lg:py-28">
       <div className="site-container">
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <p className="eyebrow">One system of record. Two ways to use it.</p>
-            <h2 className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold sm:text-5xl">A screen when you’re watching. A coworker when you’re not.</h2>
+            <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
           </div>
           <Link to="/product" className="group flex items-center gap-2 text-sm font-bold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
@@ -397,9 +397,9 @@ function PlatformGrid() {
     <section className="bg-background py-20 md:py-28">
       <div className="site-container">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-5xl">
              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">AMMP OS when you need it</h2>
-             <p className="mt-4 text-lg text-muted-foreground">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
+             <p className="mt-4 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>
@@ -427,7 +427,7 @@ function ResultsSection() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="bg-secondary/35 py-20 md:py-28">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight, BarChart3, FileText, Play } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { BookMeeting } from "@/components/site/BookMeeting";
 
 export const Route = createFileRoute("/demo")({
   head: () => ({ meta: [
@@ -74,11 +75,14 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-semibold">Want a guided demo?</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Contact us and we'll set up a personalised walkthrough with your team.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="button button-primary">Contact us <ArrowRight className="size-4" /></Link>
+          <p className="mt-4 text-lg text-muted-foreground">Pick a time that suits you and we'll set up a personalised walkthrough with your team.</p>
+        </div>
+        <div className="mx-auto mt-10 max-w-3xl"><BookMeeting /></div>
+        <div className="mx-auto mt-8 max-w-2xl text-center">
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/contact" className="button button-ghost">Contact us <ArrowRight className="size-4" /></Link>
             <Link to="/pricing" className="button button-ghost">View pricing</Link>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">Want to explore experimental features? <Link to="/beta" className="text-primary hover:underline">Visit AMMP Labs →</Link></p>
