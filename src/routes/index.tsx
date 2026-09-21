@@ -47,7 +47,7 @@ function Hero() {
       <div className="site-container grid items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-24">
         <div>
           <h1 className="max-w-[13ch] text-balance font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
-             Put AI to work across your renewable energy portfolio
+            Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
             AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.
