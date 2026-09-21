@@ -19,7 +19,7 @@ export function SiteShell() {
         <div className="hidden items-center gap-2 lg:flex">
           <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap px-3 py-2 text-sm font-medium">Log in</a>
           <Link to="/demo" className="button button-ghost whitespace-nowrap">Try demo</Link>
-          <Link to="/contact" className="button button-primary">Contact sales</Link>
+          <Link to="/contact" className="button button-primary whitespace-nowrap">Contact sales</Link>
         </div>
         <details className="relative lg:hidden">
           <summary className="cursor-pointer list-none rounded-md border border-border px-3 py-2 text-sm font-semibold">Menu</summary>
