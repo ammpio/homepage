@@ -85,7 +85,7 @@ export function SiteShell() {
       </div>
     </header>
     <main><Outlet /></main>
-    <footer className="border-t border-border/70 bg-secondary">
+    <footer className="bg-secondary">
       <div className="site-container py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">The operating system and AI coworkers for renewable energy portfolios.</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
@@ -104,5 +104,5 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
 }
 
 export function PageCta() {
-  return <section className="border-t border-border/70 bg-secondary pt-16 pb-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
+  return <section className="bg-secondary/45 pt-16 pb-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
 }
