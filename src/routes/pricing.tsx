@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bell, Check, DollarSign, FileText, LayoutDashboard, Minus } from "lucide-react";
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
