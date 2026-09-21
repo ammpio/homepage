@@ -1,11 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ContentPage } from "@/components/site/ContentPage";
-import { pageData } from "@/lib/site-pages";
+import { Download } from "lucide-react";
+import { Band, PageHero, Prose } from "@/components/site/sections";
+
 export const Route = createFileRoute("/terms")({
   head: () => ({ meta: [
-    { title: "Terms of Service — AMMP" }, { name: "description", content: "Terms governing the use of AMMP products and services." },
-    { property: "og:title", content: "Terms of Service — AMMP" }, { property: "og:description", content: "Terms governing the use of AMMP products and services." },
+    { title: "Terms of Service — AMMP Technologies B.V." },
+    { name: "description", content: "The terms and conditions for using AMMP's platform and services. Download the full AMMP Terms of Service document." },
+    { property: "og:title", content: "Terms of Service — AMMP Technologies B.V." },
+    { property: "og:description", content: "AMMP Technologies B.V.'s Terms of Service governing use of the AMMP platform and services." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
-function Page(){ return <ContentPage {...pageData("security")} />; }
+
+function Page() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Legal"
+        title="Terms of"
+        highlight="Service."
+        intro="AMMP Technologies B.V. Terms of Service."
+      />
+
+      <Band tone="white">
+        <Prose>
+          <div className="rounded-xl border border-border bg-card p-8 text-center not-prose">
+            <p className="text-muted-foreground mb-8">
+              Our Terms of Service document outlines the terms and conditions for using AMMP's platform and services. Please download and review the document below.
+            </p>
+            <a
+              href="/documents/AMMP-Terms-of-Service.pdf"
+              download
+              className="button button-primary"
+            >
+              <Download className="size-4" />
+              Download Terms of Service (PDF)
+            </a>
+            <p className="text-sm text-muted-foreground mt-6">Last updated: 2 February 2026</p>
+          </div>
+        </Prose>
+      </Band>
+    </>
+  );
+}
