@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as BetaRouteImport } from './routes/beta'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -30,6 +29,7 @@ import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
 import { Route as UsRouteImport } from './routes/us'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
@@ -77,11 +77,6 @@ const AiRoute = AiRouteImport.update({
 const BetaRoute = BetaRouteImport.update({
   id: '/beta',
   path: '/beta',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrazilRoute = BrazilRouteImport.update({
@@ -164,10 +159,15 @@ const UsRoute = UsRouteImport.update({
   path: '/us',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
   id: '/compare/ammp-vs-alsoenergy',
@@ -317,7 +317,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -362,13 +361,13 @@ export interface FileRoutesByFullPath {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
   '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -413,6 +412,7 @@ export interface FileRoutesByTo {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
   '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -420,7 +420,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
-  '/blog': typeof BlogRouteWithChildren
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -465,6 +464,7 @@ export interface FileRoutesById {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
   '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -473,7 +473,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai'
     | '/beta'
-    | '/blog'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -518,13 +517,13 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/portfolio-operators'
     | '/use-cases/system-integrators'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/ai'
     | '/beta'
-    | '/blog'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -569,13 +568,13 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/portfolio-operators'
     | '/use-cases/system-integrators'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/ai'
     | '/beta'
-    | '/blog'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -620,6 +619,7 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/portfolio-operators'
     | '/use-cases/system-integrators'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -627,7 +627,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
   BetaRoute: typeof BetaRoute
-  BlogRoute: typeof BlogRouteWithChildren
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
@@ -644,6 +643,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
   UsRoute: typeof UsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
@@ -671,6 +671,7 @@ export interface RootRouteChildren {
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
   UseCasesPortfolioOperatorsRoute: typeof UseCasesPortfolioOperatorsRoute
   UseCasesSystemIntegratorsRoute: typeof UseCasesSystemIntegratorsRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -701,13 +702,6 @@ declare module '@tanstack/react-router' {
       path: '/beta'
       fullPath: '/beta'
       preLoaderRoute: typeof BetaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brazil': {
@@ -822,12 +816,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/compare/ammp-vs-alsoenergy': {
       id: '/compare/ammp-vs-alsoenergy'
@@ -1021,22 +1022,11 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
   BetaRoute: BetaRoute,
-  BlogRoute: BlogRouteWithChildren,
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
@@ -1053,6 +1043,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
   UsRoute: UsRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
   CompareBazefieldRoute: CompareBazefieldRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
@@ -1080,6 +1071,7 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
   UseCasesPortfolioOperatorsRoute: UseCasesPortfolioOperatorsRoute,
   UseCasesSystemIntegratorsRoute: UseCasesSystemIntegratorsRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
