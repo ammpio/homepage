@@ -33,7 +33,7 @@ function Page() {
       <PageHero
         eyebrow="For Reporting Teams"
         title="Standardised data in."
-        highlight="Clear reports out."
+        highlight={"\nClear reports out."}
         intro="AMMP AI coworkers sit on top of AMMP OS, turning standardised portfolio data into clear, reviewable reporting outputs — so reporting teams produce trusted numbers without the manual assembly."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
