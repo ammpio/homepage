@@ -1,0 +1,96 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Band, Prose } from "@/components/site/sections";
+import { PageCta } from "@/components/site/SiteShell";
+import { blogPosts, getBlogPost } from "@/data/blog-posts";
+
+export const Route = createFileRoute("/blog/$slug")({
+  head: ({ params }) => {
+    const post = getBlogPost(params.slug);
+    const title = post ? `${post.title} — AMMP Blog` : "Article not found — AMMP Blog";
+    const description = post?.excerpt ?? "This article could not be found. Browse the AMMP blog for the latest on AI coworkers and renewable energy operations.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(post ? [] : [{ name: "robots", content: "noindex" }]),
+      ],
+    };
+  },
+  component: ArticlePage,
+});
+
+function ArticlePage() {
+  const { slug } = Route.useParams();
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    return (
+      <>
+        <Band>
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Article not found</h1>
+            <p className="mt-4 text-lg leading-8 text-muted-foreground">We couldn't find that article. It may have moved or been renamed.</p>
+            <Link to="/blog" className="button button-primary mt-8"><ArrowLeft className="size-4" />Back to the blog</Link>
+          </div>
+        </Band>
+        <PageCta />
+      </>
+    );
+  }
+
+  const more = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const date = new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+  return (
+    <>
+      <section className="border-b border-border/70 bg-background py-16 md:py-20">
+        <div className="site-container mx-auto max-w-3xl">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" />All articles</Link>
+          <p className="eyebrow mt-8">{post.category}</p>
+          <h1 className="mt-4 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">{post.title}</h1>
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">{post.excerpt}</p>
+          <p className="mt-6 text-sm text-muted-foreground">{date} · {post.readTime}</p>
+        </div>
+      </section>
+
+      <Band tone="grey">
+        <Prose>
+          {post.body.map((block, i) => {
+            if (block.type === "heading") return <h2 key={i}>{block.text}</h2>;
+            if (block.type === "list") return <ul key={i} className="space-y-2">{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
+            if (block.type === "quote") return (
+              <figure key={i} className="rounded-xl border border-border bg-card p-6">
+                <blockquote className="text-lg font-medium leading-relaxed text-foreground">“{block.text}”</blockquote>
+                {block.author && <figcaption className="mt-3 text-sm text-muted-foreground">{block.author}</figcaption>}
+              </figure>
+            );
+            return <p key={i}>{block.text}</p>;
+          })}
+        </Prose>
+      </Band>
+
+      <Band>
+        <div className="flex items-end justify-between gap-6">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">More from the blog</h2>
+          <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-medium text-primary">All articles <ArrowRight className="size-4" /></Link>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {more.map((p) => (
+            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50">
+              <p className="text-xs font-semibold text-primary">{p.category}</p>
+              <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{p.excerpt}</p>
+            </Link>
+          ))}
+        </div>
+      </Band>
+
+      <PageCta />
+    </>
+  );
+}
