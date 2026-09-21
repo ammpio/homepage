@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight, BarChart3, FileText, Play } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { BookMeeting } from "@/components/site/BookMeeting";
 
 export const Route = createFileRoute("/demo")({
   head: () => ({ meta: [
