@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as BetaRouteImport } from './routes/beta'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -28,6 +29,7 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
+import { Route as UsRouteImport } from './routes/us'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
@@ -79,6 +81,11 @@ const BetaRoute = BetaRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrazilRoute = BrazilRouteImport.update({
+  id: '/brazil',
+  path: '/brazil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -149,6 +156,11 @@ const TermsRoute = TermsRouteImport.update({
 const TrialRoute = TrialRouteImport.update({
   id: '/trial',
   path: '/trial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsRoute = UsRouteImport.update({
+  id: '/us',
+  path: '/us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
@@ -300,6 +312,7 @@ export interface FileRoutesByFullPath {
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
   '/blog': typeof BlogRoute
+  '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
@@ -314,6 +327,7 @@ export interface FileRoutesByFullPath {
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/us': typeof UsRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -348,6 +362,7 @@ export interface FileRoutesByTo {
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
   '/blog': typeof BlogRoute
+  '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
@@ -362,6 +377,7 @@ export interface FileRoutesByTo {
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/us': typeof UsRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -397,6 +413,7 @@ export interface FileRoutesById {
   '/ai': typeof AiRoute
   '/beta': typeof BetaRoute
   '/blog': typeof BlogRoute
+  '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
@@ -411,6 +428,7 @@ export interface FileRoutesById {
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/us': typeof UsRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -447,6 +465,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/beta'
     | '/blog'
+    | '/brazil'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -461,6 +480,7 @@ export interface FileRouteTypes {
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/us'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -495,6 +515,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/beta'
     | '/blog'
+    | '/brazil'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -509,6 +530,7 @@ export interface FileRouteTypes {
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/us'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -543,6 +565,7 @@ export interface FileRouteTypes {
     | '/ai'
     | '/beta'
     | '/blog'
+    | '/brazil'
     | '/careers'
     | '/case-studies'
     | '/contact'
@@ -557,6 +580,7 @@ export interface FileRouteTypes {
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/us'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/cloud-vs-on-premise'
@@ -592,6 +616,7 @@ export interface RootRouteChildren {
   AiRoute: typeof AiRoute
   BetaRoute: typeof BetaRoute
   BlogRoute: typeof BlogRoute
+  BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
@@ -606,6 +631,7 @@ export interface RootRouteChildren {
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
+  UsRoute: typeof UsRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
@@ -670,6 +696,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brazil': {
+      id: '/brazil'
+      path: '/brazil'
+      fullPath: '/brazil'
+      preLoaderRoute: typeof BrazilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -768,6 +801,13 @@ declare module '@tanstack/react-router' {
       path: '/trial'
       fullPath: '/trial'
       preLoaderRoute: typeof TrialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/us': {
+      id: '/us'
+      path: '/us'
+      fullPath: '/us'
+      preLoaderRoute: typeof UsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/ammp-vs-alsoenergy': {
@@ -968,6 +1008,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiRoute: AiRoute,
   BetaRoute: BetaRoute,
   BlogRoute: BlogRoute,
+  BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
@@ -982,6 +1023,7 @@ const rootRouteChildren: RootRouteChildren = {
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
+  UsRoute: UsRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
   CompareBazefieldRoute: CompareBazefieldRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
