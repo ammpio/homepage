@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Check, ChevronRight, Code, Database,
   DollarSign, FileBarChart, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
-  Network, PanelsTopLeft, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
+  Network, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
 } from "lucide-react";
 import alertsDashboard from "@/assets/alerts-dashboard.png";
 import ammpIntelligence from "@/assets/ammp-intelligence.png";
