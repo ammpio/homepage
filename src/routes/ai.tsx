@@ -70,7 +70,7 @@ function Page() {
           <Lock className="size-5 shrink-0 text-primary" />
           <p className="text-sm text-muted-foreground">Permissions and scope follow your existing AMMP access controls. An assistant can only see what the connected user can already see.</p>
         </div>
-        <Link to="/blog/mcp-server-beta" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Read the announcement <ArrowRight className="size-4" /></Link>
+        <Link to="/blog" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Read the announcement <ArrowRight className="size-4" /></Link>
       </Band>
 
       <Band>
