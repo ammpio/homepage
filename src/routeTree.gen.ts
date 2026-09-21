@@ -27,16 +27,33 @@ import { Route as ProductRouteImport } from './routes/product'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TrialRouteImport } from './routes/trial'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
+import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
+import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
+import { Route as CompareDataFirstVsUiFirstRouteImport } from './routes/compare.data-first-vs-ui-first'
+import { Route as CompareFroniusRouteImport } from './routes/compare.fronius'
+import { Route as CompareGoodweRouteImport } from './routes/compare.goodwe'
+import { Route as CompareGrowattRouteImport } from './routes/compare.growatt'
+import { Route as CompareHuaweiRouteImport } from './routes/compare.huawei'
 import { Route as CompareInHouseSystemsRouteImport } from './routes/compare.in-house-systems'
 import { Route as CompareMeteocontrolRouteImport } from './routes/compare.meteocontrol'
+import { Route as CompareOpenVsProprietaryRouteImport } from './routes/compare.open-vs-proprietary'
 import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
+import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
+import { Route as CompareSmaRouteImport } from './routes/compare.sma'
+import { Route as CompareSolaredgeRouteImport } from './routes/compare.solaredge'
+import { Route as CompareSungrowRouteImport } from './routes/compare.sungrow'
 import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compare.traditional-monitoring'
+import { Route as CompareUniversRouteImport } from './routes/compare.univers'
 import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendor-portals'
+import { Route as CompareVictronRouteImport } from './routes/compare.victron'
 import { Route as SolutionsEnergyAssetManagementRouteImport } from './routes/solutions.energy-asset-management'
 import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
+import { Route as UseCasesPortfolioOperatorsRouteImport } from './routes/use-cases.portfolio-operators'
+import { Route as UseCasesSystemIntegratorsRouteImport } from './routes/use-cases.system-integrators'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -128,9 +145,50 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrialRoute = TrialRouteImport.update({
+  id: '/trial',
+  path: '/trial',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
   id: '/compare/ammp-vs-alsoenergy',
   path: '/compare/ammp-vs-alsoenergy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareBazefieldRoute = CompareBazefieldRouteImport.update({
+  id: '/compare/bazefield',
+  path: '/compare/bazefield',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareCloudVsOnPremiseRoute = CompareCloudVsOnPremiseRouteImport.update({
+  id: '/compare/cloud-vs-on-premise',
+  path: '/compare/cloud-vs-on-premise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareDataFirstVsUiFirstRoute =
+  CompareDataFirstVsUiFirstRouteImport.update({
+    id: '/compare/data-first-vs-ui-first',
+    path: '/compare/data-first-vs-ui-first',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareFroniusRoute = CompareFroniusRouteImport.update({
+  id: '/compare/fronius',
+  path: '/compare/fronius',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareGoodweRoute = CompareGoodweRouteImport.update({
+  id: '/compare/goodwe',
+  path: '/compare/goodwe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareGrowattRoute = CompareGrowattRouteImport.update({
+  id: '/compare/growatt',
+  path: '/compare/growatt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareHuaweiRoute = CompareHuaweiRouteImport.update({
+  id: '/compare/huawei',
+  path: '/compare/huawei',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareInHouseSystemsRoute = CompareInHouseSystemsRouteImport.update({
@@ -143,9 +201,35 @@ const CompareMeteocontrolRoute = CompareMeteocontrolRouteImport.update({
   path: '/compare/meteocontrol',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareOpenVsProprietaryRoute =
+  CompareOpenVsProprietaryRouteImport.update({
+    id: '/compare/open-vs-proprietary',
+    path: '/compare/open-vs-proprietary',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ComparePvOperationRoute = ComparePvOperationRouteImport.update({
   id: '/compare/pv-operation',
   path: '/compare/pv-operation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareQosEnergyRoute = CompareQosEnergyRouteImport.update({
+  id: '/compare/qos-energy',
+  path: '/compare/qos-energy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareSmaRoute = CompareSmaRouteImport.update({
+  id: '/compare/sma',
+  path: '/compare/sma',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareSolaredgeRoute = CompareSolaredgeRouteImport.update({
+  id: '/compare/solaredge',
+  path: '/compare/solaredge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareSungrowRoute = CompareSungrowRouteImport.update({
+  id: '/compare/sungrow',
+  path: '/compare/sungrow',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareTraditionalMonitoringRoute =
@@ -154,9 +238,19 @@ const CompareTraditionalMonitoringRoute =
     path: '/compare/traditional-monitoring',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CompareUniversRoute = CompareUniversRouteImport.update({
+  id: '/compare/univers',
+  path: '/compare/univers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CompareVendorPortalsRoute = CompareVendorPortalsRouteImport.update({
   id: '/compare/vendor-portals',
   path: '/compare/vendor-portals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareVictronRoute = CompareVictronRouteImport.update({
+  id: '/compare/victron',
+  path: '/compare/victron',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsEnergyAssetManagementRoute =
@@ -181,6 +275,18 @@ const UseCasesOmProvidersRoute = UseCasesOmProvidersRouteImport.update({
   path: '/use-cases/om-providers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseCasesPortfolioOperatorsRoute =
+  UseCasesPortfolioOperatorsRouteImport.update({
+    id: '/use-cases/portfolio-operators',
+    path: '/use-cases/portfolio-operators',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const UseCasesSystemIntegratorsRoute =
+  UseCasesSystemIntegratorsRouteImport.update({
+    id: '/use-cases/system-integrators',
+    path: '/use-cases/system-integrators',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -201,16 +307,33 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
+  '/trial': typeof TrialRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
+  '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
+  '/compare/fronius': typeof CompareFroniusRoute
+  '/compare/goodwe': typeof CompareGoodweRoute
+  '/compare/growatt': typeof CompareGrowattRoute
+  '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/qos-energy': typeof CompareQosEnergyRoute
+  '/compare/sma': typeof CompareSmaRoute
+  '/compare/solaredge': typeof CompareSolaredgeRoute
+  '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/compare/victron': typeof CompareVictronRoute
   '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
+  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -231,16 +354,33 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
+  '/trial': typeof TrialRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
+  '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
+  '/compare/fronius': typeof CompareFroniusRoute
+  '/compare/goodwe': typeof CompareGoodweRoute
+  '/compare/growatt': typeof CompareGrowattRoute
+  '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/qos-energy': typeof CompareQosEnergyRoute
+  '/compare/sma': typeof CompareSmaRoute
+  '/compare/solaredge': typeof CompareSolaredgeRoute
+  '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/compare/victron': typeof CompareVictronRoute
   '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
+  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -262,16 +402,33 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
+  '/trial': typeof TrialRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
+  '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
+  '/compare/fronius': typeof CompareFroniusRoute
+  '/compare/goodwe': typeof CompareGoodweRoute
+  '/compare/growatt': typeof CompareGrowattRoute
+  '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/qos-energy': typeof CompareQosEnergyRoute
+  '/compare/sma': typeof CompareSmaRoute
+  '/compare/solaredge': typeof CompareSolaredgeRoute
+  '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/compare/victron': typeof CompareVictronRoute
   '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
+  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -294,16 +451,33 @@ export interface FileRouteTypes {
     | '/security'
     | '/switch'
     | '/terms'
+    | '/trial'
     | '/compare/ammp-vs-alsoenergy'
+    | '/compare/bazefield'
+    | '/compare/cloud-vs-on-premise'
+    | '/compare/data-first-vs-ui-first'
+    | '/compare/fronius'
+    | '/compare/goodwe'
+    | '/compare/growatt'
+    | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/open-vs-proprietary'
     | '/compare/pv-operation'
+    | '/compare/qos-energy'
+    | '/compare/sma'
+    | '/compare/solaredge'
+    | '/compare/sungrow'
     | '/compare/traditional-monitoring'
+    | '/compare/univers'
     | '/compare/vendor-portals'
+    | '/compare/victron'
     | '/solutions/energy-asset-management'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/portfolio-operators'
+    | '/use-cases/system-integrators'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -324,16 +498,33 @@ export interface FileRouteTypes {
     | '/security'
     | '/switch'
     | '/terms'
+    | '/trial'
     | '/compare/ammp-vs-alsoenergy'
+    | '/compare/bazefield'
+    | '/compare/cloud-vs-on-premise'
+    | '/compare/data-first-vs-ui-first'
+    | '/compare/fronius'
+    | '/compare/goodwe'
+    | '/compare/growatt'
+    | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/open-vs-proprietary'
     | '/compare/pv-operation'
+    | '/compare/qos-energy'
+    | '/compare/sma'
+    | '/compare/solaredge'
+    | '/compare/sungrow'
     | '/compare/traditional-monitoring'
+    | '/compare/univers'
     | '/compare/vendor-portals'
+    | '/compare/victron'
     | '/solutions/energy-asset-management'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/portfolio-operators'
+    | '/use-cases/system-integrators'
   id:
     | '__root__'
     | '/'
@@ -354,16 +545,33 @@ export interface FileRouteTypes {
     | '/security'
     | '/switch'
     | '/terms'
+    | '/trial'
     | '/compare/ammp-vs-alsoenergy'
+    | '/compare/bazefield'
+    | '/compare/cloud-vs-on-premise'
+    | '/compare/data-first-vs-ui-first'
+    | '/compare/fronius'
+    | '/compare/goodwe'
+    | '/compare/growatt'
+    | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/open-vs-proprietary'
     | '/compare/pv-operation'
+    | '/compare/qos-energy'
+    | '/compare/sma'
+    | '/compare/solaredge'
+    | '/compare/sungrow'
     | '/compare/traditional-monitoring'
+    | '/compare/univers'
     | '/compare/vendor-portals'
+    | '/compare/victron'
     | '/solutions/energy-asset-management'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/portfolio-operators'
+    | '/use-cases/system-integrators'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -385,16 +593,33 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
+  TrialRoute: typeof TrialRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
+  CompareBazefieldRoute: typeof CompareBazefieldRoute
+  CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
+  CompareDataFirstVsUiFirstRoute: typeof CompareDataFirstVsUiFirstRoute
+  CompareFroniusRoute: typeof CompareFroniusRoute
+  CompareGoodweRoute: typeof CompareGoodweRoute
+  CompareGrowattRoute: typeof CompareGrowattRoute
+  CompareHuaweiRoute: typeof CompareHuaweiRoute
   CompareInHouseSystemsRoute: typeof CompareInHouseSystemsRoute
   CompareMeteocontrolRoute: typeof CompareMeteocontrolRoute
+  CompareOpenVsProprietaryRoute: typeof CompareOpenVsProprietaryRoute
   ComparePvOperationRoute: typeof ComparePvOperationRoute
+  CompareQosEnergyRoute: typeof CompareQosEnergyRoute
+  CompareSmaRoute: typeof CompareSmaRoute
+  CompareSolaredgeRoute: typeof CompareSolaredgeRoute
+  CompareSungrowRoute: typeof CompareSungrowRoute
   CompareTraditionalMonitoringRoute: typeof CompareTraditionalMonitoringRoute
+  CompareUniversRoute: typeof CompareUniversRoute
   CompareVendorPortalsRoute: typeof CompareVendorPortalsRoute
+  CompareVictronRoute: typeof CompareVictronRoute
   SolutionsEnergyAssetManagementRoute: typeof SolutionsEnergyAssetManagementRoute
   SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
+  UseCasesPortfolioOperatorsRoute: typeof UseCasesPortfolioOperatorsRoute
+  UseCasesSystemIntegratorsRoute: typeof UseCasesSystemIntegratorsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -525,11 +750,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trial': {
+      id: '/trial'
+      path: '/trial'
+      fullPath: '/trial'
+      preLoaderRoute: typeof TrialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/ammp-vs-alsoenergy': {
       id: '/compare/ammp-vs-alsoenergy'
       path: '/compare/ammp-vs-alsoenergy'
       fullPath: '/compare/ammp-vs-alsoenergy'
       preLoaderRoute: typeof CompareAmmpVsAlsoenergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/bazefield': {
+      id: '/compare/bazefield'
+      path: '/compare/bazefield'
+      fullPath: '/compare/bazefield'
+      preLoaderRoute: typeof CompareBazefieldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/cloud-vs-on-premise': {
+      id: '/compare/cloud-vs-on-premise'
+      path: '/compare/cloud-vs-on-premise'
+      fullPath: '/compare/cloud-vs-on-premise'
+      preLoaderRoute: typeof CompareCloudVsOnPremiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/data-first-vs-ui-first': {
+      id: '/compare/data-first-vs-ui-first'
+      path: '/compare/data-first-vs-ui-first'
+      fullPath: '/compare/data-first-vs-ui-first'
+      preLoaderRoute: typeof CompareDataFirstVsUiFirstRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/fronius': {
+      id: '/compare/fronius'
+      path: '/compare/fronius'
+      fullPath: '/compare/fronius'
+      preLoaderRoute: typeof CompareFroniusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/goodwe': {
+      id: '/compare/goodwe'
+      path: '/compare/goodwe'
+      fullPath: '/compare/goodwe'
+      preLoaderRoute: typeof CompareGoodweRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/growatt': {
+      id: '/compare/growatt'
+      path: '/compare/growatt'
+      fullPath: '/compare/growatt'
+      preLoaderRoute: typeof CompareGrowattRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/huawei': {
+      id: '/compare/huawei'
+      path: '/compare/huawei'
+      fullPath: '/compare/huawei'
+      preLoaderRoute: typeof CompareHuaweiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/in-house-systems': {
@@ -546,11 +827,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareMeteocontrolRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/open-vs-proprietary': {
+      id: '/compare/open-vs-proprietary'
+      path: '/compare/open-vs-proprietary'
+      fullPath: '/compare/open-vs-proprietary'
+      preLoaderRoute: typeof CompareOpenVsProprietaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/pv-operation': {
       id: '/compare/pv-operation'
       path: '/compare/pv-operation'
       fullPath: '/compare/pv-operation'
       preLoaderRoute: typeof ComparePvOperationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/qos-energy': {
+      id: '/compare/qos-energy'
+      path: '/compare/qos-energy'
+      fullPath: '/compare/qos-energy'
+      preLoaderRoute: typeof CompareQosEnergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/sma': {
+      id: '/compare/sma'
+      path: '/compare/sma'
+      fullPath: '/compare/sma'
+      preLoaderRoute: typeof CompareSmaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/solaredge': {
+      id: '/compare/solaredge'
+      path: '/compare/solaredge'
+      fullPath: '/compare/solaredge'
+      preLoaderRoute: typeof CompareSolaredgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/sungrow': {
+      id: '/compare/sungrow'
+      path: '/compare/sungrow'
+      fullPath: '/compare/sungrow'
+      preLoaderRoute: typeof CompareSungrowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/traditional-monitoring': {
@@ -560,11 +876,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareTraditionalMonitoringRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/univers': {
+      id: '/compare/univers'
+      path: '/compare/univers'
+      fullPath: '/compare/univers'
+      preLoaderRoute: typeof CompareUniversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/vendor-portals': {
       id: '/compare/vendor-portals'
       path: '/compare/vendor-portals'
       fullPath: '/compare/vendor-portals'
       preLoaderRoute: typeof CompareVendorPortalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/victron': {
+      id: '/compare/victron'
+      path: '/compare/victron'
+      fullPath: '/compare/victron'
+      preLoaderRoute: typeof CompareVictronRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/energy-asset-management': {
@@ -595,6 +925,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesOmProvidersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-cases/portfolio-operators': {
+      id: '/use-cases/portfolio-operators'
+      path: '/use-cases/portfolio-operators'
+      fullPath: '/use-cases/portfolio-operators'
+      preLoaderRoute: typeof UseCasesPortfolioOperatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-cases/system-integrators': {
+      id: '/use-cases/system-integrators'
+      path: '/use-cases/system-integrators'
+      fullPath: '/use-cases/system-integrators'
+      preLoaderRoute: typeof UseCasesSystemIntegratorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -617,16 +961,33 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,
+  TrialRoute: TrialRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
+  CompareBazefieldRoute: CompareBazefieldRoute,
+  CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
+  CompareDataFirstVsUiFirstRoute: CompareDataFirstVsUiFirstRoute,
+  CompareFroniusRoute: CompareFroniusRoute,
+  CompareGoodweRoute: CompareGoodweRoute,
+  CompareGrowattRoute: CompareGrowattRoute,
+  CompareHuaweiRoute: CompareHuaweiRoute,
   CompareInHouseSystemsRoute: CompareInHouseSystemsRoute,
   CompareMeteocontrolRoute: CompareMeteocontrolRoute,
+  CompareOpenVsProprietaryRoute: CompareOpenVsProprietaryRoute,
   ComparePvOperationRoute: ComparePvOperationRoute,
+  CompareQosEnergyRoute: CompareQosEnergyRoute,
+  CompareSmaRoute: CompareSmaRoute,
+  CompareSolaredgeRoute: CompareSolaredgeRoute,
+  CompareSungrowRoute: CompareSungrowRoute,
   CompareTraditionalMonitoringRoute: CompareTraditionalMonitoringRoute,
+  CompareUniversRoute: CompareUniversRoute,
   CompareVendorPortalsRoute: CompareVendorPortalsRoute,
+  CompareVictronRoute: CompareVictronRoute,
   SolutionsEnergyAssetManagementRoute: SolutionsEnergyAssetManagementRoute,
   SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
+  UseCasesPortfolioOperatorsRoute: UseCasesPortfolioOperatorsRoute,
+  UseCasesSystemIntegratorsRoute: UseCasesSystemIntegratorsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
