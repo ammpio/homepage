@@ -10,33 +10,391 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as BetaRouteImport } from './routes/beta'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomizationRouteImport } from './routes/customization'
+import { Route as DemoRouteImport } from './routes/demo'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProductRouteImport } from './routes/product'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SwitchRouteImport } from './routes/switch'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
+import { Route as CompareInHouseSystemsRouteImport } from './routes/compare.in-house-systems'
+import { Route as CompareMeteocontrolRouteImport } from './routes/compare.meteocontrol'
+import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
+import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compare.traditional-monitoring'
+import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendor-portals'
+import { Route as SolutionsEnergyAssetManagementRouteImport } from './routes/solutions.energy-asset-management'
+import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
+import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
+import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BetaRoute = BetaRouteImport.update({
+  id: '/beta',
+  path: '/beta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomizationRoute = CustomizationRouteImport.update({
+  id: '/customization',
+  path: '/customization',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SwitchRoute = SwitchRouteImport.update({
+  id: '/switch',
+  path: '/switch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareAmmpVsAlsoenergyRoute = CompareAmmpVsAlsoenergyRouteImport.update({
+  id: '/compare/ammp-vs-alsoenergy',
+  path: '/compare/ammp-vs-alsoenergy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareInHouseSystemsRoute = CompareInHouseSystemsRouteImport.update({
+  id: '/compare/in-house-systems',
+  path: '/compare/in-house-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareMeteocontrolRoute = CompareMeteocontrolRouteImport.update({
+  id: '/compare/meteocontrol',
+  path: '/compare/meteocontrol',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComparePvOperationRoute = ComparePvOperationRouteImport.update({
+  id: '/compare/pv-operation',
+  path: '/compare/pv-operation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareTraditionalMonitoringRoute =
+  CompareTraditionalMonitoringRouteImport.update({
+    id: '/compare/traditional-monitoring',
+    path: '/compare/traditional-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareVendorPortalsRoute = CompareVendorPortalsRouteImport.update({
+  id: '/compare/vendor-portals',
+  path: '/compare/vendor-portals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsEnergyAssetManagementRoute =
+  SolutionsEnergyAssetManagementRouteImport.update({
+    id: '/solutions/energy-asset-management',
+    path: '/solutions/energy-asset-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsSolarMonitoringRoute =
+  SolutionsSolarMonitoringRouteImport.update({
+    id: '/solutions/solar-monitoring',
+    path: '/solutions/solar-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const UseCasesAssetManagersRoute = UseCasesAssetManagersRouteImport.update({
+  id: '/use-cases/asset-managers',
+  path: '/use-cases/asset-managers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseCasesOmProvidersRoute = UseCasesOmProvidersRouteImport.update({
+  id: '/use-cases/om-providers',
+  path: '/use-cases/om-providers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
+  '/blog': typeof BlogRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/customization': typeof CustomizationRoute
+  '/demo': typeof DemoRoute
+  '/faq': typeof FaqRoute
+  '/integrations': typeof IntegrationsRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/switch': typeof SwitchRoute
+  '/terms': typeof TermsRoute
+  '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
+  '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
+  '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
+  '/blog': typeof BlogRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/customization': typeof CustomizationRoute
+  '/demo': typeof DemoRoute
+  '/faq': typeof FaqRoute
+  '/integrations': typeof IntegrationsRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/switch': typeof SwitchRoute
+  '/terms': typeof TermsRoute
+  '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
+  '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
+  '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
+  '/blog': typeof BlogRoute
+  '/careers': typeof CareersRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/customization': typeof CustomizationRoute
+  '/demo': typeof DemoRoute
+  '/faq': typeof FaqRoute
+  '/integrations': typeof IntegrationsRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRoute
+  '/security': typeof SecurityRoute
+  '/switch': typeof SwitchRoute
+  '/terms': typeof TermsRoute
+  '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
+  '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
+  '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/pv-operation': typeof ComparePvOperationRoute
+  '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
+  '/compare/vendor-portals': typeof CompareVendorPortalsRoute
+  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
+  '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/beta'
+    | '/blog'
+    | '/careers'
+    | '/case-studies'
+    | '/contact'
+    | '/customization'
+    | '/demo'
+    | '/faq'
+    | '/integrations'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/security'
+    | '/switch'
+    | '/terms'
+    | '/compare/ammp-vs-alsoenergy'
+    | '/compare/in-house-systems'
+    | '/compare/meteocontrol'
+    | '/compare/pv-operation'
+    | '/compare/traditional-monitoring'
+    | '/compare/vendor-portals'
+    | '/solutions/energy-asset-management'
+    | '/solutions/solar-monitoring'
+    | '/use-cases/asset-managers'
+    | '/use-cases/om-providers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/beta'
+    | '/blog'
+    | '/careers'
+    | '/case-studies'
+    | '/contact'
+    | '/customization'
+    | '/demo'
+    | '/faq'
+    | '/integrations'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/security'
+    | '/switch'
+    | '/terms'
+    | '/compare/ammp-vs-alsoenergy'
+    | '/compare/in-house-systems'
+    | '/compare/meteocontrol'
+    | '/compare/pv-operation'
+    | '/compare/traditional-monitoring'
+    | '/compare/vendor-portals'
+    | '/solutions/energy-asset-management'
+    | '/solutions/solar-monitoring'
+    | '/use-cases/asset-managers'
+    | '/use-cases/om-providers'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai'
+    | '/beta'
+    | '/blog'
+    | '/careers'
+    | '/case-studies'
+    | '/contact'
+    | '/customization'
+    | '/demo'
+    | '/faq'
+    | '/integrations'
+    | '/pricing'
+    | '/privacy'
+    | '/product'
+    | '/security'
+    | '/switch'
+    | '/terms'
+    | '/compare/ammp-vs-alsoenergy'
+    | '/compare/in-house-systems'
+    | '/compare/meteocontrol'
+    | '/compare/pv-operation'
+    | '/compare/traditional-monitoring'
+    | '/compare/vendor-portals'
+    | '/solutions/energy-asset-management'
+    | '/solutions/solar-monitoring'
+    | '/use-cases/asset-managers'
+    | '/use-cases/om-providers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiRoute: typeof AiRoute
+  BetaRoute: typeof BetaRoute
+  BlogRoute: typeof BlogRoute
+  CareersRoute: typeof CareersRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
+  CustomizationRoute: typeof CustomizationRoute
+  DemoRoute: typeof DemoRoute
+  FaqRoute: typeof FaqRoute
+  IntegrationsRoute: typeof IntegrationsRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProductRoute: typeof ProductRoute
+  SecurityRoute: typeof SecurityRoute
+  SwitchRoute: typeof SwitchRoute
+  TermsRoute: typeof TermsRoute
+  CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
+  CompareInHouseSystemsRoute: typeof CompareInHouseSystemsRoute
+  CompareMeteocontrolRoute: typeof CompareMeteocontrolRoute
+  ComparePvOperationRoute: typeof ComparePvOperationRoute
+  CompareTraditionalMonitoringRoute: typeof CompareTraditionalMonitoringRoute
+  CompareVendorPortalsRoute: typeof CompareVendorPortalsRoute
+  SolutionsEnergyAssetManagementRoute: typeof SolutionsEnergyAssetManagementRoute
+  SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
+  UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
+  UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +406,227 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beta': {
+      id: '/beta'
+      path: '/beta'
+      fullPath: '/beta'
+      preLoaderRoute: typeof BetaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customization': {
+      id: '/customization'
+      path: '/customization'
+      fullPath: '/customization'
+      preLoaderRoute: typeof CustomizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/switch': {
+      id: '/switch'
+      path: '/switch'
+      fullPath: '/switch'
+      preLoaderRoute: typeof SwitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/ammp-vs-alsoenergy': {
+      id: '/compare/ammp-vs-alsoenergy'
+      path: '/compare/ammp-vs-alsoenergy'
+      fullPath: '/compare/ammp-vs-alsoenergy'
+      preLoaderRoute: typeof CompareAmmpVsAlsoenergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/in-house-systems': {
+      id: '/compare/in-house-systems'
+      path: '/compare/in-house-systems'
+      fullPath: '/compare/in-house-systems'
+      preLoaderRoute: typeof CompareInHouseSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/meteocontrol': {
+      id: '/compare/meteocontrol'
+      path: '/compare/meteocontrol'
+      fullPath: '/compare/meteocontrol'
+      preLoaderRoute: typeof CompareMeteocontrolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/pv-operation': {
+      id: '/compare/pv-operation'
+      path: '/compare/pv-operation'
+      fullPath: '/compare/pv-operation'
+      preLoaderRoute: typeof ComparePvOperationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/traditional-monitoring': {
+      id: '/compare/traditional-monitoring'
+      path: '/compare/traditional-monitoring'
+      fullPath: '/compare/traditional-monitoring'
+      preLoaderRoute: typeof CompareTraditionalMonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/vendor-portals': {
+      id: '/compare/vendor-portals'
+      path: '/compare/vendor-portals'
+      fullPath: '/compare/vendor-portals'
+      preLoaderRoute: typeof CompareVendorPortalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/energy-asset-management': {
+      id: '/solutions/energy-asset-management'
+      path: '/solutions/energy-asset-management'
+      fullPath: '/solutions/energy-asset-management'
+      preLoaderRoute: typeof SolutionsEnergyAssetManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/solar-monitoring': {
+      id: '/solutions/solar-monitoring'
+      path: '/solutions/solar-monitoring'
+      fullPath: '/solutions/solar-monitoring'
+      preLoaderRoute: typeof SolutionsSolarMonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-cases/asset-managers': {
+      id: '/use-cases/asset-managers'
+      path: '/use-cases/asset-managers'
+      fullPath: '/use-cases/asset-managers'
+      preLoaderRoute: typeof UseCasesAssetManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-cases/om-providers': {
+      id: '/use-cases/om-providers'
+      path: '/use-cases/om-providers'
+      fullPath: '/use-cases/om-providers'
+      preLoaderRoute: typeof UseCasesOmProvidersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiRoute: AiRoute,
+  BetaRoute: BetaRoute,
+  BlogRoute: BlogRoute,
+  CareersRoute: CareersRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
+  CustomizationRoute: CustomizationRoute,
+  DemoRoute: DemoRoute,
+  FaqRoute: FaqRoute,
+  IntegrationsRoute: IntegrationsRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProductRoute: ProductRoute,
+  SecurityRoute: SecurityRoute,
+  SwitchRoute: SwitchRoute,
+  TermsRoute: TermsRoute,
+  CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
+  CompareInHouseSystemsRoute: CompareInHouseSystemsRoute,
+  CompareMeteocontrolRoute: CompareMeteocontrolRoute,
+  ComparePvOperationRoute: ComparePvOperationRoute,
+  CompareTraditionalMonitoringRoute: CompareTraditionalMonitoringRoute,
+  CompareVendorPortalsRoute: CompareVendorPortalsRoute,
+  SolutionsEnergyAssetManagementRoute: SolutionsEnergyAssetManagementRoute,
+  SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
+  UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
+  UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
