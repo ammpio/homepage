@@ -48,10 +48,9 @@ function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-xs text-muted-foreground">
             <span className="size-1.5 rounded-full bg-primary" />
-            AI coworkers · live in Slack &amp; Teams
           </div>
           <h1 className="mt-6 max-w-[13ch] text-balance font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
-            Your team, <span className="text-primary">plus a few more.</span>
+             Put AI to work across your renewable energy portfolio
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
             AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.
@@ -184,7 +183,7 @@ function CoworkersSection() {
       <div className="site-container py-20 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-7">
           <div>
-            <p className="eyebrow">02 · The coworkers</p>
+             <p className="eyebrow">THE COWORKERS</p>
             <h2 className="mt-4 max-w-[19ch] text-balance font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Proactive when you don’t ask. On demand when you do.</h2>
           </div>
           <p className="max-w-[42ch] text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
@@ -234,7 +233,7 @@ function SharedByDesign() {
   return (
     <section className="border-b border-border bg-background">
       <div className="site-container py-20 lg:py-28">
-        <p className="eyebrow">03 · Shared by design</p>
+         <p className="eyebrow">SHARED BY DESIGN</p>
         <div className="mt-4 grid gap-10 lg:grid-cols-[.82fr_1.18fr]">
           <div>
             <h2 className="max-w-[16ch] text-balance font-display text-4xl font-semibold leading-[1.08] lg:text-5xl">Same workspace. Same evidence. Humans stay in control.</h2>
@@ -402,8 +401,8 @@ function PlatformGrid() {
       <div className="site-container">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">AMMP OS is still all here</h2>
-            <p className="mt-4 text-lg text-muted-foreground">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them, not in place of them.</p>
+             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">AMMP OS when you need it</h2>
+             <p className="mt-4 text-lg text-muted-foreground">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>
