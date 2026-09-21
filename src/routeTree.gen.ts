@@ -39,6 +39,7 @@ import { Route as CompareHuaweiRouteImport } from './routes/compare.huawei'
 import { Route as CompareInHouseSystemsRouteImport } from './routes/compare.in-house-systems'
 import { Route as CompareMeteocontrolRouteImport } from './routes/compare.meteocontrol'
 import { Route as CompareOpenVsProprietaryRouteImport } from './routes/compare.open-vs-proprietary'
+import { Route as ComparePowertrackRouteImport } from './routes/compare.powertrack'
 import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
 import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
 import { Route as CompareSmaRouteImport } from './routes/compare.sma'
@@ -207,6 +208,11 @@ const CompareOpenVsProprietaryRoute =
     path: '/compare/open-vs-proprietary',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ComparePowertrackRoute = ComparePowertrackRouteImport.update({
+  id: '/compare/powertrack',
+  path: '/compare/powertrack',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComparePvOperationRoute = ComparePvOperationRouteImport.update({
   id: '/compare/pv-operation',
   path: '/compare/pv-operation',
@@ -319,6 +325,7 @@ export interface FileRoutesByFullPath {
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
@@ -366,6 +373,7 @@ export interface FileRoutesByTo {
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
@@ -414,6 +422,7 @@ export interface FileRoutesById {
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
@@ -463,6 +472,7 @@ export interface FileRouteTypes {
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
     | '/compare/open-vs-proprietary'
+    | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
@@ -510,6 +520,7 @@ export interface FileRouteTypes {
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
     | '/compare/open-vs-proprietary'
+    | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
@@ -557,6 +568,7 @@ export interface FileRouteTypes {
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
     | '/compare/open-vs-proprietary'
+    | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
@@ -605,6 +617,7 @@ export interface RootRouteChildren {
   CompareInHouseSystemsRoute: typeof CompareInHouseSystemsRoute
   CompareMeteocontrolRoute: typeof CompareMeteocontrolRoute
   CompareOpenVsProprietaryRoute: typeof CompareOpenVsProprietaryRoute
+  ComparePowertrackRoute: typeof ComparePowertrackRoute
   ComparePvOperationRoute: typeof ComparePvOperationRoute
   CompareQosEnergyRoute: typeof CompareQosEnergyRoute
   CompareSmaRoute: typeof CompareSmaRoute
@@ -834,6 +847,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareOpenVsProprietaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/powertrack': {
+      id: '/compare/powertrack'
+      path: '/compare/powertrack'
+      fullPath: '/compare/powertrack'
+      preLoaderRoute: typeof ComparePowertrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/pv-operation': {
       id: '/compare/pv-operation'
       path: '/compare/pv-operation'
@@ -973,6 +993,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareInHouseSystemsRoute: CompareInHouseSystemsRoute,
   CompareMeteocontrolRoute: CompareMeteocontrolRoute,
   CompareOpenVsProprietaryRoute: CompareOpenVsProprietaryRoute,
+  ComparePowertrackRoute: ComparePowertrackRoute,
   ComparePvOperationRoute: ComparePvOperationRoute,
   CompareQosEnergyRoute: CompareQosEnergyRoute,
   CompareSmaRoute: CompareSmaRoute,
