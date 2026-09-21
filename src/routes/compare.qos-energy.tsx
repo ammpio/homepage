@@ -18,7 +18,6 @@ export const Route = createFileRoute("/compare/qos-energy")({
 const rows = [
   { feature: "Hardware-independent monitoring", ammp: true, other: true },
   { feature: "Portfolio management", ammp: true, other: true },
-  { feature: "C&I solar focus", ammp: true, other: "Partial" },
   { feature: "Live demo access", ammp: true, other: false },
   { feature: "Email alerts", ammp: true, other: true },
   { feature: "Slack/Teams integration", ammp: true, other: false },
