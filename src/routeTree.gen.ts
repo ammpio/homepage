@@ -54,6 +54,7 @@ import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendo
 import { Route as CompareVictronRouteImport } from './routes/compare.victron'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
+import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -283,6 +284,11 @@ const UseCasesOmProvidersRoute = UseCasesOmProvidersRouteImport.update({
   path: '/use-cases/om-providers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseCasesReportingTeamsRoute = UseCasesReportingTeamsRouteImport.update({
+  id: '/use-cases/reporting-teams',
+  path: '/use-cases/reporting-teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -329,6 +335,7 @@ export interface FileRoutesByFullPath {
   '/compare/victron': typeof CompareVictronRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -376,6 +383,7 @@ export interface FileRoutesByTo {
   '/compare/victron': typeof CompareVictronRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -424,6 +432,7 @@ export interface FileRoutesById {
   '/compare/victron': typeof CompareVictronRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
+  '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -473,6 +482,7 @@ export interface FileRouteTypes {
     | '/compare/victron'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/reporting-teams'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -520,6 +530,7 @@ export interface FileRouteTypes {
     | '/compare/victron'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/reporting-teams'
     | '/blog'
   id:
     | '__root__'
@@ -567,6 +578,7 @@ export interface FileRouteTypes {
     | '/compare/victron'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
+    | '/use-cases/reporting-teams'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -615,6 +627,7 @@ export interface RootRouteChildren {
   CompareVictronRoute: typeof CompareVictronRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
+  UseCasesReportingTeamsRoute: typeof UseCasesReportingTeamsRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
@@ -935,6 +948,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesOmProvidersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-cases/reporting-teams': {
+      id: '/use-cases/reporting-teams'
+      path: '/use-cases/reporting-teams'
+      fullPath: '/use-cases/reporting-teams'
+      preLoaderRoute: typeof UseCasesReportingTeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -983,6 +1003,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareVictronRoute: CompareVictronRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
+  UseCasesReportingTeamsRoute: UseCasesReportingTeamsRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
