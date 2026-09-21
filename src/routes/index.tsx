@@ -218,8 +218,8 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
 /* 5 — 03 · Shared by design (AMMP AI Co-Pilots) */
 function SharedByDesign() {
   const outcomes = [
-    { icon: BarChart3, title: "Asset managers", text: "See what needs attention first and move from symptom to root cause faster." },
-    { icon: Wrench, title: "O&M teams", text: "Receive prioritised issues with the context needed to plan the right response." },
+    { icon: BarChart3, title: "Asset managers", text: "See what needs attention first and move from symptom to root cause faster.", href: "/use-cases/asset-managers" as const },
+    { icon: Wrench, title: "O&M teams", text: "Receive prioritised issues with the context needed to plan the right response.", href: "/use-cases/om-providers" as const },
     { icon: FileText, title: "Reporting teams", text: "Turn standardised portfolio data into clear, reviewable reporting outputs." },
   ];
   return (
@@ -232,14 +232,29 @@ function SharedByDesign() {
             <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Everyone can see what was requested, review the work, and add their own knowledge. Capabilities spread naturally because the learning happens together.</p>
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
-            {outcomes.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="bg-background p-6">
-                <Icon className="size-5 text-primary" />
-                <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-                <ChevronRight className="mt-5 size-4 text-muted-foreground" />
-              </div>
-            ))}
+            {outcomes.map(({ icon: Icon, title, text, href }) => {
+              const inner = (
+                <>
+                  <Icon className="size-5 text-primary" />
+                  <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform duration-200" />
+                </>
+              );
+              const box = "flex flex-col bg-background p-6 text-left transition-colors duration-200";
+              if (href) {
+                return (
+                  <Link key={title} to={href} className={`${box} group cursor-pointer hover:bg-secondary/50 [&>svg:last-child]:group-hover:translate-x-0.5 [&>svg:last-child]:group-hover:text-primary`} aria-label={title}>
+                    {inner}
+                  </Link>
+                );
+              }
+              return (
+                <div key={title} className={`${box} [&>svg:last-child]:invisible`}>
+                  {inner}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
