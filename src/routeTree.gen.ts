@@ -52,12 +52,8 @@ import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compa
 import { Route as CompareUniversRouteImport } from './routes/compare.univers'
 import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendor-portals'
 import { Route as CompareVictronRouteImport } from './routes/compare.victron'
-import { Route as SolutionsEnergyAssetManagementRouteImport } from './routes/solutions.energy-asset-management'
-import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
-import { Route as UseCasesPortfolioOperatorsRouteImport } from './routes/use-cases.portfolio-operators'
-import { Route as UseCasesSystemIntegratorsRouteImport } from './routes/use-cases.system-integrators'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -277,18 +273,6 @@ const CompareVictronRoute = CompareVictronRouteImport.update({
   path: '/compare/victron',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SolutionsEnergyAssetManagementRoute =
-  SolutionsEnergyAssetManagementRouteImport.update({
-    id: '/solutions/energy-asset-management',
-    path: '/solutions/energy-asset-management',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SolutionsSolarMonitoringRoute =
-  SolutionsSolarMonitoringRouteImport.update({
-    id: '/solutions/solar-monitoring',
-    path: '/solutions/solar-monitoring',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const UseCasesAssetManagersRoute = UseCasesAssetManagersRouteImport.update({
   id: '/use-cases/asset-managers',
   path: '/use-cases/asset-managers',
@@ -299,18 +283,6 @@ const UseCasesOmProvidersRoute = UseCasesOmProvidersRouteImport.update({
   path: '/use-cases/om-providers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UseCasesPortfolioOperatorsRoute =
-  UseCasesPortfolioOperatorsRouteImport.update({
-    id: '/use-cases/portfolio-operators',
-    path: '/use-cases/portfolio-operators',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const UseCasesSystemIntegratorsRoute =
-  UseCasesSystemIntegratorsRouteImport.update({
-    id: '/use-cases/system-integrators',
-    path: '/use-cases/system-integrators',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -355,12 +327,8 @@ export interface FileRoutesByFullPath {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
-  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
-  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
-  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
-  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -406,12 +374,8 @@ export interface FileRoutesByTo {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
-  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
-  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
-  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
-  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -458,12 +422,8 @@ export interface FileRoutesById {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
-  '/solutions/energy-asset-management': typeof SolutionsEnergyAssetManagementRoute
-  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
-  '/use-cases/portfolio-operators': typeof UseCasesPortfolioOperatorsRoute
-  '/use-cases/system-integrators': typeof UseCasesSystemIntegratorsRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -511,12 +471,8 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
-    | '/solutions/energy-asset-management'
-    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
-    | '/use-cases/portfolio-operators'
-    | '/use-cases/system-integrators'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -562,12 +518,8 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
-    | '/solutions/energy-asset-management'
-    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
-    | '/use-cases/portfolio-operators'
-    | '/use-cases/system-integrators'
     | '/blog'
   id:
     | '__root__'
@@ -613,12 +565,8 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
-    | '/solutions/energy-asset-management'
-    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
-    | '/use-cases/portfolio-operators'
-    | '/use-cases/system-integrators'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -665,12 +613,8 @@ export interface RootRouteChildren {
   CompareUniversRoute: typeof CompareUniversRoute
   CompareVendorPortalsRoute: typeof CompareVendorPortalsRoute
   CompareVictronRoute: typeof CompareVictronRoute
-  SolutionsEnergyAssetManagementRoute: typeof SolutionsEnergyAssetManagementRoute
-  SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
-  UseCasesPortfolioOperatorsRoute: typeof UseCasesPortfolioOperatorsRoute
-  UseCasesSystemIntegratorsRoute: typeof UseCasesSystemIntegratorsRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
@@ -977,20 +921,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareVictronRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solutions/energy-asset-management': {
-      id: '/solutions/energy-asset-management'
-      path: '/solutions/energy-asset-management'
-      fullPath: '/solutions/energy-asset-management'
-      preLoaderRoute: typeof SolutionsEnergyAssetManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solutions/solar-monitoring': {
-      id: '/solutions/solar-monitoring'
-      path: '/solutions/solar-monitoring'
-      fullPath: '/solutions/solar-monitoring'
-      preLoaderRoute: typeof SolutionsSolarMonitoringRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/use-cases/asset-managers': {
       id: '/use-cases/asset-managers'
       path: '/use-cases/asset-managers'
@@ -1003,20 +933,6 @@ declare module '@tanstack/react-router' {
       path: '/use-cases/om-providers'
       fullPath: '/use-cases/om-providers'
       preLoaderRoute: typeof UseCasesOmProvidersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/use-cases/portfolio-operators': {
-      id: '/use-cases/portfolio-operators'
-      path: '/use-cases/portfolio-operators'
-      fullPath: '/use-cases/portfolio-operators'
-      preLoaderRoute: typeof UseCasesPortfolioOperatorsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/use-cases/system-integrators': {
-      id: '/use-cases/system-integrators'
-      path: '/use-cases/system-integrators'
-      fullPath: '/use-cases/system-integrators'
-      preLoaderRoute: typeof UseCasesSystemIntegratorsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -1065,12 +981,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversRoute: CompareUniversRoute,
   CompareVendorPortalsRoute: CompareVendorPortalsRoute,
   CompareVictronRoute: CompareVictronRoute,
-  SolutionsEnergyAssetManagementRoute: SolutionsEnergyAssetManagementRoute,
-  SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
-  UseCasesPortfolioOperatorsRoute: UseCasesPortfolioOperatorsRoute,
-  UseCasesSystemIntegratorsRoute: UseCasesSystemIntegratorsRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
