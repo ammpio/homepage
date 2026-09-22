@@ -9,7 +9,6 @@ import alertsDashboard from "@/assets/alerts-dashboard.png";
 import ammpIntelligence from "@/assets/ammp-intelligence.png";
 import financialReport from "@/assets/financial-impact-report.png";
 import integrationsImage from "@/assets/integrations.png";
-import energyMix from "@/assets/energy-mix.png";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/")({
@@ -32,8 +31,7 @@ function HomePage() {
       <SharedByDesign />
       <BrainSection />
       <PlatformSection />
-      <TwoInterfaces />
-      <PlatformGrid />
+      <PlatformOverview />
       <ResultsSection />
       <PageCta />
     </>
@@ -354,42 +352,7 @@ function PlatformSection() {
   );
 }
 
-/* 8a — A screen when you're watching (AI Co-Pilot Homepage) */
-function TwoInterfaces() {
-  return (
-    <section className="overflow-hidden bg-secondary py-20 lg:py-28">
-      <div className="site-container">
-        <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <div>
-            <p className="eyebrow">One system of record. Two ways to use it.</p>
-            <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
-          </div>
-          <Link to="/product" className="group flex items-center gap-2 text-sm font-semibold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
-        </div>
-        <div className="grid gap-5 lg:grid-cols-2">
-          <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-card">
-            <div className="p-7 sm:p-9">
-              <span className="eyebrow text-muted-foreground">For the team on shift</span>
-              <h3 className="mt-3 font-display text-2xl font-medium">AMMP OS</h3>
-              <p className="mt-3 max-w-md text-muted-foreground">Live portfolio views, alarms, performance analytics, and drill-down to the asset.</p>
-            </div>
-            <div className="mt-auto overflow-hidden border-t border-border bg-secondary"><img src={energyMix} alt="AMMP OS energy mix dashboard" className="h-auto w-full" /></div>
-          </article>
-          <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-card">
-            <div className="p-7 sm:p-9">
-              <span className="eyebrow">For the work nobody gets to</span>
-              <h3 className="mt-3 font-display text-2xl font-medium">AMMP AI coworkers</h3>
-              <p className="mt-3 max-w-md text-muted-foreground">Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.</p>
-            </div>
-            <div className="mt-auto overflow-hidden border-t border-border bg-secondary"><img src={ammpIntelligence} alt="AMMP AI intelligence with portfolio dashboard" className="h-auto w-full" /></div>
-          </article>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* 8b — AMMP OS is still all here (AMMP Home A) */
+/* 8 — AMMP OS + AI coworkers (merged: TwoInterfaces + PlatformGrid) */
 const modulesGrid = [
   { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device." },
   { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution." },
@@ -402,20 +365,55 @@ const modulesGrid = [
   { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant." },
 ];
 
-function PlatformGrid() {
+const interfaces = [
+  {
+    eyebrow: "For the team on shift",
+    title: "AMMP OS",
+    body: "Live portfolio views, alarms, performance analytics, and drill-down to the asset.",
+    icon: Monitor,
+  },
+  {
+    eyebrow: "For the work nobody gets to",
+    title: "AMMP AI coworkers",
+    body: "Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.",
+    icon: Bot,
+  },
+];
+
+function PlatformOverview() {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-secondary py-20 lg:py-28">
       <div className="site-container">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-5xl">
-             <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AMMP OS when you need it</h2>
-             <p className="mt-4 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p className="eyebrow">One system of record. Two ways to use it.</p>
+            <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
+          </div>
+          <Link to="/product" className="group flex items-center gap-2 text-sm font-semibold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
+        </div>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border lg:grid-cols-2">
+          {interfaces.map(({ eyebrow, title, body, icon: Icon }, index) => (
+            <article key={title} className="flex flex-col bg-background p-7 sm:p-9">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" />{eyebrow}</div>
+              <div className="mt-5 flex items-start justify-between gap-4">
+                <h3 className="font-display text-2xl font-medium">{title}</h3>
+                <span className={`grid size-10 shrink-0 place-items-center rounded-md ${index === 0 ? "bg-muted text-muted-foreground" : "bg-primary text-primary-foreground"}`}><Icon className="size-5" /></span>
+              </div>
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="eyebrow text-muted-foreground">Inside AMMP OS</p>
+            <h3 className="mt-3 font-display text-2xl font-medium sm:text-3xl">AMMP OS when you need it</h3>
+            <p className="mt-3 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {modulesGrid.map((m) => (
-            <Link key={m.title} to="/product" className="flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-shadow hover:shadow-md">
+            <Link key={m.title} to="/product" className="flex items-start gap-3 rounded-lg border border-border bg-background p-4 transition-shadow hover:shadow-md">
               <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
               <span>
                 <span className="block text-sm font-semibold text-foreground">{m.title}</span>
@@ -437,7 +435,7 @@ function ResultsSection() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="bg-secondary py-20 md:py-28">
+    <section className="bg-background py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>
