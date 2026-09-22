@@ -389,14 +389,16 @@ function PlatformOverview() {
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {modulesGrid.map((m) => (
-            <Link key={m.title} to="/product" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
-              <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              <span>
-                <span className="block text-sm font-semibold text-foreground">{m.title}</span>
-                <span className="mt-1 block text-sm text-muted-foreground">{m.body}</span>
-              </span>
-            </Link>
+          {modulesGrid.map((m, index) => (
+            <Reveal key={m.title} delay={(index % 3) * 90 + Math.floor(index / 3) * 60}>
+              <Link to="/product" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
+                <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  <span className="block text-sm font-semibold text-foreground">{m.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{m.body}</span>
+                </span>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -419,12 +421,14 @@ function ResultsSection() {
           <h2 className={`mt-3 text-balance ${h2Class}`}>Proven across live portfolios.</h2>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {results.map((result) => (
-            <div key={result.customer} className="glass rounded-3xl p-7 text-center transition-transform duration-300 hover:-translate-y-1 md:p-9">
-              <p className="font-display text-4xl font-medium tracking-[-0.02em] text-foreground">{result.value}</p>
-              <p className="mt-3 text-sm text-muted-foreground">{result.label}</p>
-              <Link to="/case-studies" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:underline">{result.customer}<ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
-            </div>
+          {results.map((result, index) => (
+            <Reveal key={result.customer} delay={index * 120} className="h-full">
+              <div className="glass h-full rounded-3xl p-7 text-center transition-transform duration-300 hover:-translate-y-1 md:p-9">
+                <p className="font-display text-4xl font-medium tracking-[-0.02em] text-foreground">{result.value}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{result.label}</p>
+                <Link to="/case-studies" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:underline">{result.customer}<ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
