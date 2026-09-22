@@ -9,7 +9,6 @@ import alertsDashboard from "@/assets/alerts-dashboard.png";
 import ammpIntelligence from "@/assets/ammp-intelligence.png";
 import financialReport from "@/assets/financial-impact-report.png";
 import integrationsImage from "@/assets/integrations.png";
-import energyMix from "@/assets/energy-mix.png";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/")({
@@ -32,8 +31,7 @@ function HomePage() {
       <SharedByDesign />
       <BrainSection />
       <PlatformSection />
-      <TwoInterfaces />
-      <PlatformGrid />
+      <PlatformOverview />
       <ResultsSection />
       <PageCta />
     </>
