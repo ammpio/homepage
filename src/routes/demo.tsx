@@ -40,6 +40,9 @@ function Page() {
 
           {tab === "interactive" && (
             <div className="mt-8 rounded-xl border border-border bg-card p-6">
+              <div className="mx-auto mb-8 max-w-3xl">
+                <VimeoPlayer videoId="1201387112" title="AMMP OS product walkthrough" poster={demoVideoThumbnail} chapters={DEMO_CHAPTERS} />
+              </div>
               <FeatureGrid columns={3} features={[
                 { title: "Portfolio Monitoring", text: "Live performance and availability across every site." },
                 { title: "AI Coworkers", text: "Investigate, prioritise and prepare work automatically." },
