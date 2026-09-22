@@ -55,8 +55,10 @@ function Page() {
               </button>
             ))}
           </div>
+        </div>
 
           {tab === "interactive" && (
+
             <div className="glass-strong mt-8 rounded-2xl p-6">
               <div className="mx-auto mb-8 max-w-3xl">
                 <VimeoPlayer videoId="1201387112" title="AMMP OS product walkthrough" poster={demoVideoThumbnail} chapters={DEMO_CHAPTERS} />
