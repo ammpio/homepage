@@ -204,8 +204,8 @@ function CoworkersSection() {
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground lg:whitespace-nowrap">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          <Capability proactive />
-          <Capability />
+          <Reveal><Capability proactive /></Reveal>
+          <Reveal delay={140}><Capability /></Reveal>
         </div>
       </div>
     </section>
@@ -222,7 +222,7 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
       {proactive ? (
         <div className="mt-6 space-y-2.5">
           {entries.map(([site, state], index) => (
-            <div key={site} className="glass-soft flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm">
+            <div key={site} className="msg-in glass-soft flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm" style={{ animationDelay: `${250 + index * 130}ms` }}>
               <span>{site}</span>
               <span className={index === 2 ? "text-muted-foreground" : "text-primary"}>{state}</span>
             </div>
@@ -255,18 +255,19 @@ function SharedByDesign() {
             <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Everyone can see what was requested, review the work, and add their own knowledge. Capabilities spread naturally because the learning happens together.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
-            {outcomes.map(({ icon: Icon, title, text, href }) => (
-              <Link
-                key={title}
-                to={href}
-                aria-label={title}
-                className="glass group flex flex-col rounded-3xl p-6 text-left transition-transform duration-300 hover:-translate-y-1"
-              >
-                <span className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></span>
-                <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-                <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
-              </Link>
+            {outcomes.map(({ icon: Icon, title, text, href }, index) => (
+              <Reveal key={title} delay={index * 100} className="h-full">
+                <Link
+                  to={href}
+                  aria-label={title}
+                  className="glass group flex h-full flex-col rounded-3xl p-6 text-left transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <span className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></span>
+                  <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
