@@ -201,9 +201,9 @@
 }
 
 @utility glass-nav {
-  background: color-mix(in oklab, var(--porcelain) 76%, transparent);
-  backdrop-filter: blur(24px) saturate(160%);
-  box-shadow: 0 1px 0 color-mix(in oklab, white 78%, transparent);
+  background: color-mix(in oklab, white 94%, transparent);
+  backdrop-filter: blur(30px) saturate(160%);
+  box-shadow: 0 1px 0 color-mix(in oklab, white 78%, transparent), 0 12px 32px -20px oklch(0.4 0.05 260 / 0.3);
 }
 
 @utility glass-footer {
