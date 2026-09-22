@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Band, PageHero, SectionHeading, StepList } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
 
 export const Route = createFileRoute("/customization")({
   head: () => ({
