@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Check, ChevronRight, Code, Database,
+  Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
   DollarSign, FileBarChart, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
   Network, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
 } from "lucide-react";
@@ -290,7 +290,7 @@ function BrainSection() {
             </div>
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
             <div className="flex min-h-64 flex-col items-center justify-center rounded-lg border border-primary/30 bg-card p-8 text-center shadow-xl">
-              <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary text-primary-foreground"><Database className="h-7 w-7" /></div>
+              <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary text-primary-foreground"><Brain className="h-7 w-7" /></div>
               <h3 className="mt-5 text-2xl font-medium">AMMP AI</h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/70 px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
