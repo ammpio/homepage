@@ -375,7 +375,7 @@ function PlatformOverview() {
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {interfaces.map(({ eyebrow, title, body, icon: Icon }, index) => (
             <article key={title} className={`flex flex-col rounded-3xl p-7 sm:p-9 ${index === 0 ? card : "bg-stone-900 text-white shadow-[0_24px_60px_-20px_rgba(28,25,23,0.45)]"}`}>
-              <CoworkerBadge label={eyebrow} tone={index === 0 ? "stone" : "amber"} />
+              <span className="self-start"><CoworkerBadge label={eyebrow} tone={index === 0 ? "stone" : "amber"} /></span>
               <div className="mt-6 flex items-start justify-between gap-4">
                 <h3 className="text-2xl font-extrabold tracking-[-0.01em]">{title}</h3>
                 <span className={`grid size-10 shrink-0 place-items-center rounded-full ${index === 0 ? "bg-stone-100 text-stone-600" : "bg-amber-500 text-white"}`}><Icon className="size-5" /></span>
