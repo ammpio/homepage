@@ -45,8 +45,9 @@ function Page() {
       <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our C&I solar and BESS monitoring platform—and the AI coworkers built on top of it—in action." />
 
       <Band tone="grey">
-        <div className="mx-auto max-w-4xl">
-          <div className="glass-soft inline-flex flex-wrap gap-2 rounded-2xl p-1.5">
+        <div className="flex justify-center">
+          <div className="glass-soft inline-flex flex-wrap justify-center gap-2 rounded-2xl p-1.5">
+
             {tabs.map(({ key, label, icon: Icon }) => (
               <button key={key} type="button" onClick={() => setTab(key)}
                 className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium ${tab === key ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-white/50 hover:text-foreground"}`}>
@@ -54,8 +55,10 @@ function Page() {
               </button>
             ))}
           </div>
+        </div>
 
           {tab === "interactive" && (
+
             <div className="glass-strong mt-8 rounded-2xl p-6">
               <div className="mx-auto mb-8 max-w-3xl">
                 <VimeoPlayer videoId="1201387112" title="AMMP OS product walkthrough" poster={demoVideoThumbnail} chapters={DEMO_CHAPTERS} />
@@ -91,8 +94,8 @@ function Page() {
               </ul>
             </div>
           )}
-        </div>
       </Band>
+
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">
