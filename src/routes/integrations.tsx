@@ -100,9 +100,9 @@ function Page() {
               <h2 className="mt-4 text-2xl font-bold">Software add-ons & integrations</h2>
               <p className="mt-3 text-muted-foreground">Extend AMMP with specialised tools for analytics, maintenance, notifications, and reporting.</p>
             </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               {softwareAddons.map((addon) => (
-                <div key={addon.name} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50">
+                <div key={addon.name} className="w-full rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
                   <p className="text-xs font-medium text-primary">{addon.category}</p>
                   <h3 className="mt-1 font-semibold">{addon.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{addon.description}</p>
@@ -119,9 +119,9 @@ function Page() {
               <h2 className="mt-4 text-2xl font-bold">AMMP Edge data logger</h2>
               <p className="mt-3 text-muted-foreground">AMMP Edge is a hardware gateway that interfaces with on-site devices and connects them to the AMMP platform.</p>
             </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               {edgeFeatures.map((f) => (
-                <div key={f.title} className="rounded-xl border border-border bg-card p-6">
+                <div key={f.title} className="w-full rounded-xl border border-border bg-card p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
                   <div className="flex items-center gap-2"><Zap className="size-4 text-primary" /><h3 className="font-semibold">{f.title}</h3></div>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.description}</p>
                 </div>
