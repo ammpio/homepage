@@ -101,7 +101,7 @@ function Page() {
           <h2 className="text-3xl font-semibold">Want a guided demo?</h2>
           <p className="mt-4 text-lg text-muted-foreground">Pick a time that suits you and we'll set up a personalised walkthrough with your team.</p>
         </div>
-        <div className="mx-auto mt-10 max-w-3xl"><BookMeeting className="min-h-[700px]" /></div>
+        <div className="mx-auto mt-10"><BookMeeting /></div>
         <div className="mx-auto mt-8 max-w-2xl text-center">
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="button button-ghost">Contact us <ArrowRight className="size-4" /></Link>

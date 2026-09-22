@@ -84,10 +84,12 @@ function Page() {
             </div>
           </div>
 
-          <div className="glass-strong rounded-2xl p-6">
-            <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
-            <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
-            <BookMeeting className="mt-6 min-h-[700px]" />
+          <div className="overflow-hidden rounded-2xl border border-border/50 bg-white">
+            <div className="px-6 pt-6">
+              <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
+              <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
+            </div>
+            <BookMeeting className="mt-6" />
           </div>
         </div>
       </Band>
