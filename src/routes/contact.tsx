@@ -33,7 +33,7 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.15fr]">
           <div className="space-y-6">
             <div className="glass-strong rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Send us a message</h2>
@@ -87,7 +87,7 @@ function Page() {
           <div className="glass-strong rounded-2xl p-6">
             <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
             <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
-            <BookMeeting className="mt-6" />
+            <BookMeeting className="mt-6 min-h-[700px]" />
           </div>
         </div>
       </Band>

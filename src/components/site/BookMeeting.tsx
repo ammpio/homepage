@@ -14,7 +14,7 @@ export function BookMeeting({ className }: { className?: string }) {
 
   return (
     <div
-      className={`meetings-iframe-container glass-strong min-h-[700px] w-full overflow-hidden rounded-2xl p-2 ${className ?? ""}`}
+      className={`meetings-iframe-container w-full ${className ?? ""}`}
       data-src="https://meetings.hubspot.com/andreas-lehner/contact-form?embed=true"
     />
   );
