@@ -19,35 +19,49 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <>
-      <Hero />
-      <ScaleBand />
-      <AgentsSection />
-      <CoworkersSection />
-      <SharedByDesign />
-      <ContextPlatformSection />
-      <PlatformOverview />
-      <ResultsSection />
+    <div className="canvas-porcelain relative overflow-hidden">
+      {/* ambient energy glows */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="glow-orb absolute -left-40 top-[8%] size-[34rem] bg-glow-amber/60" />
+        <div className="glow-orb absolute -right-52 top-[30%] size-[38rem] bg-glow-magenta/50" />
+        <div className="glow-orb absolute left-1/3 top-[72%] size-[32rem] bg-glow-amber/40" />
+      </div>
+      <div className="relative">
+        <Hero />
+        <ScaleBand />
+        <AgentsSection />
+        <CoworkersSection />
+        <SharedByDesign />
+        <ContextPlatformSection />
+        <PlatformOverview />
+        <ResultsSection />
+      </div>
       <PageCta />
-    </>
+    </div>
   );
 }
+
+const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
 
 /* 1 — Opening section (AMMP AI Co-Pilots) */
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background">
-      <div className="site-container grid items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-24">
+    <section className="relative">
+      <div className="site-container grid items-center gap-12 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-28">
         <div>
-          <h1 className="max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.05] md:text-6xl">
+          <span className="glass-soft inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground">
+            <span className="status-pulse size-1.5 rounded-full bg-primary" />
+            AI coworkers, live in your portfolio
+          </span>
+          <h1 className="mt-6 max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
             Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
             AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link>
-            <Link to="/ai" className="button button-ghost">See how it works</Link>
+            <Link to="/contact" className="button button-primary rounded-full px-5 shadow-[0_14px_34px_-14px_var(--primary)] transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4" /></Link>
+            <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
           </div>
         </div>
         <WorkspacePanel />
@@ -59,36 +73,36 @@ function Hero() {
 function WorkspacePanel() {
   const [completed, setCompleted] = useState(false);
   return (
-    <div>
-      <div className="overflow-hidden rounded-lg border border-border bg-card shadow-2xl">
-        <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-3">
+    <div className="float-soft">
+      <div className="glass-strong overflow-hidden rounded-3xl">
+        <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5">
           <div className="flex items-center gap-2">
             <MessageSquare className="size-4 text-muted-foreground" />
             <span className="text-sm font-medium"># portfolio-ops</span>
             <span className="hidden text-xs text-muted-foreground sm:inline">· shared workspace</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-primary"><span className="size-1.5 rounded-full bg-primary" />4 coworkers online</div>
+          <div className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />4 coworkers online</div>
         </div>
-        <div className="space-y-5 p-4 sm:p-5">
+        <div className="space-y-5 p-5 sm:p-6">
           <div className="flex gap-3">
-            <span className="grid size-9 shrink-0 place-items-center rounded-md bg-muted text-xs font-semibold">MO</span>
+            <span className="glass-soft grid size-9 shrink-0 place-items-center rounded-xl text-xs font-semibold">MO</span>
             <div>
               <div className="text-xs text-muted-foreground"><span className="font-medium text-foreground">M. Okafor</span> · 09:41</div>
               <p className="mt-1 text-sm">Why is the East Mesa array underproducing this week?</p>
             </div>
           </div>
           <div className="flex gap-3">
-            <span className="grid size-9 shrink-0 place-items-center rounded-md border border-primary/40 bg-primary/10 text-primary"><Radio className="size-4" /></span>
+            <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-primary"><Radio className="size-4" /></span>
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 <span className="font-medium text-primary">Portfolio analyst</span>
-                <span className="size-1.5 rounded-full bg-primary" />09:41
+                <span className="status-pulse size-1.5 rounded-full bg-primary" />09:41
               </div>
-              <div className="mt-2 rounded-md border border-border bg-background p-4">
+              <div className="glass mt-2 rounded-2xl p-4">
                 <p className="text-sm leading-relaxed">Yield is <strong className="font-semibold text-primary">6.8% below model</strong>. The pattern points to inverter IV-204 on block C.</p>
-                <div className="mt-4 rounded-md border border-border bg-muted/30 p-3">
+                <div className="glass-soft mt-4 rounded-xl p-3">
                   <div className="flex justify-between text-[11px] text-muted-foreground"><span>Root-cause evidence</span><span>3 sources</span></div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full w-[68%] rounded-full bg-primary" /></div>
+                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/70"><div className="h-full w-[68%] rounded-full bg-gradient-to-r from-glow-amber to-primary" /></div>
                   <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
                     <span>Irradiance <b className="font-medium text-foreground">0.94</b></span>
                     <span>Soiling <b className="font-medium text-foreground">12%</b></span>
@@ -96,10 +110,10 @@ function WorkspacePanel() {
                   </div>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <button type="button" onClick={() => setCompleted(true)} className="button button-primary min-h-9 text-xs">
+                  <button type="button" onClick={() => setCompleted(true)} className="button button-primary min-h-9 rounded-full text-xs">
                     {completed ? <Check className="size-3.5" /> : <Wrench className="size-3.5" />}{completed ? "Work order opened" : "Open work order"}
                   </button>
-                  <button type="button" className="button button-ghost min-h-9 text-xs">View evidence</button>
+                  <button type="button" className="button glass min-h-9 rounded-full text-xs text-foreground">View evidence</button>
                 </div>
               </div>
             </div>
@@ -119,14 +133,16 @@ function ScaleBand() {
     ["30+", "Integrations across devices and workflows"],
   ] as const;
   return (
-    <section className="border-b border-border bg-secondary" aria-label="AMMP portfolio scale">
-      <div className="site-container grid gap-7 py-8 md:grid-cols-3">
-        {metrics.map(([value, label]) => (
-          <div key={label}>
-            <div className="font-display text-3xl font-medium">{value}</div>
-            <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-          </div>
-        ))}
+    <section aria-label="AMMP portfolio scale">
+      <div className="site-container">
+        <div className="glass grid gap-7 rounded-3xl px-7 py-8 md:grid-cols-3 md:px-10">
+          {metrics.map(([value, label]) => (
+            <div key={label}>
+              <div className="font-display text-3xl font-medium tracking-[-0.02em]">{value}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -142,16 +158,19 @@ const agents = [
 
 function AgentsSection() {
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="site-container">
         <div className="max-w-5xl">
-          <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Your team just got new co-workers</h2>
+          <h2 className={h2Class}>Your team just got new co-workers</h2>
           <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           {agents.map((agent) => (
-            <div key={agent.name} className="rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-md">
-              <p className="text-lg font-semibold text-foreground">{agent.name}</p>
+            <div key={agent.name} className="glass group rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-2">
+                <span className="status-pulse size-1.5 rounded-full bg-primary" />
+                <p className="text-lg font-semibold text-foreground">{agent.name}</p>
+              </div>
               <p className="mt-1 text-sm font-medium text-muted-foreground">{agent.role}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{agent.body}</p>
             </div>
@@ -166,14 +185,14 @@ function AgentsSection() {
 /* 4 — Coworkers: proactive / on demand (AMMP AI Co-Pilots) */
 function CoworkersSection() {
   return (
-    <section className="border-y border-border bg-secondary">
+    <section>
       <div className="site-container py-20 lg:py-28">
         <div>
           <p className="eyebrow">AMMP AI AGENTS</p>
-          <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
+          <h2 className={`mt-4 ${h2Class}`}>Proactive when you don’t ask.<br />On demand when you do.</h2>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground lg:whitespace-nowrap">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
-        <div className="mt-12 grid overflow-hidden rounded-lg border border-border bg-border lg:grid-cols-2 lg:gap-px">
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
           <Capability proactive />
           <Capability />
         </div>
@@ -185,14 +204,14 @@ function CoworkersSection() {
 function Capability({ proactive = false }: { proactive?: boolean }) {
   const entries = [["East Mesa · inverter IV-204", "Needs review"], ["Ridge 2 · soiling pattern", "Watching"], ["Site 14 · SOC drift", "Resolved"]] as const;
   return (
-    <div className="bg-background p-6 lg:p-9">
-      <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" />{proactive ? "Proactive · portfolio triage" : "On demand · ask anything"}</div>
-      <h3 className="mt-4 font-display text-2xl font-medium">{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
+    <div className="glass rounded-3xl p-7 lg:p-9">
+      <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="status-pulse size-1.5 rounded-full bg-primary" />{proactive ? "Proactive · portfolio triage" : "On demand · ask anything"}</div>
+      <h3 className="mt-4 font-display text-2xl font-medium tracking-[-0.015em]">{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
       <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-muted-foreground">{proactive ? "Continuously scans the fleet and surfaces the issues that deserve attention before they grow." : "Ask in Slack or Teams for a diagnosis, contract check, report, or exploration of your portfolio data."}</p>
       {proactive ? (
         <div className="mt-6 space-y-2.5">
           {entries.map(([site, state], index) => (
-            <div key={site} className="flex items-center justify-between gap-3 rounded-md border border-border bg-card px-4 py-3 text-sm">
+            <div key={site} className="glass-soft flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm">
               <span>{site}</span>
               <span className={index === 2 ? "text-muted-foreground" : "text-primary"}>{state}</span>
             </div>
@@ -200,8 +219,8 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
         </div>
       ) : (
         <div className="mt-6 space-y-2.5">
-          <div className="rounded-md border border-border bg-card px-4 py-3"><div className="text-xs text-muted-foreground">You</div><p className="mt-1 text-sm">Is Q3 PPA compliance on track for Ridge 2?</p></div>
-          <div className="rounded-md border border-primary/30 bg-primary/5 px-4 py-3"><div className="text-xs font-medium text-primary">Compliance coworker</div><p className="mt-1 text-sm leading-relaxed">On track. I found two curtailment events, checked their treatment, and prepared the supporting detail for review.</p></div>
+          <div className="glass-soft rounded-xl px-4 py-3"><div className="text-xs text-muted-foreground">You</div><p className="mt-1 text-sm">Is Q3 PPA compliance on track for Ridge 2?</p></div>
+          <div className="rounded-xl border border-primary/25 bg-primary/5 px-4 py-3"><div className="text-xs font-medium text-primary">Compliance coworker</div><p className="mt-1 text-sm leading-relaxed">On track. I found two curtailment events, checked their treatment, and prepared the supporting detail for review.</p></div>
         </div>
       )}
     </div>
@@ -216,38 +235,28 @@ function SharedByDesign() {
     { icon: FileText, title: "Reporting teams", text: "Turn standardised portfolio data into clear, reviewable reporting outputs.", href: "/use-cases/reporting-teams" as const },
   ];
   return (
-    <section className="border-b border-border bg-background">
+    <section>
       <div className="site-container py-20 lg:py-28">
-         <p className="eyebrow">SHARED BY DESIGN</p>
+        <p className="eyebrow">SHARED BY DESIGN</p>
         <div className="mt-4 grid gap-10 lg:grid-cols-[.82fr_1.18fr]">
           <div>
-            <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Same workspace.<br />Same evidence.<br />Humans stay in control.</h2>
+            <h2 className={h2Class}>Same workspace.<br />Same evidence.<br />Humans stay in control.</h2>
             <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Everyone can see what was requested, review the work, and add their own knowledge. Capabilities spread naturally because the learning happens together.</p>
           </div>
-          <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
-            {outcomes.map(({ icon: Icon, title, text, href }) => {
-              const inner = (
-                <>
-                  <Icon className="size-5 text-primary" />
-                  <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-                  <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform duration-200" />
-                </>
-              );
-              const box = "flex flex-col bg-background p-6 text-left transition-colors duration-200";
-              if (href) {
-                return (
-                  <Link key={title} to={href} className={`${box} group cursor-pointer hover:bg-secondary/50 [&>svg:last-child]:group-hover:translate-x-0.5 [&>svg:last-child]:group-hover:text-primary`} aria-label={title}>
-                    {inner}
-                  </Link>
-                );
-              }
-              return (
-                <div key={title} className={`${box} [&>svg:last-child]:invisible`}>
-                  {inner}
-                </div>
-              );
-            })}
+          <div className="grid gap-5 md:grid-cols-3">
+            {outcomes.map(({ icon: Icon, title, text, href }) => (
+              <Link
+                key={title}
+                to={href}
+                aria-label={title}
+                className="glass group flex flex-col rounded-3xl p-6 text-left transition-transform duration-300 hover:-translate-y-1"
+              >
+                <span className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></span>
+                <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -264,12 +273,12 @@ function ContextPlatformSection() {
     { icon: Activity, label: "Time-series data" },
   ];
   return (
-    <section className="bg-secondary py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="site-container">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="eyebrow">AI built on an operating platform</p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AI can only work with what it understands</h2>
+            <h2 className={`mt-3 text-balance ${h2Class}`}>AI can only work with what it understands</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
@@ -278,27 +287,27 @@ function ContextPlatformSection() {
           <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
             <div className="grid grid-cols-2 gap-3">
               {sources.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex min-h-28 flex-col justify-between rounded-md border border-border bg-card p-4 shadow-sm">
+                <div key={label} className="glass flex min-h-28 flex-col justify-between rounded-2xl p-4">
                   <Icon className="h-5 w-5 text-muted-foreground" />
                   <p className="text-sm font-semibold">{label}</p>
                 </div>
               ))}
             </div>
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
-            <div className="flex min-h-64 flex-col items-center justify-center rounded-lg border border-primary/30 bg-card p-8 text-center shadow-xl">
-              <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary text-primary-foreground"><Brain className="h-7 w-7" /></div>
-              <h3 className="mt-5 text-2xl font-medium">AMMP AI</h3>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
-              <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/70 px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
+            <div className="glass-strong relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center">
+              <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[0_14px_34px_-14px_var(--primary)]"><Brain className="h-7 w-7" /></div>
+              <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP AI</h3>
+              <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
+              <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
             </div>
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
             <div className="grid gap-3">
-              <div className="rounded-md border border-border bg-card p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div>
-              <div className="rounded-md border border-border bg-card p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div>
+              <div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div>
+              <div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -334,22 +343,22 @@ const interfaces = [
 
 function PlatformOverview() {
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="py-20 lg:py-28">
       <div className="site-container">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <p className="eyebrow">One system of record. Two ways to use it.</p>
-            <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">A screen when you’re watching.<br />A coworker when you’re not.</h2>
+            <h2 className={`mt-4 ${h2Class}`}>A screen when you’re watching.<br />A coworker when you’re not.</h2>
           </div>
           <Link to="/product" className="group flex items-center gap-2 text-sm font-semibold text-primary">Explore the platform <ChevronRight className="size-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border lg:grid-cols-2">
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {interfaces.map(({ eyebrow, title, body, icon: Icon }, index) => (
-            <article key={title} className="flex flex-col bg-background p-7 sm:p-9">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-primary" />{eyebrow}</div>
+            <article key={title} className="glass flex flex-col rounded-3xl p-7 sm:p-9">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="status-pulse size-1.5 rounded-full bg-primary" />{eyebrow}</div>
               <div className="mt-5 flex items-start justify-between gap-4">
-                <h3 className="font-display text-2xl font-medium">{title}</h3>
-                <span className={`grid size-10 shrink-0 place-items-center rounded-md ${index === 0 ? "bg-muted text-muted-foreground" : "bg-primary text-primary-foreground"}`}><Icon className="size-5" /></span>
+                <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">{title}</h3>
+                <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${index === 0 ? "bg-white/70 text-muted-foreground" : "bg-primary text-primary-foreground"}`}><Icon className="size-5" /></span>
               </div>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{body}</p>
             </article>
@@ -358,15 +367,15 @@ function PlatformOverview() {
         <div className="mt-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="eyebrow text-muted-foreground">Inside AMMP OS</p>
-            <h3 className="mt-3 font-display text-2xl font-medium sm:text-3xl">AMMP OS when you need it</h3>
+            <h3 className="mt-3 font-display text-2xl font-medium tracking-[-0.015em] sm:text-3xl">AMMP OS when you need it</h3>
             <p className="mt-3 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {modulesGrid.map((m) => (
-            <Link key={m.title} to="/product" className="flex items-start gap-3 rounded-lg border border-border bg-background p-4 transition-shadow hover:shadow-md">
-              <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+            <Link key={m.title} to="/product" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
+              <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
               <span>
                 <span className="block text-sm font-semibold text-foreground">{m.title}</span>
                 <span className="mt-1 block text-sm text-muted-foreground">{m.body}</span>
@@ -387,16 +396,16 @@ function ResultsSection() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="bg-secondary py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>
-          <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proven across live portfolios.</h2>
+          <h2 className={`mt-3 text-balance ${h2Class}`}>Proven across live portfolios.</h2>
         </div>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
           {results.map((result) => (
-            <div key={result.customer} className="bg-card p-7 text-center md:p-9">
-              <p className="font-display text-4xl font-medium text-foreground">{result.value}</p>
+            <div key={result.customer} className="glass rounded-3xl p-7 text-center transition-transform duration-300 hover:-translate-y-1 md:p-9">
+              <p className="font-display text-4xl font-medium tracking-[-0.02em] text-foreground">{result.value}</p>
               <p className="mt-3 text-sm text-muted-foreground">{result.label}</p>
               <Link to="/case-studies" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:underline">{result.customer}<ArrowRight className="ml-1 h-3.5 w-3.5" /></Link>
             </div>
