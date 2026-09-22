@@ -48,11 +48,12 @@ function ArticlePage() {
 
   return (
     <>
-      <section className="border-b border-border/70 bg-background py-16 md:py-20">
-        <div className="site-container mx-auto max-w-3xl">
+      <section className="luminous-hero relative overflow-hidden border-b border-border/50 py-16 md:py-20">
+        <div aria-hidden className="glow-orb absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
+        <div className="site-container relative mx-auto max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" />All articles</Link>
           <p className="eyebrow mt-8">{post.category}</p>
-          <h1 className="mt-4 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">{post.title}</h1>
+           <h1 className="mt-4 font-display text-4xl font-medium leading-[1.1] tracking-[-0.018em] sm:text-5xl">{post.title}</h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">{post.excerpt}</p>
           <p className="mt-6 text-sm text-muted-foreground">{date} · {post.readTime}</p>
         </div>
@@ -81,7 +82,7 @@ function ArticlePage() {
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {more.map((p) => (
-            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50">
+             <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="glass glass-lift rounded-2xl p-6">
               <p className="text-xs font-semibold text-primary">{p.category}</p>
               <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{p.excerpt}</p>

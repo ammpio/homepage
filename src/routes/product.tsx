@@ -40,7 +40,7 @@ type CategoryId = (typeof categories)[number]["id"];
 
 function Card({ icon: Icon, title, children }: { icon: typeof Zap; title: string; children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6">
+    <div className="glass glass-lift rounded-2xl p-6">
       <Icon className="size-5 text-primary" />
       <h3 className="mt-4 text-lg font-semibold">{title}</h3>
       <div className="mt-2 text-sm leading-6 text-muted-foreground">{children}</div>
@@ -58,7 +58,7 @@ const panels: Record<CategoryId, ReactNode> = {
   ticketing: (
     <div className="space-y-16">
       <SplitFeature eyebrow="Ticketing" title="Track issues from detection to resolution" text="Track and manage issues from detection to resolution. Integrated ticketing workflows keep your team aligned and accountable." image={ticketingImage} imageAlt="Ticketing" bullets={["Create tickets directly from alerts", "SLA tracking across every site"]} />
-      <div className="rounded-xl border border-border bg-card p-6">
+      <div className="glass rounded-2xl p-6">
         <div className="flex items-center gap-3"><Kanban className="size-5 text-primary" /><h3 className="text-lg font-semibold">monday.com integration</h3></div>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">Sync AMMP tickets with your monday.com boards so O&M teams can triage, assign and close work in the tool they already use. Currently in alpha, available through AMMP Labs.</p>
         <Link to="/beta" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">View in AMMP Labs <ArrowRight className="size-4" /></Link>
@@ -113,7 +113,7 @@ const panels: Record<CategoryId, ReactNode> = {
         <Card icon={Server} title="MCP Server">A Model Context Protocol server, so any MCP-compatible AI assistant can securely query your assets, KPIs, alerts and raw time-series in natural language, within your existing access controls.</Card>
         <Card icon={Bell} title="AI Agents">A team of agents on top of the MCP server: Ray, an in-platform coworker, plus visualisation, QA and monitoring agents that proactively check data, dashboards and portfolio health.</Card>
       </div>
-      <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-sm"><img src={ammpIntelligence} alt="AMMP Intelligence" className="w-full" loading="lazy" /></div>
+      <div className="glass-strong mt-8 overflow-hidden rounded-2xl p-2"><img src={ammpIntelligence} alt="AMMP Intelligence" className="w-full rounded-xl" loading="lazy" /></div>
       <Link to="/ai" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Learn more about AI at AMMP <ArrowRight className="size-4" /></Link>
     </div>
   ),
@@ -143,10 +143,10 @@ function Page() {
           </select>
         </div>
 
-        <div className="hidden flex-wrap gap-1 rounded-lg border border-border bg-card p-1 md:flex">
+        <div className="glass-strong hidden flex-wrap gap-1 rounded-2xl p-1.5 md:flex">
           {categories.map(({ id, label, icon: Icon }) => (
             <button key={id} type="button" onClick={() => setActive(id)}
-              className={`inline-flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${active === id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              className={`inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${active === id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-white/50 hover:text-foreground"}`}>
               <Icon className="size-4" />{label}
             </button>
           ))}

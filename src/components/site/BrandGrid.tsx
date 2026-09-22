@@ -2,7 +2,7 @@ import type { Brand } from "@/data/integrations";
 
 function BrandCard({ name, logo, className }: Brand & { className?: string }) {
   return (
-    <div className={`flex min-h-[100px] flex-col items-center justify-center rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/50 ${className ?? ""}`}>
+    <div className={`glass glass-lift flex min-h-[100px] flex-col items-center justify-center rounded-2xl p-4 ${className ?? ""}`}>
       <div className="mb-2 flex w-full items-center justify-center">
         {logo
           ? <img src={logo} alt={name} className="max-h-8 max-w-full object-contain" loading="lazy" />

@@ -51,10 +51,10 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="mx-auto grid max-w-xl grid-cols-3 gap-1 rounded-lg border border-border bg-card p-1">
+        <div className="glass-strong mx-auto grid max-w-xl grid-cols-3 gap-1 rounded-2xl p-1.5">
           {tabs.map(({ key, label, short, icon: Icon }) => (
             <button key={key} type="button" onClick={() => setTab(key)}
-              className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors ${tab === key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium transition-colors ${tab === key ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-white/50 hover:text-foreground"}`}>
               <Icon className="size-4 shrink-0" />
               <span className="hidden sm:inline">{label}</span>
               <span className="sm:hidden">{short}</span>
@@ -72,7 +72,7 @@ function Page() {
             <div className="relative mx-auto mb-10 mt-8 max-w-md">
               <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
               <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for your equipment brand…" aria-label="Search integrations"
-                className="h-11 w-full rounded-md border border-border bg-card pl-10 pr-10 text-sm outline-none focus:border-primary" />
+                 className="h-12 w-full rounded-full border border-border bg-card pl-10 pr-10 text-sm outline-none focus:border-primary" />
               {query && (
                 <button type="button" onClick={() => setQuery("")} aria-label="Clear search" className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                   <X className="size-4" />
@@ -102,7 +102,7 @@ function Page() {
             </div>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               {softwareAddons.map((addon) => (
-                <div key={addon.name} className="w-full rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
+                 <div key={addon.name} className="glass glass-lift w-full rounded-2xl p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
                   <p className="text-xs font-medium text-primary">{addon.category}</p>
                   <h3 className="mt-1 font-semibold">{addon.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{addon.description}</p>
@@ -121,7 +121,7 @@ function Page() {
             </div>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               {edgeFeatures.map((f) => (
-                <div key={f.title} className="w-full rounded-xl border border-border bg-card p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
+                 <div key={f.title} className="glass glass-lift w-full rounded-2xl p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]">
                   <div className="flex items-center gap-2"><Zap className="size-4 text-primary" /><h3 className="font-semibold">{f.title}</h3></div>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.description}</p>
                 </div>

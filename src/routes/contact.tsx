@@ -35,7 +35,7 @@ function Page() {
       <Band tone="grey">
         <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
           <div className="space-y-6">
-            <div className="rounded-xl border border-border bg-card p-6">
+            <div className="glass-strong rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Send us a message</h2>
               {submitted ? (
                 <div className="mt-6 flex items-start gap-3 rounded-lg border border-primary/30 bg-primary/5 p-4 text-sm">
@@ -69,7 +69,7 @@ function Page() {
               )}
             </div>
 
-            <div className="rounded-xl border border-border bg-card p-6">
+            <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Contact information</h2>
               <div className="mt-4 space-y-3">
                 <a href="mailto:contact@ammp.io" className="flex items-center gap-3 text-muted-foreground hover:text-foreground">
@@ -84,7 +84,7 @@ function Page() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-6">
+          <div className="glass-strong rounded-2xl p-6">
             <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
             <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
             <BookMeeting className="mt-6" />

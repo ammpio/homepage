@@ -32,7 +32,7 @@ const agents = [
 
 function DiagramCard({ title, subtitle, items, dashed }: { title: string; subtitle: string; items: string[]; dashed?: boolean }) {
   return (
-    <div className={`rounded-xl border bg-background p-5 h-full ${dashed ? "border-dashed border-border" : "border-border"}`}>
+    <div className={`glass h-full rounded-2xl p-5 ${dashed ? "border-dashed" : ""}`}>
       <p className="font-semibold">{title}</p>
       <p className="text-sm text-muted-foreground">{subtitle}</p>
       <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
@@ -76,15 +76,15 @@ function Page() {
       <Band>
         <SectionHeading center eyebrow="How it fits together" title="How this can fit into your stack" intro="A rough map of the integration options we are testing with beta customers. Use our AI coworkers, bring your own assistant, or both." />
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2 rounded-2xl border-2 border-dashed border-border bg-secondary/20 p-5">
+          <div className="glass-soft rounded-3xl border-2 border-dashed lg:col-span-2 p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Provided by AMMP</p>
             <div className="mt-4">
               <DiagramCard title="AI coworker" subtitle="In Slack, Teams and AMMP OS" items={["Remembers your context and learns from feedback", "Combines data sources into one answer", "Builds reports, exports and interactive charts", "Live dashboards and on-the-fly troubleshooting"]} />
             </div>
-            <div className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-5 text-center">
+            <div className="mt-4 rounded-2xl border border-primary/30 bg-primary/5 p-5 text-center">
               <div className="inline-flex items-center gap-2 font-semibold text-primary"><Server className="size-5" />MCP server</div>
             </div>
-            <div className="mt-4 rounded-xl border border-border bg-secondary/40 p-5 text-center font-medium">Your energy portfolio</div>
+            <div className="glass-soft mt-4 rounded-2xl p-5 text-center font-medium">Your energy portfolio</div>
           </div>
           <div className="grid gap-4 content-start">
             <DiagramCard title="Your AI assistant" subtitle="Claude, Codex, Copilot" items={["Native chat interface", "Direct portfolio access", "Full MCP tool support"]} />
@@ -96,7 +96,7 @@ function Page() {
 
       <Band tone="grey">
         <SectionHeading center eyebrow="Ray" title="Ray" intro="Ray is our AI coworker inside AMMP OS. Ask it for an overview and it builds the chart, then explains what it found on the way there." />
-        <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+        <div className="glass-strong mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl p-2">
           <img src={ammpIntelligence} alt="Ray" className="w-full" loading="lazy" />
         </div>
         <div className="mt-4 text-center">
