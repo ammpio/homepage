@@ -163,7 +163,6 @@ function Page() {
         </div>
       </Band>
 
-      <PageCta />
     </>
   );
 }
