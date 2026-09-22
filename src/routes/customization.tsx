@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Band, PageHero, SectionHeading, StepList } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
 
 export const Route = createFileRoute("/customization")({
   head: () => ({
@@ -112,9 +111,6 @@ function Page() {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
             </div>
           ))}
-        </div>
-        <div className="mt-10 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-          <img src={customDashboardsImg} alt="Custom dashboards" className="w-full" loading="lazy" />
         </div>
       </Band>
 
