@@ -29,8 +29,7 @@ function HomePage() {
       <AgentsSection />
       <CoworkersSection />
       <SharedByDesign />
-      <BrainSection />
-      <PlatformSection />
+      <ContextPlatformSection />
       <PlatformOverview />
       <ResultsSection />
       <PageCta />
