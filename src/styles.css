@@ -188,8 +188,8 @@
 }
 
 @utility glass-strong {
-  background: color-mix(in oklab, white 78%, transparent);
-  backdrop-filter: blur(26px) saturate(170%);
+  background: color-mix(in oklab, white 94%, transparent);
+  backdrop-filter: blur(32px) saturate(170%);
   border: 1px solid color-mix(in oklab, white 85%, var(--border) 25%);
   box-shadow: 0 1px 0 0 color-mix(in oklab, white 90%, transparent) inset, 0 34px 80px -34px oklch(0.4 0.05 260 / 0.45);
 }
