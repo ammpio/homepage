@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code, Database,
+  Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
   DollarSign, FileBarChart, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
   Network, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
 } from "lucide-react";
