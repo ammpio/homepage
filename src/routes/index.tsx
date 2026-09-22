@@ -2,13 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
-  DollarSign, FileBarChart, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
-  Network, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
+  DollarSign, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
+  Plug, PlugZap, Radio, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
-import alertsDashboard from "@/assets/alerts-dashboard.png";
-import ammpIntelligence from "@/assets/ammp-intelligence.png";
-import financialReport from "@/assets/financial-impact-report.png";
-import integrationsImage from "@/assets/integrations.png";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/")({
@@ -259,22 +255,14 @@ function SharedByDesign() {
   );
 }
 
-/* 6 — Merged: AI has the context (brain diagram) + the platform underneath (tabs) */
+/* 6 — Merged: AI has the context (brain diagram) + the platform underneath */
 function ContextPlatformSection() {
-  const [active, setActive] = useState(0);
   const sources = [
     { icon: Sun, label: "Assets and alerts" },
     { icon: BatteryCharging, label: "PV, BESS and hybrid" },
     { icon: Gauge, label: "KPIs and obligations" },
     { icon: Activity, label: "Time-series data" },
   ];
-  const modules = [
-    { key: "operate", title: "Monitor and act", desc: "Live performance, intelligent alerts and ticketing across every site.", icon: Activity, image: alertsDashboard },
-    { key: "report", title: "Report and explain", desc: "Consistent KPIs, commercial logic and reports built from one source of truth.", icon: FileBarChart, image: financialReport },
-    { key: "connect", title: "Connect every system", desc: "Vendor-agnostic integrations spanning solar, storage, meters and generators.", icon: Network, image: integrationsImage },
-    { key: "explore", title: "Explore with AI", desc: "Ask questions, build visualisations and investigate portfolio behaviour with live context.", icon: Sparkles, image: ammpIntelligence },
-  ];
-  const current = modules[active] ?? modules[0]!;
   return (
     <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
@@ -311,28 +299,6 @@ function ContextPlatformSection() {
           </div>
         </div>
 
-        <div className="mt-14 grid overflow-hidden rounded-lg border border-border lg:grid-cols-[0.78fr_1.22fr]">
-          <div className="divide-y divide-border bg-card">
-            {modules.map(({ key, title, desc, icon: Icon }, index) => (
-              <button key={key} type="button" onClick={() => setActive(index)} className={`flex w-full items-start gap-4 p-5 text-left transition-colors md:p-6 ${active === index ? "bg-primary text-primary-foreground" : "hover:bg-secondary/60"}`}>
-                <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${active === index ? "text-primary-foreground" : "text-muted-foreground"}`} />
-                <div>
-                  <p className="font-semibold">{title}</p>
-                  <p className={`mt-1 text-sm leading-relaxed ${active === index ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{desc}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-          <div className="flex min-h-96 items-center bg-secondary/50 p-5 md:p-8">
-            <div className="overflow-hidden rounded-md border border-border bg-card shadow-xl">
-              <img key={current.key} src={current.image} alt={`AMMP ${current.title}`} className="w-full object-cover" />
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-8 border-y border-border py-7">
-          <Link to="/ai" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">See how AI works at AMMP<ArrowRight className="ml-1 h-4 w-4" /></Link>
-          <Link to="/integrations" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">View all integrations<ArrowRight className="ml-1 h-4 w-4" /></Link>
-        </div>
       </div>
     </section>
   );
