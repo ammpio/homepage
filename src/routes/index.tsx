@@ -259,22 +259,14 @@ function SharedByDesign() {
   );
 }
 
-/* 6 — Merged: AI has the context (brain diagram) + the platform underneath (tabs) */
+/* 6 — Merged: AI has the context (brain diagram) + the platform underneath */
 function ContextPlatformSection() {
-  const [active, setActive] = useState(0);
   const sources = [
     { icon: Sun, label: "Assets and alerts" },
     { icon: BatteryCharging, label: "PV, BESS and hybrid" },
     { icon: Gauge, label: "KPIs and obligations" },
     { icon: Activity, label: "Time-series data" },
   ];
-  const modules = [
-    { key: "operate", title: "Monitor and act", desc: "Live performance, intelligent alerts and ticketing across every site.", icon: Activity, image: alertsDashboard },
-    { key: "report", title: "Report and explain", desc: "Consistent KPIs, commercial logic and reports built from one source of truth.", icon: FileBarChart, image: financialReport },
-    { key: "connect", title: "Connect every system", desc: "Vendor-agnostic integrations spanning solar, storage, meters and generators.", icon: Network, image: integrationsImage },
-    { key: "explore", title: "Explore with AI", desc: "Ask questions, build visualisations and investigate portfolio behaviour with live context.", icon: Sparkles, image: ammpIntelligence },
-  ];
-  const current = modules[active] ?? modules[0]!;
   return (
     <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
