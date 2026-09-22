@@ -160,4 +160,64 @@
 @utility button-ghost { border: 1px solid var(--color-border); background: var(--color-background); color: var(--color-foreground); &:hover { background: var(--color-secondary); } }
 @utility technical-grid { background-image: linear-gradient(color-mix(in oklab, var(--border) 38%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--border) 38%, transparent) 1px, transparent 1px); background-size: 48px 48px; }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+/* ---- Luminous Glass (homepage) ---- */
+:root {
+  --porcelain: oklch(0.985 0.004 95);
+  --glow-amber: oklch(0.86 0.13 78);
+  --glow-magenta: oklch(0.78 0.16 5);
+}
+@theme inline {
+  --color-porcelain: var(--porcelain);
+  --color-glow-amber: var(--glow-amber);
+  --color-glow-magenta: var(--glow-magenta);
+}
+
+@utility canvas-porcelain {
+  background:
+    radial-gradient(70rem 40rem at 12% -10%, color-mix(in oklab, var(--glow-amber) 30%, transparent), transparent 62%),
+    radial-gradient(60rem 38rem at 92% 6%, color-mix(in oklab, var(--glow-magenta) 24%, transparent), transparent 60%),
+    radial-gradient(52rem 34rem at 50% 108%, color-mix(in oklab, var(--glow-magenta) 14%, transparent), transparent 66%),
+    var(--porcelain);
+}
+
+@utility glass {
+  background: color-mix(in oklab, white 62%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid color-mix(in oklab, white 70%, var(--border) 30%);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, white 80%, transparent) inset, 0 18px 48px -24px oklch(0.4 0.05 260 / 0.35);
+}
+
+@utility glass-strong {
+  background: color-mix(in oklab, white 78%, transparent);
+  backdrop-filter: blur(26px) saturate(170%);
+  border: 1px solid color-mix(in oklab, white 85%, var(--border) 25%);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, white 90%, transparent) inset, 0 34px 80px -34px oklch(0.4 0.05 260 / 0.45);
+}
+
+@utility glass-soft {
+  background: color-mix(in oklab, white 46%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid color-mix(in oklab, white 60%, var(--border) 40%);
+}
+
+@utility glow-orb {
+  filter: blur(72px);
+  opacity: .55;
+  border-radius: 9999px;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 55%, transparent); }
+  70% { box-shadow: 0 0 0 8px color-mix(in oklab, var(--primary) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 0%, transparent); }
+}
+@utility status-pulse { animation: pulse-ring 2.4s ease-out infinite; }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@utility float-soft { animation: float-soft 9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; } }
+
