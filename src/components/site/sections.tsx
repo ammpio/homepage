@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/site/Reveal";
 
-/* Shared building blocks for every content page.
-   Bands alternate between white (bg-background) and soft grey (bg-secondary/35). */
+/* Shared Luminous Glass building blocks for every content page. */
 
 export function Band({ tone = "white", className = "", children }: { tone?: "white" | "grey"; className?: string; children: ReactNode }) {
   return (
-    <section className={`${tone === "grey" ? "bg-secondary" : "bg-background"} border-b border-border/70 py-16 md:py-24 ${className}`}>
-      <div className="site-container">{children}</div>
+    <section className={`${tone === "grey" ? "luminous-band-tinted" : "luminous-band"} border-b border-border/50 py-16 md:py-24 ${className}`}>
+      <Reveal className="site-container">{children}</Reveal>
     </section>
   );
 }
@@ -18,8 +18,9 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
   primary?: { label: string; to: string }; secondary?: { label: string; to: string }; aside?: ReactNode;
 }) {
   return (
-    <section className="border-b border-border/70 bg-background py-16 md:py-24">
-      <div className={`site-container ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
+    <section className="luminous-hero relative overflow-hidden border-b border-border/50 py-16 md:py-24">
+      <div aria-hidden className="glow-orb absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
+      <div className={`site-container site-section-enter relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
         <div>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
@@ -56,7 +57,7 @@ export function FeatureGrid({ features, columns = 3 }: { features: Feature[]; co
   return (
     <div className={`mt-10 grid gap-5 ${cols}`}>
       {features.map(({ title, text, icon: Icon, items }) => (
-        <article key={title} className="rounded-xl border border-border bg-card p-6">
+        <article key={title} className="glass glass-lift rounded-2xl p-6">
           {Icon && <Icon className="size-5 text-primary" />}
           <h3 className="mt-4 text-lg font-semibold">{title}</h3>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
@@ -88,16 +89,16 @@ export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, r
           </ul>
         )}
       </div>
-      {image && <img src={image} alt={imageAlt ?? title ?? "Feature"} className="w-full rounded-xl border border-border bg-card shadow-sm" loading="lazy" />}
+      {image && <div className="glass-strong overflow-hidden rounded-2xl p-2"><img src={image} alt={imageAlt ?? title ?? "Feature"} className="w-full rounded-xl" loading="lazy" /></div>}
     </div>
   );
 }
 
 export function StatStrip({ stats }: { stats: { value: string; label: string }[] }) {
   return (
-    <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+    <div className="glass grid overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4">
       {stats.map(({ value, label }) => (
-        <div key={label} className="bg-card p-6">
+        <div key={label} className="border-b border-r border-border/50 bg-transparent p-6 last:border-r-0">
           <p className="text-3xl font-semibold text-primary">{value}</p>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{label}</p>
         </div>
@@ -110,7 +111,7 @@ export function StepList({ steps }: { steps: { title: string; text: string }[] }
   return (
     <ol className="mt-10 grid gap-5 md:grid-cols-3 lg:grid-flow-col lg:auto-cols-fr">
       {steps.map(({ title, text }, i) => (
-        <li key={title} className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+        <li key={title} className="glass glass-lift flex flex-col items-center rounded-2xl p-6 text-center">
           <span className="text-xs font-semibold text-primary">0{i + 1}</span>
           <h3 className="mt-3 text-lg font-semibold">{title}</h3>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
@@ -122,7 +123,7 @@ export function StepList({ steps }: { steps: { title: string; text: string }[] }
 
 export function QuoteBand({ quote, author }: { quote: string; author?: string }) {
   return (
-    <figure className="mx-auto max-w-3xl text-center">
+    <figure className="glass-strong mx-auto max-w-4xl rounded-3xl px-6 py-10 text-center sm:px-12">
       <blockquote className="text-2xl font-medium leading-relaxed sm:text-3xl">“{quote}”</blockquote>
       {author && <figcaption className="mt-5 text-sm text-muted-foreground">{author}</figcaption>}
     </figure>
@@ -131,7 +132,7 @@ export function QuoteBand({ quote, author }: { quote: string; author?: string })
 
 export function Faq({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="mt-10 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
+    <div className="glass-strong mt-10 divide-y divide-border/60 overflow-hidden rounded-2xl">
       {items.map(({ q, a }) => (
         <details key={q} className="group p-6">
           <summary className="cursor-pointer list-none text-base font-semibold marker:hidden">{q}</summary>
@@ -148,9 +149,9 @@ export function CompareTable({ otherLabel, rows }: { otherLabel: string; rows: C
   const cell = (v: string | boolean) =>
     typeof v === "boolean" ? (v ? <Check className="size-4 text-primary" /> : <Minus className="size-4 text-muted-foreground" />) : <span>{v}</span>;
   return (
-    <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
+    <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
       <table className="w-full min-w-[640px] text-left text-sm">
-        <thead className="border-b border-border bg-secondary/40">
+        <thead className="border-b border-border/60 bg-white/35">
           <tr><th className="p-4 font-semibold">Capability</th><th className="p-4 font-semibold text-primary">AMMP</th><th className="p-4 font-semibold">{otherLabel}</th></tr>
         </thead>
         <tbody className="divide-y divide-border">
@@ -164,5 +165,5 @@ export function CompareTable({ otherLabel, rows }: { otherLabel: string; rows: C
 }
 
 export function Prose({ children }: { children: ReactNode }) {
-  return <div className="mx-auto max-w-3xl space-y-5 text-base leading-8 text-muted-foreground [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">{children}</div>;
+  return <div className="glass-strong mx-auto max-w-4xl space-y-5 rounded-3xl px-6 py-8 text-base leading-8 text-muted-foreground sm:px-10 sm:py-10 [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">{children}</div>;
 }

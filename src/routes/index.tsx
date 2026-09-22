@@ -20,13 +20,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <div className="canvas-porcelain relative overflow-hidden">
-      {/* ambient energy glows */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="glow-orb orb-drift absolute -left-40 top-[8%] size-[34rem] bg-glow-amber/60" />
-        <div className="glow-orb orb-drift absolute -right-52 top-[30%] size-[38rem] bg-glow-magenta/50" style={{ animationDuration: "27s", animationDelay: "-9s" }} />
-        <div className="glow-orb orb-drift absolute left-1/3 top-[72%] size-[32rem] bg-glow-amber/40" style={{ animationDuration: "31s", animationDelay: "-17s" }} />
-      </div>
+    <div className="relative overflow-hidden">
       <div className="relative">
         <Hero />
         <ScaleBand />
