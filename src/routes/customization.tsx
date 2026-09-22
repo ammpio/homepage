@@ -113,9 +113,6 @@ function Page() {
             </div>
           ))}
         </div>
-        <div className="mt-10 overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-          <img src={customDashboardsImg} alt="Custom dashboards" className="w-full" loading="lazy" />
-        </div>
       </Band>
 
       <Band>
