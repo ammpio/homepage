@@ -224,12 +224,6 @@
 .luminous-band-tinted { background: color-mix(in oklab, var(--secondary) 47%, transparent); }
 .luminous-hero { background: color-mix(in oklab, white 18%, transparent); }
 
-@keyframes section-enter {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.site-section-enter { animation: section-enter .65s cubic-bezier(.22,1,.36,1) both; }
-
 /* Route-level surfaces inherit the same glass language without changing content. */
 .site-luminous main .bg-card {
   background: color-mix(in oklab, white 62%, transparent);
@@ -313,5 +307,5 @@
   &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, color-mix(in oklab, white 65%, transparent) 50%, transparent 70%); transform: translateX(-100%); animation: shimmer 2.8s ease-in-out infinite; }
 }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; } .reveal { opacity: 1; transform: none; } .site-section-enter { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
 

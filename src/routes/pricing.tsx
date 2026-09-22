@@ -25,7 +25,7 @@ const tariffDbModule: Mod = { name: "South Africa Tariff Database API", icon: Do
 function ModuleCard({ mod, popular = false }: { mod: Mod; popular?: boolean }) {
   const Icon = mod.icon;
   return (
-    <div className={`relative flex h-full flex-col rounded-xl border bg-card p-6 ${mod.isStandalone ? "border-border bg-secondary/30" : popular ? "border-primary shadow-lg" : "border-border"}`}>
+    <div className={`glass glass-lift relative flex h-full flex-col rounded-2xl p-6 ${mod.isStandalone ? "bg-secondary/30" : popular ? "border-primary/50 shadow-lg" : ""}`}>
       {mod.isAddOn && <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">Add-on</div>}
       {mod.isStandalone && <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">Standalone API</div>}
       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10"><Icon className="size-6 text-primary" /></div>
@@ -115,7 +115,7 @@ function Page() {
         <SectionHeading title="Choose your modules" intro="Most customers start with AMMP Operate and AMMP Insight together." />
         <div className="mt-10 grid gap-6 lg:grid-cols-4">
           <ModuleCard mod={detect} />
-          <div className="relative rounded-xl border-2 border-primary/30 bg-primary/5 p-4 lg:col-span-2">
+          <div className="glass-strong relative rounded-3xl border-primary/30 p-4 lg:col-span-2">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">Recommended combination</div>
             <div className="mt-2 grid gap-4 sm:grid-cols-2">
               <ModuleCard mod={operate} popular />
@@ -179,9 +179,9 @@ function FeatureCompare() {
       </div>
       {open && (
         <>
-          <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
+          <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
             <table className="w-full min-w-[720px] text-left text-sm">
-              <thead className="border-b border-border bg-secondary/40">
+              <thead className="border-b border-border/60 bg-white/35">
                 <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">Detect</th><th className="p-4 text-center font-semibold">Operate</th><th className="p-4 text-center font-semibold">Insight</th><th className="p-4 text-center font-semibold">Finance</th></tr>
               </thead>
               <tbody className="divide-y divide-border">

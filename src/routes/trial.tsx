@@ -32,7 +32,7 @@ function Page() {
               { icon: Check, title: "AI coworkers included", text: "See how AI coworkers investigate and prioritise work on your own data." },
             ]} />
           </div>
-          <div className="rounded-xl border border-border bg-card p-6">
+          <div className="glass-strong rounded-2xl p-6">
             <h2 className="text-lg font-semibold">Request your trial</h2>
             {submitted ? (
               <div className="mt-6 flex items-start gap-3 rounded-lg border border-primary/30 bg-primary/5 p-4 text-sm">

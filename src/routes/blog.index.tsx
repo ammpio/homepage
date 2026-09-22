@@ -57,7 +57,7 @@ function BlogIndexPage() {
               className={`rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-card text-muted-foreground hover:text-foreground border border-border"
+                  : "glass-soft text-muted-foreground hover:text-foreground"
               }`}
             >
               {category}
@@ -76,7 +76,7 @@ function BlogIndexPage() {
               key={post.slug}
               to="/blog/$slug"
               params={{ slug: post.slug }}
-              className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
+              className="glass glass-lift group flex flex-col rounded-2xl p-6"
             >
               <span className="eyebrow">{post.category}</span>
               <h2 className="mt-3 text-lg font-semibold leading-snug group-hover:text-primary transition-colors">

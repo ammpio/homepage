@@ -43,7 +43,7 @@ function NavDropdown({ item }: { item: NavItem }) {
         <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" />
       </Link>
       <div className="invisible absolute left-0 top-full z-50 w-60 pt-2 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div className="rounded-lg border border-border bg-card p-2 shadow-xl">
+        <div className="glass-strong rounded-xl p-2 shadow-xl">
           {item.children!.map(([label, to]) => (
             <Link key={to} to={to} className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground">
               {label}

@@ -1,14 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import { Reveal } from "@/components/site/Reveal";
 
 /* Shared Luminous Glass building blocks for every content page. */
 
 export function Band({ tone = "white", className = "", children }: { tone?: "white" | "grey"; className?: string; children: ReactNode }) {
   return (
     <section className={`${tone === "grey" ? "luminous-band-tinted" : "luminous-band"} border-b border-border/50 py-16 md:py-24 ${className}`}>
-      <Reveal className="site-container">{children}</Reveal>
+      <div className="site-container">{children}</div>
     </section>
   );
 }
@@ -20,10 +19,10 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
   return (
     <section className="luminous-hero relative overflow-hidden border-b border-border/50 py-16 md:py-24">
       <div aria-hidden className="glow-orb absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
-      <div className={`site-container site-section-enter relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
+      <div className={`site-container relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
         <div>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl lg:text-[3.4rem]">
             {title} {highlight && <span className="text-primary">{highlight}</span>} {titleEnd}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
@@ -44,7 +43,7 @@ export function SectionHeading({ eyebrow, title, intro, center = false }: { eyeb
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-5xl"}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
+      <h2 className="mt-3 font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">{title}</h2>
       {intro && <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">{intro}</p>}
     </div>
   );
