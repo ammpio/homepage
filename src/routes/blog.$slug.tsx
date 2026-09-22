@@ -48,8 +48,8 @@ function ArticlePage() {
 
   return (
     <>
-      <section className="luminous-hero relative overflow-hidden border-b border-border/50 py-16 md:py-20">
-        <div aria-hidden className="glow-orb absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
+      <section className="luminous-hero relative overflow-hidden py-16 md:py-20">
+        <div aria-hidden className="glow-orb orb-drift absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
         <div className="site-container relative mx-auto max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" />All articles</Link>
           <p className="eyebrow mt-8">{post.category}</p>

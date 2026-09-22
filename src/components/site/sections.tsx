@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 
 export function Band({ tone = "white", className = "", children }: { tone?: "white" | "grey"; className?: string; children: ReactNode }) {
   return (
-    <section className={`${tone === "grey" ? "luminous-band-tinted" : "luminous-band"} border-b border-border/50 py-16 md:py-24 ${className}`}>
+    <section className={`${tone === "grey" ? "luminous-band-tinted" : "luminous-band"} py-16 md:py-24 ${className}`}>
       <div className="site-container">{children}</div>
     </section>
   );
@@ -17,8 +17,8 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
   primary?: { label: string; to: string }; secondary?: { label: string; to: string }; aside?: ReactNode;
 }) {
   return (
-    <section className="luminous-hero relative overflow-hidden border-b border-border/50 py-16 md:py-24">
-      <div aria-hidden className="glow-orb absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
+    <section className="luminous-hero relative overflow-hidden py-16 md:py-24">
+      <div aria-hidden className="glow-orb orb-drift absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
       <div className={`site-container relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
         <div>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
