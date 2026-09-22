@@ -105,6 +105,7 @@ export function SiteShell() {
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 AMMP Technologies</span><div className="flex gap-5"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/security">Security</Link></div></div>
       </div>
+      </div>
     </footer>
   </div>;
 }
