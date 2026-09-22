@@ -176,7 +176,7 @@ function CoworkersSection() {
         <div>
           <p className="eyebrow">AMMP AI AGENTS</p>
           <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
-          <p className="mt-5 max-w-[42ch] text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
+          <p className="mt-5 whitespace-nowrap text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
         <div className="mt-12 grid overflow-hidden rounded-lg border border-border bg-border lg:grid-cols-2 lg:gap-px">
           <Capability proactive />
