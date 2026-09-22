@@ -95,7 +95,7 @@ const panels: Record<CategoryId, ReactNode> = {
   ),
   customizations: (
     <div>
-      <SplitFeature eyebrow="Custom dashboards" title="Designed around how your team works" text="Bespoke dashboards designed around your portfolio, your KPIs, and how your team actually works, not a one-size-fits-all template." image={customDashboardsImg} imageAlt="Custom dashboards" bullets={["Custom integrations for niche inverters, meters, ERP or billing systems", "Custom KPIs: performance ratios, SLA thresholds, financial benchmarks", "Custom alerts matched to your O&M processes and contracts"]} />
+      <SplitFeature text="Bespoke dashboards designed around your portfolio, your KPIs, and how your team actually works, not a one-size-fits-all template." image={customDashboardsImg} imageAlt="Custom dashboards" bullets={["Custom integrations for niche inverters, meters, ERP or billing systems", "Custom KPIs: performance ratios, SLA thresholds, financial benchmarks", "Custom alerts matched to your O&M processes and contracts"]} />
       <Link to="/customization" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">See how tailoring works <ArrowRight className="size-4" /></Link>
     </div>
   ),
