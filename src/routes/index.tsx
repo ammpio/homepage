@@ -103,15 +103,15 @@ function WorkspacePanel() {
           <div className="flex gap-3">
             <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-primary"><Radio className="size-4" /></span>
             <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+              <div className="msg-in flex flex-wrap items-center gap-2 text-xs text-muted-foreground" style={{ animationDelay: "500ms" }}>
                 <span className="font-medium text-primary">Portfolio analyst</span>
                 <span className="status-pulse size-1.5 rounded-full bg-primary" />09:41
               </div>
-              <div className="glass mt-2 rounded-2xl p-4">
+              <div className="msg-in glass mt-2 rounded-2xl p-4" style={{ animationDelay: "800ms" }}>
                 <p className="text-sm leading-relaxed">Yield is <strong className="font-semibold text-primary">6.8% below model</strong>. The pattern points to inverter IV-204 on block C.</p>
-                <div className="glass-soft mt-4 rounded-xl p-3">
+                <div className="msg-in glass-soft mt-4 rounded-xl p-3" style={{ animationDelay: "1200ms" }}>
                   <div className="flex justify-between text-[11px] text-muted-foreground"><span>Root-cause evidence</span><span>3 sources</span></div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/70"><div className="h-full w-[68%] rounded-full bg-gradient-to-r from-glow-amber to-primary" /></div>
+                  <div className="shimmer-bar mt-2 h-1.5 overflow-hidden rounded-full bg-white/70"><div className="h-full w-[68%] rounded-full bg-gradient-to-r from-glow-amber to-primary" /></div>
                   <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
                     <span>Irradiance <b className="font-medium text-foreground">0.94</b></span>
                     <span>Soiling <b className="font-medium text-foreground">12%</b></span>
@@ -145,11 +145,11 @@ function ScaleBand() {
     <section aria-label="AMMP portfolio scale">
       <div className="site-container">
         <div className="glass grid gap-7 rounded-3xl px-7 py-8 md:grid-cols-3 md:px-10">
-          {metrics.map(([value, label]) => (
-            <div key={label}>
+          {metrics.map(([value, label], index) => (
+            <Reveal key={label} delay={index * 110}>
               <div className="font-display text-3xl font-medium tracking-[-0.02em]">{value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -174,15 +174,17 @@ function AgentsSection() {
           <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {agents.map((agent) => (
-            <div key={agent.name} className="glass group rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1">
-              <div className="flex items-center gap-2">
-                <span className="status-pulse size-1.5 rounded-full bg-primary" />
-                <p className="text-lg font-semibold text-foreground">{agent.name}</p>
+          {agents.map((agent, index) => (
+            <Reveal key={agent.name} delay={index * 90}>
+              <div className="glass group h-full rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="status-pulse size-1.5 rounded-full bg-primary" />
+                  <p className="text-lg font-semibold text-foreground">{agent.name}</p>
+                </div>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">{agent.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{agent.body}</p>
               </div>
-              <p className="mt-1 text-sm font-medium text-muted-foreground">{agent.role}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{agent.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
         <p className="mt-8 text-sm text-muted-foreground">Every coworker reads the same portfolio, under your existing AMMP permissions.</p>
