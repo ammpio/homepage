@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Bot, Cloud, HardDrive, Plug, Search, X, Zap } from "lucide-react";
+import { Cloud, HardDrive, Plug, Search, X, Zap } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BrandGrid } from "@/components/site/BrandGrid";
