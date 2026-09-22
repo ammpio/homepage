@@ -19,7 +19,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "mcp-server-beta",
-    title: "Introducing the AMMP MCP server (beta)",
+    title: "Introducing the AMMP MCP server",
     excerpt: "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series. Now in beta.",
     category: "Product",
     date: "2025-06-10",
