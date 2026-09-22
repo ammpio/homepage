@@ -74,21 +74,21 @@ export function FeatureGrid({ features, columns = 3 }: { features: Feature[]; co
 }
 
 export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, reverse = false }: {
-  eyebrow?: string; title: string; text: string; bullets?: string[]; image?: string; imageAlt?: string; reverse?: boolean;
+  eyebrow?: string; title?: string; text: string; bullets?: string[]; image?: string; imageAlt?: string; reverse?: boolean;
 }) {
   return (
     <div className={`grid items-center gap-10 lg:grid-cols-2 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
       <div>
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
-        <p className="mt-4 text-lg leading-8 text-muted-foreground">{text}</p>
+        {title && <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>}
+        <p className={`text-lg leading-8 text-muted-foreground ${title ? "mt-4" : "mt-3"}`}>{text}</p>
         {bullets && (
           <ul className="mt-6 space-y-3">
             {bullets.map((b) => <li key={b} className="flex gap-3 text-sm leading-6"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{b}</li>)}
           </ul>
         )}
       </div>
-      {image && <img src={image} alt={imageAlt ?? title} className="w-full rounded-xl border border-border bg-card shadow-sm" loading="lazy" />}
+      {image && <img src={image} alt={imageAlt ?? title ?? "Feature"} className="w-full rounded-xl border border-border bg-card shadow-sm" loading="lazy" />}
     </div>
   );
 }

@@ -66,7 +66,7 @@ const panels: Record<CategoryId, ReactNode> = {
     </div>
   ),
   alerting: (
-    <SplitFeature eyebrow="Smart alerts" title="Catch issues before they get costly" text="Configurable rules-based alerting with escalation paths and acknowledgment workflows. Get notified before small issues become costly problems." image={alertsDashboard} imageAlt="Smart alerts" />
+    <SplitFeature eyebrow="Smart alerts" text="Configurable rules-based alerting with escalation paths and acknowledgment workflows. Get notified before small issues become costly problems." image={alertsDashboard} imageAlt="Smart alerts" />
   ),
   reporting: (
     <div className="space-y-16">
