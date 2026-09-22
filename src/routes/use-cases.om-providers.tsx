@@ -49,7 +49,7 @@ function Page() {
 
       <Band>
         <SectionHeading title="O&M tools that work" intro="Built for the realities of managing C&I solar assets for multiple clients." />
-        <FeatureGrid features={features} />
+        <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
