@@ -51,11 +51,11 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="mx-auto grid max-w-lg grid-cols-3 gap-1 rounded-lg border border-border bg-card p-1">
+        <div className="mx-auto grid max-w-xl grid-cols-3 gap-1 rounded-lg border border-border bg-card p-1">
           {tabs.map(({ key, label, short, icon: Icon }) => (
             <button key={key} type="button" onClick={() => setTab(key)}
-              className={`inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${tab === key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
-              <Icon className="size-4" />
+              className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors ${tab === key ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              <Icon className="size-4 shrink-0" />
               <span className="hidden sm:inline">{label}</span>
               <span className="sm:hidden">{short}</span>
             </button>
