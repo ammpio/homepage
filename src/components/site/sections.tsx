@@ -108,9 +108,9 @@ export function StatStrip({ stats }: { stats: { value: string; label: string }[]
 
 export function StepList({ steps }: { steps: { title: string; text: string }[] }) {
   return (
-    <ol className="mt-10 grid gap-5 md:grid-cols-3">
+    <ol className="mt-10 grid gap-5 md:grid-cols-3 lg:grid-flow-col lg:auto-cols-fr">
       {steps.map(({ title, text }, i) => (
-        <li key={title} className="rounded-xl border border-border bg-card p-6">
+        <li key={title} className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
           <span className="text-xs font-semibold text-primary">0{i + 1}</span>
           <h3 className="mt-3 text-lg font-semibold">{title}</h3>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
