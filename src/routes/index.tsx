@@ -6,6 +6,7 @@ import {
   Plug, PlugZap, Radio, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
 import { PageCta } from "@/components/site/SiteShell";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -22,9 +23,9 @@ function HomePage() {
     <div className="canvas-porcelain relative overflow-hidden">
       {/* ambient energy glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="glow-orb absolute -left-40 top-[8%] size-[34rem] bg-glow-amber/60" />
-        <div className="glow-orb absolute -right-52 top-[30%] size-[38rem] bg-glow-magenta/50" />
-        <div className="glow-orb absolute left-1/3 top-[72%] size-[32rem] bg-glow-amber/40" />
+        <div className="glow-orb orb-drift absolute -left-40 top-[8%] size-[34rem] bg-glow-amber/60" />
+        <div className="glow-orb orb-drift absolute -right-52 top-[30%] size-[38rem] bg-glow-magenta/50" style={{ animationDuration: "27s", animationDelay: "-9s" }} />
+        <div className="glow-orb orb-drift absolute left-1/3 top-[72%] size-[32rem] bg-glow-amber/40" style={{ animationDuration: "31s", animationDelay: "-17s" }} />
       </div>
       <div className="relative">
         <Hero />
@@ -49,20 +50,28 @@ function Hero() {
     <section className="relative">
       <div className="site-container grid items-center gap-12 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-28">
         <div>
-          <span className="glass-soft inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="status-pulse size-1.5 rounded-full bg-primary" />
-            AI coworkers, live in your portfolio
-          </span>
-          <h1 className="mt-6 max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
-            Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
-          </h1>
-          <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
-            AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/contact" className="button button-primary rounded-full px-5 shadow-[0_14px_34px_-14px_var(--primary)] transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4" /></Link>
-            <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
-          </div>
+          <Reveal>
+            <span className="glass-soft inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground">
+              <span className="status-pulse size-1.5 rounded-full bg-primary" />
+              AI coworkers, live in your portfolio
+            </span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h1 className="mt-6 max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
+              Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
+              AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
+            </p>
+          </Reveal>
+          <Reveal delay={270}>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/contact" className="button button-primary rounded-full px-5 shadow-[0_14px_34px_-14px_var(--primary)] transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
+              <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
+            </div>
+          </Reveal>
         </div>
         <WorkspacePanel />
       </div>
