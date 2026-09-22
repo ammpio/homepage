@@ -137,22 +137,6 @@ function Page() {
       <Band tone="grey">
         <FeatureCompare />
       </Band>
-          <table className="w-full min-w-[720px] text-left text-sm">
-            <thead className="border-b border-border bg-secondary/40">
-              <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">Detect</th><th className="p-4 text-center font-semibold">Operate</th><th className="p-4 text-center font-semibold">Insight</th><th className="p-4 text-center font-semibold">Finance</th></tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {comparisonData.map((row, i) => (
-                <Fragment key={i}>
-                  {row.category && <tr className="bg-secondary/30"><td colSpan={5} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
-                  <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.detect} /></td><td className="p-4 text-center"><Cell v={row.operate} /></td><td className="p-4 text-center"><Cell v={row.insight} /></td><td className="p-4 text-center"><Cell v={row.finance} /></td></tr>
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 text-center text-sm text-muted-foreground">Included · Not included · Add-on = available as add-on</p>
-      </Band>
 
       <Band>
         <SectionHeading center title="How pricing works" intro="Simple, transparent pricing that scales with your portfolio." />
