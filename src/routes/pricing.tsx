@@ -135,8 +135,8 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading center title="Compare all features" />
-        <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
+        <FeatureCompare />
+      </Band>
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead className="border-b border-border bg-secondary/40">
               <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">Detect</th><th className="p-4 text-center font-semibold">Operate</th><th className="p-4 text-center font-semibold">Insight</th><th className="p-4 text-center font-semibold">Finance</th></tr>
