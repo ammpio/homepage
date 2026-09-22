@@ -85,9 +85,12 @@ function Page() {
 
       <Band>
         <SectionHeading eyebrow="Scope" title="What we build" center />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
           {buildItems.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-3 rounded-xl border border-border bg-card p-5">
+            <div
+              key={label}
+              className="flex items-center gap-3 rounded-xl border border-border bg-card p-5 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+            >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Icon className="size-5 text-primary" />
               </div>
