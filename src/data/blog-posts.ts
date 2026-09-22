@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "mcp-server-beta",
     title: "Introducing the AMMP MCP server",
-    excerpt: "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series. Now in beta.",
+    excerpt: "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series.",
     category: "Product",
     date: "2025-06-10",
     readTime: "5 min read",
