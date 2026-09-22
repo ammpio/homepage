@@ -1,6 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bell, Check, DollarSign, FileText, LayoutDashboard, Minus } from "lucide-react";
+import { ArrowRight, Bell, Check, ChevronDown, DollarSign, FileText, LayoutDashboard, Minus } from "lucide-react";
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 
