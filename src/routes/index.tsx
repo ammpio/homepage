@@ -47,7 +47,7 @@ function Hero() {
             Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
-            AI coworkers grounded in your portfolio data—ready to investigate, prioritise, prepare and collaborate alongside your team.
+            AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact" className="button button-primary">Meet your coworkers <ArrowRight className="size-4" /></Link>
