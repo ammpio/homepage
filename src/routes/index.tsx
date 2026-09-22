@@ -317,8 +317,8 @@ function ContextPlatformSection() {
             </div>
             <div className="hidden items-center lg:flex"><ArrowRight className="arrow-pulse h-5 w-5 text-primary" style={{ animationDelay: "1.3s" }} /></div>
             <div className="grid gap-3">
-              <div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div>
-              <div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div>
+              <Reveal delay={550}><div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
+              <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
             </div>
           </div>
         </div>
@@ -368,7 +368,8 @@ function PlatformOverview() {
         </div>
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {interfaces.map(({ eyebrow, title, body, icon: Icon }, index) => (
-            <article key={title} className="glass flex flex-col rounded-3xl p-7 sm:p-9">
+            <Reveal key={title} delay={index * 130} className="h-full">
+            <article className="glass flex h-full flex-col rounded-3xl p-7 sm:p-9">
               <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="status-pulse size-1.5 rounded-full bg-primary" />{eyebrow}</div>
               <div className="mt-5 flex items-start justify-between gap-4">
                 <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">{title}</h3>
@@ -376,6 +377,7 @@ function PlatformOverview() {
               </div>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{body}</p>
             </article>
+            </Reveal>
           ))}
         </div>
         <div className="mt-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
