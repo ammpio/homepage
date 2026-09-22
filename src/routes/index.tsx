@@ -2,13 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
-  DollarSign, FileBarChart, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
-  Network, Plug, PlugZap, Radio, Server, Settings, Sparkles, Sun, Ticket, Wrench,
+  DollarSign, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
+  Plug, PlugZap, Radio, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
-import alertsDashboard from "@/assets/alerts-dashboard.png";
-import ammpIntelligence from "@/assets/ammp-intelligence.png";
-import financialReport from "@/assets/financial-impact-report.png";
-import integrationsImage from "@/assets/integrations.png";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/")({
