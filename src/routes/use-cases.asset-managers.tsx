@@ -58,7 +58,7 @@ function Page() {
 
       <Band>
         <SectionHeading title="Complete portfolio visibility" intro="Stop juggling spreadsheets and siloed systems. AMMP brings all your C&I sites together." />
-        <FeatureGrid features={features} />
+        <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
