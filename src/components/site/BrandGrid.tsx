@@ -3,9 +3,9 @@ import type { Brand } from "@/data/integrations";
 function BrandCard({ name, logo }: Brand) {
   return (
     <div className="flex min-h-[100px] flex-col items-center justify-center rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/50">
-      <div className="mb-2 flex h-8 items-center justify-center">
+      <div className="mb-2 flex w-full items-center justify-center">
         {logo
-          ? <img src={logo} alt={name} className="h-full w-auto object-contain" loading="lazy" />
+          ? <img src={logo} alt={name} className="max-h-8 max-w-full object-contain" loading="lazy" />
           : <span className="text-xl font-bold text-primary/60">{name.charAt(0)}</span>}
       </div>
       <span className="text-center text-sm font-medium text-foreground">{name}</span>
