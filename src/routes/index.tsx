@@ -152,7 +152,7 @@ function AgentsSection() {
     <section className="bg-background py-20 md:py-28">
       <div className="site-container">
         <div className="max-w-5xl">
-          <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Your team, plus a few more</h2>
+          <h2 className="font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Your team just got new co-workers</h2>
           <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -176,7 +176,7 @@ function CoworkersSection() {
     <section className="border-y border-border bg-secondary">
       <div className="site-container py-20 lg:py-28">
         <div>
-          <p className="eyebrow">THE COWORKERS</p>
+          <p className="eyebrow">AMMP AI AGENTS</p>
           <h2 className="mt-4 font-display text-4xl font-medium leading-[1.1] sm:text-5xl">Proactive when you don’t ask.<br />On demand when you do.</h2>
           <p className="mt-5 max-w-[42ch] text-sm leading-relaxed text-muted-foreground">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
         </div>
