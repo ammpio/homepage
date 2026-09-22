@@ -230,8 +230,8 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
         </div>
       ) : (
         <div className="mt-6 space-y-2.5">
-          <div className="glass-soft rounded-xl px-4 py-3"><div className="text-xs text-muted-foreground">You</div><p className="mt-1 text-sm">Is Q3 PPA compliance on track for Ridge 2?</p></div>
-          <div className="rounded-xl border border-primary/25 bg-primary/5 px-4 py-3"><div className="text-xs font-medium text-primary">Compliance coworker</div><p className="mt-1 text-sm leading-relaxed">On track. I found two curtailment events, checked their treatment, and prepared the supporting detail for review.</p></div>
+          <div className="msg-in glass-soft rounded-xl px-4 py-3" style={{ animationDelay: "250ms" }}><div className="text-xs text-muted-foreground">You</div><p className="mt-1 text-sm">Is Q3 PPA compliance on track for Ridge 2?</p></div>
+          <div className="msg-in rounded-xl border border-primary/25 bg-primary/5 px-4 py-3" style={{ animationDelay: "550ms" }}><div className="text-xs font-medium text-primary">Compliance coworker</div><p className="mt-1 text-sm leading-relaxed">On track. I found two curtailment events, checked their treatment, and prepared the supporting detail for review.</p></div>
         </div>
       )}
     </div>
@@ -298,22 +298,24 @@ function ContextPlatformSection() {
         <div className="mx-auto mt-14 max-w-6xl">
           <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
             <div className="grid grid-cols-2 gap-3">
-              {sources.map(({ icon: Icon, label }) => (
-                <div key={label} className="glass flex min-h-28 flex-col justify-between rounded-2xl p-4">
-                  <Icon className="h-5 w-5 text-muted-foreground" />
-                  <p className="text-sm font-semibold">{label}</p>
-                </div>
+              {sources.map(({ icon: Icon, label }, index) => (
+                <Reveal key={label} delay={index * 90} className="h-full">
+                  <div className="glass flex h-full min-h-28 flex-col justify-between rounded-2xl p-4">
+                    <Icon className="h-5 w-5 text-muted-foreground" />
+                    <p className="text-sm font-semibold">{label}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
-            <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
-            <div className="glass-strong relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center">
+            <div className="hidden items-center lg:flex"><ArrowRight className="arrow-pulse h-5 w-5 text-primary" /></div>
+            <div className="glass-strong msg-in relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center" style={{ animationDelay: "400ms" }}>
               <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
               <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[0_14px_34px_-14px_var(--primary)]"><Brain className="h-7 w-7" /></div>
               <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP AI</h3>
               <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
             </div>
-            <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-primary" /></div>
+            <div className="hidden items-center lg:flex"><ArrowRight className="arrow-pulse h-5 w-5 text-primary" style={{ animationDelay: "1.3s" }} /></div>
             <div className="grid gap-3">
               <div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div>
               <div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div>
