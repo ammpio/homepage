@@ -29,8 +29,7 @@ function HomePage() {
       <AgentsSection />
       <CoworkersSection />
       <SharedByDesign />
-      <BrainSection />
-      <PlatformSection />
+      <ContextPlatformSection />
       <PlatformOverview />
       <ResultsSection />
       <PageCta />
@@ -260,22 +259,33 @@ function SharedByDesign() {
   );
 }
 
-/* 6 — AMMP AI has the context to be useful (v2 brain diagram) */
-function BrainSection() {
+/* 6 — Merged: AI has the context (brain diagram) + the platform underneath (tabs) */
+function ContextPlatformSection() {
+  const [active, setActive] = useState(0);
   const sources = [
     { icon: Sun, label: "Assets and alerts" },
     { icon: BatteryCharging, label: "PV, BESS and hybrid" },
     { icon: Gauge, label: "KPIs and obligations" },
     { icon: Activity, label: "Time-series data" },
   ];
+  const modules = [
+    { key: "operate", title: "Monitor and act", desc: "Live performance, intelligent alerts and ticketing across every site.", icon: Activity, image: alertsDashboard },
+    { key: "report", title: "Report and explain", desc: "Consistent KPIs, commercial logic and reports built from one source of truth.", icon: FileBarChart, image: financialReport },
+    { key: "connect", title: "Connect every system", desc: "Vendor-agnostic integrations spanning solar, storage, meters and generators.", icon: Network, image: integrationsImage },
+    { key: "explore", title: "Explore with AI", desc: "Ask questions, build visualisations and investigate portfolio behaviour with live context.", icon: Sparkles, image: ammpIntelligence },
+  ];
+  const current = modules[active] ?? modules[0]!;
   return (
     <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow">Context, not guesswork</p>
-          <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AMMP AI has the context to be useful.</h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">AI can only work with what it understands. AMMP provides a unified view of sites, technologies, KPIs, contracts, timeseries and operating history.</p>
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="eyebrow">AI built on an operating platform</p>
+            <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AI can only work with what it understands</h2>
+          </div>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
+
         <div className="mx-auto mt-14 max-w-6xl">
           <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
             <div className="grid grid-cols-2 gap-3">
@@ -299,34 +309,9 @@ function BrainSection() {
               <div className="rounded-md border border-border bg-card p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div>
             </div>
           </div>
-          <div className="mt-8 text-center"><Link to="/ai" className="button button-ghost">See how AI works at AMMP <ArrowRight className="size-4" /></Link></div>
         </div>
-      </div>
-    </section>
-  );
-}
 
-/* 7 — AI can only work with what it understands (v2 platform) */
-function PlatformSection() {
-  const [active, setActive] = useState(0);
-  const modules = [
-    { key: "operate", title: "Monitor and act", desc: "Live performance, intelligent alerts and ticketing across every site.", icon: Activity, image: alertsDashboard },
-    { key: "report", title: "Report and explain", desc: "Consistent KPIs, commercial logic and reports built from one source of truth.", icon: FileBarChart, image: financialReport },
-    { key: "connect", title: "Connect every system", desc: "Vendor-agnostic integrations spanning solar, storage, meters and generators.", icon: Network, image: integrationsImage },
-    { key: "explore", title: "Explore with AI", desc: "Ask questions, build visualisations and investigate portfolio behaviour with live context.", icon: Sparkles, image: ammpIntelligence },
-  ];
-  const current = modules[active] ?? modules[0]!;
-  return (
-    <section className="bg-background py-20 md:py-28">
-      <div className="site-container">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl">
-            <p className="eyebrow">AI built on an operating platform</p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-medium leading-[1.1] sm:text-5xl">AI can only work with what it understands</h2>
-          </div>
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
-        </div>
-        <div className="mt-12 grid overflow-hidden rounded-lg border border-border lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mt-14 grid overflow-hidden rounded-lg border border-border lg:grid-cols-[0.78fr_1.22fr]">
           <div className="divide-y divide-border bg-card">
             {modules.map(({ key, title, desc, icon: Icon }, index) => (
               <button key={key} type="button" onClick={() => setActive(index)} className={`flex w-full items-start gap-4 p-5 text-left transition-colors md:p-6 ${active === index ? "bg-primary text-primary-foreground" : "hover:bg-secondary/60"}`}>
@@ -345,6 +330,7 @@ function PlatformSection() {
           </div>
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-8 border-y border-border py-7">
+          <Link to="/ai" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">See how AI works at AMMP<ArrowRight className="ml-1 h-4 w-4" /></Link>
           <Link to="/integrations" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">View all integrations<ArrowRight className="ml-1 h-4 w-4" /></Link>
         </div>
       </div>
@@ -382,7 +368,7 @@ const interfaces = [
 
 function PlatformOverview() {
   return (
-    <section className="bg-secondary py-20 lg:py-28">
+    <section className="bg-background py-20 lg:py-28">
       <div className="site-container">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
@@ -435,7 +421,7 @@ function ResultsSection() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>
