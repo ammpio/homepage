@@ -303,28 +303,6 @@ function ContextPlatformSection() {
           </div>
         </div>
 
-        <div className="mt-14 grid overflow-hidden rounded-lg border border-border lg:grid-cols-[0.78fr_1.22fr]">
-          <div className="divide-y divide-border bg-card">
-            {modules.map(({ key, title, desc, icon: Icon }, index) => (
-              <button key={key} type="button" onClick={() => setActive(index)} className={`flex w-full items-start gap-4 p-5 text-left transition-colors md:p-6 ${active === index ? "bg-primary text-primary-foreground" : "hover:bg-secondary/60"}`}>
-                <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${active === index ? "text-primary-foreground" : "text-muted-foreground"}`} />
-                <div>
-                  <p className="font-semibold">{title}</p>
-                  <p className={`mt-1 text-sm leading-relaxed ${active === index ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{desc}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-          <div className="flex min-h-96 items-center bg-secondary/50 p-5 md:p-8">
-            <div className="overflow-hidden rounded-md border border-border bg-card shadow-xl">
-              <img key={current.key} src={current.image} alt={`AMMP ${current.title}`} className="w-full object-cover" />
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-8 border-y border-border py-7">
-          <Link to="/ai" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">See how AI works at AMMP<ArrowRight className="ml-1 h-4 w-4" /></Link>
-          <Link to="/integrations" className="inline-flex items-center text-sm font-semibold text-primary hover:underline">View all integrations<ArrowRight className="ml-1 h-4 w-4" /></Link>
-        </div>
       </div>
     </section>
   );
