@@ -33,7 +33,7 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
           <div className="space-y-6">
             <div className="glass-strong rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Send us a message</h2>
