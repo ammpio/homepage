@@ -167,3 +167,38 @@ function Page() {
     </>
   );
 }
+
+function FeatureCompare() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <SectionHeading center title="Compare all features" />
+      <div className="mt-8 text-center">
+        <button type="button" onClick={() => setOpen((v) => !v)} className="button button-ghost" aria-expanded={open}>
+          {open ? "Hide comparison" : "Show full comparison"}
+          <ChevronDown className={`size-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </button>
+      </div>
+      {open && (
+        <>
+          <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
+            <table className="w-full min-w-[720px] text-left text-sm">
+              <thead className="border-b border-border bg-secondary/40">
+                <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">Detect</th><th className="p-4 text-center font-semibold">Operate</th><th className="p-4 text-center font-semibold">Insight</th><th className="p-4 text-center font-semibold">Finance</th></tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {comparisonData.map((row, i) => (
+                  <Fragment key={i}>
+                    {row.category && <tr className="bg-secondary/30"><td colSpan={5} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
+                    <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.detect} /></td><td className="p-4 text-center"><Cell v={row.operate} /></td><td className="p-4 text-center"><Cell v={row.insight} /></td><td className="p-4 text-center"><Cell v={row.finance} /></td></tr>
+                  </Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-center text-sm text-muted-foreground">Included · Not included · Add-on = available as add-on</p>
+        </>
+      )}
+    </>
+  );
+}
