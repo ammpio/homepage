@@ -90,7 +90,12 @@ export function SiteShell() {
       </div>
     </header>
     <main className="relative z-10"><Outlet /></main>
-    <footer className="glass-footer relative z-10 border-t border-border/60">
+    <footer className="relative z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="glow-orb orb-drift absolute -left-40 bottom-[-12rem] size-[26rem] bg-glow-magenta/25 [animation-delay:-5s] [animation-duration:29s]" />
+        <div className="glow-orb orb-drift absolute -right-44 bottom-[-9rem] size-[28rem] bg-glow-amber/30 [animation-delay:-13s] [animation-duration:33s]" />
+      </div>
+      <div className="glass-footer relative border-t border-border/50">
       <div className="site-container py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">The operating system and AI coworkers for renewable energy portfolios.</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
@@ -99,6 +104,7 @@ export function SiteShell() {
           <FooterColumn title="Company" links={[["About","/about"],["Blog","/blog"],["Careers","/careers"],["Contact","/contact"],["FAQ","/faq"]]} />
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 AMMP Technologies</span><div className="flex gap-5"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/security">Security</Link></div></div>
+      </div>
       </div>
     </footer>
   </div>;

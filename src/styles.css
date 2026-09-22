@@ -207,8 +207,9 @@
 }
 
 @utility glass-footer {
-  background: color-mix(in oklab, var(--secondary) 76%, transparent);
-  backdrop-filter: blur(22px) saturate(145%);
+  background: linear-gradient(to bottom, color-mix(in oklab, white 30%, transparent), color-mix(in oklab, white 52%, transparent));
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 -1px 0 0 color-mix(in oklab, white 55%, transparent) inset;
 }
 
 @utility glass-lift {
