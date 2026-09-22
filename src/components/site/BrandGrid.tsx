@@ -1,8 +1,8 @@
 import type { Brand } from "@/data/integrations";
 
-function BrandCard({ name, logo }: Brand) {
+function BrandCard({ name, logo, className }: Brand & { className?: string }) {
   return (
-    <div className="flex min-h-[100px] flex-col items-center justify-center rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/50">
+    <div className={`flex min-h-[100px] flex-col items-center justify-center rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/50 ${className ?? ""}`}>
       <div className="mb-2 flex w-full items-center justify-center">
         {logo
           ? <img src={logo} alt={name} className="max-h-8 max-w-full object-contain" loading="lazy" />
@@ -18,8 +18,11 @@ export function BrandGrid({ title, brands }: { title: string; brands: Brand[] })
   return (
     <div>
       <h3 className="mb-4 text-center text-lg font-semibold">{title}</h3>
-      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
-        {brands.map((brand) => <BrandCard key={`${title}-${brand.name}`} {...brand} />)}
+      <div className="flex flex-wrap justify-center gap-3">
+        {brands.map((brand) => (
+          <BrandCard key={`${title}-${brand.name}`} {...brand}
+            className="w-[calc(33.333%-8px)] sm:w-[calc(25%-9px)] md:w-[calc(16.6667%-10px)]" />
+        ))}
       </div>
     </div>
   );
