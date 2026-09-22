@@ -56,7 +56,7 @@ function NavDropdown({ item }: { item: NavItem }) {
 }
 
 export function SiteShell() {
-  return <div className="site-luminous canvas-porcelain relative min-h-screen overflow-hidden text-foreground">
+  return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div className="glow-orb orb-drift absolute -left-48 top-[4%] size-[34rem] bg-glow-amber/45" />
       <div className="glow-orb orb-drift absolute -right-52 top-[34%] size-[38rem] bg-glow-magenta/35 [animation-delay:-9s] [animation-duration:27s]" />
