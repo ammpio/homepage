@@ -368,7 +368,7 @@ const interfaces = [
 
 function PlatformOverview() {
   return (
-    <section className="bg-secondary py-20 lg:py-28">
+    <section className="bg-background py-20 lg:py-28">
       <div className="site-container">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
@@ -421,7 +421,7 @@ function ResultsSection() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="bg-background py-20 md:py-28">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="site-container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Results already delivered</p>
