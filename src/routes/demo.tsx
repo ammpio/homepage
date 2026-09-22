@@ -71,7 +71,6 @@ function Page() {
                 { title: "Automated Reporting", text: "Scheduled PDF reports for investors and clients." },
                 { title: "Cost Tracking", text: "Energy savings and PPA billing visibility." },
               ]} />
-              <p className="mt-6 text-sm text-muted-foreground">A username and password are provided instantly so you can access the live demo environment yourself—or contact us for a guided walkthrough.</p>
             </div>
           )}
           {tab === "reports" && (
