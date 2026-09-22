@@ -44,14 +44,8 @@ function Hero() {
     <section className="relative">
       <div className="site-container grid items-center gap-12 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:py-28">
         <div>
-          <Reveal>
-            <span className="glass-soft inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground">
-              <span className="status-pulse size-1.5 rounded-full bg-primary" />
-              AI coworkers, live in your portfolio
-            </span>
-          </Reveal>
           <Reveal delay={90}>
-            <h1 className="mt-6 max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
+            <h1 className="max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
               Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
             </h1>
           </Reveal>
