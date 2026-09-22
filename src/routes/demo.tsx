@@ -4,6 +4,23 @@ import { ArrowRight, BarChart3, FileText, Play } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BookMeeting } from "@/components/site/BookMeeting";
+import VimeoPlayer from "@/components/demo/VimeoPlayer";
+import demoVideoThumbnail from "@/assets/demo-video-thumbnail.jpg";
+
+const DEMO_CHAPTERS = [
+  { time: 0, title: "Intro" },
+  { time: 159, title: "Monitoring Dashboards" },
+  { time: 673, title: "Alerts Center" },
+  { time: 812, title: "Ticketing" },
+  { time: 918, title: "Data Management / Admin" },
+  { time: 1017, title: "Tariffs Management" },
+  { time: 1080, title: "Historic Data / Reporting" },
+  { time: 1290, title: "Stakeholder Portal" },
+  { time: 1335, title: "Energy Savings Hub" },
+  { time: 1450, title: "Billing Integration" },
+  { time: 1625, title: "Automation / AI" },
+  { time: 1740, title: "Outro" },
+];
 
 export const Route = createFileRoute("/demo")({
   head: () => ({ meta: [
