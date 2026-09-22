@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Bot, Cloud, HardDrive, Plug, Search, X, Zap } from "lucide-react";
+import { Cloud, HardDrive, Plug, Search, X, Zap } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BrandGrid } from "@/components/site/BrandGrid";
@@ -129,18 +129,6 @@ function Page() {
             </div>
           </div>
         )}
-      </Band>
-
-      <Band>
-        <div className="mx-auto max-w-2xl text-center">
-          <Bot className="mx-auto size-8 text-primary" />
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to optimise your portfolio?</h2>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">Join hundreds of operators monitoring gigawatts of clean energy every day. No credit card required to start.</p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link to="/contact" className="button button-primary">Contact sales <ArrowRight className="size-4" /></Link>
-            <Link to="/demo" className="button button-ghost">Try the demo</Link>
-          </div>
-        </div>
       </Band>
 
       <PageCta />

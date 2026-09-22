@@ -104,5 +104,5 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
 }
 
 export function PageCta() {
-  return <section className="bg-secondary/45 pt-16 pb-16"><div className="site-container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Put your portfolio data to work.</h2></div><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link></div></section>;
+  return <section className="bg-background pt-16 pb-16"><div className="site-container"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to put your portfolio data to work?</h2><div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row"><Link to="/contact" className="button button-primary">Talk to our team <ArrowUpRight className="size-4" /></Link><Link to="/demo" className="button button-ghost">Try the demo</Link></div></div></div></section>;
 }
