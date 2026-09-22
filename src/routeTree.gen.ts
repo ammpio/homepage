@@ -21,6 +21,7 @@ import { Route as CustomizationRouteImport } from './routes/customization'
 import { Route as DemoRouteImport } from './routes/demo'
 import { Route as EditorialRouteImport } from './routes/editorial'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HumanRouteImport } from './routes/human'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -115,6 +116,11 @@ const EditorialRoute = EditorialRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HumanRoute = HumanRouteImport.update({
+  id: '/human',
+  path: '/human',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IntegrationsRoute = IntegrationsRouteImport.update({
@@ -309,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/demo': typeof DemoRoute
   '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
+  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -358,6 +365,7 @@ export interface FileRoutesByTo {
   '/demo': typeof DemoRoute
   '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
+  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -408,6 +416,7 @@ export interface FileRoutesById {
   '/demo': typeof DemoRoute
   '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
+  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
@@ -459,6 +468,7 @@ export interface FileRouteTypes {
     | '/demo'
     | '/editorial'
     | '/faq'
+    | '/human'
     | '/integrations'
     | '/pricing'
     | '/privacy'
@@ -508,6 +518,7 @@ export interface FileRouteTypes {
     | '/demo'
     | '/editorial'
     | '/faq'
+    | '/human'
     | '/integrations'
     | '/pricing'
     | '/privacy'
@@ -557,6 +568,7 @@ export interface FileRouteTypes {
     | '/demo'
     | '/editorial'
     | '/faq'
+    | '/human'
     | '/integrations'
     | '/pricing'
     | '/privacy'
@@ -607,6 +619,7 @@ export interface RootRouteChildren {
   DemoRoute: typeof DemoRoute
   EditorialRoute: typeof EditorialRoute
   FaqRoute: typeof FaqRoute
+  HumanRoute: typeof HumanRoute
   IntegrationsRoute: typeof IntegrationsRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -728,6 +741,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/human': {
+      id: '/human'
+      path: '/human'
+      fullPath: '/human'
+      preLoaderRoute: typeof HumanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/integrations': {
@@ -991,6 +1011,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemoRoute: DemoRoute,
   EditorialRoute: EditorialRoute,
   FaqRoute: FaqRoute,
+  HumanRoute: HumanRoute,
   IntegrationsRoute: IntegrationsRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
