@@ -117,7 +117,6 @@ function WorkspacePanel() {
           </div>
         </div>
       </div>
-      <p className="mt-3 text-xs text-muted-foreground">Every request, source, and next action stays visible to the whole team.</p>
     </div>
   );
 }
