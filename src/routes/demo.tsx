@@ -94,8 +94,8 @@ function Page() {
               </ul>
             </div>
           )}
-        </div>
       </Band>
+
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">
