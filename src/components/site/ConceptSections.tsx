@@ -105,7 +105,7 @@ const modes = [
 
 export function ModeDeck() {
   const [active, setActive] = useState(0);
-  const m = modes[active];
+  const m = modes[active] ?? modes[0]!;
   return (
     <section className="py-20 md:py-24">
       <div className="site-container">
