@@ -16,6 +16,7 @@ import { Route as BetaRouteImport } from './routes/beta'
 import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ConceptRouteImport } from './routes/concept'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomizationRouteImport } from './routes/customization'
 import { Route as DemoRouteImport } from './routes/demo'
@@ -91,6 +92,11 @@ const CareersRoute = CareersRouteImport.update({
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConceptRoute = ConceptRouteImport.update({
+  id: '/concept',
+  path: '/concept',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -310,6 +316,7 @@ export interface FileRoutesByFullPath {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
@@ -360,6 +367,7 @@ export interface FileRoutesByTo {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
@@ -411,6 +419,7 @@ export interface FileRoutesById {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
@@ -463,6 +472,7 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
+    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
@@ -513,6 +523,7 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
+    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
@@ -563,6 +574,7 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
+    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
@@ -614,6 +626,7 @@ export interface RootRouteChildren {
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
+  ConceptRoute: typeof ConceptRoute
   ContactRoute: typeof ContactRoute
   CustomizationRoute: typeof CustomizationRoute
   DemoRoute: typeof DemoRoute
@@ -706,6 +719,13 @@ declare module '@tanstack/react-router' {
       path: '/case-studies'
       fullPath: '/case-studies'
       preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/concept': {
+      id: '/concept'
+      path: '/concept'
+      fullPath: '/concept'
+      preLoaderRoute: typeof ConceptRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1006,6 +1026,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
+  ConceptRoute: ConceptRoute,
   ContactRoute: ContactRoute,
   CustomizationRoute: CustomizationRoute,
   DemoRoute: DemoRoute,
