@@ -27,6 +27,7 @@ import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
+import { Route as RayRouteImport } from './routes/ray'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -147,6 +148,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ProductRoute = ProductRouteImport.update({
   id: '/product',
   path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayRoute = RayRouteImport.update({
+  id: '/ray',
+  path: '/ray',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SecurityRoute = SecurityRouteImport.update({
@@ -327,6 +333,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
+  '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
@@ -378,6 +385,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
+  '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
@@ -430,6 +438,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
+  '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
@@ -483,6 +492,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product'
+    | '/ray'
     | '/security'
     | '/switch'
     | '/terms'
@@ -534,6 +544,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product'
+    | '/ray'
     | '/security'
     | '/switch'
     | '/terms'
@@ -585,6 +596,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/product'
+    | '/ray'
     | '/security'
     | '/switch'
     | '/terms'
@@ -637,6 +649,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
+  RayRoute: typeof RayRoute
   SecurityRoute: typeof SecurityRoute
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
@@ -796,6 +809,13 @@ declare module '@tanstack/react-router' {
       path: '/product'
       fullPath: '/product'
       preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray': {
+      id: '/ray'
+      path: '/ray'
+      fullPath: '/ray'
+      preLoaderRoute: typeof RayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/security': {
@@ -1037,6 +1057,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
+  RayRoute: RayRoute,
   SecurityRoute: SecurityRoute,
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,

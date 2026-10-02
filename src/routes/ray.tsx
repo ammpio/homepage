@@ -7,12 +7,13 @@ import {
 } from "lucide-react";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
+import { RayVideo, RayDay, RayEverywhere } from "@/components/site/RaySections";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/ray")({
   head: () => ({ meta: [
-    { title: "AMMP — AI coworkers for renewable energy portfolios" },
+    { title: "Meet Ray — AMMP's AI coworker for renewable portfolios" },
     { name: "description", content: "AMMP combines renewable energy portfolio software with AI coworkers that investigate, prioritise and prepare work." },
-    { property: "og:title", content: "AMMP — AI coworkers for renewable energy portfolios" },
+    { property: "og:title", content: "Meet Ray — AMMP's AI coworker for renewable portfolios" },
     { property: "og:description", content: "Give every portfolio team AI coworkers grounded in the same trusted operational context." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: HomePage,
@@ -23,7 +24,10 @@ function HomePage() {
     <div className="relative overflow-hidden">
       <div className="relative">
         <Hero />
+        <RayVideo />
+        <RayDay />
         <ScaleBand />
+        <RayEverywhere />
         <AgentsSection />
         <CoworkersSection />
         <SharedByDesign />
