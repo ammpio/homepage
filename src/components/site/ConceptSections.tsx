@@ -144,7 +144,7 @@ export function ModeDeck() {
 }
 
 /* 4 — Enterprise bento with UI artifacts */
-const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "GoodWe", "Fronius", "Solis", "Victron", "Deye", "Growatt", "AlphaESS", "SIGenergy"];
+const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "GoodWe", "Fronius", "Solis", "Victron", "Deye", "Growatt", "AlphaESS", "SigEnergy"];
 
 export function TrustBento() {
   const [role, setRole] = useState<"am" | "om">("am");
