@@ -55,7 +55,8 @@ function useHeroScroll() {
       const top = 80, bottom = vh - 16; // clear the sticky header, keep a margin below
       const scale = Math.max(1, Math.min((vw * 0.82) / w, (bottom - top) / h));
       const dy = top + (h * scale) / 2 - (box.top + h / 2);
-      video.style.transform = `translate(${dx * p}px, ${dy * p}px) scale(${1 + (scale - 1) * p})`;
+      const pv = Math.min(1, p * 1.25); // settle into the band slightly ahead of the growth
+      video.style.transform = `translate(${dx * p}px, ${dy * pv}px) scale(${1 + (scale - 1) * p})`;
       copy.style.opacity = String(1 - Math.min(1, p * 1.6));
       copy.style.transform = `translateX(${-40 * p}px)`;
     };
