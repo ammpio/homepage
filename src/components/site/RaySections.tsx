@@ -16,8 +16,8 @@ const chapters = [
   { t: 52, label: "Investor reporting" },
 ];
 
-/* Video showcase */
-export function RayVideo() {
+/* Video player with chapters */
+export function RayPlayer() {
   const ref = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const jump = (t: number) => {
@@ -28,50 +28,55 @@ export function RayVideo() {
     void v.play();
   };
   return (
+<div className="glass-strong overflow-hidden rounded-3xl p-2 sm:p-3">
+    <div className="relative overflow-hidden rounded-2xl bg-foreground/5">
+      <video
+        ref={ref}
+        src={rayVideo.url}
+        poster={rayPoster}
+        controls={started}
+        playsInline
+        preload="metadata"
+        className="aspect-video w-full"
+        onPlay={() => setStarted(true)}
+      />
+      {!started && (
+        <button
+          type="button"
+          onClick={() => jump(0)}
+          aria-label="Play the Ray overview video"
+          className="group absolute inset-0 grid place-items-center"
+        >
+          <span className="grid size-20 place-items-center rounded-full bg-foreground text-background shadow-xl transition-transform group-hover:scale-105">
+            <Play className="ml-1 size-8 fill-current" />
+          </span>
+        </button>
+      )}
+    </div>
+    <div className="flex flex-wrap justify-center gap-2 p-3">
+      {chapters.map((c) => (
+        <button key={c.t} type="button" onClick={() => jump(c.t)} className="glass-soft rounded-full px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <span className="tabular-nums text-foreground">{Math.floor(c.t / 60)}:{String(c.t % 60).padStart(2, "0")}</span> · {c.label}
+        </button>
+      ))}
+    </div>
+  </div>
+  );
+}
+
+/* Video showcase */
+export function RayVideo() {
+  return (
     <section id="ray-demo" className="relative scroll-mt-24 py-16 lg:py-24">
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>Meet Ray</span></div>
+            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>Meet Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>The coworker your team has been waiting for</h2>
             <p className="mt-5 text-lg text-muted-foreground">Built on 10 years of experience operating 10,000+ renewable energy sites. Works in Slack, Microsoft Teams and AMMP OS.</p>
           </div>
         </Reveal>
-        <Reveal delay={120}>
-          <div className="glass-strong mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl p-2 sm:p-3">
-            <div className="relative overflow-hidden rounded-2xl bg-foreground/5">
-              <video
-                ref={ref}
-                src={rayVideo.url}
-                poster={rayPoster}
-                controls={started}
-                playsInline
-                preload="metadata"
-                className="aspect-video w-full"
-                onPlay={() => setStarted(true)}
-              />
-              {!started && (
-                <button
-                  type="button"
-                  onClick={() => jump(0)}
-                  aria-label="Play the Ray overview video"
-                  className="group absolute inset-0 grid place-items-center"
-                >
-                  <span className="grid size-20 place-items-center rounded-full bg-primary text-primary-foreground shadow-[0_18px_40px_-12px_var(--primary)] transition-transform group-hover:scale-105">
-                    <Play className="ml-1 size-8 fill-current" />
-                  </span>
-                </button>
-              )}
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 p-3">
-              {chapters.map((c) => (
-                <button key={c.t} type="button" onClick={() => jump(c.t)} className="glass-soft rounded-full px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-primary">
-                  <span className="tabular-nums text-primary">{Math.floor(c.t / 60)}:{String(c.t % 60).padStart(2, "0")}</span> · {c.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+        <Reveal delay={120}><div className="mx-auto mt-12 max-w-5xl"><RayPlayer /></div></Reveal>
       </div>
     </section>
   );
@@ -121,7 +126,7 @@ export function RayDay() {
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>A day with Ray</span></div>
+            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>A day with Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>Working before anyone's logged in</h2>
             <p className="mt-5 text-lg text-muted-foreground">Seven a.m. Ray has already checked yesterday's performance across every site — and knows which issues need a human.</p>
           </div>
@@ -130,7 +135,7 @@ export function RayDay() {
         <div className="mt-10 flex flex-wrap justify-center gap-2" role="tablist">
           {tabs.map(({ id, label, icon: Icon }) => (
             <button key={id} role="tab" aria-selected={tab === id} type="button" onClick={() => setTab(id)}
-              className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${tab === id ? "bg-primary text-primary-foreground" : "glass-soft text-muted-foreground hover:text-foreground"}`}>
+              className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${tab === id ? "bg-foreground text-background" : "glass-soft text-muted-foreground hover:text-foreground"}`}>
               <Icon className="size-4" />{label}
             </button>
           ))}
@@ -139,7 +144,7 @@ export function RayDay() {
         <div className="glass-strong mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl">
           <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 text-sm">
             <span className="font-medium">{tab === "report" ? "# finance-reporting" : tab === "plan" ? "# portfolio-ops" : "Mark de Vries, Tom Visser, Ray"}</span>
-            <span className="flex items-center gap-2 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>
+            <span className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>
           </div>
           <div key={tab} className="msg-in space-y-5 p-5 sm:p-7">
             {tab === "plan" && (<>
@@ -227,7 +232,6 @@ export function RayEverywhere() {
     <section className="relative py-16 lg:py-24">
       <div className="site-container">
         <div className="glass mx-auto max-w-4xl rounded-3xl p-8 text-center md:p-12">
-          <img src={rayAvatar} alt="Ray" className="mx-auto mb-5 size-20 rounded-full object-cover ring-4 ring-primary/15" />
           <h2 className={h2Class}>Wherever your team already works</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">In Slack, Microsoft Teams, or right inside AMMP OS — same Ray, same evidence, humans in control.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -52,7 +52,7 @@ function Hero() {
         <div>
           <Reveal delay={90}>
             <h1 className="max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
-              Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
+              Put AI to work across your renewable energy portfolio
             </h1>
           </Reveal>
           <Reveal delay={180}>
@@ -62,7 +62,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={270}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/ai" className="button button-primary rounded-full px-5 shadow-[0_14px_34px_-14px_var(--primary)] transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
+              <Link to="/ai" className="button button-primary rounded-full px-5 transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
               <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
             </div>
           </Reveal>
@@ -303,7 +303,7 @@ function ContextPlatformSection() {
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0"><ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" /><span className="lg:hidden">Feeds into</span><ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" /></div>
             <div className="glass-strong msg-in relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center" style={{ animationDelay: "400ms" }}>
               <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[0_14px_34px_-14px_var(--primary)]"><Brain className="h-7 w-7" /></div>
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground"><Brain className="h-7 w-7" /></div>
               <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP AI</h3>
               <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
