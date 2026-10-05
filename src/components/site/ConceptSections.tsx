@@ -169,13 +169,13 @@ export function TrustBento() {
                   className={`rounded-full px-4 py-1.5 text-sm transition ${v === vendor ? "bg-primary text-primary-foreground" : "border border-border/70 bg-background/70 text-muted-foreground"}`}>{v}</button>
               ))}
             </div>
-            <div className="mt-5 grid grid-cols-3 gap-3 text-sm">
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-border/60 bg-background/60 px-4 py-3 text-sm">
+              <span className="text-xs text-muted-foreground">Normalised from {vendor}</span>
               {["Live power", "Energy yield", "Alarms"].map((k) => (
-                <div key={k} className="rounded-xl border border-border/60 bg-background/60 p-3">
-                  <p className="text-xs text-muted-foreground">{vendor}</p>
-                  <p className="mt-1 font-medium">{k}</p>
-                  <Check className="mt-2 size-4 text-primary" />
-                </div>
+                <span key={k} className="flex items-center gap-1.5 font-medium">
+                  <Check className="size-4 text-primary" />
+                  {k}
+                </span>
               ))}
             </div>
           </div>
