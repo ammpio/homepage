@@ -64,25 +64,6 @@ function Page() {
         </ul>
       </Band>
 
-      <Band>
-        <SectionHeading title="Recommended for you" intro="The AMMP OS module built for your workflow." />
-        <div className="mx-auto mt-8 max-w-2xl rounded-xl border border-border bg-card p-6">
-          <div className="flex items-start gap-4">
-            <LayoutDashboard className="mt-1 size-8 shrink-0 text-primary" />
-            <div>
-              <h3 className="text-lg font-semibold">AMMP Operate</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Complete operations toolkit for daily portfolio management.</p>
-              <span className="mt-2 inline-block rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">Includes AMMP Detect</span>
-            </div>
-          </div>
-          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-            {["Real-time dashboards & KPIs", "Ticketing / work orders", "Create tickets from alerts", "Custom & KPI-based alert rules"].map((i) => (
-              <li key={i} className="flex items-start gap-2 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />{i}</li>
-            ))}
-          </ul>
-          <p className="mt-5 text-sm italic text-muted-foreground">Purpose-built for O&M teams who need real-time visibility and streamlined ticketing across client sites.</p>
-        </div>
-      </Band>
 
       <PageCta />
     </>

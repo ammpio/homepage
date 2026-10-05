@@ -73,28 +73,6 @@ function Page() {
         </ul>
       </Band>
 
-      <Band>
-        <SectionHeading title="Recommended for you" intro="The AMMP OS modules built for your workflow." />
-        <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          {modules.map((m) => (
-            <article key={m.name} className="rounded-xl border border-border bg-card p-6">
-              <div className="flex items-start gap-4">
-                <m.icon className="mt-1 size-8 shrink-0 text-primary" />
-                <div>
-                  <h3 className="text-lg font-semibold">{m.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{m.desc}</p>
-                </div>
-              </div>
-              <ul className="mt-5 space-y-2">
-                {m.items.map((i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />{i}</li>
-                ))}
-              </ul>
-              <p className="mt-5 text-sm italic text-muted-foreground">{m.note}</p>
-            </article>
-          ))}
-        </div>
-      </Band>
 
       <PageCta />
     </>
