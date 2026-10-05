@@ -361,7 +361,7 @@ function PlatformOverview() {
               <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="status-pulse size-1.5 rounded-full bg-primary" />{eyebrow}</div>
               <div className="mt-5 flex items-start justify-between gap-4">
                 <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">{title}</h3>
-                <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${index === 0 ? "bg-white/70 text-muted-foreground" : "bg-primary text-primary-foreground"}`}><Icon className="size-5" /></span>
+                <span className={`grid size-10 shrink-0 place-items-center ${index === 0 ? "rounded-xl bg-white/70 text-muted-foreground" : "rounded-full"}`}><Icon className={index === 0 ? "size-5" : "size-10"} /></span>
               </div>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">{body}</p>
             </article>
