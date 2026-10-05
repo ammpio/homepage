@@ -68,7 +68,7 @@ function useHeroScroll() {
 export function Hero() {
   const { sectionRef, copyRef, videoRef } = useHeroScroll();
   return (
-    <section ref={sectionRef} className="relative lg:h-[175vh] motion-reduce:lg:h-auto">
+    <section ref={sectionRef} className="relative lg:h-[148vh] motion-reduce:lg:h-auto">
       <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:items-start motion-reduce:lg:static motion-reduce:lg:min-h-0">
       <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-12 xl:px-6">
         <div ref={copyRef} className="text-center will-change-transform lg:text-left">
