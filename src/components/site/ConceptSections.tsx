@@ -147,7 +147,6 @@ export function ModeDeck() {
 const vendors = ["Huawei", "SMA", "SolarEdge", "Victron", "Sungrow"];
 
 export function TrustBento() {
-  const [vendor, setVendor] = useState("SMA");
   const [role, setRole] = useState<"am" | "om">("am");
   const perms = role === "am"
     ? [["Financial KPIs", true], ["Investor reports", true], ["Work orders", true], ["Device settings", false]]
@@ -165,17 +164,7 @@ export function TrustBento() {
             <p className="mt-1 text-sm text-muted-foreground">One data model, whatever is on site.</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {vendors.map((v) => (
-                <button key={v} type="button" onClick={() => setVendor(v)}
-                  className={`rounded-full px-4 py-1.5 text-sm transition ${v === vendor ? "bg-primary text-primary-foreground" : "border border-border/70 bg-background/70 text-muted-foreground"}`}>{v}</button>
-              ))}
-            </div>
-            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-border/60 bg-background/60 px-4 py-3 text-sm">
-              <span className="text-xs text-muted-foreground">Normalised from {vendor}</span>
-              {["Live power", "Energy yield", "Alarms"].map((k) => (
-                <span key={k} className="flex items-center gap-1.5 font-medium">
-                  <Check className="size-4 text-primary" />
-                  {k}
-                </span>
+                <span key={v} className="rounded-full border border-border/70 bg-background/70 px-4 py-1.5 text-sm">{v}</span>
               ))}
             </div>
           </div>
