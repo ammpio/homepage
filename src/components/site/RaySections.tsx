@@ -47,7 +47,7 @@ export function RayPlayer() {
           aria-label="Play the Ray overview video"
           className="group absolute inset-0 grid place-items-center"
         >
-          <span className="grid size-20 place-items-center rounded-full bg-primary text-primary-foreground shadow-[0_18px_40px_-12px_var(--primary)] transition-transform group-hover:scale-105">
+          <span className="grid size-20 place-items-center rounded-full bg-foreground text-background shadow-xl transition-transform group-hover:scale-105">
             <Play className="ml-1 size-8 fill-current" />
           </span>
         </button>
@@ -55,8 +55,8 @@ export function RayPlayer() {
     </div>
     <div className="flex flex-wrap justify-center gap-2 p-3">
       {chapters.map((c) => (
-        <button key={c.t} type="button" onClick={() => jump(c.t)} className="glass-soft rounded-full px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-primary">
-          <span className="tabular-nums text-primary">{Math.floor(c.t / 60)}:{String(c.t % 60).padStart(2, "0")}</span> · {c.label}
+        <button key={c.t} type="button" onClick={() => jump(c.t)} className="glass-soft rounded-full px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <span className="tabular-nums text-foreground">{Math.floor(c.t / 60)}:{String(c.t % 60).padStart(2, "0")}</span> · {c.label}
         </button>
       ))}
     </div>
