@@ -240,7 +240,7 @@ export function Details() {
               {arrow("Feeds into")}
               <div className="glass-strong relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center">
                 <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-foreground text-background"><Database className="h-7 w-7" /></div>
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-foreground/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] backdrop-blur-sm"><Database className="h-7 w-7" strokeWidth={1.25} /></div>
                 <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP OS</h3>
                 <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
                 <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
