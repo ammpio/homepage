@@ -52,9 +52,10 @@ function useHeroScroll() {
       const box = video.getBoundingClientRect();
       const vw = document.documentElement.clientWidth, vh = window.innerHeight;
       const dx = vw / 2 - (box.left + w / 2);
+      const shift = Math.min(0, travel + rect.top); // once unpinned, scroll the enlarged video away with the page
       const top = 80, bottom = vh - 16; // clear the sticky header, keep a margin below
       const scale = Math.max(1, Math.min((vw * 0.82) / w, (bottom - top) / h));
-      const dy = top + (h * scale) / 2 - (box.top + h / 2);
+      const dy = top + shift + (h * scale) / 2 - (box.top + h / 2);
       const pv = Math.min(1, p * 1.25); // settle into the band slightly ahead of the growth
       video.style.transform = `translate(${dx * p}px, ${dy * pv}px) scale(${1 + (scale - 1) * p})`;
       copy.style.opacity = String(1 - Math.min(1, p * 1.6));
@@ -74,7 +75,7 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative lg:h-[148vh] motion-reduce:lg:h-auto">
       <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:items-start motion-reduce:lg:static motion-reduce:lg:min-h-0">
-      <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-12 xl:px-6">
+      <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-20 xl:px-6">
         <div ref={copyRef} className="text-center will-change-transform lg:text-left">
           <Reveal delay={90}>
             <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
