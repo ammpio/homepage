@@ -108,11 +108,11 @@ export function ModeDeck() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="py-20 md:py-24">
-      <div className="site-container">
-        <div className="max-w-3xl">
+      <div className="site-container grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
+        <div className="lg:sticky lg:top-28">
           <h2 className={h2Class}>Work with AMMP the way your team works</h2>
         </div>
-        <div className="mt-10 max-w-4xl space-y-3">
+        <div className="space-y-3">
           {modes.map((mode, i) => {
             const isOpen = open === i;
             return (
