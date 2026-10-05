@@ -166,7 +166,7 @@ export function Details() {
                   <span className="grid size-10 place-items-center rounded-xl bg-primary/10 text-primary"><Icon className="size-5" /></span>
                   <h3 className="mt-5 font-display text-lg font-medium">{title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-                  <ChevronRight className="mt-auto pt-4 size-8 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                  <ChevronRight className="mt-auto size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </Reveal>
             ))}
