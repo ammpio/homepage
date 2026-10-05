@@ -7,7 +7,7 @@ export const Route = createFileRoute("/beta")({
     { title: "AMMP Labs — Experimental features" },
     { name: "description", content: "Early access to experimental AMMP features: billing integration, AI + MCP server, and monday.com sync." },
     { property: "og:title", content: "AMMP Labs" },
-    { property: "og:description", content: "Explore experimental tools and help shape the future of energy monitoring and AI coworkers." },
+    { property: "og:description", content: "Explore experimental tools and help shape the future of energy monitoring and AI coworker." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/beta")({
 function Page() {
   return (
     <>
-      <PageHero eyebrow="AMMP Labs · Experimental features" title="Early access to what your" highlight="AI coworkers will do next." intro="Welcome to AMMP Labs, where we test and refine new features before they're ready for prime time. Explore our experimental tools and help shape the future of energy monitoring." />
+      <PageHero eyebrow="AMMP Labs · Experimental features" title="Early access to what your" highlight="AI coworker will do next." intro="Welcome to AMMP Labs, where we test and refine new features before they're ready for prime time. Explore our experimental tools and help shape the future of energy monitoring." />
 
       <Band tone="grey">
         <h2 className="text-2xl font-semibold">Active experiments</h2>

@@ -17,16 +17,16 @@ import financialImpactReport from "@/assets/financial-impact-report.png";
 
 export const Route = createFileRoute("/product")({
   head: () => ({ meta: [
-    { title: "AMMP OS — the platform your AI coworkers run on" },
-    { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with AI coworkers grounded in the same data." },
-    { property: "og:title", content: "AMMP OS — the platform your AI coworkers run on" },
+    { title: "AMMP OS — the platform your AI coworker run on" },
+    { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with An AI coworker grounded in the same data." },
+    { property: "og:title", content: "AMMP OS — the platform your AI coworker run on" },
     { property: "og:description", content: "One platform for your entire renewable energy portfolio: monitoring, alerting, reporting, commercials and AI." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
 
 const categories = [
-  { id: "monitoring", label: "Monitoring", icon: Activity, title: "Live visibility, before your coworkers even ask", intro: "Dashboards give AI coworkers and people the same grounded view of every site." },
+  { id: "monitoring", label: "Monitoring", icon: Activity, title: "Live visibility, before your coworkers even ask", intro: "Dashboards give an AI coworker and people the same grounded view of every site." },
   { id: "ticketing", label: "Ticketing", icon: Kanban, title: "Work orders your team and your coworkers both act on" },
   { id: "alerting", label: "Alerting", icon: Bell, title: "Catch issues before they get costly" },
   { id: "reporting", label: "Reporting", icon: FileText, title: "Reports your stakeholders trust" },
@@ -34,7 +34,7 @@ const categories = [
   { id: "integrations", label: "Integrations", icon: Plug, title: "Connect every system you already run" },
   { id: "customizations", label: "Customisations", icon: Settings2, title: "Built around your portfolio, not a template" },
   { id: "api", label: "API", icon: Code, title: "Build on the same data your coworkers use" },
-  { id: "ai", label: "AI", icon: Sparkles, title: "Where the coworkers come in", intro: "AI coworkers are built directly on top of AMMP OS, so they see exactly what your dashboards see." },
+  { id: "ai", label: "AI", icon: Sparkles, title: "Where the coworkers come in", intro: "AI coworker are built directly on top of AMMP OS, so they see exactly what your dashboards see." },
 ] as const;
 
 type CategoryId = (typeof categories)[number]["id"];
@@ -128,9 +128,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="Product"
-        title="Your AI coworkers need somewhere to work."
+        title="Your AI coworker need somewhere to work."
         highlight="AMMP OS is that platform."
-        intro="AMMP OS combines technical monitoring, commercial tracking, and stakeholder reporting into a single platform designed for distributed renewable portfolios. AI coworkers sit on top of it, reading the same live data your team already trusts."
+        intro="AMMP OS combines technical monitoring, commercial tracking, and stakeholder reporting into a single platform designed for distributed renewable portfolios. AI coworker sit on top of it, reading the same live data your team already trusts."
         primary={{ label: "Try the demo", to: "/demo" }}
         secondary={{ label: "See AI at AMMP", to: "/ai" }}
       />

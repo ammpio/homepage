@@ -40,7 +40,7 @@ const rows = [
 
 const differentiators = [
   { icon: Cloud, title: "Always Accessible", text: "Access your data from anywhere, office, home, or on-site, without VPNs or special network configuration." },
-  { icon: Bell, title: "Proactive Alerting", text: "Stop manually checking systems. AI coworkers surface instant alerts when issues arise, with smart escalation rules." },
+  { icon: Bell, title: "Proactive Alerting", text: "Stop manually checking systems. AI coworker surface instant alerts when issues arise, with smart escalation rules." },
   { icon: Smartphone, title: "Modern Experience", text: "Mobile apps, Slack integration, and a responsive web interface designed for how you work today." },
   { icon: TrendingUp, title: "Zero Maintenance", text: "No servers to maintain, no software to update. Focus on your sites, not your monitoring infrastructure." },
 ];
@@ -59,7 +59,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Traditional monitoring approaches, SCADA systems, local data loggers, manual spreadsheet tracking, served their purpose but were not designed for today's distributed solar portfolios. They require on-site access, manual data collection, and constant maintenance.</p>
-          <p>AMMP brings solar monitoring into the modern era with AI coworkers running on cloud-native AMMP OS. Access your entire portfolio from anywhere, receive instant alerts, and let automated systems handle the data collection while you focus on optimising performance.</p>
+          <p>AMMP brings solar monitoring into the modern era with AI coworker running on cloud-native AMMP OS. Access your entire portfolio from anywhere, receive instant alerts, and let automated systems handle the data collection while you focus on optimising performance.</p>
         </div>
       </Band>
       <Band tone="white">

@@ -58,7 +58,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Building an in-house monitoring system seems attractive, full control, custom features, no vendor dependencies. But the reality often includes months of development, ongoing maintenance burden, and hidden costs that compound over time.</p>
-          <p>AMMP gives you the power of a custom-built platform without the overhead. AI coworkers on AMMP OS have already solved the hard problems, device integration, data reliability, scalable infrastructure, so your team can focus on operating your solar assets.</p>
+          <p>AMMP gives you the power of a custom-built platform without the overhead. an AI coworker on AMMP OS have already solved the hard problems, device integration, data reliability, scalable infrastructure, so your team can focus on operating your solar assets.</p>
         </div>
       </Band>
       <Band tone="white">

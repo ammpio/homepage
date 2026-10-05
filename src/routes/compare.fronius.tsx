@@ -59,7 +59,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the platforms differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Fronius Solar.web provides monitoring for Fronius inverter systems with a user-friendly interface. While excellent for residential Fronius installations, it is limited to Fronius equipment and lacks features needed for commercial portfolio management.</p>
-          <p>AMMP is hardware-agnostic and commercial-focused, with AI coworkers on AMMP OS integrating 30+ device brands including Fronius. That means you can monitor your entire portfolio, Fronius sites, Huawei sites, SMA sites, all in one platform with professional-grade reporting and analytics.</p>
+          <p>AMMP is hardware-agnostic and commercial-focused, with an AI coworker on AMMP OS integrating 30+ device brands including Fronius. That means you can monitor your entire portfolio, Fronius sites, Huawei sites, SMA sites, all in one platform with professional-grade reporting and analytics.</p>
         </div>
       </Band>
       <Band tone="white">

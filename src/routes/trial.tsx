@@ -6,7 +6,7 @@ import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 export const Route = createFileRoute("/trial")({
   head: () => ({ meta: [
     { title: "Start a Trial — AMMP" },
-    { name: "description", content: "Start a discounted 6-month trial of AMMP OS and AI coworkers, with a pilot phase on a subset of your portfolio." },
+    { name: "description", content: "Start a discounted 6-month trial of AMMP OS and AI coworker, with a pilot phase on a subset of your portfolio." },
     { property: "og:title", content: "Start a trial with AMMP" },
     { property: "og:description", content: "Validate AMMP with a subset of your portfolio before committing to a full rollout." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -29,7 +29,7 @@ function Page() {
               { icon: Check, title: "Run alongside your current setup", text: "Operate AMMP side-by-side with your existing tools during the trial." },
               { icon: Check, title: "No hardware replacement", text: "AMMP connects to equipment you already have from 30+ manufacturers." },
               { icon: Check, title: "Guided onboarding", text: "Setup takes about a month; our team handles integration and data migration." },
-              { icon: Check, title: "AI coworkers included", text: "See how AI coworkers investigate and prioritise work on your own data." },
+              { icon: Check, title: "AI coworker included", text: "See how Ray investigates and prioritise work on your own data." },
             ]} />
           </div>
           <div className="glass-strong rounded-2xl p-6">

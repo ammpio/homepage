@@ -5,9 +5,9 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/us")({
   head: () => ({ meta: [
-    { title: "AMMP US — Tailored solar and BESS monitoring, plus AI coworkers" },
-    { name: "description", content: "Asset management tailored to your vendors, KPIs and workflows, now with AI coworkers built on top. PV, BESS and hybrid portfolios, 10,000+ sites across 35 countries." },
-    { property: "og:title", content: "AMMP US — Tailored solar and BESS monitoring, plus AI coworkers" },
+    { title: "AMMP US — Tailored solar and BESS monitoring, plus AI coworker" },
+    { name: "description", content: "Asset management tailored to your vendors, KPIs and workflows, now with an AI coworker built on top. PV, BESS and hybrid portfolios, 10,000+ sites across 35 countries." },
+    { property: "og:title", content: "AMMP US — Tailored solar and BESS monitoring, plus AI coworker" },
     { property: "og:description", content: "Demos in US business hours, pricing in USD. Engineers, not ticket queues." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
@@ -18,9 +18,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP in the US"
-        title="AI coworkers on a monitoring platform built"
+        title="an AI coworker on a monitoring platform built"
         highlight="around your portfolio."
-        intro="AMMP is the asset management platform we tailor to your vendors, KPIs and workflows—and where AI coworkers now investigate and prepare work for your team. PV, BESS and hybrid. 10,000+ sites across 35 countries."
+        intro="AMMP is the asset management platform we tailor to your vendors, KPIs and workflows—and where an AI coworker now investigates and prepare work for your team. PV, BESS and hybrid. 10,000+ sites across 35 countries."
         primary={{ label: "Let's have a chat", to: "/contact" }}
         secondary={{ label: "See the platform", to: "/product" }}
       />

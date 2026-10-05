@@ -6,10 +6,10 @@ import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
-    { title: "About AMMP — AI coworkers for the energy transition" },
-    { name: "description", content: "AMMP started in Tanzania's mini-grids and now gives renewable energy teams AI coworkers grounded in real portfolio data." },
-    { property: "og:title", content: "About AMMP — AI coworkers for the energy transition" },
-    { property: "og:description", content: "Meet the company building AI coworkers on top of a trusted operating layer for renewable energy portfolios." },
+    { title: "About AMMP — an AI coworker for the energy transition" },
+    { name: "description", content: "AMMP started in Tanzania's mini-grids and now gives renewable energy teams An AI coworker grounded in real portfolio data." },
+    { property: "og:title", content: "About AMMP — an AI coworker for the energy transition" },
+    { property: "og:description", content: "Meet the company building an AI coworker on top of a trusted operating layer for renewable energy portfolios." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -19,10 +19,10 @@ function Page() {
     <>
       <PageHero
         eyebrow="About AMMP"
-        title="AI coworkers, built on a decade of"
+        title="AI coworker, built on a decade of"
         highlight="portfolio operating experience."
-        intro="AMMP gives renewable energy teams AI coworkers that investigate, prioritise and prepare work—grounded in the same operational context we've been building since 2016."
-        primary={{ label: "Meet your coworkers", to: "/contact" }}
+        intro="AMMP gives renewable energy teams an AI coworker that investigates, prioritises and prepares work—grounded in the same operational context we've been building since 2016."
+        primary={{ label: "Meet your coworker", to: "/contact" }}
         secondary={{ label: "See the platform", to: "/product" }}
       />
 
@@ -31,7 +31,7 @@ function Page() {
         <Prose>
           <p>AMMP was founded in 2016 by Svet, Stine and Hendrik, three entrepreneurs who met while building and operating mini-grids in rural Tanzania with Rafiki Power.</p>
           <p>Working in the field, they experienced firsthand the challenges of managing distributed energy systems in remote locations: unreliable connectivity, diverse equipment from multiple vendors, and the need for real-time visibility to keep systems running efficiently.</p>
-          <p>They built AMMP to solve these problems, not just for themselves, but for the entire distributed energy sector. Today, AMMP monitors over 10,000 sites across 30+ countries, helping solar developers, operators, and asset managers scale their portfolios with confidence—and now adding AI coworkers on top of that same trusted data.</p>
+          <p>They built AMMP to solve these problems, not just for themselves, but for the entire distributed energy sector. Today, AMMP monitors over 10,000 sites across 30+ countries, helping solar developers, operators, and asset managers scale their portfolios with confidence—and now adding an AI coworker on top of that same trusted data.</p>
         </Prose>
       </Band>
 
@@ -72,7 +72,7 @@ function Page() {
           </div>
           <div className="rounded-xl border border-border bg-card p-6 flex gap-4 items-start">
             <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
-            <p className="text-sm leading-6 text-muted-foreground">The next chapter: a trusted operating system with AI coworkers built on top of real portfolio context.</p>
+            <p className="text-sm leading-6 text-muted-foreground">The next chapter: a trusted operating system with an AI coworker built on top of real portfolio context.</p>
           </div>
         </div>
       </Band>

@@ -73,7 +73,7 @@ function Page() {
         eyebrow="How tailoring works"
         title="Your portfolio isn't standard."
         highlight="Your platform shouldn't be either."
-        intro="AMMP builds custom integrations, dashboards, KPIs and workflows on top of a maintained monitoring platform — the same platform your AI coworkers run on. You get the specific thing your business needs, without owning the upkeep of a platform."
+        intro="AMMP builds custom integrations, dashboards, KPIs and workflows on top of a maintained monitoring platform — the same platform your AI coworker run on. You get the specific thing your business needs, without owning the upkeep of a platform."
         primary={{ label: "Send us your requirement", to: "/contact" }}
       />
 

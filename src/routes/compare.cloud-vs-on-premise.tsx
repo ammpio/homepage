@@ -60,7 +60,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>On-premise monitoring was the default for industrial systems, local servers, site-specific installations, complete control within your firewall. But managing distributed solar portfolios with on-premise tools means multiplied complexity.</p>
-          <p>AMMP offers a different approach: AI coworkers running on cloud-native AMMP OS give you centralised management, automatic scaling, and access from anywhere. With AMMP Edge, you get the best of both, local data buffering for reliability with cloud accessibility and analytics.</p>
+          <p>AMMP offers a different approach: AI coworker running on cloud-native AMMP OS give you centralised management, automatic scaling, and access from anywhere. With AMMP Edge, you get the best of both, local data buffering for reliability with cloud accessibility and analytics.</p>
         </div>
       </Band>
       <Band tone="white">

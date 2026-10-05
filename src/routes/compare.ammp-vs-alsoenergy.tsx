@@ -95,7 +95,7 @@ function Page() {
         <FeatureGrid columns={3} features={scenarios} />
       </Band>
       <Band tone="white">
-        <SectionHeading eyebrow="Switching from AlsoEnergy / PowerTrack" title="How a switch actually happens" intro="Our AI coworkers run on top of AMMP OS, so migrating dashboards and alert logic is a rebuild, not a rewrite of your operating model." center />
+        <SectionHeading eyebrow="Switching from AlsoEnergy / PowerTrack" title="How a switch actually happens" intro="Our AI coworker run on top of AMMP OS, so migrating dashboards and alert logic is a rebuild, not a rewrite of your operating model." center />
         <StepList steps={switchSteps} />
       </Band>
       <Band tone="grey">

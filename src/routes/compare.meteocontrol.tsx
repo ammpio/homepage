@@ -58,7 +58,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Both AMMP and Meteocontrol offer comprehensive solar monitoring solutions, but they differ in focus and approach. Meteocontrol has a strong presence in utility-scale projects primarily in Europe.</p>
-          <p>AMMP focuses on the C&I segment with particular strength in emerging markets like South Africa. AI coworkers on AMMP OS bring Slack/Teams integration and fully programmable reporting APIs to your team's daily workflow.</p>
+          <p>AMMP focuses on the C&I segment with particular strength in emerging markets like South Africa. an AI coworker on AMMP OS bring Slack/Teams integration and fully programmable reporting APIs to your team's daily workflow.</p>
         </div>
       </Band>
       <Band tone="white">

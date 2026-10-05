@@ -55,7 +55,7 @@ export function ExecutionTrace() {
           <p className="eyebrow">Watch a coworker work</p>
           <h2 className={`mt-4 ${h2Class}`}>Every step visible. Every source linked.</h2>
           <p className="mt-5 text-lg text-muted-foreground">Ray shows exactly what it checked, what it found, and what it prepared — so your team can review and approve in seconds.</p>
-          <Link to="/ai" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary">Meet your coworkers <ArrowRight className="size-4" /></Link>
+          <Link to="/ai" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary">Meet your coworker <ArrowRight className="size-4" /></Link>
         </div>
         <Reveal>
           <div className="glass-strong rounded-3xl p-6 md:p-8">

@@ -26,7 +26,7 @@ const rows = [
 ];
 
 const differentiators = [
-  { icon: Layers, title: "Multi-vendor by default", text: "AI coworkers on AMMP OS work across 30+ device brands, so you are not tied to the hardware ecosystem PowerTrack was built around." },
+  { icon: Layers, title: "Multi-vendor by default", text: "an AI coworker on AMMP OS work across 30+ device brands, so you are not tied to the hardware ecosystem PowerTrack was built around." },
   { icon: RefreshCw, title: "Built for what PowerTrack won't build", text: "Custom integrations, KPIs and workflows that fall outside PowerTrack's standard feature set are quoted and shipped, typically in 2 to 6 weeks." },
   { icon: BarChart3, title: "Storage and hybrid depth", text: "PowerTrack has a strong PV heritage; AMMP is built for PV, BESS, generators and hybrid sites from the ground up." },
   { icon: Building, title: "Engineers, not a ticket queue", text: "You get direct access to the people who build the platform, instead of a tiered support queue." },
@@ -46,7 +46,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the platforms differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>PowerTrack provides monitoring and reporting for solar and storage portfolios with a widely deployed, standardised feature set. It works well when your portfolio and requirements fit that template.</p>
-          <p>AMMP puts AI coworkers on top of AMMP OS to build the integrations, KPIs and workflows that don't fit anyone's default template, across 30+ device brands, with direct access to the engineers who build the platform.</p>
+          <p>AMMP puts an AI coworker on top of AMMP OS to build the integrations, KPIs and workflows that don't fit anyone's default template, across 30+ device brands, with direct access to the engineers who build the platform.</p>
         </div>
       </Band>
       <Band tone="white">

@@ -7,7 +7,7 @@ import { BookMeeting } from "@/components/site/BookMeeting";
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
     { title: "Contact AMMP — Talk to our team" },
-    { name: "description", content: "Ready to put AI coworkers and portfolio-wide visibility to work? Talk to AMMP about your renewable energy operations." },
+    { name: "description", content: "Ready to put an AI coworker and portfolio-wide visibility to work? Talk to AMMP about your renewable energy operations." },
     { property: "og:title", content: "Contact AMMP" },
     { property: "og:description", content: "Ready to scale your solar operations? Let's discuss how AMMP can help." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -29,7 +29,7 @@ function Page() {
         eyebrow="Contact"
         title="Get in"
         highlight="touch."
-        intro="Ready to scale your solar operations? Let's discuss how AI coworkers and AMMP can help."
+        intro="Ready to scale your solar operations? Let's discuss how an AI coworker and AMMP can help."
       />
 
       <Band tone="grey">
