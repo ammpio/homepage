@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Activity, ArrowRight, ArrowDown, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
   DollarSign, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
-  Plug, PlugZap, Radio, Server, Settings, Sun, Ticket, Wrench,
+  Plug, PlugZap, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
