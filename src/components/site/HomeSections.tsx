@@ -14,7 +14,7 @@ const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.01
 
 export function HomePage() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-x-clip">
       <Hero />
       <StatsBar />
       <BeforeLogin />
