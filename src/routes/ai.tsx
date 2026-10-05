@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Activity, ArrowRight, BarChart3, Bell, Bot, ExternalLink, LayoutDashboard, Lock, MessagesSquare, Server, ShieldCheck, Sparkles, Waves } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import ammpIntelligence from "@/assets/ammp-intelligence.png";
+import { RayVideo, RayDay } from "@/components/site/RaySections";
 import rayAvatar from "@/assets/ray-avatar.png";
 
 const RAY_URL = "https://os.ammp.io/beta-ray";
@@ -102,18 +102,8 @@ function Page() {
         <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">These are working hypotheses, not a finished roadmap. We are refining them with the operators in our beta.</p>
       </Band>
 
-      <Band tone="grey">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>Meet Ray</span></div>
-          <SectionHeading center className="mt-3" eyebrow="AI coworker" title="Ray" intro="Ray is our AI coworker inside AMMP OS. Ask it for an overview and it builds the chart, then explains what it found on the way there." />
-        </div>
-        <div className="glass-strong mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl p-2">
-          <img src={ammpIntelligence} alt="Ray" className="w-full" loading="lazy" />
-        </div>
-        <div className="mt-4 text-center">
-          <a href={RAY_URL} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm font-medium text-primary">Open Ray in a new tab <ExternalLink className="ml-2 size-4" /></a>
-        </div>
-      </Band>
+      <RayVideo />
+      <RayDay />
 
       <Band>
         <SectionHeading center eyebrow="Roadmap" title="Where our AI coworkers are heading" intro="We are building a small team of specialised agents on top of the MCP server. Here is what they are being designed to do." />
