@@ -11,7 +11,8 @@ import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
 import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
-import ammpIntelligence from "@/assets/ammp-intelligence.png";
+import rayVideo from "@/assets/ray-overview.mp4.asset.json";
+import rayPoster from "@/assets/ray-video-poster.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
 export const Route = createFileRoute("/product")({
@@ -113,7 +114,7 @@ const panels: Record<CategoryId, ReactNode> = {
         <Card icon={Server} title="MCP Server">A Model Context Protocol server, so any MCP-compatible AI assistant can securely query your assets, KPIs, alerts and raw time-series in natural language, within your existing access controls.</Card>
         <Card icon={Bell} title="AI Agents">A team of agents on top of the MCP server: Ray, an in-platform coworker, plus visualisation, QA and monitoring agents that proactively check data, dashboards and portfolio health.</Card>
       </div>
-      <div className="glass-strong mt-8 overflow-hidden rounded-2xl p-2"><img src={ammpIntelligence} alt="AMMP Intelligence" className="w-full rounded-xl" loading="lazy" /></div>
+      <div className="glass-strong mt-8 overflow-hidden rounded-2xl p-2"><video src={rayVideo.url} poster={rayPoster} controls preload="metadata" className="w-full rounded-xl" /></div>
       <Link to="/ai" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Learn more about AI at AMMP <ArrowRight className="size-4" /></Link>
     </div>
   ),
