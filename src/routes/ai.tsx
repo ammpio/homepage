@@ -45,9 +45,9 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Beta"
+        eyebrow="AI at AMMP"
         title="Your coworkers can now read your portfolio."
-        intro="We are putting your portfolio data directly in front of AI. An open MCP server gives any assistant secure access to your assets, KPIs, alerts and raw telemetry, and our own AI coworkers are being built on exactly the same foundation, sitting on top of AMMP OS."
+        intro="We are putting your portfolio data directly in front of AI. An open MCP server gives any assistant secure access to your assets, KPIs, alerts and raw telemetry, and Ray, our AI coworker, works on exactly the same foundation."
         primary={{ label: "Talk to us", to: "/contact" }}
         aside={
           <div className="glass-strong rounded-3xl p-6 shadow-sm">
@@ -81,7 +81,7 @@ function Page() {
       </Band>
 
       <Band>
-        <SectionHeading center eyebrow="How it fits together" title="How this can fit into your stack" intro="A rough map of the integration options we are testing with beta customers. Use our AI coworkers, bring your own assistant, or both." />
+        <SectionHeading center eyebrow="How it fits together" title="How this can fit into your stack" intro="Use Ray, bring your own assistant, or both." />
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
           <div className="glass-soft rounded-3xl border-2 border-dashed lg:col-span-2 p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Provided by AMMP</p>
@@ -98,8 +98,7 @@ function Page() {
             <DiagramCard dashed title="Other software tools" subtitle="Optional integration" items={["CRM, CMMS, ERP systems", "Connect via the MCP server", "Or via your AI assistant"]} />
           </div>
         </div>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">These are working hypotheses, not a finished roadmap. We are refining them with the operators in our beta.</p>
-      </Band>
+              </Band>
 
       <RayVideo />
       <RayDay />
@@ -111,14 +110,14 @@ function Page() {
             <div key={title} className="rounded-xl border border-border bg-card p-6"><Icon className="size-5 text-primary" /><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>
           ))}
         </div>
-        <div className="mt-10 text-center"><Link to="/contact" className="button button-ghost">Join the beta <ArrowRight className="size-4" /></Link></div>
+        <div className="mt-10 text-center"><Link to="/contact" className="button button-ghost">Book a walkthrough <ArrowRight className="size-4" /></Link></div>
       </Band>
 
       <Band tone="grey">
         <div className="mx-auto max-w-2xl text-center">
           <img src={rayAvatar} alt="Ray" className="mx-auto size-16 rounded-full object-cover ring-4 ring-primary/15" />
           <h2 className="mt-4 text-3xl font-semibold tracking-tight">Want to work with Ray?</h2>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">We are onboarding a small group of asset managers and O&M providers. Tell us about your portfolio and we will show you Ray and the other AI coworkers against your own data.</p>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">Tell us about your portfolio and we will show you Ray working on your own data.</p>
           <Link to="/contact" className="button button-primary mt-8">Get in touch <ArrowRight className="size-4" /></Link>
         </div>
       </Band>

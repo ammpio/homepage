@@ -132,7 +132,7 @@ function Page() {
         <SectionHeading eyebrow="What's next" title="The same evidence, now with a coworker attached" center />
         <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 rounded-xl border border-border bg-card p-6">
           <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
-          <p className="text-sm leading-6 text-muted-foreground">Every result above started with AMMP OS data. AI coworkers now sit on top of that same data, investigating and preparing the reporting these teams used to do by hand.</p>
+          <p className="text-sm leading-6 text-muted-foreground">Every result above started with AMMP OS data. Ray, our AI coworker, now works on that same data, investigating and preparing the reporting these teams used to do by hand.</p>
         </div>
       </Band>
 

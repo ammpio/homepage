@@ -7,9 +7,9 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/use-cases/asset-managers")({
   head: () => ({ meta: [
     { title: "AMMP for Asset Managers — AMMP" },
-    { name: "description", content: "AI coworkers plus AMMP OS give asset managers total visibility and complete control over a distributed C&I portfolio." },
+    { name: "description", content: "Ray and AMMP OS give asset managers total visibility and complete control over a distributed C&I portfolio." },
     { property: "og:title", content: "AMMP for Asset Managers — AMMP" },
-    { property: "og:description", content: "Total visibility. Complete control. AI coworkers grounded in your portfolio data." },
+    { property: "og:description", content: "Total visibility. Complete control. Ray, grounded in your portfolio data." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -44,16 +44,16 @@ function Page() {
         eyebrow="For Asset Managers"
         title="Total visibility."
         highlight="Complete control."
-        intro="AMMP AI coworkers sit on top of AMMP OS, giving asset managers unified oversight of their entire distributed portfolio, making it easy to optimise performance and demonstrate value to stakeholders."
+        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, giving asset managers unified oversight of their entire distributed portfolio, making it easy to optimise performance and demonstrate value to stakeholders."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="A coworker for every underperforming site" intro="Instead of scanning spreadsheets, an AI coworker flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
+        <SectionHeading eyebrow="AI + AMMP OS" title="Ray watches every underperforming site" intro="Instead of scanning spreadsheets, Ray flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
           <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
-          <p className="text-sm leading-6 text-muted-foreground">Ask "which PPA sites are at risk of missing guarantee this month?" and get an answer with the evidence behind it, not another dashboard to interpret.</p>
+          <p className="text-sm leading-6 text-muted-foreground">Ask Ray "which PPA sites are at risk of missing guarantee this month?" and get an answer with the evidence behind it, not another dashboard to interpret.</p>
         </div>
       </Band>
 
