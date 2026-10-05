@@ -117,7 +117,7 @@ export function ProactiveOnDemand() {
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start justify-between gap-4 rounded-xl border border-border/60 p-3">
                     <div className="flex gap-3">
-                      <span className="mt-1.5 size-2 shrink-0 rounded-full bg-amber-500" aria-hidden />
+                      <span className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden />
                       <div>
                         <p className="text-sm font-medium">Brightwater Solar · INV-03</p>
                         <p className="text-xs text-muted-foreground">−38% yield vs neighbours</p>
