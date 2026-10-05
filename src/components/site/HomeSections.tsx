@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
@@ -13,7 +14,7 @@ const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.01
 
 export function HomePage() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-x-clip">
       <Hero />
       <StatsBar />
       <BeforeLogin />
@@ -26,11 +27,51 @@ export function HomePage() {
   );
 }
 
+/* Desktop only: while the hero is pinned, the video glides from the right column to the centre and grows. */
+function useHeroScroll() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const section = sectionRef.current, copy = copyRef.current, video = videoRef.current;
+    if (!section || !copy || !video) return;
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    const reset = () => { video.style.transform = ""; copy.style.opacity = ""; copy.style.transform = ""; };
+    const update = () => {
+      frame = 0;
+      if (!desktop.matches || reduced.matches) return reset();
+      const rect = section.getBoundingClientRect();
+      const travel = section.offsetHeight - window.innerHeight;
+      const raw = travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
+      const p = raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+      const w = video.offsetWidth, h = video.offsetHeight;
+      // natural (untransformed) centre of the video box
+      let el: HTMLElement | null = video, left = 0;
+      while (el && el !== section) { left += el.offsetLeft; el = el.offsetParent as HTMLElement | null; }
+      const dx = section.offsetWidth / 2 - (left + w / 2);
+      const scale = Math.max(1, Math.min((window.innerWidth * 0.82) / w, (window.innerHeight * 0.7) / h));
+      video.style.transform = `translateX(${dx * p}px) scale(${1 + (scale - 1) * p})`;
+      copy.style.opacity = String(1 - Math.min(1, p * 1.6));
+      copy.style.transform = `translateX(${-40 * p}px)`;
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
+  }, []);
+  return { sectionRef, copyRef, videoRef };
+}
+
 export function Hero() {
+  const { sectionRef, copyRef, videoRef } = useHeroScroll();
   return (
-    <section className="relative">
-      <div className="site-container grid items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-16 lg:pt-20">
-        <div className="text-center lg:text-left">
+    <section ref={sectionRef} className="relative lg:h-[175vh] motion-reduce:lg:h-auto">
+      <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center motion-reduce:lg:static motion-reduce:lg:min-h-0">
+      <div className="site-container grid w-full items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:py-16">
+        <div ref={copyRef} className="text-center will-change-transform lg:text-left">
           <Reveal delay={90}>
             <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
               Put AI to work across your renewable energy portfolio
@@ -48,7 +89,10 @@ export function Hero() {
             </div>
           </Reveal>
         </div>
-        <Reveal delay={360}><HeroVideo /></Reveal>
+        <div ref={videoRef} className="relative z-10 origin-center will-change-transform">
+          <Reveal delay={360}><HeroVideo /></Reveal>
+        </div>
+      </div>
       </div>
     </section>
   );

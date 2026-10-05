@@ -15,7 +15,7 @@ export const Route = createFileRoute("/ray")({
 
 function RayPage() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-x-clip">
       <Hero />
       <StatsBar />
       <BeforeLogin />
