@@ -25,7 +25,6 @@ function HomePage() {
     <div className="relative overflow-hidden">
       <div className="relative">
         <Hero />
-        <ScaleBand />
         <ProofLockup />
         <AgentsSection />
         <CoworkersSection />
@@ -124,29 +123,6 @@ function WorkspacePanel() {
         </div>
       </div>
     </div>
-  );
-}
-
-/* 2 — Scale band */
-function ScaleBand() {
-  const metrics = [
-    ["10,000+", "Sites monitored across the portfolio"],
-    ["35+", "Countries connected through one data layer"],
-    ["30+", "Integrations across devices and workflows"],
-  ] as const;
-  return (
-    <section aria-label="AMMP portfolio scale">
-      <div className="site-container">
-        <div className="glass grid gap-7 rounded-3xl px-7 py-8 md:grid-cols-3 md:px-10">
-          {metrics.map(([value, label], index) => (
-            <Reveal key={label} delay={index * 110}>
-              <div className="font-display text-3xl font-medium tracking-[-0.02em]">{value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
