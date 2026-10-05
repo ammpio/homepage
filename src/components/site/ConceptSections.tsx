@@ -99,7 +99,7 @@ export function ExecutionTrace() {
 /* 3 — Multi-mode interaction deck */
 const modes = [
   { icon: Activity, title: "Live monitoring", body: "Real-time telemetry and smart alerting across every site for O&M operations.", points: ["Live device status", "Alarm suppression", "Fault-to-ticket flow"] },
-  { icon: MessageSquare, title: "AI coworker", body: "Ask Ray in Slack, Teams or AMMP OS — it builds the chart and explains what it found.", points: ["Natural-language questions", "Charts on demand", "Evidence attached"] },
+  { icon: MessageSquare, title: "AI coworker", body: "Ask Ray in Slack, Teams or AMMP OS. He builds the chart and explains what it found.", points: ["Natural-language questions", "Charts on demand", "Evidence attached"] },
   { icon: Workflow, title: "Automated workflows", body: "Data freezes, monthly reports and recurring checks that run without anyone pressing go.", points: ["Monthly data freeze", "Scheduled investor reports", "Proactive QA"] },
   { icon: Code, title: "MCP & API", body: "Query live portfolio data from Claude, Cursor or your own scripts and BI tools.", points: ["MCP server", "Data API", "Your permissions apply"] },
 ];
