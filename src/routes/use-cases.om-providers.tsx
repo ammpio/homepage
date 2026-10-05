@@ -43,7 +43,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="Ray ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
           <p className="text-sm leading-6 text-muted-foreground">Ray prepares the client-ready SLA narrative each month, complete with the evidence, so your account managers walk in with answers already prepared.</p>
         </div>
       </Band>

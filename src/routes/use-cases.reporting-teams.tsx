@@ -43,7 +43,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardised numbers, drafts the report, and shows the evidence behind every figure before you publish." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
           <p className="text-sm leading-6 text-muted-foreground">Ask "prepare this month's investor performance pack" and get a draft built from the same portfolio data everyone else works from — ready for review, not rebuilt from scratch.</p>
         </div>
       </Band>

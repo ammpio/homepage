@@ -71,7 +71,7 @@ function Page() {
             <p className="text-sm leading-6 text-muted-foreground">A global team spanning multiple continents, close to the field where distributed energy actually gets built and operated.</p>
           </div>
           <div className="rounded-xl border border-border bg-card p-6 flex gap-4 items-start">
-            <RayIcon className="size-6 text-primary shrink-0" />
+            <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
             <p className="text-sm leading-6 text-muted-foreground">The next chapter: a trusted operating system with AI coworkers built on top of real portfolio context.</p>
           </div>
         </div>
