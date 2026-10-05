@@ -22,6 +22,7 @@ const nav: readonly NavItem[] = [
     children: [
       ["Asset managers", "/use-cases/asset-managers"],
       ["O&M providers", "/use-cases/om-providers"],
+      ["Reporting teams", "/use-cases/reporting-teams"],
     ],
   },
   { label: "Case studies", to: "/case-studies" },
