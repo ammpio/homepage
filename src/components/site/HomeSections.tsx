@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
   FileOutput, FileText, Gauge, LockKeyhole, Monitor, Plug, PlugZap, Server, Settings, Sun, Ticket, Wrench,
-} from "lucide-react";
+} , Sparkles } from "lucide-react";
 import { ModeDeck } from "@/components/site/ConceptSections";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
@@ -247,7 +247,7 @@ export function Details() {
               </div>
               {arrow("Powers", "1.3s")}
               <div className="grid gap-3">
-                <Reveal delay={550}><div className="glass rounded-2xl p-5"><RayIcon className="size-8" /><p className="mt-4 font-semibold">Ray, your AI coworker</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP OS</p></div></Reveal>
+                <Reveal delay={550}><div className="glass rounded-2xl p-5"><Sparkles className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Ray, your AI coworker</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP OS</p></div></Reveal>
                 <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AMMP OS tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
               </div>
             </div>
