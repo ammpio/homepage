@@ -24,6 +24,7 @@ import { Route as EditorialRouteImport } from './routes/editorial'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HumanRouteImport } from './routes/human'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
@@ -133,6 +134,11 @@ const HumanRoute = HumanRouteImport.update({
 const IntegrationsRoute = IntegrationsRouteImport.update({
   id: '/integrations',
   path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -330,6 +336,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
+  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
@@ -382,6 +389,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
+  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
@@ -435,6 +443,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
+  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
@@ -489,6 +498,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/human'
     | '/integrations'
+    | '/mcp'
     | '/pricing'
     | '/privacy'
     | '/product'
@@ -541,6 +551,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/human'
     | '/integrations'
+    | '/mcp'
     | '/pricing'
     | '/privacy'
     | '/product'
@@ -593,6 +604,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/human'
     | '/integrations'
+    | '/mcp'
     | '/pricing'
     | '/privacy'
     | '/product'
@@ -646,6 +658,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   HumanRoute: typeof HumanRoute
   IntegrationsRoute: typeof IntegrationsRoute
+  McpRoute: typeof McpRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
@@ -788,6 +801,13 @@ declare module '@tanstack/react-router' {
       path: '/integrations'
       fullPath: '/integrations'
       preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -1054,6 +1074,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   HumanRoute: HumanRoute,
   IntegrationsRoute: IntegrationsRoute,
+  McpRoute: McpRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
