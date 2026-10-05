@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Activity, ArrowRight, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
+  Activity, ArrowRight, ArrowDown, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
   DollarSign, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
   Plug, PlugZap, Radio, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
@@ -298,7 +298,7 @@ function ContextPlatformSection() {
                 </Reveal>
               ))}
             </div>
-            <div className="hidden items-center lg:flex"><ArrowRight className="arrow-pulse h-5 w-5 text-primary" /></div>
+            <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0"><ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" /><span className="lg:hidden">Feeds into</span><ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" /></div>
             <div className="glass-strong msg-in relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center" style={{ animationDelay: "400ms" }}>
               <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
               <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-[0_14px_34px_-14px_var(--primary)]"><Brain className="h-7 w-7" /></div>
@@ -306,7 +306,7 @@ function ContextPlatformSection() {
               <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
             </div>
-            <div className="hidden items-center lg:flex"><ArrowRight className="arrow-pulse h-5 w-5 text-primary" style={{ animationDelay: "1.3s" }} /></div>
+            <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0"><ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: "1.3s" }} /><span className="lg:hidden">Powers</span><ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" style={{ animationDelay: "1.3s" }} /></div>
             <div className="grid gap-3">
               <Reveal delay={550}><div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
               <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
