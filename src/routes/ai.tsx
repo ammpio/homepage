@@ -3,6 +3,7 @@ import { Activity, ArrowRight, BarChart3, Bell, Bot, ExternalLink, LayoutDashboa
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import ammpIntelligence from "@/assets/ammp-intelligence.png";
+import rayAvatar from "@/assets/ray-avatar.png";
 
 const RAY_URL = "https://os.ammp.io/beta-ray";
 
@@ -51,8 +52,15 @@ function Page() {
         intro="We are putting your portfolio data directly in front of AI. An open MCP server gives any assistant secure access to your assets, KPIs, alerts and raw telemetry, and our own AI coworkers are being built on exactly the same foundation, sitting on top of AMMP OS."
         primary={{ label: "Talk to us", to: "/contact" }}
         aside={
-          <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-            <a href={RAY_URL} target="_blank" rel="noreferrer" className="button button-primary w-full justify-center">Try Ray <ExternalLink className="size-4" /></a>
+          <div className="glass-strong rounded-3xl p-6 shadow-sm">
+            <div className="flex items-center gap-3">
+              <img src={rayAvatar} alt="Ray" className="size-12 shrink-0 rounded-full object-cover ring-2 ring-primary/25" />
+              <div>
+                <p className="flex items-center gap-2 text-sm font-semibold"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</p>
+                <p className="text-xs text-muted-foreground">AMMP AI coworker</p>
+              </div>
+            </div>
+            <a href={RAY_URL} target="_blank" rel="noreferrer" className="button button-primary mt-4 w-full justify-center">Try Ray <ExternalLink className="size-4" /></a>
             <p className="mt-4 text-sm text-muted-foreground">Ray is our AI coworker inside AMMP OS: ask for an overview and it builds the chart, then explains what it found.</p>
           </div>
         }
@@ -95,7 +103,10 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading center eyebrow="Ray" title="Ray" intro="Ray is our AI coworker inside AMMP OS. Ask it for an overview and it builds the chart, then explains what it found on the way there." />
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>Meet Ray</span></div>
+          <SectionHeading center className="mt-3" eyebrow="AI coworker" title="Ray" intro="Ray is our AI coworker inside AMMP OS. Ask it for an overview and it builds the chart, then explains what it found on the way there." />
+        </div>
         <div className="glass-strong mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl p-2">
           <img src={ammpIntelligence} alt="Ray" className="w-full" loading="lazy" />
         </div>
@@ -116,9 +127,9 @@ function Page() {
 
       <Band tone="grey">
         <div className="mx-auto max-w-2xl text-center">
-          <ShieldCheck className="mx-auto size-8 text-primary" />
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight">Want early access?</h2>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">We are onboarding a small group of asset managers and O&M providers. Tell us about your portfolio and we will show you the AI coworkers against your own data.</p>
+          <img src={rayAvatar} alt="Ray" className="mx-auto size-16 rounded-full object-cover ring-4 ring-primary/15" />
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">Want to work with Ray?</h2>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">We are onboarding a small group of asset managers and O&M providers. Tell us about your portfolio and we will show you Ray and the other AI coworkers against your own data.</p>
           <Link to="/contact" className="button button-primary mt-8">Get in touch <ArrowRight className="size-4" /></Link>
         </div>
       </Band>
