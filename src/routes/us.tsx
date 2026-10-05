@@ -18,9 +18,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP in the US"
-        title="an AI coworker on a monitoring platform built"
+        title="An AI coworker on a monitoring platform built"
         highlight="around your portfolio."
-        intro="AMMP is the asset management platform we tailor to your vendors, KPIs and workflows—and where an AI coworker now investigates and prepare work for your team. PV, BESS and hybrid. 10,000+ sites across 35 countries."
+        intro="AMMP is the asset management platform we tailor to your vendors, KPIs and workflows—and where an AI coworker now investigates and prepares work for your team. PV, BESS and hybrid. 10,000+ sites across 35 countries."
         primary={{ label: "Let's have a chat", to: "/contact" }}
         secondary={{ label: "See the platform", to: "/product" }}
       />

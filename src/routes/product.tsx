@@ -18,7 +18,7 @@ import financialImpactReport from "@/assets/financial-impact-report.png";
 export const Route = createFileRoute("/product")({
   head: () => ({ meta: [
     { title: "AMMP OS — the platform your AI coworker run on" },
-    { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with An AI coworker grounded in the same data." },
+    { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with an AI coworker grounded in the same data." },
     { property: "og:title", content: "AMMP OS — the platform your AI coworker run on" },
     { property: "og:description", content: "One platform for your entire renewable energy portfolio: monitoring, alerting, reporting, commercials and AI." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -26,14 +26,14 @@ export const Route = createFileRoute("/product")({
 });
 
 const categories = [
-  { id: "monitoring", label: "Monitoring", icon: Activity, title: "Live visibility, before your coworkers even ask", intro: "Dashboards give an AI coworker and people the same grounded view of every site." },
-  { id: "ticketing", label: "Ticketing", icon: Kanban, title: "Work orders your team and your coworkers both act on" },
+  { id: "monitoring", label: "Monitoring", icon: Activity, title: "Live visibility, before your colleagues even ask", intro: "Dashboards give an AI coworker and people the same grounded view of every site." },
+  { id: "ticketing", label: "Ticketing", icon: Kanban, title: "Work orders your team and Ray both act on" },
   { id: "alerting", label: "Alerting", icon: Bell, title: "Catch issues before they get costly" },
   { id: "reporting", label: "Reporting", icon: FileText, title: "Reports your stakeholders trust" },
   { id: "commercials", label: "Commercials", icon: TrendingUp, title: "Prove the financial story of your portfolio" },
   { id: "integrations", label: "Integrations", icon: Plug, title: "Connect every system you already run" },
   { id: "customizations", label: "Customisations", icon: Settings2, title: "Built around your portfolio, not a template" },
-  { id: "api", label: "API", icon: Code, title: "Build on the same data your coworkers use" },
+  { id: "api", label: "API", icon: Code, title: "Build on the same data Ray uses" },
   { id: "ai", label: "AI", icon: Sparkles, title: "Where the coworkers come in", intro: "AI coworker are built directly on top of AMMP OS, so they see exactly what your dashboards see." },
 ] as const;
 

@@ -60,7 +60,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the platforms differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Sungrow's iSolarCloud provides solid monitoring capabilities for Sungrow inverters and storage systems. It is free with Sungrow hardware and offers good basic functionality for single-vendor portfolios.</p>
-          <p>However, if you manage sites with multiple inverter brands, or plan to in the future, you need a vendor-neutral platform. an AI coworker on AMMP OS work with Sungrow alongside 30+ other brands, giving you one dashboard for your entire portfolio with advanced O&M and financial reporting tools.</p>
+          <p>However, if you manage sites with multiple inverter brands, or plan to in the future, you need a vendor-neutral platform. Ray, the AI coworker on AMMP OS, works with Sungrow alongside 30+ other brands, giving you one dashboard for your entire portfolio with advanced O&M and financial reporting tools.</p>
         </div>
       </Band>
       <Band tone="white">

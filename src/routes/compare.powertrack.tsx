@@ -26,7 +26,7 @@ const rows = [
 ];
 
 const differentiators = [
-  { icon: Layers, title: "Multi-vendor by default", text: "an AI coworker on AMMP OS work across 30+ device brands, so you are not tied to the hardware ecosystem PowerTrack was built around." },
+  { icon: Layers, title: "Multi-vendor by default", text: "Ray, the AI coworker on AMMP OS, works across 30+ device brands, so you are not tied to the hardware ecosystem PowerTrack was built around." },
   { icon: RefreshCw, title: "Built for what PowerTrack won't build", text: "Custom integrations, KPIs and workflows that fall outside PowerTrack's standard feature set are quoted and shipped, typically in 2 to 6 weeks." },
   { icon: BarChart3, title: "Storage and hybrid depth", text: "PowerTrack has a strong PV heritage; AMMP is built for PV, BESS, generators and hybrid sites from the ground up." },
   { icon: Building, title: "Engineers, not a ticket queue", text: "You get direct access to the people who build the platform, instead of a tiered support queue." },

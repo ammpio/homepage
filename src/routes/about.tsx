@@ -7,7 +7,7 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
     { title: "About AMMP — an AI coworker for the energy transition" },
-    { name: "description", content: "AMMP started in Tanzania's mini-grids and now gives renewable energy teams An AI coworker grounded in real portfolio data." },
+    { name: "description", content: "AMMP started in Tanzania's mini-grids and now gives renewable energy teams an AI coworker grounded in real portfolio data." },
     { property: "og:title", content: "About AMMP — an AI coworker for the energy transition" },
     { property: "og:description", content: "Meet the company building an AI coworker on top of a trusted operating layer for renewable energy portfolios." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },

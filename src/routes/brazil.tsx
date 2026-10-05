@@ -18,7 +18,7 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP in Brazil"
-        title="an AI coworker for solar and storage, built for"
+        title="An AI coworker for solar and storage, built for"
         highlight="Brazil's next cycle."
         intro="AMMP is a cloud-native monitoring and asset management platform for solar, battery and hybrid portfolios, with an AI coworker investigating and preparing work on top. No local SCADA box required, and batteries are first-class assets, not an add-on."
         primary={{ label: "Book a conversation", to: "/contact" }}

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/concept")({
     { title: "AMMP concept homepage — an AI coworker for renewable portfolios" },
     { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritises and prepares work." },
     { property: "og:title", content: "AMMP concept homepage — an AI coworker for renewable portfolios" },
-    { property: "og:description", content: "Give every portfolio team An AI coworker grounded in the same trusted operational context." },
+    { property: "og:description", content: "Give every portfolio team an AI coworker grounded in the same trusted operational context." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: HomePage,
 });

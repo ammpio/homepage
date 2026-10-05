@@ -77,7 +77,7 @@ function Page() {
         eyebrow="Customer results"
         title="Customer"
         highlight="success stories"
-        intro="See how C&I solar developers across Africa use AMMP, and now An AI coworker grounded in that same operating data, to scale their operations and deliver exceptional results."
+        intro="See how C&I solar developers across Africa use AMMP, and now an AI coworker grounded in that same operating data, to scale their operations and deliver exceptional results."
       />
 
 
