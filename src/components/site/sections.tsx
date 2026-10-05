@@ -23,7 +23,7 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
         <div>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl lg:text-[3.4rem]">
-            {title} {highlight && <span className="text-primary">{highlight}</span>} {titleEnd}
+            {title} {highlight && <span>{highlight}</span>} {titleEnd}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
           {(primary || secondary) && (

@@ -320,3 +320,8 @@
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
 
+
+/* Calm hierarchy: only the header "Contact sales" stays AMMP pink */
+.site-luminous main .button-primary { background: var(--color-foreground); color: var(--color-background); box-shadow: 0 14px 30px -20px color-mix(in oklab, var(--color-foreground) 60%, transparent); }
+.site-luminous main .button-primary:hover { box-shadow: 0 18px 34px -20px color-mix(in oklab, var(--color-foreground) 70%, transparent); }
+.site-luminous main h1 .text-primary, .site-luminous main h2 .text-primary { color: inherit; }

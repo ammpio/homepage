@@ -7,8 +7,7 @@ import {
 } from "lucide-react";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
-import { RayVideo, RayDay, RayEverywhere } from "@/components/site/RaySections";
-import rayAvatar from "@/assets/ray-avatar.png";
+import { RayPlayer, RayDay, RayEverywhere } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/ray")({
@@ -26,7 +25,6 @@ function HomePage() {
     <div className="relative overflow-hidden">
       <div className="relative">
         <Hero />
-        <RayVideo />
         <RayDay />
         <ScaleBand />
         <RayEverywhere />
@@ -51,7 +49,7 @@ function Hero() {
         <div>
           <Reveal delay={90}>
             <h1 className="max-w-[16ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
-              Put AI to work across your <span className="text-primary">renewable energy portfolio</span>
+              Put AI to work across your renewable energy portfolio
             </h1>
           </Reveal>
           <Reveal delay={180}>
@@ -66,64 +64,9 @@ function Hero() {
             </div>
           </Reveal>
         </div>
-        <WorkspacePanel />
+        <RayPlayer />
       </div>
     </section>
-  );
-}
-
-function WorkspacePanel() {
-  const [completed, setCompleted] = useState(false);
-  return (
-    <div className="float-soft">
-      <div className="glass-strong overflow-hidden rounded-3xl">
-        <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5">
-          <div className="flex items-center gap-2">
-            <MessageSquare className="size-4 text-muted-foreground" />
-            <span className="text-sm font-medium"># portfolio-ops</span>
-            <span className="hidden text-xs text-muted-foreground sm:inline">· shared workspace</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />4 coworkers online</div>
-        </div>
-        <div className="space-y-5 p-5 sm:p-6">
-          <div className="flex gap-3">
-            <span className="glass-soft grid size-9 shrink-0 place-items-center rounded-xl text-xs font-semibold">MO</span>
-            <div>
-              <div className="text-xs text-muted-foreground"><span className="font-medium text-foreground">M. Okafor</span> · 09:41</div>
-              <p className="mt-1 text-sm">Why is the East Mesa array underproducing this week?</p>
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <img src={rayAvatar} alt="Ray" className="size-9 shrink-0 rounded-full ring-2 ring-primary/25" />
-            <div className="min-w-0 flex-1">
-              <div className="msg-in flex flex-wrap items-center gap-2 text-xs text-muted-foreground" style={{ animationDelay: "500ms" }}>
-                <span className="font-medium text-primary">Ray</span>
-                <span className="rounded bg-muted px-1 text-[10px] font-semibold">APP</span>
-                <span className="status-pulse size-1.5 rounded-full bg-primary" />09:41
-              </div>
-              <div className="msg-in glass mt-2 rounded-2xl p-4" style={{ animationDelay: "800ms" }}>
-                <p className="text-sm leading-relaxed">Yield is <strong className="font-semibold text-primary">6.8% below model</strong>. The pattern points to inverter IV-204 on block C.</p>
-                <div className="msg-in glass-soft mt-4 rounded-xl p-3" style={{ animationDelay: "1200ms" }}>
-                  <div className="flex justify-between text-[11px] text-muted-foreground"><span>Root-cause evidence</span><span>3 sources</span></div>
-                  <div className="shimmer-bar mt-2 h-1.5 overflow-hidden rounded-full bg-white/70"><div className="h-full w-[68%] rounded-full bg-gradient-to-r from-glow-amber to-primary" /></div>
-                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-muted-foreground">
-                    <span>Irradiance <b className="font-medium text-foreground">0.94</b></span>
-                    <span>Soiling <b className="font-medium text-foreground">12%</b></span>
-                    <span>SLA <b className="font-medium text-primary">risk</b></span>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <button type="button" onClick={() => setCompleted(true)} className="button button-primary min-h-9 rounded-full text-xs">
-                    {completed ? <Check className="size-3.5" /> : <Wrench className="size-3.5" />}{completed ? "Work order opened" : "Open work order"}
-                  </button>
-                  <button type="button" className="button glass min-h-9 rounded-full text-xs text-foreground">View evidence</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -176,7 +119,7 @@ function CoworkersSection() {
               <div className="mt-4 space-y-2.5">
                 <div className="glass-soft rounded-xl px-4 py-3 text-sm">Did SunServe miss availability at Valle Soleado?</div>
                 <div className="flex gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3 text-sm">
-                  <img src={rayAvatar} alt="Ray" className="size-7 shrink-0 rounded-full" />
+                  <RayIcon className="size-7 shrink-0" />
                   <p>Yes — 97.1% vs 98.0%. That's <strong className="font-semibold text-primary">€3,600</strong> in damages. Notice drafted.</p>
                 </div>
               </div>
