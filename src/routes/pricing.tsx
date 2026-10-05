@@ -1,89 +1,78 @@
 import { Fragment, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bell, Check, ChevronDown, DollarSign, FileText, LayoutDashboard, Minus } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server } from "lucide-react";
+import { RayIcon } from "@/components/site/RayIcon";
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({ meta: [
     { title: "Pricing — flexible, modular plans | AMMP" },
-    { name: "description", content: "Choose the AMMP OS modules you need. Pay per MWp/year. Scale as your portfolio grows, and add AI coworkers on top." },
+    { name: "description", content: "Two modules priced per MWp/year: AMMP AI with Ray and full data access, and AMMP OS Monitor for monitoring, alerting and reporting." },
     { property: "og:title", content: "Pricing — flexible, modular plans | AMMP" },
-    { property: "og:description", content: "Modular pricing per MWp/year across Detect, Operate, Insight and Finance." },
+    { property: "og:description", content: "Two modules: AMMP AI and AMMP OS Monitor, with MCP and Data API add-ons." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
 
-type Mod = { name: string; icon: typeof Bell; description: string; highlights: string[]; includesModule?: string; isAddOn?: boolean; isStandalone?: boolean };
+type Mod = { name: string; tag: string; icon: React.ComponentType<{ className?: string }>; description: string; highlights: string[]; note?: string };
 
-const detect: Mod = { name: "AMMP Detect", icon: Bell, description: "Your centralized alert hub. Catch issues early with intelligent, KPI-driven alerts, without the noise.", highlights: ["All alerts in one place", "KPI-based alert detection", "Alert noise reduction", "Email / Teams / Webhook notifications"] };
-const operate: Mod = { name: "AMMP Operate", icon: LayoutDashboard, description: "Live monitoring meets smart operations. Real-time dashboards, ticketing, and alerting in one place.", includesModule: "AMMP Detect", highlights: ["Real-time dashboards & KPIs", "Ticketing / work orders", "Create tickets from alerts", "Custom & KPI-based alert rules"] };
-const insight: Mod = { name: "AMMP Insight", icon: FileText, description: "Deep performance analytics and automated PDF reporting. Know exactly how your assets are performing.", highlights: ["Loss Waterfall visualization", "IEC 61724 PR options", "Customizable reporting engine", "Stakeholder dashboards / portal"] };
-const finance: Mod = { name: "AMMP Finance", icon: DollarSign, description: "Automated financial reports and billing-ready PDFs. Tariff-aware savings calculations for every stakeholder.", highlights: ["Automated energy savings calculations", "Tariff-structure compatibility", "Customizable reporting engine", "Stakeholder dashboards / portal"] };
-const apiModule: Mod = { name: "AMMP Data API", icon: DollarSign, description: "All your energy data through a single RESTful API. No custom data plumbing needed.", isAddOn: true, highlights: ["RESTful API with all main inverter OEMs", "Access Alerts / Performance / Financial data", "No custom data plumbing needed"] };
-const tariffDbModule: Mod = { name: "South Africa Tariff Database API", icon: DollarSign, description: "A standalone API for up-to-date South African tariff structures. Accurate grid tariffs, ready to integrate.", isStandalone: true, highlights: ["Eskom & municipal tariff structures", "Time-of-use rate schedules", "Automatic tariff updates"] };
+const aiModule: Mod = {
+  name: "AMMP AI", tag: "Module 1", icon: RayIcon,
+  description: "Ray and the AMMP agents, with full access to your portfolio data. Investigates, prioritises and prepares the work for your team.",
+  highlights: ["Ray in Slack, Microsoft Teams and AMMP OS", "Full data access: assets, KPIs, alerts, raw time-series", "Root-cause diagnosis and alarm triage by commercial impact", "SLA and contract checks with evidence", "Drafted reports, notes and exports"],
+  note: "Runs on top of AMMP OS, or on your existing infrastructure such as Meteocontrol or Power Factors.",
+};
+const osModule: Mod = {
+  name: "AMMP OS Monitor", tag: "Module 2", icon: LayoutDashboard,
+  description: "Dashboards for monitoring, alerting and reporting across every site, inverter brand and datalogger.",
+  highlights: ["Real-time portfolio, site and device dashboards", "KPI-based alerting with noise reduction", "Ticketing and work orders", "Performance analysis (PR, availability, loss waterfall)", "Automated technical and financial PDF reports"],
+};
+const addOns = [
+  { name: "MCP server", icon: Server, text: "Connect Claude, Copilot or your own agent to your portfolio through the open Model Context Protocol." },
+  { name: "Data API", icon: Code, text: "All your energy data through a single RESTful API, no custom data plumbing needed." },
+];
 
 function ModuleCard({ mod, popular = false }: { mod: Mod; popular?: boolean }) {
   const Icon = mod.icon;
   return (
-    <div className={`glass glass-lift relative flex h-full flex-col rounded-2xl p-6 ${mod.isStandalone ? "bg-secondary/30" : popular ? "border-primary/50 shadow-lg" : ""}`}>
-      {mod.isAddOn && <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">Add-on</div>}
-      {mod.isStandalone && <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">Standalone API</div>}
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10"><Icon className="size-6 text-primary" /></div>
-      <h3 className="mt-4 text-lg font-semibold">{mod.name}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{mod.description}</p>
-      {mod.isAddOn && <p className="mt-2 text-xs italic text-muted-foreground">Requires a base module subscription</p>}
-      <div className="flex-1">
-        {mod.includesModule && (
-          <div className="mt-4 flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 p-3"><Bell className="size-4 text-primary" /><span className="text-sm font-medium">Includes {mod.includesModule}</span></div>
-        )}
-        {mod.includesModule && <p className="mb-3 mt-3 text-xs uppercase tracking-wide text-muted-foreground">Plus</p>}
-        <ul className="mt-4 space-y-3">
-          {mod.highlights.map((h) => <li key={h} className="flex items-start gap-2 text-sm"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{h}</li>)}
-        </ul>
+    <div className={`glass glass-lift relative flex h-full flex-col rounded-3xl p-8 ${popular ? "border-primary/50 shadow-lg" : ""}`}>
+      <div className="flex items-center justify-between">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><Icon className="size-7 text-primary" /></div>
+        <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">{mod.tag}</span>
       </div>
-      <Link to="/contact" className={`button ${popular && !mod.isStandalone ? "button-primary" : "button-ghost"} mt-6 w-full justify-center`}>Contact sales <ArrowRight className="size-4" /></Link>
+      <h3 className="mt-5 text-2xl font-medium">{mod.name}</h3>
+      <p className="mt-2 text-muted-foreground">{mod.description}</p>
+      <ul className="mt-6 flex-1 space-y-3">
+        {mod.highlights.map((h) => <li key={h} className="flex items-start gap-2 text-sm"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{h}</li>)}
+      </ul>
+      {mod.note && <p className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">{mod.note}</p>}
+      <Link to="/contact" className={`button ${popular ? "button-primary" : "button-ghost"} mt-6 w-full justify-center`}>Contact sales <ArrowRight className="size-4" /></Link>
     </div>
   );
 }
 
-type CV = true | false | "add-on";
-type Row = { category?: string; feature: string; detect: CV; operate: CV; insight: CV; finance: CV };
+type CV = boolean | "add-on";
+type Row = { category?: string; feature: string; ai: CV; os: CV };
 const comparisonData: Row[] = [
-  { category: "Data & Connectivity", feature: "OEM API integrations (inverters, meters, loggers)", detect: true, operate: true, insight: true, finance: true },
-  { feature: "AMMP Edge (hardware gateway)", detect: true, operate: true, insight: true, finance: true },
-  { feature: "Weather data integration", detect: false, operate: false, insight: true, finance: false },
-  { feature: "RESTful Data API", detect: "add-on", operate: "add-on", insight: "add-on", finance: "add-on" },
-  { category: "Alerting", feature: "OEM alert forwarding", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Standard alert rules", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Custom alert rules", detect: true, operate: true, insight: false, finance: false },
-  { feature: "KPI-based alerts", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Alert noise reduction", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Email notifications", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Slack / Teams integration", detect: true, operate: true, insight: false, finance: false },
-  { feature: "Webhook notifications", detect: true, operate: true, insight: false, finance: false },
-  { category: "Monitoring & Dashboards", feature: "Portfolio dashboards", detect: false, operate: true, insight: false, finance: false },
-  { feature: "Site-level dashboards", detect: false, operate: true, insight: false, finance: false },
-  { feature: "Device-level dashboards", detect: false, operate: true, insight: false, finance: false },
-  { feature: "Real-time KPIs", detect: false, operate: true, insight: false, finance: false },
-  { feature: "Technical KPIs", detect: false, operate: true, insight: true, finance: false },
-  { feature: "Commercial KPIs", detect: false, operate: false, insight: false, finance: true },
-  { category: "Operations", feature: "Ticketing / work orders", detect: false, operate: true, insight: false, finance: false },
-  { feature: "Create tickets from alerts", detect: false, operate: true, insight: false, finance: false },
-  { feature: "SLA tracking", detect: false, operate: true, insight: false, finance: false },
-  { category: "Performance Analysis", feature: "Performance Ratio (PR)", detect: false, operate: false, insight: true, finance: false },
-  { feature: "Weather-corrected PR", detect: false, operate: false, insight: true, finance: false },
-  { feature: "IEC 61724 PR options", detect: false, operate: false, insight: true, finance: false },
-  { feature: "Loss Waterfall analysis", detect: false, operate: false, insight: true, finance: false },
-  { feature: "Availability calculations", detect: false, operate: false, insight: true, finance: false },
-  { category: "Reporting", feature: "PDF report engine", detect: false, operate: false, insight: true, finance: true },
-  { feature: "Custom report templates", detect: false, operate: false, insight: true, finance: true },
-  { feature: "Scheduled report delivery", detect: false, operate: false, insight: true, finance: true },
-  { feature: "White-label branding", detect: false, operate: false, insight: true, finance: true },
-  { feature: "Stakeholder Portal", detect: false, operate: false, insight: true, finance: true },
-  { category: "Financial", feature: "Tariff database", detect: false, operate: false, insight: false, finance: true },
-  { feature: "Energy savings calculations", detect: false, operate: false, insight: false, finance: true },
-  { feature: "Cost savings calculations", detect: false, operate: false, insight: false, finance: true },
-  { feature: "Billing-ready reports", detect: false, operate: false, insight: false, finance: true },
+  { category: "AI agents", feature: "Ray in Slack, Teams and AMMP OS", ai: true, os: false },
+  { feature: "Root-cause diagnosis", ai: true, os: false },
+  { feature: "Alarm triage by commercial impact", ai: true, os: false },
+  { feature: "SLA and contract checks", ai: true, os: false },
+  { feature: "Drafted reports and notes", ai: true, os: false },
+  { feature: "Works on existing systems (Meteocontrol, Power Factors)", ai: true, os: false },
+  { category: "Data & connectivity", feature: "OEM API integrations (inverters, meters, loggers)", ai: true, os: true },
+  { feature: "AMMP Edge (hardware gateway)", ai: true, os: true },
+  { feature: "Weather data integration", ai: true, os: true },
+  { category: "Monitoring & alerting", feature: "Portfolio, site and device dashboards", ai: false, os: true },
+  { feature: "KPI-based alerts and noise reduction", ai: true, os: true },
+  { feature: "Email / Teams / webhook notifications", ai: true, os: true },
+  { feature: "Ticketing and work orders", ai: false, os: true },
+  { category: "Reporting", feature: "Performance analysis (PR, availability, loss waterfall)", ai: true, os: true },
+  { feature: "PDF report engine and templates", ai: false, os: true },
+  { feature: "Financial and savings reports", ai: false, os: true },
+  { feature: "White-label stakeholder portal", ai: false, os: true },
+  { category: "Add-ons", feature: "MCP server", ai: "add-on", os: "add-on" },
+  { feature: "Data API", ai: "add-on", os: "add-on" },
 ];
 
 function Cell({ v }: { v: CV }) {
@@ -93,11 +82,11 @@ function Cell({ v }: { v: CV }) {
 }
 
 const pricingFaqs = [
-  { q: "How is AMMP OS priced?", a: "AMMP OS is priced per megawatt-peak (MWp) of monitored capacity, billed annually. You choose the modules you need and pay only for what you use." },
+  { q: "How is AMMP priced?", a: "Both modules are priced per megawatt-peak (MWp) of capacity, billed annually. Take one module or both." },
+  { q: "Do I need AMMP OS to use AMMP AI?", a: "No. Ray can work on top of AMMP OS or directly on your existing monitoring infrastructure, such as Meteocontrol or Power Factors." },
   { q: "Is there a minimum contract?", a: "A minimum annual fee applies to ensure quality support and service for all customers, regardless of portfolio size." },
-  { q: "Can I add modules later?", a: "Yes, AMMP OS is fully modular. You can start with core monitoring and add reporting, financial, or API modules as your needs grow." },
-  { q: "What modules are available?", a: "AMMP OS offers AMMP Detect, AMMP Operate, AMMP Insight, AMMP Finance, and the AMMP Data API. Each can be selected independently." },
-  { q: "Are volume discounts available?", a: "Yes, discounts are available for larger portfolios and when subscribing to multiple modules. Contact us for a tailored proposal." },
+  { q: "What are the add-ons?", a: "The MCP server and the Data API can be added to either module when you want your own tools or assistants to access your portfolio data." },
+  { q: "Are volume discounts available?", a: "Yes, discounts are available for larger portfolios and when combining both modules. Contact us for a tailored proposal." },
 ];
 
 function Page() {
@@ -106,30 +95,24 @@ function Page() {
       <PageHero
         eyebrow="Pricing"
         title="Flexible, modular pricing"
-        intro="Choose the AMMP OS modules you need. Pay per MWp/year. Scale as your portfolio grows — and add AI coworkers on top once your data is grounded in AMMP."
+        intro="Two modules, priced per MWp/year: AMMP AI puts Ray to work on your data, AMMP OS Monitor gives you the dashboards."
         primary={{ label: "Contact sales", to: "/contact" }}
         secondary={{ label: "Try the demo", to: "/demo" }}
       />
 
       <Band tone="grey">
-        <SectionHeading title="Choose your modules" intro="Most customers start with AMMP Operate and AMMP Insight together." />
-        <div className="mt-10 grid gap-6 lg:grid-cols-4">
-          <ModuleCard mod={detect} />
-          <div className="glass-strong relative rounded-3xl border-primary/30 p-4 lg:col-span-2">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">Recommended combination</div>
-            <div className="mt-2 grid gap-4 sm:grid-cols-2">
-              <ModuleCard mod={operate} popular />
-              <ModuleCard mod={insight} popular />
-            </div>
-          </div>
-          <ModuleCard mod={finance} />
+        <SectionHeading center title="Two modules. Take one or both." intro="Most customers combine them: AMMP OS Monitor for the screen, AMMP AI for the work." />
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-2">
+          <ModuleCard mod={aiModule} popular />
+          <ModuleCard mod={osModule} />
         </div>
-      </Band>
-
-      <Band>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
-          <ModuleCard mod={apiModule} />
-          <ModuleCard mod={tariffDbModule} />
+        <div className="mx-auto mt-8 max-w-5xl">
+          <p className="text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Add-ons</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {addOns.map(({ name, icon: Icon, text }) => (
+              <div key={name} className="glass-soft flex items-start gap-3 rounded-2xl p-5"><Icon className="mt-0.5 size-5 shrink-0 text-primary" /><div><p className="font-medium">{name}</p><p className="mt-1 text-sm text-muted-foreground">{text}</p></div></div>
+            ))}
+          </div>
         </div>
       </Band>
 
@@ -180,15 +163,15 @@ function FeatureCompare() {
       {open && (
         <>
           <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
-            <table className="w-full min-w-[720px] text-left text-sm">
+            <table className="w-full min-w-[560px] text-left text-sm">
               <thead className="border-b border-border/60 bg-white/35">
-                <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">Detect</th><th className="p-4 text-center font-semibold">Operate</th><th className="p-4 text-center font-semibold">Insight</th><th className="p-4 text-center font-semibold">Finance</th></tr>
+                <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">AMMP AI</th><th className="p-4 text-center font-semibold">AMMP OS Monitor</th></tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {comparisonData.map((row, i) => (
                   <Fragment key={i}>
-                    {row.category && <tr className="bg-secondary/30"><td colSpan={5} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
-                    <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.detect} /></td><td className="p-4 text-center"><Cell v={row.operate} /></td><td className="p-4 text-center"><Cell v={row.insight} /></td><td className="p-4 text-center"><Cell v={row.finance} /></td></tr>
+                    {row.category && <tr className="bg-secondary/30"><td colSpan={3} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
+                    <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.ai} /></td><td className="p-4 text-center"><Cell v={row.os} /></td></tr>
                   </Fragment>
                 ))}
               </tbody>
