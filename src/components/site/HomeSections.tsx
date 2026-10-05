@@ -51,7 +51,7 @@ function useHeroScroll() {
       let el: HTMLElement | null = video, left = 0;
       while (el && el !== section) { left += el.offsetLeft; el = el.offsetParent as HTMLElement | null; }
       const dx = section.offsetWidth / 2 - (left + w / 2);
-      const scale = Math.max(1, Math.min((window.innerWidth * 0.82) / w, (window.innerHeight * 0.78) / h));
+      const scale = Math.max(1, Math.min((window.innerWidth * 0.82) / w, (window.innerHeight * 0.7) / h));
       video.style.transform = `translateX(${dx * p}px) scale(${1 + (scale - 1) * p})`;
       copy.style.opacity = String(1 - Math.min(1, p * 1.6));
       copy.style.transform = `translateX(${-40 * p}px)`;
