@@ -111,7 +111,6 @@ export function RayVideo() {
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>Meet Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>The coworker your team has been waiting for</h2>
             <p className="mt-5 text-lg text-muted-foreground">Built on 10 years of experience operating 10,000+ renewable energy sites. Works in Slack, Microsoft Teams and AMMP OS.</p>
           </div>
