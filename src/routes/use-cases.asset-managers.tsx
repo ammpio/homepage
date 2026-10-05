@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BarChart3, Building2, FileText, Bell, Bot, CheckCircle2, DollarSign } from "lucide-react";
+import { BarChart3, Building2, FileText, Bell, CheckCircle2, DollarSign } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/asset-managers")({
   head: () => ({ meta: [
@@ -51,7 +52,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="A coworker for every underperforming site" intro="Instead of scanning spreadsheets, an AI coworker flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
           <p className="text-sm leading-6 text-muted-foreground">Ask "which PPA sites are at risk of missing guarantee this month?" and get an answer with the evidence behind it, not another dashboard to interpret.</p>
         </div>
       </Band>

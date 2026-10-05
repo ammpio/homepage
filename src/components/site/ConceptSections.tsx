@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
-  Activity, ArrowRight, Bot, Check, Code, FileText, KeyRound, Loader2, LockKeyhole,
+  Activity, ArrowRight, Check, Code, FileText, KeyRound, Loader2, LockKeyhole,
   MessageSquare, Server, ShieldCheck, Workflow,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { RayIcon } from "@/components/site/RayIcon";
 
 const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
 
@@ -60,7 +61,7 @@ export function ExecutionTrace() {
           <div className="glass-strong rounded-3xl p-6 md:p-8">
             <div className="flex items-center justify-between border-b border-border/60 pb-4">
               <div className="flex items-center gap-3">
-                <span className="grid size-9 place-items-center rounded-xl bg-primary/10 text-primary"><Bot className="size-5" /></span>
+                <span className="grid size-9 place-items-center rounded-xl bg-primary/10 text-primary"><RayIcon className="size-5" /></span>
                 <div>
                   <p className="text-sm font-semibold">Ray · Underperformance check</p>
                   <p className="text-xs text-muted-foreground">Site Alpha · 2.4 MWp</p>

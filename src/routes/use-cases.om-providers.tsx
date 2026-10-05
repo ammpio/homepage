@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ClipboardCheck, Users, FileBarChart, Wrench, Bot, CheckCircle2, LayoutDashboard } from "lucide-react";
+import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2, LayoutDashboard } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/om-providers")({
   head: () => ({ meta: [
@@ -42,7 +43,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="An alarm-triage coworker ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
           <p className="text-sm leading-6 text-muted-foreground">A reporting coworker prepares the client-ready SLA narrative each month, complete with the evidence, so your account managers walk in with answers already prepared.</p>
         </div>
       </Band>

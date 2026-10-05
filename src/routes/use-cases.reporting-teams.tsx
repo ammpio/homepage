@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText, ClipboardList, Bot, CheckCircle2, Database, ShieldCheck } from "lucide-react";
+import { FileText, ClipboardList, CheckCircle2, Database, ShieldCheck } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/reporting-teams")({
   head: () => ({ meta: [
@@ -42,7 +43,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="A coworker for every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, an AI coworker pulls the standardised numbers, drafts the report, and shows the evidence behind every figure before you publish." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="mt-0.5 size-5 shrink-0 text-primary" />
           <p className="text-sm leading-6 text-muted-foreground">Ask "prepare this month's investor performance pack" and get a draft built from the same portfolio data everyone else works from — ready for review, not rebuilt from scratch.</p>
         </div>
       </Band>

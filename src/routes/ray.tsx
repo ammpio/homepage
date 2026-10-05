@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Activity, ArrowRight, ArrowDown, BarChart3, BatteryCharging, Bell, Bot, Brain, Check, ChevronRight, Code,
+  Activity, ArrowRight, ArrowDown, BarChart3, BatteryCharging, Bell, Brain, Check, ChevronRight, Code,
   DollarSign, FileOutput, FileText, Gauge, LockKeyhole, MessageSquare, Monitor,
   Plug, PlugZap, Server, Settings, Sun, Ticket, Wrench,
 } from "lucide-react";
@@ -9,6 +9,7 @@ import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
 import { RayVideo, RayDay, RayEverywhere } from "@/components/site/RaySections";
 import rayAvatar from "@/assets/ray-avatar.png";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/ray")({
   head: () => ({ meta: [
@@ -266,7 +267,7 @@ function ContextPlatformSection() {
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0"><ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: "1.3s" }} /><span className="lg:hidden">Powers</span><ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" style={{ animationDelay: "1.3s" }} /></div>
             <div className="grid gap-3">
-              <Reveal delay={550}><div className="glass rounded-2xl p-5"><Bot className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
+              <Reveal delay={550}><div className="glass rounded-2xl p-5"><RayIcon className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
               <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
             </div>
           </div>
@@ -300,7 +301,7 @@ const interfaces = [
     eyebrow: "For the work nobody gets to",
     title: "AMMP AI coworkers",
     body: "Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.",
-    icon: Bot,
+    icon: RayIcon,
   },
 ];
 
