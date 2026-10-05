@@ -57,7 +57,7 @@ const panels: Record<CategoryId, ReactNode> = {
   ),
   ticketing: (
     <div className="space-y-16">
-      <SplitFeature eyebrow="Ticketing" title="Track issues from detection to resolution" text="Track and manage issues from detection to resolution. Integrated ticketing workflows keep your team aligned and accountable." image={ticketingImage} imageAlt="Ticketing" bullets={["Create tickets directly from alerts", "SLA tracking across every site"]} />
+      <SplitFeature eyebrow="Workflows" title="Track issues from detection to resolution" text="Track and manage issues from detection to resolution. Integrated ticketing workflows keep your team aligned and accountable." image={ticketingImage} imageAlt="Ticketing" bullets={["Create tickets directly from alerts", "SLA tracking across every site"]} />
       <div className="glass rounded-2xl p-6">
         <div className="flex items-center gap-3"><Kanban className="size-5 text-primary" /><h3 className="text-lg font-semibold">monday.com integration</h3></div>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">Sync AMMP tickets with your monday.com boards so O&M teams can triage, assign and close work in the tool they already use. Currently in alpha, available through AMMP Labs.</p>
@@ -154,8 +154,8 @@ function Page() {
 
         <div className="mt-12">
           {"intro" in current
-            ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} />
-            : <SectionHeading eyebrow={current.label} title={current.title} />}
+            ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} eyebrowClassName="hidden md:block" />
+            : <SectionHeading eyebrow={current.label} title={current.title} eyebrowClassName="hidden md:block" />}
           <div className="mt-10">{panels[active]}</div>
         </div>
       </Band>

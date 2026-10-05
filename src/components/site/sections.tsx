@@ -39,10 +39,10 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
   );
 }
 
-export function SectionHeading({ eyebrow, title, intro, center = false }: { eyebrow?: string; title: string; intro?: string; center?: boolean }) {
+export function SectionHeading({ eyebrow, title, intro, center = false, eyebrowClassName = "" }: { eyebrow?: string; title: string; intro?: string; center?: boolean; eyebrowClassName?: string }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-5xl"}>
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      {eyebrow && <p className={`eyebrow ${eyebrowClassName}`}>{eyebrow}</p>}
       <h2 className="mt-3 font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">{title}</h2>
       {intro && <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">{intro}</p>}
     </div>
