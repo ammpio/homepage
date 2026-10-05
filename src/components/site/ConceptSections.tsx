@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
-  Activity, ArrowRight, Check, Code, FileText, KeyRound, Loader2, LockKeyhole,
+  Activity, ArrowRight, Check, ChevronDown, Code, FileText, KeyRound, Loader2, LockKeyhole,
   MessageSquare, Server, ShieldCheck, Workflow,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -105,37 +105,43 @@ const modes = [
 ];
 
 export function ModeDeck() {
-  const [active, setActive] = useState(0);
-  const m = modes[active] ?? modes[0]!;
+  const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="py-20 md:py-24">
-      <div className="site-container">
-        <div className="max-w-3xl">
+      <div className="site-container grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
+        <div className="lg:sticky lg:top-28">
           <h2 className={h2Class}>Work with AMMP the way your team works</h2>
         </div>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {modes.map((mode, i) => (
-            <button
-              key={mode.title}
-              type="button"
-              onClick={() => setActive(i)}
-              className={`glass rounded-2xl p-5 text-left transition ${i === active ? "glass-active" : "opacity-80 hover:opacity-100"}`}
-            >
-              <mode.icon className={`size-5 ${i === active ? "text-primary" : "text-primary/70"}`} />
-              <p className="mt-3 font-semibold">{mode.title}</p>
-            </button>
-          ))}
-        </div>
-        <div className="glass-strong mt-5 grid gap-8 rounded-3xl p-8 md:grid-cols-[1.3fr_1fr] md:p-10">
-          <div>
-            <h3 className="font-display text-2xl font-medium">{m.title}</h3>
-            <p className="mt-3 text-muted-foreground">{m.body}</p>
-          </div>
-          <ul className="space-y-3">
-            {m.points.map((p) => (
-              <li key={p} className="flex items-center gap-2 text-sm"><Check className="size-4 text-primary" />{p}</li>
-            ))}
-          </ul>
+        <div className="space-y-3">
+          {modes.map((mode, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={mode.title} className={`glass rounded-2xl ${isOpen ? "glass-active" : ""}`}>
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center gap-4 p-5 text-left"
+                >
+                  <mode.icon className={`size-5 shrink-0 ${isOpen ? "text-primary" : "text-primary/70"}`} />
+                  <p className="flex-1 font-semibold">{mode.title}</p>
+                  <ChevronDown className={`size-4 shrink-0 text-muted-foreground ${isOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isOpen && (
+                  <div className="px-5 pb-5">
+                    <p className="text-muted-foreground">{mode.body}</p>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {mode.points.map((p) => (
+                        <li key={p} className="flex items-center gap-2 rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs">
+                          <Check className="size-3 text-primary" />{p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
