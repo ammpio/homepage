@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
-  Activity, ArrowRight, Check, Code, FileText, KeyRound, Loader2, LockKeyhole,
+  Activity, ArrowRight, Check, ChevronDown, Code, FileText, KeyRound, Loader2, LockKeyhole,
   MessageSquare, Server, ShieldCheck, Workflow,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
