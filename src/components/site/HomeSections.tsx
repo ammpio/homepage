@@ -4,7 +4,6 @@ import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
   FileOutput, FileText, Gauge, LockKeyhole, Monitor, Plug, PlugZap, Server, Settings, Sun, Ticket, Wrench,
   Sparkles } from "lucide-react";
-import { ModeDeck } from "@/components/site/ConceptSections";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
 import { HeroVideo, RayEverywhere } from "@/components/site/RaySections";
@@ -265,8 +264,6 @@ export function Details() {
           </div>
         </div>
       </section>
-
-      <ModeDeck />
 
       <section className="py-16 lg:py-32">
         <div className="site-container">
