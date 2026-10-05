@@ -8,6 +8,7 @@ import {
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
 import { RayVideo, RayDay, RayEverywhere } from "@/components/site/RaySections";
+import rayAvatar from "@/assets/ray-avatar.png";
 
 export const Route = createFileRoute("/ray")({
   head: () => ({ meta: [
@@ -28,7 +29,6 @@ function HomePage() {
         <RayDay />
         <ScaleBand />
         <RayEverywhere />
-        <AgentsSection />
         <CoworkersSection />
         <SharedByDesign />
         <ContextPlatformSection />
@@ -93,10 +93,11 @@ function WorkspacePanel() {
             </div>
           </div>
           <div className="flex gap-3">
-            <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-primary"><Radio className="size-4" /></span>
+            <img src={rayAvatar} alt="Ray" className="size-9 shrink-0 rounded-full ring-2 ring-primary/25" />
             <div className="min-w-0 flex-1">
               <div className="msg-in flex flex-wrap items-center gap-2 text-xs text-muted-foreground" style={{ animationDelay: "500ms" }}>
-                <span className="font-medium text-primary">Portfolio analyst</span>
+                <span className="font-medium text-primary">Ray</span>
+                <span className="rounded bg-muted px-1 text-[10px] font-semibold">APP</span>
                 <span className="status-pulse size-1.5 rounded-full bg-primary" />09:41
               </div>
               <div className="msg-in glass mt-2 rounded-2xl p-4" style={{ animationDelay: "800ms" }}>
@@ -148,84 +149,41 @@ function ScaleBand() {
   );
 }
 
-/* 3 — Your team, plus a few more (AMMP Home A) */
-const agents = [
-  { name: "Portfolio analyst", role: "Your analyst in AMMP OS, Slack and Teams", body: "Investigates underperformance and explains what changed, with evidence." },
-  { name: "Alarm triage", role: "The checker that never sleeps", body: "Ranks issues by operational and commercial impact before they become noise." },
-  { name: "Reporting coworker", role: "Recurring outputs, prepared for review", body: "Prepares recurring reports, narratives and source detail for review." },
-  { name: "Compliance coworker", role: "Obligations tracked portfolio-wide", body: "Checks obligations, deadlines and portfolio-wide contract performance." },
-] as const;
-
-function AgentsSection() {
-  return (
-    <section className="py-20 md:py-28">
-      <div className="site-container">
-        <div className="max-w-5xl">
-          <h2 className={h2Class}>Your team just got new co-workers</h2>
-          <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
-        </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {agents.map((agent, index) => (
-            <Reveal key={agent.name} delay={index * 90}>
-              <div className="glass group h-full rounded-3xl p-7 transition-transform duration-300 hover:-translate-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="status-pulse size-1.5 rounded-full bg-primary" />
-                  <p className="text-lg font-semibold text-foreground">{agent.name}</p>
-                </div>
-                <p className="mt-1 text-sm font-medium text-muted-foreground">{agent.role}</p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{agent.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-8 text-sm text-muted-foreground">Every coworker reads the same portfolio, under your existing AMMP permissions.</p>
-      </div>
-    </section>
-  );
-}
-
-/* 4 — Coworkers: proactive / on demand (AMMP AI Co-Pilots) */
+/* 3 — Proactive / on demand (compact) */
 function CoworkersSection() {
+  const alerts = [["Kalahari Solar 02 · tracker stall", "Needs dispatch"], ["Nordic BESS · cell drift", "Watching"]] as const;
   return (
     <section>
       <div className="site-container py-20 lg:py-28">
-        <div>
-          <p className="eyebrow">AMMP AI AGENTS</p>
-          <h2 className={`mt-4 ${h2Class}`}>Proactive when you don’t ask.<br />On demand when you do.</h2>
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground lg:whitespace-nowrap">AI handles routine work continuously and transparently, while people stay in control of decisions and action.</p>
-        </div>
-        <div className="mt-12 grid gap-5 lg:grid-cols-2">
-          <Reveal><Capability proactive /></Reveal>
-          <Reveal delay={140}><Capability /></Reveal>
+        <h2 className={h2Class}>Proactive when you don’t ask.<br />On demand when you do.</h2>
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <Reveal>
+            <div className="glass h-full rounded-3xl p-7">
+              <p className="text-xs text-muted-foreground">Ray flags</p>
+              <div className="mt-4 space-y-2.5">
+                {alerts.map(([site, state]) => (
+                  <div key={site} className="glass-soft flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm">
+                    <span>{site}</span><span className="text-primary">{state}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={140}>
+            <div className="glass h-full rounded-3xl p-7">
+              <p className="text-xs text-muted-foreground">You ask</p>
+              <div className="mt-4 space-y-2.5">
+                <div className="glass-soft rounded-xl px-4 py-3 text-sm">Did SunServe miss availability at Valle Soleado?</div>
+                <div className="flex gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3 text-sm">
+                  <img src={rayAvatar} alt="Ray" className="size-7 shrink-0 rounded-full" />
+                  <p>Yes — 97.1% vs 98.0%. That's <strong className="font-semibold text-primary">€3,600</strong> in damages. Notice drafted.</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
-  );
-}
-
-function Capability({ proactive = false }: { proactive?: boolean }) {
-  const entries = [["East Mesa · inverter IV-204", "Needs review"], ["Ridge 2 · soiling pattern", "Watching"], ["Site 14 · SOC drift", "Resolved"]] as const;
-  return (
-    <div className="glass rounded-3xl p-7 lg:p-9">
-      <div className="flex items-center gap-2 text-xs text-muted-foreground"><span className="status-pulse size-1.5 rounded-full bg-primary" />{proactive ? "Proactive · portfolio triage" : "On demand · ask anything"}</div>
-      <h3 className="mt-4 font-display text-2xl font-medium tracking-[-0.015em]">{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
-      <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-muted-foreground">{proactive ? "Continuously scans the fleet and surfaces the issues that deserve attention before they grow." : "Ask in Slack or Teams for a diagnosis, contract check, report, or exploration of your portfolio data."}</p>
-      {proactive ? (
-        <div className="mt-6 space-y-2.5">
-          {entries.map(([site, state], index) => (
-            <div key={site} className="msg-in glass-soft flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm" style={{ animationDelay: `${250 + index * 130}ms` }}>
-              <span>{site}</span>
-              <span className={index === 2 ? "text-muted-foreground" : "text-primary"}>{state}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="mt-6 space-y-2.5">
-          <div className="msg-in glass-soft rounded-xl px-4 py-3" style={{ animationDelay: "250ms" }}><div className="text-xs text-muted-foreground">You</div><p className="mt-1 text-sm">Is Q3 PPA compliance on track for Ridge 2?</p></div>
-          <div className="msg-in rounded-xl border border-primary/25 bg-primary/5 px-4 py-3" style={{ animationDelay: "550ms" }}><div className="text-xs font-medium text-primary">Compliance coworker</div><p className="mt-1 text-sm leading-relaxed">On track. I found two curtailment events, checked their treatment, and prepared the supporting detail for review.</p></div>
-        </div>
-      )}
-    </div>
   );
 }
 
