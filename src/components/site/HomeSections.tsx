@@ -29,26 +29,27 @@ export function HomePage() {
 export function Hero() {
   return (
     <section className="relative">
-      <div className="site-container pb-12 pt-16 lg:pb-16 lg:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="site-container grid items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-16 lg:pt-20">
+        <div className="text-center lg:text-left">
           <Reveal delay={90}>
-            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
+            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 xl:text-6xl">
               Put AI to work across your renewable energy portfolio
             </h1>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mx-auto mt-6 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-5 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
               Meet Ray, an AI coworker grounded in your portfolio data, ready to investigate, prioritise and prepare work alongside your team.
             </p>
           </Reveal>
           <Reveal delay={270}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
-              <Link to="/ai" className="button button-primary rounded-full px-5">Meet your coworker <ArrowRight className="size-4" /></Link>
+            <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6 lg:justify-start">
+              <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
               <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
             </div>
+            <p className="mt-6 text-sm text-muted-foreground">Works in Slack, Microsoft Teams and AMMP OS</p>
           </Reveal>
         </div>
-        <Reveal delay={360}><div className="mx-auto mt-14 max-w-5xl"><HeroVideo /></div></Reveal>
+        <Reveal delay={360}><HeroVideo /></Reveal>
       </div>
     </section>
   );
@@ -59,11 +60,11 @@ export function StatsBar() {
   return (
     <section aria-label="AMMP portfolio scale">
       <div className="site-container">
-        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-6 border-y border-border/60 py-8 text-center">
+        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-2 border-y border-border/60 py-6 text-center sm:gap-6 sm:py-8">
           {metrics.map(([value, label]) => (
-            <div key={label}>
-              <div className="font-display text-3xl font-medium tracking-[-0.02em]">{value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+            <div key={label} className="min-w-0">
+              <div className="font-display text-2xl font-medium tabular-nums tracking-[-0.02em] sm:text-3xl">{value}</div>
+              <div className="mt-1 truncate text-xs text-muted-foreground sm:text-sm">{label}</div>
             </div>
           ))}
         </div>

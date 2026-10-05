@@ -158,16 +158,21 @@ function FeatureCompare() {
       </div>
       {open && (
         <>
-          <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
-            <table className="w-full min-w-[560px] text-left text-sm">
-              <thead className="border-b border-border/60 bg-white/35">
-                <tr><th className="p-4 font-semibold">Feature</th><th className="p-4 text-center font-semibold">AMMP AI</th><th className="p-4 text-center font-semibold">AMMP OS Monitor</th></tr>
+          <div className="glass-strong mt-10 rounded-2xl">
+            <table className="w-full table-fixed text-left text-sm">
+              <colgroup><col /><col className="w-20 sm:w-40" /><col className="w-20 sm:w-40" /></colgroup>
+              <thead>
+                <tr>
+                  <th className="sticky top-16 z-10 rounded-tl-2xl border-b border-border/60 bg-background/95 p-3 font-semibold backdrop-blur sm:p-4">Feature</th>
+                  <th className="sticky top-16 z-10 border-b border-border/60 bg-background/95 p-3 text-center text-xs font-semibold backdrop-blur sm:p-4 sm:text-sm">AMMP AI</th>
+                  <th className="sticky top-16 z-10 rounded-tr-2xl border-b border-border/60 bg-background/95 p-3 text-center text-xs font-semibold backdrop-blur sm:p-4 sm:text-sm">AMMP OS Monitor</th>
+                </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {comparisonData.map((row, i) => (
                   <Fragment key={i}>
                     {row.category && <tr className="bg-secondary/30"><td colSpan={3} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
-                    <tr><td className="p-4 font-medium">{row.feature}</td><td className="p-4 text-center"><Cell v={row.ai} /></td><td className="p-4 text-center"><Cell v={row.os} /></td></tr>
+                    <tr><td className="p-3 font-medium sm:p-4">{row.feature}</td><td className="p-3 text-center sm:p-4"><Cell v={row.ai} /></td><td className="p-3 text-center sm:p-4"><Cell v={row.os} /></td></tr>
                   </Fragment>
                 ))}
               </tbody>
