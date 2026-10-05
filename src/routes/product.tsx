@@ -6,6 +6,7 @@ import { PageCta } from "@/components/site/SiteShell";
 import energyMix from "@/assets/energy-mix.png";
 import performanceAnalytics from "@/assets/performance-analytics.png";
 import ticketingImage from "@/assets/ticketing.png";
+import alertsDashboard from "@/assets/alerts-dashboard.png";
 import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
@@ -66,7 +67,7 @@ const panels: Record<CategoryId, ReactNode> = {
     </div>
   ),
   alerting: (
-    <SplitFeature eyebrow="Smart alerts" text="Configurable rules-based alerting with escalation paths and acknowledgment workflows. Get notified before small issues become costly problems." media={<video src={rayVideo.url} poster={rayPoster} controls preload="metadata" className="w-full rounded-xl" />} />
+    <SplitFeature eyebrow="Smart alerts" text="Configurable rules-based alerting with escalation paths and acknowledgment workflows. Get notified before small issues become costly problems." image={alertsDashboard} imageAlt="Smart alerts" />
   ),
   reporting: (
     <div className="space-y-16">

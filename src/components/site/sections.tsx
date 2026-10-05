@@ -73,8 +73,8 @@ export function FeatureGrid({ features, columns = 3 }: { features: Feature[]; co
   );
 }
 
-export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, media, reverse = false }: {
-  eyebrow?: string; title?: string; text: string; bullets?: string[]; image?: string; imageAlt?: string; media?: ReactNode; reverse?: boolean;
+export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, reverse = false }: {
+  eyebrow?: string; title?: string; text: string; bullets?: string[]; image?: string; imageAlt?: string; reverse?: boolean;
 }) {
   return (
     <div className={`grid items-center gap-10 lg:grid-cols-2 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -88,7 +88,7 @@ export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, m
           </ul>
         )}
       </div>
-      {media ?? (image && <div className="glass-strong overflow-hidden rounded-2xl p-2"><img src={image} alt={imageAlt ?? title ?? "Feature"} className="w-full rounded-xl" loading="lazy" /></div>)}
+      {image && <div className="glass-strong overflow-hidden rounded-2xl p-2"><img src={image} alt={imageAlt ?? title ?? "Feature"} className="w-full rounded-xl" loading="lazy" /></div>}
     </div>
   );
 }
