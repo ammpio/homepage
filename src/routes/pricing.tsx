@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, type ComponentType } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server } from "lucide-react";
 import { RayIcon } from "@/components/site/RayIcon";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/pricing")({
   ]}), component: Page,
 });
 
-type Mod = { name: string; tag: string; icon: React.ComponentType<{ className?: string }>; description: string; highlights: string[]; note?: string };
+type Mod = { name: string; tag: string; icon: ComponentType<{ className?: string }>; description: string; highlights: string[]; note?: string };
 
 const aiModule: Mod = {
   name: "AMMP AI", tag: "Module 1", icon: RayIcon,
