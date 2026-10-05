@@ -97,9 +97,8 @@ function Page() {
         secondary={{ label: "Try the demo", to: "/demo" }}
       />
 
-      <Band tone="grey">
-        <SectionHeading center title="Two modules. Take one or both." intro="Most customers combine them: AMMP OS Monitor for the screen, AMMP AI for the work." />
-        <div className="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <Band tone="grey" className="pt-8! md:pt-12!">
+        <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
           <ModuleCard mod={aiModule} popular />
           <ModuleCard mod={osModule} />
         </div>
