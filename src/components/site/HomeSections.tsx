@@ -46,7 +46,6 @@ export function Hero() {
               <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
               <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">Works in Slack, Microsoft Teams and AMMP OS</p>
           </Reveal>
         </div>
         <Reveal delay={360}><HeroVideo /></Reveal>
