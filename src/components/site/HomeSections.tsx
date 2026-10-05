@@ -70,7 +70,7 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative lg:h-[175vh] motion-reduce:lg:h-auto">
       <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center motion-reduce:lg:static motion-reduce:lg:min-h-0">
-      <div className="site-container grid w-full items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:py-16">
+      <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:py-16 xl:px-6">
         <div ref={copyRef} className="text-center will-change-transform lg:text-left">
           <Reveal delay={90}>
             <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
