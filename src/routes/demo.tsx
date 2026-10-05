@@ -25,9 +25,9 @@ const DEMO_CHAPTERS = [
 export const Route = createFileRoute("/demo")({
   head: () => ({ meta: [
     { title: "Experience AMMP OS — Interactive Demo" },
-    { name: "description", content: "See AMMP OS and its AI coworkers in action: interactive demo, sample reports and live dashboards." },
+    { name: "description", content: "See AMMP OS and its AI coworker in action: interactive demo, sample reports and live dashboards." },
     { property: "og:title", content: "Experience AMMP OS" },
-    { property: "og:description", content: "See our C&I solar monitoring platform, reporting and AI coworkers in action." },
+    { property: "og:description", content: "See our C&I solar monitoring platform, reporting and an AI coworker in action." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -42,7 +42,7 @@ function Page() {
   const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("interactive");
   return (
     <>
-      <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our C&I solar and BESS monitoring platform—and the AI coworkers built on top of it—in action." />
+      <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our C&I solar and BESS monitoring platform—and the AI coworker built on top of it—in action." />
 
       <Band tone="grey">
         <div className="flex justify-center">
@@ -65,7 +65,7 @@ function Page() {
               </div>
               <FeatureGrid columns={3} features={[
                 { title: "Portfolio Monitoring", text: "Live performance and availability across every site." },
-                { title: "AI Coworkers", text: "Investigate, prioritise and prepare work automatically." },
+                { title: "AI coworker", text: "Investigate, prioritise and prepare work automatically." },
                 { title: "KPI Benchmarking", text: "Portfolio-wide KPI tracking and benchmarking." },
                 { title: "Universal Integrations", text: "Connect Solis, Sungrow, Huawei, SMA and more." },
                 { title: "Automated Reporting", text: "Scheduled PDF reports for investors and clients." },

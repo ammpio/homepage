@@ -9,7 +9,7 @@ import { apiIntegrations, softwareAddons, edgeFeatures, type Brand } from "@/dat
 export const Route = createFileRoute("/integrations")({
   head: () => ({ meta: [
     { title: "Integrations & Add-ons — AMMP" },
-    { name: "description", content: "Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, giving your AI coworkers one grounded view of every system." },
+    { name: "description", content: "Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, giving your AI coworker one grounded view of every system." },
     { property: "og:title", content: "Integrations & Add-ons — AMMP" },
     { property: "og:description", content: "30+ integrations across inverters, meters, batteries, EMS and data services." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -45,7 +45,7 @@ function Page() {
         eyebrow="Integrations"
         title="Every system feeds the same"
         highlight="grounded context."
-        intro="Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, so your AI coworkers and your team work from the same unified data, not fragmented vendor portals."
+        intro="Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, so your AI coworker and your team work from the same unified data, not fragmented vendor portals."
         primary={{ label: "Contact sales", to: "/contact" }}
         secondary={{ label: "Try the demo", to: "/demo" }}
       />

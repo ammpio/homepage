@@ -11,7 +11,7 @@ const nav: readonly NavItem[] = [
     to: "/product",
     children: [
       ["Product overview", "/product"],
-      ["AI coworkers", "/ai"],
+      ["AI coworker", "/ai"],
       ["Integrations", "/integrations"],
       ["Customisation", "/customization"],
       ["Security", "/security"],
@@ -99,7 +99,7 @@ export function SiteShell() {
       <div className="site-container py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div><Link to="/" aria-label="AMMP home" className="inline-block"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">Put AI to work across your renewable energy portfolio</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
-          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["AI coworkers","/ai"],["Customisation","/customization"],["Security","/security"]]} />
+          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["AI coworker","/ai"],["Customisation","/customization"],["Security","/security"]]} />
           <FooterColumn title="Solutions" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Case studies","/case-studies"],["Switch to AMMP","/switch"]]} />
           <FooterColumn title="Company" links={[["About","/about"],["Blog","/blog"],["Careers","/careers"],["Contact","/contact"],["FAQ","/faq"]]} />
         </div>

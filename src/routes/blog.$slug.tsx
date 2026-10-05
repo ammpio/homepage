@@ -8,7 +8,7 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
     const post = getBlogPost(params.slug);
     const title = post ? `${post.title} — AMMP Blog` : "Article not found — AMMP Blog";
-    const description = post?.excerpt ?? "This article could not be found. Browse the AMMP blog for the latest on AI coworkers and renewable energy operations.";
+    const description = post?.excerpt ?? "This article could not be found. Browse the AMMP blog for the latest on an AI coworker and renewable energy operations.";
     return {
       meta: [
         { title },

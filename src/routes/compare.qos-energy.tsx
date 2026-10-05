@@ -56,7 +56,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>QOS Energy, which acquired Bazefield and was previously known as Quantum, offers a comprehensive asset performance management platform primarily focused on utility-scale wind and solar projects.</p>
-          <p>AMMP takes a different approach, with AI coworkers on AMMP OS specialising in commercial and industrial (C&I) solar with deep expertise in emerging markets. The platform handles the unique challenges of C&I, time-of-use tariffs, wheeling, hybrid systems with generators, that utility-focused platforms often overlook.</p>
+          <p>AMMP takes a different approach, with an AI coworker on AMMP OS specialising in commercial and industrial (C&I) solar with deep expertise in emerging markets. The platform handles the unique challenges of C&I, time-of-use tariffs, wheeling, hybrid systems with generators, that utility-focused platforms often overlook.</p>
         </div>
       </Band>
       <Band tone="white">

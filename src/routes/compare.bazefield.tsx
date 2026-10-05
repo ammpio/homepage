@@ -57,7 +57,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Bazefield is a market-leading SCADA and operations management platform, now part of the Univers family. It supports solar, wind, storage, and hydro assets, with particular strength in utility-scale projects requiring advanced control capabilities.</p>
-          <p>AMMP takes a different approach, with AI coworkers on AMMP OS focused specifically on commercial and industrial distributed energy systems. This allows for faster deployment, simpler operations, and pricing that scales with your portfolio rather than enterprise licensing models.</p>
+          <p>AMMP takes a different approach, with an AI coworker on AMMP OS focused specifically on commercial and industrial distributed energy systems. This allows for faster deployment, simpler operations, and pricing that scales with your portfolio rather than enterprise licensing models.</p>
         </div>
       </Band>
       <Band tone="white">

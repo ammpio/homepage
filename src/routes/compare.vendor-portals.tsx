@@ -59,7 +59,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Every inverter manufacturer has their own monitoring portal: Huawei has FusionSolar, Sungrow has iSolarCloud, SMA has Sunny Portal, and so on. If you manage a diverse portfolio, you are constantly switching between platforms, dealing with inconsistent data formats, and manually consolidating reports.</p>
-          <p>AMMP solves this with AI coworkers on AMMP OS that unify 30+ device brands into a single platform. One login, one dashboard, one source of truth for your entire fleet.</p>
+          <p>AMMP solves this with an AI coworker on AMMP OS that unifies 30+ device brands into a single platform. One login, one dashboard, one source of truth for your entire fleet.</p>
         </div>
       </Band>
       <Band tone="white">

@@ -58,7 +58,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Proprietary monitoring platforms, typically offered by inverter manufacturers, promise seamless integration but come with hidden costs. You are locked into one vendor's equipment, limiting your flexibility and negotiating power.</p>
-          <p>AMMP embraces open standards and vendor neutrality. AI coworkers on AMMP OS integrate with 30+ device brands using standard protocols like Modbus, SunSpec, and MQTT. Your monitoring platform should work for you, not limit your equipment choices.</p>
+          <p>AMMP embraces open standards and vendor neutrality. Ray, the AI coworker on AMMP OS, integrates with 30+ device brands using standard protocols like Modbus, SunSpec, and MQTT. Your monitoring platform should work for you, not limit your equipment choices.</p>
         </div>
       </Band>
       <Band tone="white">

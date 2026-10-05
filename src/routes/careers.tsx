@@ -9,7 +9,7 @@ import teamGames from "@/assets/team/team-games.jpeg";
 export const Route = createFileRoute("/careers")({
   head: () => ({ meta: [
     { title: "Careers at AMMP — Build the operating system for clean energy" },
-    { name: "description", content: "Join the team building AI coworkers and the operating layer renewable energy operators depend on every day." },
+    { name: "description", content: "Join the team building an AI coworker and the operating layer renewable energy operators depend on every day." },
     { property: "og:title", content: "Careers at AMMP" },
     { property: "og:description", content: "Be part of something really great. Help us build the operating system for clean energy." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -27,9 +27,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="Careers"
-        title="Help us put AI coworkers to work across"
+        title="Help us put AI coworker to work across"
         highlight="the renewable energy transition."
-        intro="Be part of something really great. Help us build the operating system for clean energy—and the AI coworkers that run on top of it."
+        intro="Be part of something really great. Help us build the operating system for clean energy—and the AI coworker that run on top of it."
         primary={{ label: "View open positions", to: "/careers" }}
         secondary={{ label: "Talk to us", to: "/contact" }}
       />

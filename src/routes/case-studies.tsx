@@ -10,7 +10,7 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({ meta: [
     { title: "Customer Success Stories — AMMP" },
-    { name: "description", content: "See how C&I solar developers across Africa use AMMP and AI coworkers to scale their operations and deliver exceptional results." },
+    { name: "description", content: "See how C&I solar developers across Africa use AMMP and AI coworker to scale their operations and deliver exceptional results." },
     { property: "og:title", content: "Customer Success Stories — AMMP" },
     { property: "og:description", content: "Trusted by Daystar Power (a Shell company), Broadreach Energy, SolarSaver, and more." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -77,7 +77,7 @@ function Page() {
         eyebrow="Customer results"
         title="Customer"
         highlight="success stories"
-        intro="See how C&I solar developers across Africa use AMMP, and now AI coworkers grounded in that same operating data, to scale their operations and deliver exceptional results."
+        intro="See how C&I solar developers across Africa use AMMP, and now an AI coworker grounded in that same operating data, to scale their operations and deliver exceptional results."
       />
 
 

@@ -59,7 +59,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Some monitoring platforms prioritise visual polish, beautiful dashboards that impress in demos but limit what you can actually do with your data. Others focus on data access but feel clunky and outdated.</p>
-          <p>AMMP takes a data-first approach without sacrificing user experience. Full API access, programmable reports, and raw data exports, combined with AI coworkers and a modern, intuitive interface your team will actually enjoy using.</p>
+          <p>AMMP takes a data-first approach without sacrificing user experience. Full API access, programmable reports, and raw data exports, combined with an AI coworker and a modern, intuitive interface your team will actually enjoy using.</p>
         </div>
       </Band>
       <Band tone="white">

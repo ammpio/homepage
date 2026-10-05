@@ -40,7 +40,7 @@ const rows = [
 
 const differentiators = [
   { icon: Layers, title: "True Multi-Vendor Support", text: "Monitor systems from any manufacturer, Huawei, SMA, SolarEdge, and 30+ more, in one unified platform." },
-  { icon: RefreshCw, title: "Works With Existing Systems", text: "Add AI coworkers on AMMP OS to sites already installed, regardless of the inverter brand or age of the system." },
+  { icon: RefreshCw, title: "Works With Existing Systems", text: "Add an AI coworker on AMMP OS to sites already installed, regardless of the inverter brand or age of the system." },
   { icon: BarChart3, title: "Portfolio-Wide Insights", text: "Compare performance across your entire fleet, even when sites have different hardware." },
   { icon: Building, title: "Built for Asset Managers", text: "Purpose-built for portfolio operators and O&M providers managing diverse system types." },
 ];
@@ -59,7 +59,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the platforms differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>GoodWe SEMS Portal provides monitoring for GoodWe inverter and storage systems. While it offers good visibility into GoodWe equipment performance, it operates as a closed system limited to GoodWe hardware only.</p>
-          <p>AMMP puts AI coworkers on top of AMMP OS to work across 30+ device brands, including GoodWe. That means you can monitor your entire portfolio, GoodWe sites, Huawei sites, SMA sites, all in one platform with consistent reporting and analytics.</p>
+          <p>AMMP puts an AI coworker on top of AMMP OS to work across 30+ device brands, including GoodWe. That means you can monitor your entire portfolio, GoodWe sites, Huawei sites, SMA sites, all in one platform with consistent reporting and analytics.</p>
         </div>
       </Band>
       <Band tone="white">

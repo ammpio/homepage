@@ -4,10 +4,10 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({ meta: [
-    { title: "FAQ — AMMP OS and AI coworkers for renewable energy" },
-    { name: "description", content: "Answers about AMMP OS: monitoring, integrations, reporting, security and switching, plus how AI coworkers build on that data." },
-    { property: "og:title", content: "FAQ — AMMP OS and AI coworkers for renewable energy" },
-    { property: "og:description", content: "Everything you need to know about AMMP OS, from platform capabilities to getting started with AI coworkers." },
+    { title: "FAQ — AMMP OS and an AI coworker for renewable energy" },
+    { name: "description", content: "Answers about AMMP OS: monitoring, integrations, reporting, security and switching, plus how AI coworker build on that data." },
+    { property: "og:title", content: "FAQ — AMMP OS and an AI coworker for renewable energy" },
+    { property: "og:description", content: "Everything you need to know about AMMP OS, from platform capabilities to getting started with AI coworker." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -19,7 +19,7 @@ function Page() {
         eyebrow="FAQ"
         title="Frequently asked"
         highlight="questions."
-        intro="Everything you need to know about AMMP OS, from platform capabilities to getting started with AI coworkers built on top of it."
+        intro="Everything you need to know about AMMP OS, from platform capabilities to getting started with an AI coworker built on top of it."
         primary={{ label: "Contact us", to: "/contact" }}
         secondary={{ label: "Try demo", to: "/demo" }}
       />

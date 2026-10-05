@@ -12,10 +12,10 @@ import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/concept")({
   head: () => ({ meta: [
-    { title: "AMMP concept homepage — AI coworkers for renewable portfolios" },
-    { name: "description", content: "AMMP combines renewable energy portfolio software with AI coworkers that investigate, prioritise and prepare work." },
-    { property: "og:title", content: "AMMP concept homepage — AI coworkers for renewable portfolios" },
-    { property: "og:description", content: "Give every portfolio team AI coworkers grounded in the same trusted operational context." },
+    { title: "AMMP concept homepage — an AI coworker for renewable portfolios" },
+    { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritises and prepares work." },
+    { property: "og:title", content: "AMMP concept homepage — an AI coworker for renewable portfolios" },
+    { property: "og:description", content: "Give every portfolio team an AI coworker grounded in the same trusted operational context." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: HomePage,
 });
@@ -56,12 +56,12 @@ function Hero() {
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
-              AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
+              An AI coworker grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
             </p>
           </Reveal>
           <Reveal delay={270}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/ai" className="button button-primary rounded-full px-5 transition-transform hover:-translate-y-0.5">Meet your coworkers <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
+              <Link to="/ai" className="button button-primary rounded-full px-5 transition-transform hover:-translate-y-0.5">Meet your coworker <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
               <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
             </div>
           </Reveal>
@@ -83,7 +83,7 @@ function WorkspacePanel() {
             <span className="text-sm font-medium"># portfolio-ops</span>
             <span className="hidden text-xs text-muted-foreground sm:inline">· shared workspace</span>
           </div>
-          <div className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />4 coworkers online</div>
+          <div className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray online</div>
         </div>
         <div className="space-y-5 p-5 sm:p-6">
           <div className="flex gap-3">
@@ -139,7 +139,7 @@ function AgentsSection() {
     <section className="py-20 md:py-28">
       <div className="site-container">
         <div className="max-w-5xl">
-          <h2 className={h2Class}>Your team just got new co-workers</h2>
+          <h2 className={h2Class}>Your team just got a new coworker</h2>
           <p className="mt-4 text-lg text-muted-foreground lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -286,7 +286,7 @@ function ContextPlatformSection() {
             </div>
             <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0"><ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: "1.3s" }} /><span className="lg:hidden">Powers</span><ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" style={{ animationDelay: "1.3s" }} /></div>
             <div className="grid gap-3">
-              <Reveal delay={550}><div className="glass rounded-2xl p-5"><RayIcon className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworkers</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
+              <Reveal delay={550}><div className="glass rounded-2xl p-5"><RayIcon className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AI coworker</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP</p></div></Reveal>
               <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Your software tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
             </div>
           </div>
@@ -296,7 +296,7 @@ function ContextPlatformSection() {
   );
 }
 
-/* 8 — AMMP OS + AI coworkers (merged: TwoInterfaces + PlatformGrid) */
+/* 8 — AMMP OS + AI coworker (merged: TwoInterfaces + PlatformGrid) */
 const modulesGrid = [
   { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device." },
   { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution." },
@@ -318,8 +318,8 @@ const interfaces = [
   },
   {
     eyebrow: "For the work nobody gets to",
-    title: "AMMP AI coworkers",
-    body: "Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.",
+    title: "AMMP AI coworker",
+    body: "A portfolio-aware coworker that explores, analyses, reports and keeps the team ahead.",
     icon: RayIcon,
   },
 ];
@@ -353,7 +353,7 @@ function PlatformOverview() {
           <div>
             <p className="eyebrow text-muted-foreground">Inside AMMP OS</p>
             <h3 className="mt-3 font-display text-2xl font-medium tracking-[-0.015em] sm:text-3xl">AMMP OS when you need it</h3>
-            <p className="mt-3 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
+            <p className="mt-3 text-lg text-muted-foreground xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. Ray sits on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>

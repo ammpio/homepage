@@ -10,10 +10,10 @@ import { PageCta } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/human")({
   head: () => ({
     meta: [
-      { title: "AMMP — AI coworkers for renewable energy portfolios" },
-      { name: "description", content: "AMMP combines renewable energy portfolio software with AI coworkers that investigate, prioritise and prepare work." },
-      { property: "og:title", content: "AMMP — AI coworkers for renewable energy portfolios" },
-      { property: "og:description", content: "Give every portfolio team AI coworkers grounded in the same trusted operational context." },
+      { title: "AMMP — an AI coworker for renewable energy portfolios" },
+      { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritises and prepares work." },
+      { property: "og:title", content: "AMMP — an AI coworker for renewable energy portfolios" },
+      { property: "og:description", content: "Give every portfolio team an AI coworker grounded in the same trusted operational context." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -70,18 +70,18 @@ function Hero() {
       <div className="site-container relative grid items-center gap-12 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:py-28">
         <div>
           <div className="flex flex-wrap gap-2">
-            <CoworkerBadge label="4 coworkers on your team" />
+            <CoworkerBadge label="Ray online" />
             <CoworkerBadge label="Working alongside your people" tone="stone" />
           </div>
           <h1 className="mt-7 max-w-[16ch] text-balance text-5xl font-extrabold leading-[1.04] tracking-[-0.02em] text-stone-900 md:text-6xl">
             Put AI to work across your <span className="text-amber-600">renewable energy portfolio</span>
           </h1>
           <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-stone-600">
-            AI coworkers grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
+            An AI coworker grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_-12px_rgba(28,25,23,0.5)] transition-all hover:-translate-y-0.5 hover:bg-stone-800">
-              Meet your coworkers <ArrowRight className="size-4" />
+              Meet your coworker <ArrowRight className="size-4" />
             </Link>
             <Link to="/ai" className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-7 py-3.5 text-sm font-bold text-stone-900 transition-all hover:-translate-y-0.5 hover:border-stone-400">
               See how it works
@@ -106,7 +106,7 @@ function WorkspacePanel() {
             <span className="text-sm font-bold"># portfolio-ops</span>
             <span className="hidden text-xs text-stone-400 sm:inline">· shared workspace</span>
           </div>
-          <CoworkerBadge label="4 coworkers online" />
+          <CoworkerBadge label="Ray online" />
         </div>
         <div className="space-y-5 p-5 sm:p-6">
           <div className="flex gap-3">
@@ -174,7 +174,7 @@ function ScaleBand() {
   );
 }
 
-/* 3 — Your team just got new co-workers */
+/* 3 — Your team just got a new coworker */
 const agents = [
   { name: "Portfolio analyst", role: "Your analyst in AMMP OS, Slack and Teams", body: "Investigates underperformance and explains what changed, with evidence.", initials: "PA" },
   { name: "Alarm triage", role: "The checker that never sleeps", body: "Ranks issues by operational and commercial impact before they become noise.", initials: "AT" },
@@ -187,7 +187,7 @@ function AgentsSection() {
     <section className="py-20 md:py-28">
       <div className="site-container">
         <div className="max-w-5xl">
-          <h2 className={h2Class}>Your team just got new co-workers</h2>
+          <h2 className={h2Class}>Your team just got a new coworker</h2>
           <p className="mt-4 text-lg text-stone-600 lg:whitespace-nowrap">Each coworker has a clear job. They add capacity to the people you already have.</p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -333,7 +333,7 @@ function ContextPlatformSection() {
             </div>
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-amber-600" /></div>
             <div className="grid gap-3">
-              <div className={`${card} p-5`}><Bot className="h-5 w-5 text-amber-600" /><p className="mt-4 font-bold text-stone-900">AI coworkers</p><p className="mt-1 text-sm text-stone-500">Slack · Teams · AMMP</p></div>
+              <div className={`${card} p-5`}><Bot className="h-5 w-5 text-amber-600" /><p className="mt-4 font-bold text-stone-900">AI coworker</p><p className="mt-1 text-sm text-stone-500">Slack · Teams · AMMP</p></div>
               <div className={`${card} p-5`}><PlugZap className="h-5 w-5 text-amber-600" /><p className="mt-4 font-bold text-stone-900">Your software tools</p><p className="mt-1 text-sm text-stone-500">Dashboards, reports and workflows</p></div>
             </div>
           </div>
@@ -343,7 +343,7 @@ function ContextPlatformSection() {
   );
 }
 
-/* 7 — AMMP OS + AI coworkers */
+/* 7 — AMMP OS + AI coworker */
 const modulesGrid = [
   { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device." },
   { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution." },
@@ -358,7 +358,7 @@ const modulesGrid = [
 
 const interfaces = [
   { eyebrow: "For the team on shift", title: "AMMP OS", body: "Live portfolio views, alarms, performance analytics, and drill-down to the asset.", icon: Monitor },
-  { eyebrow: "For the work nobody gets to", title: "AMMP AI coworkers", body: "Portfolio-aware coworkers that explore, analyse, report, and keep the team ahead.", icon: Bot },
+  { eyebrow: "For the work nobody gets to", title: "AMMP AI coworker", body: "A portfolio-aware coworker that explores, analyses, reports and keeps the team ahead.", icon: Bot },
 ];
 
 function PlatformOverview() {
@@ -388,7 +388,7 @@ function PlatformOverview() {
           <div>
             <CoworkerBadge label="Inside AMMP OS" tone="stone" />
             <h3 className="mt-4 text-2xl font-extrabold tracking-[-0.01em] text-stone-900 sm:text-3xl">AMMP OS when you need it</h3>
-            <p className="mt-3 text-lg text-stone-600 xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. The coworkers sit on top of them.</p>
+            <p className="mt-3 text-lg text-stone-600 xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. Ray sits on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-bold text-stone-900 hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>
         </div>

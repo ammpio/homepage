@@ -5,9 +5,9 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/brazil")({
   head: () => ({ meta: [
-    { title: "AMMP Brazil — Solar and BESS monitoring with AI coworkers" },
-    { name: "description", content: "Monitoring and asset management, with AI coworkers on top, for solar, storage and hybrid portfolios in Brazil. Built for BESS as the SAE framework and 2026 storage auctions arrive." },
-    { property: "og:title", content: "AMMP Brazil — Solar and BESS monitoring with AI coworkers" },
+    { title: "AMMP Brazil — Solar and BESS monitoring with AI coworker" },
+    { name: "description", content: "Monitoring and asset management, with an AI coworker on top, for solar, storage and hybrid portfolios in Brazil. Built for BESS as the SAE framework and 2026 storage auctions arrive." },
+    { property: "og:title", content: "AMMP Brazil — Solar and BESS monitoring with AI coworker" },
     { property: "og:description", content: "No local SCADA box required, and batteries are first-class assets, not an add-on." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
@@ -18,9 +18,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP in Brazil"
-        title="AI coworkers for solar and storage, built for"
+        title="An AI coworker for solar and storage, built for"
         highlight="Brazil's next cycle."
-        intro="AMMP is a cloud-native monitoring and asset management platform for solar, battery and hybrid portfolios, with AI coworkers investigating and preparing work on top. No local SCADA box required, and batteries are first-class assets, not an add-on."
+        intro="AMMP is a cloud-native monitoring and asset management platform for solar, battery and hybrid portfolios, with an AI coworker investigating and preparing work on top. No local SCADA box required, and batteries are first-class assets, not an add-on."
         primary={{ label: "Book a conversation", to: "/contact" }}
         secondary={{ label: "Compare with PV Operation", to: "/compare/pv-operation" }}
       />

@@ -9,7 +9,7 @@ import broadreachLogo from "@/assets/partners/broadreach-logo.png";
 export const Route = createFileRoute("/switch")({
   head: () => ({ meta: [
     { title: "Why C&I solar companies switch to AMMP" },
-    { name: "description", content: "Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworkers and automated reporting." },
+    { name: "description", content: "Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, an AI coworker and automated reporting." },
     { property: "og:title", content: "Why C&I solar companies switch to AMMP" },
     { property: "og:description", content: "Unified visibility, automated reporting, and a platform that scales." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -33,7 +33,7 @@ const faqs = [
 function Page() {
   return (
     <>
-      <PageHero eyebrow="Switching" title="Why C&I solar companies" highlight="switch to AMMP" intro="Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworkers, automated reporting, and a platform that scales." primary={{ label: "Try the demo", to: "/demo" }} secondary={{ label: "Talk to sales", to: "/contact" }} />
+      <PageHero eyebrow="Switching" title="Why C&I solar companies" highlight="switch to AMMP" intro="Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworker, automated reporting, and a platform that scales." primary={{ label: "Try the demo", to: "/demo" }} secondary={{ label: "Talk to sales", to: "/contact" }} />
 
       <Band tone="grey">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">What's happening</h2>

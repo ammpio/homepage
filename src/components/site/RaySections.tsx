@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, Wrench, Scale, BarChart3 } from "lucide-react";
+import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
@@ -15,6 +15,46 @@ const chapters = [
   { t: 44, label: "SLA compliance" },
   { t: 52, label: "Investor reporting" },
 ];
+
+/* Hero video: autoplay, muted, looping, native 16:9 (1920×1080) with an unmute toggle */
+export function HeroVideo() {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted) void v.play();
+  };
+  return (
+    <div className="relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
+      <video
+        ref={ref}
+        src={rayVideo.url}
+        poster={rayPoster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        width={1920}
+        height={1080}
+        aria-label="Ray by AMMP overview video"
+        className="block aspect-video h-auto w-full bg-background"
+      />
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={muted ? "Unmute video" : "Mute video"}
+        className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-foreground/80 px-3 py-1.5 text-xs font-medium text-background backdrop-blur transition-colors hover:bg-foreground"
+      >
+        {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+        {muted ? "Unmute" : "Mute"}
+      </button>
+    </div>
+  );
+}
 
 /* Video player with chapters */
 export function RayPlayer() {
@@ -71,7 +111,6 @@ export function RayVideo() {
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>Meet Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>The coworker your team has been waiting for</h2>
             <p className="mt-5 text-lg text-muted-foreground">Built on 10 years of experience operating 10,000+ renewable energy sites. Works in Slack, Microsoft Teams and AMMP OS.</p>
           </div>

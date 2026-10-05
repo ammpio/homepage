@@ -18,7 +18,7 @@ export const Route = createFileRoute("/security")({
       { title: "Security & Trust — ISO 27001 Certified Monitoring | AMMP" },
       { name: "description", content: "How AMMP protects your portfolio data: ISO/IEC 27001:2022 certification, hosting and data residency, uptime, encryption, access control and data export." },
       { property: "og:title", content: "Security & Trust — ISO 27001 Certified Monitoring | AMMP" },
-      { property: "og:description", content: "How AMMP protects your portfolio data, from the platform to the AI coworkers built on top of it." },
+      { property: "og:description", content: "How AMMP protects your portfolio data, from the platform to the AI coworker built on top of it." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -42,7 +42,7 @@ function Page() {
         eyebrow="Security and trust"
         title="How we protect"
         highlight="your portfolio data."
-        intro="AMMP is the system of record for thousands of solar and storage sites, and the platform your AI coworkers run on. This page sets out how that data is stored, protected and returned to you."
+        intro="AMMP is the system of record for thousands of solar and storage sites, and the platform your AI coworker run on. This page sets out how that data is stored, protected and returned to you."
       />
 
       <Band>
