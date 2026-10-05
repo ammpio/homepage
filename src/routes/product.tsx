@@ -34,7 +34,7 @@ const categories = [
   { id: "integrations", label: "Integrations", icon: Plug, title: "Connect every system you already run" },
   { id: "customizations", label: "Customisations", icon: Settings2, title: "Built around your portfolio, not a template" },
   { id: "api", label: "API", icon: Code, title: "Build on the same data Ray uses" },
-  { id: "ai", label: "AI", icon: Sparkles, title: "Where the coworkers come in", intro: "AI coworker are built directly on top of AMMP OS, so they see exactly what your dashboards see." },
+  { id: "ai", label: "AI", icon: Sparkles, title: "Where Ray comes in", intro: "Ray, the AI coworker, is built directly on top of AMMP OS, so it sees exactly what your dashboards see." },
 ] as const;
 
 type CategoryId = (typeof categories)[number]["id"];
