@@ -17,7 +17,7 @@ function RayPage() {
   return (
     <div className="relative overflow-x-clip">
       <Hero />
-      <StatsBar />
+      <StatsBar className="lg:hidden" />
       <BeforeLogin />
       <RayDay />
       <ProactiveOnDemand />

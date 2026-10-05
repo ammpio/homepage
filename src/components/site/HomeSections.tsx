@@ -15,7 +15,7 @@ export function HomePage() {
   return (
     <div className="relative overflow-x-clip">
       <Hero />
-      <StatsBar />
+      <StatsBar className="lg:hidden" />
       <BeforeLogin />
       <ProactiveOnDemand />
       <RayEverywhere />
@@ -31,13 +31,15 @@ function useHeroScroll() {
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const section = sectionRef.current, copy = copyRef.current, video = videoRef.current;
     if (!section || !copy || !video) return;
     const desktop = window.matchMedia("(min-width: 1024px)");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
-    const reset = () => { video.style.transform = ""; copy.style.opacity = ""; copy.style.transform = ""; };
+    const stats = statsRef.current;
+    const reset = () => { if (stats) { stats.style.opacity = ""; stats.style.transform = ""; } video.style.transform = ""; copy.style.opacity = ""; copy.style.transform = ""; };
     const update = () => {
       frame = 0;
       if (!desktop.matches || reduced.matches) return reset();
@@ -59,6 +61,7 @@ function useHeroScroll() {
       video.style.transform = `translate(${dx * p}px, ${dy * pv}px) scale(${1 + (scale - 1) * p})`;
       copy.style.opacity = String(1 - Math.min(1, p * 1.6));
       copy.style.transform = `translateX(${-40 * p}px)`;
+      if (stats) { stats.style.opacity = String(1 - Math.min(1, raw * 4)); stats.style.transform = `translateY(${Math.min(1, raw * 4) * 40}px)`; }
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
     update();
@@ -66,14 +69,14 @@ function useHeroScroll() {
     window.addEventListener("resize", onScroll);
     return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
   }, []);
-  return { sectionRef, copyRef, videoRef };
+  return { sectionRef, copyRef, videoRef, statsRef };
 }
 
 export function Hero() {
-  const { sectionRef, copyRef, videoRef } = useHeroScroll();
+  const { sectionRef, copyRef, videoRef, statsRef } = useHeroScroll();
   return (
     <section ref={sectionRef} className="relative lg:h-[148vh] motion-reduce:lg:h-auto">
-      <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:items-start motion-reduce:lg:static motion-reduce:lg:min-h-0">
+      <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:flex-col motion-reduce:lg:static motion-reduce:lg:min-h-0">
       <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-20 xl:px-6">
         <div ref={copyRef} className="text-center will-change-transform lg:text-left">
           <Reveal delay={90}>
@@ -97,15 +100,16 @@ export function Hero() {
           <Reveal delay={360}><HeroVideo /></Reveal>
         </div>
       </div>
+      <div ref={statsRef} className="mt-auto hidden pb-8 will-change-transform lg:block"><StatsBar /></div>
       </div>
     </section>
   );
 }
 
-export function StatsBar() {
+export function StatsBar({ className = "" }: { className?: string }) {
   const metrics = [["10,000+", "Sites"], ["35+", "Countries"], ["30+", "Integrations"]] as const;
   return (
-    <section aria-label="AMMP portfolio scale">
+    <section aria-label="AMMP portfolio scale" className={className}>
       <div className="site-container">
         <div className="mx-auto grid max-w-4xl grid-cols-3 gap-2 border-y border-border/60 py-6 text-center sm:gap-6 sm:py-8">
           {metrics.map(([value, label]) => (
