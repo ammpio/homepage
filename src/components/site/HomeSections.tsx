@@ -46,13 +46,17 @@ function useHeroScroll() {
       const travel = section.offsetHeight - window.innerHeight;
       const raw = travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
       const p = raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+      // measure the box in its natural, untransformed place
+      video.style.transform = "";
       const w = video.offsetWidth, h = video.offsetHeight;
-      // natural (untransformed) centre of the video box
-      let el: HTMLElement | null = video, left = 0;
-      while (el && el !== section) { left += el.offsetLeft; el = el.offsetParent as HTMLElement | null; }
-      const dx = section.offsetWidth / 2 - (left + w / 2);
-      const scale = Math.max(1, Math.min((window.innerWidth * 0.82) / w, (window.innerHeight * 0.7) / h));
-      video.style.transform = `translateX(${dx * p}px) scale(${1 + (scale - 1) * p})`;
+      const box = video.getBoundingClientRect();
+      const vw = document.documentElement.clientWidth, vh = window.innerHeight;
+      const dx = vw / 2 - (box.left + w / 2);
+      const top = 80, bottom = vh - 16; // clear the sticky header, keep a margin below
+      const scale = Math.max(1, Math.min((vw * 0.82) / w, (bottom - top) / h));
+      const dy = top + (h * scale) / 2 - (box.top + h / 2);
+      const pv = Math.min(1, p * 1.25); // settle into the band slightly ahead of the growth
+      video.style.transform = `translate(${dx * p}px, ${dy * pv}px) scale(${1 + (scale - 1) * p})`;
       copy.style.opacity = String(1 - Math.min(1, p * 1.6));
       copy.style.transform = `translateX(${-40 * p}px)`;
     };
@@ -68,7 +72,7 @@ function useHeroScroll() {
 export function Hero() {
   const { sectionRef, copyRef, videoRef } = useHeroScroll();
   return (
-    <section ref={sectionRef} className="relative lg:h-[175vh] motion-reduce:lg:h-auto">
+    <section ref={sectionRef} className="relative lg:h-[148vh] motion-reduce:lg:h-auto">
       <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:items-start motion-reduce:lg:static motion-reduce:lg:min-h-0">
       <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-12 xl:px-6">
         <div ref={copyRef} className="text-center will-change-transform lg:text-left">
