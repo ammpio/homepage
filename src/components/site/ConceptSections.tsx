@@ -144,7 +144,7 @@ export function ModeDeck() {
 }
 
 /* 4 — Enterprise bento with UI artifacts */
-const vendors = ["Huawei", "SMA", "SolarEdge", "Victron", "Sungrow"];
+const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "GoodWe", "Fronius", "Solis", "Victron", "Deye", "Growatt", "AlphaESS", "SIGenergy"];
 
 export function TrustBento() {
   const [role, setRole] = useState<"am" | "om">("am");
@@ -162,9 +162,9 @@ export function TrustBento() {
           <div className="glass flex flex-col justify-center rounded-3xl p-7 lg:col-span-2">
             <p className="font-semibold">Hardware agnostic</p>
             <p className="mt-1 text-sm text-muted-foreground">One data model, whatever is on site.</p>
-            <div className="mt-6 flex flex-wrap gap-2 lg:justify-between">
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
               {vendors.map((v) => (
-                <span key={v} className="rounded-full border border-border/70 bg-background/70 px-4 py-2 text-sm">{v}</span>
+                <span key={v} className="rounded-full border border-border/70 bg-background/70 px-3 py-2 text-center text-sm">{v}</span>
               ))}
             </div>
           </div>
