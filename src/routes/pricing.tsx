@@ -43,7 +43,7 @@ function ModuleCard({ mod, popular = false }: { mod: Mod; popular?: boolean }) {
         {mod.highlights.map((h) => <li key={h} className="flex items-start gap-2 text-sm"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{h}</li>)}
       </ul>
       {mod.note && <p className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">{mod.note}</p>}
-      <Link to="/contact" className={`button ${popular ? "button-primary" : "button-ghost"} mt-6 w-full justify-center`}>Contact sales <ArrowRight className="size-4" /></Link>
+      <Link to="/contact" className="button button-pink mt-6 w-full justify-center">Contact sales <ArrowRight className="size-4" /></Link>
     </div>
   );
 }
