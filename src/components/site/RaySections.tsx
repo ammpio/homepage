@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, W
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
+import rayAvatar from "@/assets/ray-avatar.png";
 
 const RAY_URL = "https://os.ammp.io/beta-ray";
 const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
@@ -32,7 +33,7 @@ export function RayVideo() {
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.14em] text-primary">Meet Ray</p>
+            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>Meet Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>The coworker your team has been waiting for</h2>
             <p className="mt-5 text-lg text-muted-foreground">Built on 10 years of experience operating 10,000+ renewable energy sites. Works in Slack, Microsoft Teams and AMMP OS.</p>
           </div>
@@ -88,7 +89,7 @@ const tabs = [
 function RayMsg({ time, children }: { time: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-3">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-xs font-semibold text-primary">R</span>
+      <img src={rayAvatar} alt="Ray" className="size-9 shrink-0 rounded-full object-cover ring-1 ring-primary/25" />
       <div className="min-w-0 flex-1">
         <div className="text-xs text-muted-foreground"><span className="font-medium text-primary">Ray</span> · {time}</div>
         <div className="mt-1 text-sm leading-relaxed">{children}</div>
@@ -121,7 +122,7 @@ export function RayDay() {
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.14em] text-primary">A day with Ray</p>
+            <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span>A day with Ray</span></div>
             <h2 className={`mt-3 ${h2Class}`}>Working before anyone's logged in</h2>
             <p className="mt-5 text-lg text-muted-foreground">Seven a.m. Ray has already checked yesterday's performance across every site — and knows which issues need a human.</p>
           </div>
@@ -139,7 +140,7 @@ export function RayDay() {
         <div className="glass-strong mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl">
           <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 text-sm">
             <span className="font-medium">{tab === "report" ? "# finance-reporting" : tab === "plan" ? "# portfolio-ops" : "Mark de Vries, Tom Visser, Ray"}</span>
-            <span className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>
+            <span className="flex items-center gap-2 text-xs font-medium text-primary"><img src={rayAvatar} alt="" className="size-6 rounded-full object-cover" /><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>
           </div>
           <div key={tab} className="msg-in space-y-5 p-5 sm:p-7">
             {tab === "plan" && (<>
@@ -227,6 +228,7 @@ export function RayEverywhere() {
     <section className="relative py-16 lg:py-24">
       <div className="site-container">
         <div className="glass mx-auto max-w-4xl rounded-3xl p-8 text-center md:p-12">
+          <img src={rayAvatar} alt="Ray" className="mx-auto mb-5 size-20 rounded-full object-cover ring-4 ring-primary/15" />
           <h2 className={h2Class}>Wherever your team already works</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">In Slack, Microsoft Teams, or right inside AMMP OS — same Ray, same evidence, humans in control.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
