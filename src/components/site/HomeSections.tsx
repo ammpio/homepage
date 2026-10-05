@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
   FileOutput, FileText, Gauge, LockKeyhole, Monitor, Plug, PlugZap, Server, Settings, Sun, Ticket, Wrench,
-, Sparkles } from "lucide-react";
+  Sparkles } from "lucide-react";
 import { ModeDeck } from "@/components/site/ConceptSections";
 import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
