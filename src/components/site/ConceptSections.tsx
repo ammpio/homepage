@@ -120,9 +120,9 @@ export function ModeDeck() {
               key={mode.title}
               type="button"
               onClick={() => setActive(i)}
-              className={`glass rounded-2xl p-5 text-left transition ${i === active ? "ring-2 ring-primary" : "opacity-80 hover:opacity-100"}`}
+              className={`glass rounded-2xl p-5 text-left transition ${i === active ? "bg-foreground text-background shadow-lg" : "opacity-80 hover:opacity-100"}`}
             >
-              <mode.icon className="size-5 text-primary" />
+              <mode.icon className={`size-5 ${i === active ? "text-background" : "text-primary"}`} />
               <p className="mt-3 font-semibold">{mode.title}</p>
             </button>
           ))}
