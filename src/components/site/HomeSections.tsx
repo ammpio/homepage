@@ -38,7 +38,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={180}>
             <p className="mx-auto mt-5 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-              Meet Ray, an AI coworker grounded in your portfolio data, ready to investigate, prioritise and prepare work alongside your team.
+              Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
             </p>
           </Reveal>
           <Reveal delay={270}>
