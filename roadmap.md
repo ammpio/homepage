@@ -8,3 +8,4 @@
 - [x] Feature Ray (avatar replaces bot icon) on use case pages and site-wide.
 - [x] Pricing: two modules (AMMP AI, AMMP OS Monitor) + MCP/API add-ons.
 - [ ] Meeting scheduler image — skipped by user for now.
+- [x] Streamline /ai: Ray first (video + day), MCP second, drop roadmap and duplicate closing.
