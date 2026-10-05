@@ -14,16 +14,16 @@ export const Route = createFileRoute("/pricing")({
   ]}), component: Page,
 });
 
-type Mod = { name: string; tag: string; icon: ComponentType<{ className?: string }>; bareIcon?: boolean; description: string; highlights: string[]; note?: string };
+type Mod = { name: string; icon: ComponentType<{ className?: string }>; bareIcon?: boolean; description: string; highlights: string[]; note?: string };
 
 const aiModule: Mod = {
-  name: "AMMP AI", tag: "Module 1", icon: RayIcon, bareIcon: true,
+  name: "AMMP AI", icon: RayIcon, bareIcon: true,
   description: "Ray and the AMMP agents, with full access to your portfolio data. Investigates, prioritises and prepares the work for your team.",
   highlights: ["Ray in Slack, Microsoft Teams and AMMP OS", "Full data access: assets, KPIs, alerts, raw time-series", "Root-cause diagnosis and alarm triage by commercial impact", "SLA and contract checks with evidence", "Drafted reports, notes and exports"],
   note: "Runs on top of AMMP OS, or on your existing infrastructure such as Meteocontrol or Power Factors.",
 };
 const osModule: Mod = {
-  name: "AMMP OS Monitor", tag: "Module 2", icon: LayoutDashboard,
+  name: "AMMP OS Monitor", icon: LayoutDashboard,
   description: "Dashboards for monitoring, alerting and reporting across every site, inverter brand and datalogger.",
   highlights: ["Real-time portfolio, site and device dashboards", "KPI-based alerting with noise reduction", "Ticketing and work orders", "Performance analysis (PR, availability, loss waterfall)", "Automated technical and financial PDF reports"],
 };
@@ -36,10 +36,7 @@ function ModuleCard({ mod, popular = false }: { mod: Mod; popular?: boolean }) {
   const Icon = mod.icon;
   return (
     <div className={`glass glass-lift relative flex h-full flex-col rounded-3xl p-8 ${popular ? "border-primary/50 shadow-lg" : ""}`}>
-      <div className="flex items-center justify-between">
-        {mod.bareIcon ? <Icon className="size-12" /> : <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><Icon className="size-7 text-primary" /></div>}
-        <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">{mod.tag}</span>
-      </div>
+      {mod.bareIcon ? <Icon className="size-12" /> : <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><Icon className="size-7 text-primary" /></div>}
       <h3 className="mt-5 text-2xl font-medium">{mod.name}</h3>
       <p className="mt-2 text-muted-foreground">{mod.description}</p>
       <ul className="mt-6 flex-1 space-y-3">
