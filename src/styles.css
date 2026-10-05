@@ -149,6 +149,7 @@
 
   h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
   a { transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
 }
 
 @theme inline { --color-signal: var(--signal); }
