@@ -61,7 +61,7 @@ export function ExecutionTrace() {
           <div className="glass-strong rounded-3xl p-6 md:p-8">
             <div className="flex items-center justify-between border-b border-border/60 pb-4">
               <div className="flex items-center gap-3">
-                <span className="grid size-9 place-items-center rounded-xl bg-primary/10 text-primary"><RayIcon className="size-5" /></span>
+                <RayIcon className="size-9 shrink-0 ring-1 ring-primary/25" />
                 <div>
                   <p className="text-sm font-semibold">Ray · Underperformance check</p>
                   <p className="text-xs text-muted-foreground">Site Alpha · 2.4 MWp</p>
