@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2, LayoutDashboard } from "lucide-react";
+import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { RayIcon } from "@/components/site/RayIcon";

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BarChart3, Building2, FileText, Bell, CheckCircle2, DollarSign } from "lucide-react";
+import { BarChart3, Building2, FileText, Bell, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { RayIcon } from "@/components/site/RayIcon";

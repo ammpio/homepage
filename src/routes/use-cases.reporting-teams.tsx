@@ -64,41 +64,6 @@ function Page() {
         </ul>
       </Band>
 
-      <Band>
-        <SectionHeading title="Recommended for you" intro="The AMMP OS modules built for your workflow." />
-        <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          <article className="rounded-xl border border-border bg-card p-6">
-            <div className="flex items-start gap-4">
-              <FileText className="mt-1 size-8 shrink-0 text-primary" />
-              <div>
-                <h3 className="text-lg font-semibold">AMMP Insight</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Every kWh counts. Management-grade performance reporting.</p>
-              </div>
-            </div>
-            <ul className="mt-5 space-y-2">
-              {["Loss Waterfall visualization", "IEC 61724 PR options", "Customizable reporting engine", "Stakeholder dashboards / portal"].map((i) => (
-                <li key={i} className="flex items-start gap-2 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />{i}</li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm italic text-muted-foreground">Built for reporting teams who need consistent, management-grade outputs across their portfolio.</p>
-          </article>
-          <article className="rounded-xl border border-border bg-card p-6">
-            <div className="flex items-start gap-4">
-              <ClipboardList className="mt-1 size-8 shrink-0 text-primary" />
-              <div>
-                <h3 className="text-lg font-semibold">Automated delivery</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Schedule professional reports for technical performance and savings data.</p>
-              </div>
-            </div>
-            <ul className="mt-5 space-y-2">
-              {["Scheduled report delivery", "Customizable reporting engine", "Tariff-aware savings data", "Stakeholder dashboards / portal"].map((i) => (
-                <li key={i} className="flex items-start gap-2 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />{i}</li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm italic text-muted-foreground">Reports go out on schedule with the numbers already assembled and traceable.</p>
-          </article>
-        </div>
-      </Band>
 
       <PageCta />
     </>
