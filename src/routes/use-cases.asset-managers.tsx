@@ -28,14 +28,6 @@ const benefits = [
   "Make data-driven decisions",
 ];
 
-const modules = [
-  { icon: FileText, name: "AMMP Insight", desc: "Every kWh counts. Management-grade performance reporting.",
-    items: ["Loss Waterfall visualization", "IEC 61724 PR options", "Customizable reporting engine", "Stakeholder dashboards / portal"],
-    note: "Built for asset managers who need management-grade performance insights across their portfolio." },
-  { icon: DollarSign, name: "AMMP Finance", desc: "Automated, tariff-aware financial reporting for stakeholders.",
-    items: ["Automated energy savings calculations", "Tariff-structure compatibility", "Customizable reporting engine", "Stakeholder dashboards / portal"],
-    note: "Built for asset managers who need clear financial visibility across their portfolio." },
-];
 
 function Page() {
   return (
