@@ -18,7 +18,7 @@ type Mod = { name: string; icon: ComponentType<{ className?: string }>; bareIcon
 
 const aiModule: Mod = {
   name: "AMMP AI", icon: RayIcon, bareIcon: true,
-  description: "Ray and the AMMP agents, with full access to your portfolio data. Investigates, prioritises and prepares the work for your team.",
+  description: "Ray with full access to your portfolio data. Investigates, prioritises and prepares the work for your team.",
   highlights: ["Ray in Slack, Microsoft Teams and AMMP OS", "Full data access: assets, KPIs, alerts, raw time-series", "Root-cause diagnosis and alarm triage by commercial impact", "SLA and contract checks with evidence", "Drafted reports, notes and exports"],
   note: "Runs on top of AMMP OS, or on your existing infrastructure such as Meteocontrol or Power Factors.",
 };
