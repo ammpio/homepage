@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ClipboardCheck, Users, FileBarChart, Wrench, Bot, CheckCircle2, LayoutDashboard } from "lucide-react";
+import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2, LayoutDashboard } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/om-providers")({
   head: () => ({ meta: [
     { title: "AMMP for O&M Providers — AMMP" },
-    { name: "description", content: "AI coworkers plus AMMP OS help O&M providers streamline workflows and track SLAs with precision." },
+    { name: "description", content: "Ray and AMMP OS help O&M providers streamline workflows and track SLAs with precision." },
     { property: "og:title", content: "AMMP for O&M Providers — AMMP" },
-    { property: "og:description", content: "Prove your value, every month, with AI coworkers grounded in real-time O&M data." },
+    { property: "og:description", content: "Prove your value, every month, with Ray, grounded in real-time O&M data." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -34,16 +35,16 @@ function Page() {
         eyebrow="For O&M Providers"
         title="Prove your value."
         highlight="Every month."
-        intro="AMMP AI coworkers sit on top of AMMP OS, helping O&M providers streamline workflows and track SLAs with precision, reducing costs and keeping clients happy with transparent reporting."
+        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, helping O&M providers streamline workflows and track SLAs with precision, reducing costs and keeping clients happy with transparent reporting."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="An alarm-triage coworker ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
+        <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="Ray ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
-          <p className="text-sm leading-6 text-muted-foreground">A reporting coworker prepares the client-ready SLA narrative each month, complete with the evidence, so your account managers walk in with answers already prepared.</p>
+          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
+          <p className="text-sm leading-6 text-muted-foreground">Ray prepares the client-ready SLA narrative each month, complete with the evidence, so your account managers walk in with answers already prepared.</p>
         </div>
       </Band>
 

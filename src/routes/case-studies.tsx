@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Bot, Download, MapPin, Quote } from "lucide-react";
+import { ArrowRight, Download, MapPin, Quote } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import daystarPowerLogo from "@/assets/daystar-power-logo.png";
 import solarsaverLogo from "@/assets/solarsaver-logo.png";
 import broadreachLogo from "@/assets/broadreach-logo.png";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({ meta: [
@@ -130,8 +131,8 @@ function Page() {
       <Band tone="white">
         <SectionHeading eyebrow="What's next" title="The same evidence, now with a coworker attached" center />
         <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
-          <p className="text-sm leading-6 text-muted-foreground">Every result above started with AMMP OS data. AI coworkers now sit on top of that same data, investigating and preparing the reporting these teams used to do by hand.</p>
+          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
+          <p className="text-sm leading-6 text-muted-foreground">Every result above started with AMMP OS data. Ray, our AI coworker, now works on that same data, investigating and preparing the reporting these teams used to do by hand.</p>
         </div>
       </Band>
 

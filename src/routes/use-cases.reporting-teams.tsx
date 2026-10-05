@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText, ClipboardList, Bot, CheckCircle2, Database, ShieldCheck } from "lucide-react";
+import { FileText, ClipboardList, CheckCircle2, Database, ShieldCheck } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/reporting-teams")({
   head: () => ({ meta: [
     { title: "AMMP for Reporting Teams — AMMP" },
-    { name: "description", content: "AI coworkers plus AMMP OS turn standardised portfolio data into clear, reviewable reporting outputs for reporting teams." },
+    { name: "description", content: "Ray and AMMP OS turn standardised portfolio data into clear, reviewable reporting outputs for reporting teams." },
     { property: "og:title", content: "AMMP for Reporting Teams — AMMP" },
-    { property: "og:description", content: "Standardised data in. Clear, reviewable reports out. AI coworkers on top of AMMP OS." },
+    { property: "og:description", content: "Standardised data in. Clear, reviewable reports out. Ray on top of AMMP OS." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -34,15 +35,15 @@ function Page() {
         eyebrow="For Reporting Teams"
         title="Standardised data in."
         highlight={"\nClear reports out."}
-        intro="AMMP AI coworkers sit on top of AMMP OS, turning standardised portfolio data into clear, reviewable reporting outputs — so reporting teams produce trusted numbers without the manual assembly."
+        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, turning standardised portfolio data into clear, reviewable reporting outputs — so reporting teams produce trusted numbers without the manual assembly."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="A coworker for every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, an AI coworker pulls the standardised numbers, drafts the report, and shows the evidence behind every figure before you publish." />
+        <SectionHeading eyebrow="AI + AMMP OS" title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardised numbers, drafts the report, and shows the evidence behind every figure before you publish." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <Bot className="mt-0.5 size-5 shrink-0 text-primary" />
+          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
           <p className="text-sm leading-6 text-muted-foreground">Ask "prepare this month's investor performance pack" and get a draft built from the same portfolio data everyone else works from — ready for review, not rebuilt from scratch.</p>
         </div>
       </Band>
