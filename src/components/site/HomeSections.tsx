@@ -263,6 +263,9 @@ export function Details() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI can only work with what it understands</h2>
