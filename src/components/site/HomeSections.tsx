@@ -32,7 +32,7 @@ export function Hero() {
       <div className="site-container grid items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-16 lg:pt-20">
         <div className="text-center lg:text-left">
           <Reveal delay={90}>
-            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 xl:text-6xl">
+            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
               Put AI to work across your renewable energy portfolio
             </h1>
           </Reveal>
