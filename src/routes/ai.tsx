@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Activity, ArrowRight, BarChart3, Bell, Bot, ExternalLink, LayoutDashboard, Lock, MessagesSquare, Server, ShieldCheck, Sparkles, Waves } from "lucide-react";
+import { Activity, ArrowDown, ArrowRight, BarChart3, Bell, LayoutDashboard, Lock, MessagesSquare, Server, Sparkles, Waves } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { RayVideo, RayDay } from "@/components/site/RaySections";
 import rayAvatar from "@/assets/ray-avatar.png";
-
-const RAY_URL = "https://os.ammp.io/beta-ray";
 
 export const Route = createFileRoute("/ai")({
   head: () => ({ meta: [
@@ -60,7 +58,8 @@ function Page() {
                 <p className="text-xs text-muted-foreground">AMMP AI coworker</p>
               </div>
             </div>
-            <a href={RAY_URL} target="_blank" rel="noreferrer" className="button button-primary mt-4 w-full justify-center">Try Ray <ExternalLink className="size-4" /></a>
+            <a href="#ray-demo" onClick={(e) => { e.preventDefault(); document.getElementById("ray-demo")?.scrollIntoView({ behavior: "smooth" }); }} className="button button-primary mt-4 w-full justify-center">See Ray in action <ArrowDown className="size-4" /></a>
+            <Link to="/contact" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">Want to test Ray on your data? Book a walkthrough <ArrowRight className="size-4" /></Link>
             <p className="mt-4 text-sm text-muted-foreground">Ray is our AI coworker inside AMMP OS: ask for an overview and it builds the chart, then explains what it found.</p>
           </div>
         }
