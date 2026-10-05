@@ -195,6 +195,12 @@
   box-shadow: 0 1px 0 0 color-mix(in oklab, white 90%, transparent) inset, 0 34px 80px -34px oklch(0.4 0.05 260 / 0.45);
 }
 
+@utility glass-active {
+  background: color-mix(in oklab, white 86%, var(--primary) 6%);
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, white);
+  box-shadow: 0 16px 38px -18px color-mix(in oklab, var(--primary) 60%, transparent), 0 1px 0 0 color-mix(in oklab, white 80%, transparent) inset;
+}
+
 @utility glass-soft {
   background: color-mix(in oklab, white 46%, transparent);
   backdrop-filter: blur(12px) saturate(140%);
