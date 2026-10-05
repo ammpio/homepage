@@ -159,12 +159,12 @@ export function TrustBento() {
           <h2 className={`mt-4 ${h2Class}`}>Open, secure and ready to brand</h2>
         </div>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <div className="glass rounded-3xl p-7 lg:col-span-2">
+          <div className="glass flex flex-col rounded-3xl p-7 lg:col-span-2">
             <p className="font-semibold">Hardware agnostic</p>
             <p className="mt-1 text-sm text-muted-foreground">One data model, whatever is on site.</p>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-auto flex flex-wrap gap-2 pt-10">
               {vendors.map((v) => (
-                <span key={v} className="rounded-full border border-border/70 bg-background/70 px-4 py-1.5 text-sm">{v}</span>
+                <span key={v} className="rounded-full border border-border/70 bg-background/70 px-4 py-2 text-sm">{v}</span>
               ))}
             </div>
           </div>
