@@ -5,7 +5,6 @@ import rayVideo from "@/assets/ray-overview.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 import rayAvatar from "@/assets/ray-avatar.png";
 
-const RAY_URL = "https://os.ammp.io/beta-ray";
 const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
 
 const chapters = [
@@ -29,7 +28,7 @@ export function RayVideo() {
     void v.play();
   };
   return (
-    <section className="relative py-16 lg:py-24">
+    <section id="ray-demo" className="relative scroll-mt-24 py-16 lg:py-24">
       <div className="site-container">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -237,7 +236,7 @@ export function RayEverywhere() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={RAY_URL} target="_blank" rel="noreferrer" className="button button-primary rounded-full px-5">Try Ray <ArrowRight className="size-4" /></a>
+            <a href="/contact" className="button button-primary rounded-full px-5">Book a walkthrough <ArrowRight className="size-4" /></a>
           </div>
         </div>
       </div>
