@@ -9,7 +9,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { HeroVideo, RayEverywhere } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 
-const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
+const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
 export function HomePage() {
   return (
@@ -75,7 +75,7 @@ export function StatsBar() {
 
 export function BeforeLogin() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <h2 className={h2Class}>Working before anyone’s logged in</h2>
@@ -105,7 +105,7 @@ export function BeforeLogin() {
 
 export function ProactiveOnDemand() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container">
         <h2 className={`max-w-3xl ${h2Class}`}>Proactive when you don’t ask.<br />On demand when you do.</h2>
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
@@ -200,7 +200,7 @@ export function Details() {
   );
   return (
     <>
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <h2 className={h2Class}>Built for every portfolio team</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -220,18 +220,18 @@ export function Details() {
 
       <ModeDeck />
 
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI can only work with what it understands</h2>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath Ray is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
           </div>
           <div className="mx-auto mt-14 max-w-6xl">
-            <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
+            <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.3fr_auto_1fr]">
               <div className="grid grid-cols-2 gap-3">
                 {sources.map(({ icon: Icon, label }, i) => (
                   <Reveal key={label} delay={i * 90} className="h-full">
-                    <div className="glass flex h-full min-h-28 flex-col justify-between rounded-2xl p-4">
+                    <div className="glass flex h-full items-center gap-2 rounded-2xl p-3 lg:min-h-28 lg:flex-col lg:items-start lg:justify-between lg:p-4">
                       <Icon className="h-5 w-5 text-muted-foreground" />
                       <p className="text-sm font-semibold">{label}</p>
                     </div>
@@ -256,7 +256,7 @@ export function Details() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className={h2Class}>Everything in the platform</h2>
@@ -305,7 +305,7 @@ export function Results() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container">
         <h2 className={`mx-auto max-w-3xl text-center text-balance ${h2Class}`}>Proven across live portfolios</h2>
         <div className="mx-auto mt-14 grid max-w-4xl gap-10 text-center md:grid-cols-3">

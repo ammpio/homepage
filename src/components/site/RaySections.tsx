@@ -5,7 +5,7 @@ import rayVideo from "@/assets/ray-overview.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 import rayAvatar from "@/assets/ray-avatar.png";
 
-const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
+const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
 const chapters = [
   { t: 0, label: "07:02 morning check" },
