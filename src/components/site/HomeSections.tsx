@@ -111,10 +111,53 @@ export function ProactiveOnDemand() {
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Ranks what needs a human first</h3>
             <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
+            <Reveal>
+              <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
+                <p className="text-xs text-muted-foreground">Fleet triage · ranked by daily impact</p>
+                <div className="mt-4 space-y-3">
+                  <div className="flex items-start justify-between gap-4 rounded-xl border border-border/60 p-3">
+                    <div className="flex gap-3">
+                      <span className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden />
+                      <div>
+                        <p className="text-sm font-medium">Brightwater Solar · INV-03</p>
+                        <p className="text-xs text-muted-foreground">−38% yield vs neighbours</p>
+                      </div>
+                    </div>
+                    <span className="shrink-0 text-sm font-medium">−€420/day</span>
+                  </div>
+                  <div className="flex items-start justify-between gap-4 rounded-xl border border-border/60 p-3 opacity-80">
+                    <div className="flex gap-3">
+                      <span className="mt-1.5 size-2 shrink-0 rounded-full bg-muted-foreground/40" aria-hidden />
+                      <div>
+                        <p className="text-sm font-medium">Kalahari Solar · Tracker 02</p>
+                        <p className="text-xs text-muted-foreground">Tracker stalled</p>
+                      </div>
+                    </div>
+                    <span className="shrink-0 text-sm text-muted-foreground">−€35/day</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Answers with evidence</h3>
             <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
+            <Reveal>
+              <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
+                <p className="ml-auto w-fit rounded-xl bg-muted px-3 py-2 text-sm">Why is Brightwater Solar underperforming?</p>
+                <div className="mt-4 flex gap-3">
+                  <RayIcon className="size-8 shrink-0 ring-2 ring-primary/20" />
+                  <div>
+                    <p className="text-sm leading-relaxed">INV-03 shows a fan fault, producing 38% less than its neighbours. SunServe clause 7.2 applies.</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {["Telemetry · 2 min ago", "Inverter logs", "SunServe contract"].map((s) => (
+                        <span key={s} className="rounded-full border border-border/60 px-2.5 py-1 text-xs text-muted-foreground">{s}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
