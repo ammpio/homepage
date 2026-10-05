@@ -101,7 +101,7 @@ const modes = [
   { icon: Activity, title: "Live monitoring", body: "Real-time telemetry and smart alerting across every site for O&M operations.", points: ["Live device status", "Alarm suppression", "Fault-to-ticket flow"] },
   { icon: MessageSquare, title: "AI coworker", body: "Ask Ray in Slack, Teams or AMMP OS — it builds the chart and explains what it found.", points: ["Natural-language questions", "Charts on demand", "Evidence attached"] },
   { icon: Workflow, title: "Automated workflows", body: "Data freezes, monthly reports and recurring checks that run without anyone pressing go.", points: ["Monthly data freeze", "Scheduled investor reports", "Proactive QA"] },
-  { icon: Code, title: "Open MCP & API", body: "Query live portfolio data from Claude, Cursor or your own scripts and BI tools.", points: ["MCP server", "Data API", "Your permissions apply"] },
+  { icon: Code, title: "MCP & API", body: "Query live portfolio data from Claude, Cursor or your own scripts and BI tools.", points: ["MCP server", "Data API", "Your permissions apply"] },
 ];
 
 export function ModeDeck() {
@@ -111,8 +111,7 @@ export function ModeDeck() {
     <section className="py-20 md:py-24">
       <div className="site-container">
         <div className="max-w-3xl">
-          <p className="eyebrow">One portfolio, four ways in</p>
-          <h2 className={`mt-4 ${h2Class}`}>Work with AMMP the way your team works</h2>
+          <h2 className={h2Class}>Work with AMMP the way your team works</h2>
         </div>
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {modes.map((mode, i) => (
