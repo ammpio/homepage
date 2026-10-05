@@ -9,7 +9,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { HeroVideo, RayEverywhere } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 
-const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
+const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
 export function HomePage() {
   return (
@@ -29,26 +29,27 @@ export function HomePage() {
 export function Hero() {
   return (
     <section className="relative">
-      <div className="site-container pb-12 pt-16 lg:pb-16 lg:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="site-container grid items-center gap-10 pb-10 pt-8 sm:pt-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pb-16 lg:pt-20">
+        <div className="text-center lg:text-left">
           <Reveal delay={90}>
-            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-5xl font-medium leading-[1.03] tracking-[-0.02em] md:text-6xl">
+            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
               Put AI to work across your renewable energy portfolio
             </h1>
           </Reveal>
           <Reveal delay={180}>
-            <p className="mx-auto mt-6 max-w-[52ch] text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-5 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
               Meet Ray, an AI coworker grounded in your portfolio data, ready to investigate, prioritise and prepare work alongside your team.
             </p>
           </Reveal>
           <Reveal delay={270}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
-              <Link to="/ai" className="button button-primary rounded-full px-5">Meet your coworker <ArrowRight className="size-4" /></Link>
+            <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6 lg:justify-start">
+              <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
               <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
             </div>
+            <p className="mt-6 text-sm text-muted-foreground">Works in Slack, Microsoft Teams and AMMP OS</p>
           </Reveal>
         </div>
-        <Reveal delay={360}><div className="mx-auto mt-14 max-w-5xl"><HeroVideo /></div></Reveal>
+        <Reveal delay={360}><HeroVideo /></Reveal>
       </div>
     </section>
   );
@@ -59,11 +60,11 @@ export function StatsBar() {
   return (
     <section aria-label="AMMP portfolio scale">
       <div className="site-container">
-        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-6 border-y border-border/60 py-8 text-center">
+        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-2 border-y border-border/60 py-6 text-center sm:gap-6 sm:py-8">
           {metrics.map(([value, label]) => (
-            <div key={label}>
-              <div className="font-display text-3xl font-medium tracking-[-0.02em]">{value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+            <div key={label} className="min-w-0">
+              <div className="font-display text-2xl font-medium tabular-nums tracking-[-0.02em] sm:text-3xl">{value}</div>
+              <div className="mt-1 truncate text-xs text-muted-foreground sm:text-sm">{label}</div>
             </div>
           ))}
         </div>
@@ -74,7 +75,7 @@ export function StatsBar() {
 
 export function BeforeLogin() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <h2 className={h2Class}>Working before anyone’s logged in</h2>
@@ -104,7 +105,7 @@ export function BeforeLogin() {
 
 export function ProactiveOnDemand() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container">
         <h2 className={`max-w-3xl ${h2Class}`}>Proactive when you don’t ask.<br />On demand when you do.</h2>
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
@@ -199,7 +200,7 @@ export function Details() {
   );
   return (
     <>
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <h2 className={h2Class}>Built for every portfolio team</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -219,18 +220,18 @@ export function Details() {
 
       <ModeDeck />
 
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI can only work with what it understands</h2>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath Ray is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
           </div>
           <div className="mx-auto mt-14 max-w-6xl">
-            <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.15fr_auto_1fr]">
+            <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.3fr_auto_1fr]">
               <div className="grid grid-cols-2 gap-3">
                 {sources.map(({ icon: Icon, label }, i) => (
                   <Reveal key={label} delay={i * 90} className="h-full">
-                    <div className="glass flex h-full min-h-28 flex-col justify-between rounded-2xl p-4">
+                    <div className="glass flex h-full items-center gap-2 rounded-2xl p-3 lg:min-h-28 lg:flex-col lg:items-start lg:justify-between lg:p-4">
                       <Icon className="h-5 w-5 text-muted-foreground" />
                       <p className="text-sm font-semibold">{label}</p>
                     </div>
@@ -255,7 +256,7 @@ export function Details() {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className={h2Class}>Everything in the platform</h2>
@@ -304,7 +305,7 @@ export function Results() {
     { value: "170+", label: "sites in one portal", customer: "Broadreach" },
   ];
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-32">
       <div className="site-container">
         <h2 className={`mx-auto max-w-3xl text-center text-balance ${h2Class}`}>Proven across live portfolios</h2>
         <div className="mx-auto mt-14 grid max-w-4xl gap-10 text-center md:grid-cols-3">

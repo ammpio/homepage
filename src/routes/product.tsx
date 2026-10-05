@@ -136,21 +136,15 @@ function Page() {
       />
 
       <Band tone="grey">
-        <div className="md:hidden">
-          <label htmlFor="product-category" className="eyebrow">Category</label>
-          <select id="product-category" value={active} onChange={(e) => setActive(e.target.value as CategoryId)}
-            className="mt-2 h-11 w-full rounded-md border border-border bg-card px-3 text-sm">
-            {categories.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
-          </select>
-        </div>
-
-        <div className="glass-strong hidden flex-wrap gap-1 rounded-2xl p-1.5 md:flex">
-          {categories.map(({ id, label, icon: Icon }) => (
-            <button key={id} type="button" onClick={() => setActive(id)}
-              className={`inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${active === id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-white/50 hover:text-foreground"}`}>
-              <Icon className="size-4" />{label}
-            </button>
-          ))}
+        <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0" role="tablist" aria-label="Product categories">
+          <div className="glass-strong flex w-max gap-1 rounded-2xl p-1.5 md:w-full md:flex-wrap">
+            {categories.map(({ id, label, icon: Icon }) => (
+              <button key={id} type="button" role="tab" aria-selected={active === id} onClick={() => setActive(id)}
+                className={`inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium transition-colors md:flex-1 ${active === id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-white/50 hover:text-foreground"}`}>
+                <Icon className="size-4" />{label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12">

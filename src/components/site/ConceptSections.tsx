@@ -7,7 +7,7 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import { RayIcon } from "@/components/site/RayIcon";
 
-const h2Class = "font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-5xl";
+const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
 /* 1 — Split quote & proof lockup */
 export function ProofLockup() {
