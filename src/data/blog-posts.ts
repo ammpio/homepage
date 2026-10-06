@@ -1,10 +1,15 @@
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
+export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
+
 export type BlogBlock =
   | { type: "heading"; text: string }
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "quote"; text: string; author?: string };
+  | { type: "quote"; text: string; author?: string }
+  | { type: "video" }
+  | { type: "chat"; channel: string; caption?: string; lines: ChatLine[] }
+  | { type: "cta"; label: string; to: "/contact" };
 
 export type BlogPost = {
   slug: string;
@@ -14,9 +19,83 @@ export type BlogPost = {
   date: string;
   readTime: string;
   body: BlogBlock[];
+  author?: string;
+  displayDate?: string;
+  seoTitle?: string;
+  heroVideoPoster?: boolean;
+  related?: { to: "/ray" | "/mcp"; title: string; text: string }[];
 };
 
+/** Estimates read time from all text in a post at ~220 words per minute. */
+export function computeReadTime(body: BlogBlock[]): string {
+  const text = body
+    .map((b) => {
+      if (b.type === "heading" || b.type === "paragraph" || b.type === "quote") return b.text;
+      if (b.type === "list") return b.items.join(" ");
+      if (b.type === "chat") return b.lines.map((l) => l.text).join(" ");
+      return "";
+    })
+    .join(" ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return `${Math.max(1, Math.round(words / 220))} min read`;
+}
+
+/*
+  Alternative titles:
+  - "Ray joins your team: an AI coworker for your solar portfolio"
+  - "Say hello to Ray, the coworker who checks your fleet overnight"
+*/
+const meetRayBody: BlogBlock[] = [
+  { type: "paragraph", text: "It's 8am. You're an asset manager or O&M lead, and before your first coffee there are alerts waiting in a dozen vendor portals, each with its own login and its own idea of what \"fault\" means. Somewhere in the pile is the one issue that's actually costing money. And the monthly report is due on Friday." },
+  { type: "paragraph", text: "Ray is the AI coworker we built for that morning. He lives in the tools your team already uses, starting with Microsoft Teams and then Slack, and he's connected to your live AMMP data. He flags problems before anyone logs in, and he answers questions when you ask." },
+  { type: "video" },
+  { type: "heading", text: "Working before anyone's logged in" },
+  { type: "paragraph", text: "While your team sleeps, Ray reads the portfolio. He checks production against expectations, looks for inverters and strings drifting away from their neighbours, notices sites that have gone quiet, and compares what he finds with open work orders and contract terms." },
+  { type: "paragraph", text: "By the time you open Teams, there's a short morning message waiting. It doesn't list every alert. It ranks the few issues worth your attention, says why each one matters, and links straight to the evidence. You start the day with a plan instead of a backlog." },
+  { type: "paragraph", text: "Across a portfolio, that can mean [TODO: number] alerts reduced to a handful of ranked priorities." },
+  { type: "heading", text: "Proactive when you don't ask. On demand when you do." },
+  { type: "paragraph", text: "Ray works in two modes. Some mornings he comes to you. Other times you go to him with a question, the way you'd ping a colleague who knows the fleet." },
+  { type: "chat", channel: "#portfolio-ops · Microsoft Teams", caption: "Proactive: Ray's morning message", lines: [
+    { from: "ray", name: "Ray", text: "Good morning. Three things worth a look today. Top of the list: at Brightwater Solar, INV-03 shows underperformance across multiple strings, producing 38% less than its neighbours. No open work order yet. Want me to draft one?", sources: ["Telemetry", "Work orders"] },
+    { from: "user", name: "Asset manager", text: "Yes, draft it and assign it to the field team." },
+    { from: "ray", name: "Ray", text: "Done. Draft is ready for your review in AMMP OS." },
+  ] },
+  { type: "chat", channel: "Direct message · Microsoft Teams", caption: "On demand: a question from the team", lines: [
+    { from: "user", name: "O&M lead", text: "Did Valle Soleado meet its availability guarantee last month?" },
+    { from: "ray", name: "Ray", text: "No. Availability was [TODO: number]% against a [TODO: number]% guarantee, mostly from two unresolved inverter trips. The O&M contract's availability clause applies. I can build the chart for your monthly report.", sources: ["Availability data", "Work orders", "O&M contract"] },
+  ] },
+  { type: "paragraph", text: "Every answer shows its sources, so you can check the working before you act on it. Ray investigates, prioritises and prepares the work. Your team stays in charge of the decisions." },
+  { type: "heading", text: "Wherever your team already works" },
+  { type: "paragraph", text: "Nobody needs another tab. Ray starts in Microsoft Teams, with Slack next, so your team can ask questions in the channels where they already talk about the portfolio." },
+  { type: "paragraph", text: "The same Ray will also power the chat inside the AMMP web app. Ask from Teams in the morning and from AMMP OS in the afternoon, and you're talking to one coworker with one view of your data." },
+  { type: "paragraph", text: "Some teams want to bring their own AI tools. For them, there's the AMMP MCP server. It connects any MCP-compatible assistant, such as Claude or Cursor, to your assets, KPIs, alerts and raw time-series, using the same access controls you already have in AMMP." },
+  { type: "heading", text: "Built on 10,000+ sites of data" },
+  { type: "paragraph", text: "An AI coworker is only as good as the data under him. Ray sits on top of AMMP's vendor-agnostic data layer, which already brings together telemetry from more than 10,000 sites in 35+ countries." },
+  { type: "paragraph", text: "With 30+ integrations across inverters, meters, batteries, weather data and business tools, data from different vendors lands in one consistent model. That's why Ray can compare an inverter from one brand with its neighbour from another, and why a question about the whole fleet gets one answer instead of twelve." },
+  { type: "paragraph", text: "Ray also follows the permissions you've already set in AMMP OS. He only sees what the person asking is allowed to see, so nothing new needs to be configured to keep data in the right hands." },
+  { type: "heading", text: "What's next" },
+  { type: "paragraph", text: "Ray is rolling out in Microsoft Teams first, with Slack and the chat in the AMMP web app to follow. Teams that want to connect their own assistants can use the AMMP MCP server and Data API as add-ons today. If you'd like to see Ray on your own portfolio, we'll walk you through it." },
+  { type: "cta", label: "Book a demo", to: "/contact" },
+];
+
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "meet-ray",
+    title: "Meet Ray, your portfolio's newest coworker",
+    seoTitle: "Meet Ray, AMMP's AI coworker",
+    excerpt: "Ray is an AI coworker for solar teams. He works in Microsoft Teams with your live AMMP data, flags problems early and answers questions on demand.",
+    category: "Product",
+    date: "2026-10-06",
+    displayDate: "[TODO: publish date]",
+    author: "[TODO: author name]",
+    readTime: computeReadTime(meetRayBody),
+    heroVideoPoster: true,
+    body: meetRayBody,
+    related: [
+      { to: "/ray", title: "Ray, up close", text: "See what Ray does across a working day." },
+      { to: "/mcp", title: "The AMMP MCP server", text: "Connect your own AI tools to AMMP data." },
+    ],
+  },
   {
     slug: "mcp-server-beta",
     title: "Introducing the AMMP MCP server",
