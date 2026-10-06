@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
@@ -26,7 +27,37 @@ export function HomePage() {
 }
 
 /* Centered theater hero: copy on top, wide video below, stats right after — no empty gaps on big screens. */
+/* Desktop: the video starts small enough to fit the first screen, then grows to full width as you scroll. */
+function useHeroGrow() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (!desktop.matches || reduced.matches) { el.style.transform = ""; return; }
+      let docTop = 0; let n: HTMLElement | null = el;
+      while (n) { docTop += n.offsetTop; n = n.offsetParent as HTMLElement | null; }
+      const h = el.offsetHeight, vh = window.innerHeight;
+      const s0 = Math.min(1, Math.max(0.45, (vh - docTop - 24) / h));
+      const p = Math.min(1, Math.max(0, window.scrollY / (vh * 0.5)));
+      const e = 1 - Math.pow(1 - p, 2);
+      el.style.transform = `scale(${s0 + (1 - s0) * e})`;
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
+  }, []);
+  return ref;
+}
+
 export function Hero() {
+  const videoRef = useHeroGrow();
   return (
     <section className="relative">
       <div className="mx-auto w-full max-w-[1280px] px-4 pb-10 pt-10 text-center sm:px-8 sm:pt-14 lg:px-12 lg:pt-16">
@@ -46,7 +77,7 @@ export function Hero() {
             <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
           </div>
         </Reveal>
-        <div className="mx-auto mt-10 max-w-4xl lg:mt-14 lg:max-w-5xl 2xl:max-w-6xl">
+        <div ref={videoRef} className="mx-auto mt-10 max-w-4xl origin-top will-change-transform lg:mt-12 lg:max-w-5xl 2xl:max-w-6xl">
           <Reveal delay={360}><HeroVideo /></Reveal>
         </div>
       </div>
