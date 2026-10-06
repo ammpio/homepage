@@ -107,6 +107,7 @@ function ArticlePage() {
   return (
     <>
       <section className="luminous-hero relative overflow-hidden py-16 md:py-20">
+        <div aria-hidden className="glow-orb orb-drift absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
         <div className="site-container relative mx-auto max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" />All articles</Link>
           <p className="eyebrow mt-8">{post.category}</p>
@@ -144,7 +145,7 @@ function ArticlePage() {
           <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">Related</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {post.related.map((r) => (
-              <Link key={r.to} to={r.to} className="group block border-t border-border/50 pt-6">
+              <Link key={r.to} to={r.to} className="glass glass-lift rounded-2xl p-6">
                 <h3 className="text-lg font-semibold leading-snug">{r.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{r.text}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground">Read more <ArrowRight className="size-4" /></span>
@@ -160,7 +161,7 @@ function ArticlePage() {
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {more.map((p) => (
-              <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block border-t border-border/50 pt-6">
+              <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="glass glass-lift rounded-2xl p-6">
                 <p className="text-xs font-semibold text-primary">{p.category}</p>
                 <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{p.excerpt}</p>
