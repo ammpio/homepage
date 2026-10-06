@@ -5,9 +5,9 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/bazefield")({
   head: () => ({ meta: [
-    { title: "C&I Focus vs Utility-Scale SCADA — AMMP" },
+    { title: "Renewable Portfolios vs Traditional SCADA — AMMP" },
     { name: "description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios." },
-    { property: "og:title", content: "C&I Focus vs Utility-Scale SCADA — AMMP" },
+    { property: "og:title", content: "Renewable Portfolios vs Traditional SCADA — AMMP" },
     { property: "og:description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
@@ -17,7 +17,6 @@ export const Route = createFileRoute("/compare/bazefield")({
 
 const rows = [
   { feature: "Multi-vendor equipment support", ammp: true, other: true },
-  { feature: "C&I solar focus", ammp: true, other: "No — Bazefield focuses on utility-scale" },
   { feature: "Wind & hydro support", ammp: false, other: true },
   { feature: "Battery storage monitoring", ammp: true, other: true },
   { feature: "Real-time SCADA", ammp: true, other: true },
@@ -37,7 +36,7 @@ const rows = [
 ];
 
 const differentiators = [
-  { icon: Zap, title: "C&I Solar Expertise", text: "While Bazefield excels at utility-scale wind and solar, AMMP is purpose-built for commercial and industrial distributed energy portfolios." },
+  { icon: Zap, title: "Portfolio-First Platform", text: "While Bazefield is a SCADA-centred solution, AMMP is built for operators managing many renewable sites across mixed hardware." },
   { icon: Clock, title: "Rapid Deployment", text: "Get up and running in days, not months. AMMP's cloud-native architecture eliminates lengthy enterprise implementation cycles." },
   { icon: MessageSquare, title: "Modern Integrations", text: "Native Slack, Teams, and WhatsApp integrations keep your team connected without complex middleware." },
   { icon: DollarSign, title: "Transparent Pricing", text: "Simple, predictable pricing based on your portfolio size. No hidden enterprise licensing fees or long-term commitments." },
@@ -48,7 +47,7 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP vs Bazefield"
-        title="C&I Focus vs Utility-Scale SCADA"
+        title="Renewable Portfolios vs Traditional SCADA"
         intro="Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios."
         primary={{ label: "Book a demo", to: "/demo" }}
         primaryVariant="pink"

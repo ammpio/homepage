@@ -35,7 +35,6 @@ const rows = [
   { feature: "Monitoring coverage", ammp: true, other: "Partial — staffed operations centre during daylight hours" },
   { feature: "Performance analytics", ammp: true, other: "Partial — performance module: PR, generation, availability" },
   { feature: "Battery storage monitoring", ammp: true, other: "Partial — not published on their site" },
-  { feature: "C&I solar focus", ammp: true, other: "Focused on Brazilian GD plants" },
   { feature: "Customizable alert rules", ammp: true, other: "Partial — not published on their site" },
   { feature: "WhatsApp alerts", ammp: true, other: "Partial — staffed operations centre during daylight hours" },
   { feature: "Automated PDF reports", ammp: true, other: true },

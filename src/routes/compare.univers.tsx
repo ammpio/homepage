@@ -5,10 +5,10 @@ import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/univers")({
   head: () => ({ meta: [
-    { title: "Focused C&I Platform vs Enterprise Scale — AMMP" },
-    { name: "description", content: "Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for commercial and industrial distributed energy." },
-    { property: "og:title", content: "Focused C&I Platform vs Enterprise Scale — AMMP" },
-    { property: "og:description", content: "Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for commercial and industrial distributed energy." },
+    { title: "Focused Renewables Platform vs Enterprise Scale — AMMP" },
+    { name: "description", content: "Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for renewable energy portfolios." },
+    { property: "og:title", content: "Focused Renewables Platform vs Enterprise Scale — AMMP" },
+    { property: "og:description", content: "Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for renewable energy portfolios." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -17,8 +17,7 @@ export const Route = createFileRoute("/compare/univers")({
 
 const rows = [
   { feature: "Multi-vendor equipment support", ammp: true, other: true },
-  { feature: "C&I solar focus", ammp: true, other: "No — EnOS targets utility & enterprise scale" },
-  { feature: "AI-powered analytics", ammp: true, other: true },
+    { feature: "AI-powered analytics", ammp: true, other: true },
   { feature: "Battery storage monitoring", ammp: true, other: true },
   { feature: "IoT device management", ammp: true, other: true },
   { feature: "Grid-scale asset support", ammp: false, other: true },
@@ -37,10 +36,10 @@ const rows = [
 ];
 
 const differentiators = [
-  { icon: Target, title: "Purpose-Built for C&I", text: "While Univers manages 845GW across utilities and enterprises, AMMP focuses on the unique needs of commercial and industrial solar portfolios." },
+  { icon: Target, title: "Purpose-Built for Renewables", text: "While Univers spans utilities, enterprises and governments, AMMP focuses on the day-to-day needs of renewable energy portfolio operators." },
   { icon: Rocket, title: "Simple Deployment", text: "No enterprise sales cycles or complex implementation projects. Start monitoring your assets within days of signing up." },
   { icon: DollarSign, title: "Transparent Pricing", text: "Clear, portfolio-based pricing without enterprise licensing negotiations. Know exactly what you will pay as you scale." },
-  { icon: Users, title: "Focused Expertise", text: "Our team specialises in C&I solar and storage, delivering deep domain expertise rather than broad enterprise capabilities." },
+  { icon: Users, title: "Focused Expertise", text: "Our team specialises in renewable energy portfolios, delivering deep domain expertise rather than broad enterprise capabilities." },
 ];
 
 function Page() {
@@ -48,8 +47,8 @@ function Page() {
     <>
       <PageHero
         eyebrow="AMMP vs Univers (EnOS)"
-        title="Focused C&I Platform vs Enterprise Scale"
-        intro="Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for commercial and industrial distributed energy."
+        title="Focused Renewables Platform vs Enterprise Scale"
+        intro="Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for renewable energy portfolios."
         primary={{ label: "Book a demo", to: "/demo" }}
         primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
@@ -58,7 +57,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Univers (formerly Envision Digital) operates EnOS, one of the world's largest energy IoT platforms. Their platform manages over 845GW of renewable energy assets globally, serving major utilities, enterprises, and governments with AI-powered optimisation and carbon management.</p>
-          <p>AMMP takes a fundamentally different approach, with an AI coworker on AMMP OS focused specifically on the needs of C&I solar and storage portfolios. This specialisation means faster deployment, simpler operations, and pricing accessible to growing renewable energy businesses, not just enterprise giants.</p>
+          <p>AMMP takes a fundamentally different approach, with an AI coworker on AMMP OS focused specifically on the needs of solar, storage and hybrid portfolios. This specialisation means faster deployment, simpler operations, and pricing accessible to growing renewable energy businesses, not just enterprise giants.</p>
         </div>
       </Band>
       <Band tone="white">
