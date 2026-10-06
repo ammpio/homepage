@@ -4,8 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { blogPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
+import { comparisons } from "@/data/comparisons";
+
+type Filter = "All" | BlogCategory | "Compare";
 
 export const Route = createFileRoute("/blog/")({
+  validateSearch: (search: Record<string, unknown>): { category?: Filter } => {
+    const c = search.category;
+    return typeof c === "string" && (c === "Compare" || (blogCategories as string[]).includes(c)) ? { category: c as Filter } : {};
+  },
   head: () => ({ meta: [
     { title: "AMMP Insights — AMMP" },
     { name: "description", content: "Ideas and practical guidance for renewable energy portfolio operations, customer stories and product news from AMMP." },
@@ -15,14 +22,13 @@ export const Route = createFileRoute("/blog/")({
   ]}), component: BlogIndexPage,
 });
 
-type Filter = "All" | BlogCategory;
-
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
 function BlogIndexPage() {
-  const [activeCategory, setActiveCategory] = useState<Filter>("All");
+  const search = Route.useSearch();
+  const [activeCategory, setActiveCategory] = useState<Filter>(search.category ?? "All");
   const sorted = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
   const featured = sorted[0]!;
   const rest = sorted.slice(1);
