@@ -23,7 +23,7 @@ function Page() {
       />
 
       <Band tone="white">
-        <Prose>
+        <Prose plain>
           <div className="rounded-xl border border-border bg-card p-8 text-center not-prose">
             <p className="text-muted-foreground mb-8">
               Our Terms of Service document outlines the terms and conditions for using AMMP's platform and services. Please download and review the document below.
