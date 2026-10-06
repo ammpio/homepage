@@ -21,8 +21,8 @@ function Page() {
         intro="AMMP Technologies B.V. Privacy Policy."
       />
 
-      <Band tone="white">
-        <Prose plain>
+      <Band tone="white" className="!pt-0 md:!pt-0">
+        <Prose plain className="[&>h2:first-child]:mt-0">
           <h2>Introduction</h2>
           <p>At AMMP, data protection is a priority. We take the privacy of all users of AMMP very seriously. We process personal data only in accordance with the applicable data protection laws, including the General Data Protection Regulation (GDPR).</p>
           <p>This privacy policy applies to AMMP Technologies B.V. and personal data processed by us through the website ammp.io and associated websites, subdomains, and the AMMP platform.</p>
