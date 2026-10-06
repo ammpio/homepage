@@ -163,6 +163,7 @@ export function CompareTable({ otherLabel, rows }: { otherLabel: string; rows: C
   );
 }
 
-export function Prose({ children }: { children: ReactNode }) {
-  return <div className="glass-strong mx-auto max-w-4xl space-y-5 rounded-3xl px-6 py-8 text-base leading-8 text-muted-foreground sm:px-10 sm:py-10 [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">{children}</div>;
+export function Prose({ children, plain = false }: { children: ReactNode; plain?: boolean }) {
+  const shell = plain ? "max-w-3xl text-lg" : "glass-strong max-w-4xl rounded-3xl px-6 py-8 text-base sm:px-10 sm:py-10";
+  return <div className={`${shell} mx-auto space-y-5 leading-8 text-muted-foreground [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:mt-8 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground`}>{children}</div>;
 }
