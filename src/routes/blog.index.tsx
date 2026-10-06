@@ -38,62 +38,39 @@ function BlogIndexPage() {
       />
 
       <Band tone="white">
-        <Link
-          to="/blog/$slug"
-          params={{ slug: featured.slug }}
-          className="glass glass-lift group mx-auto flex max-w-3xl flex-col rounded-2xl p-8 md:p-10"
-        >
-          <SectionHeading eyebrow="Featured" title={featured.title} intro={featured.excerpt} />
-          <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-            Read the article <ArrowRight className="size-4" />
-          </span>
-        </Link>
-      </Band>
+        <div className="mx-auto max-w-3xl">
+          <Link to="/blog/$slug" params={{ slug: featured.slug }} className="group block">
+            <p className="text-sm text-muted-foreground">Featured · {featured.readTime}</p>
+            <h2 className="mt-3 font-display text-3xl font-medium leading-tight tracking-[-0.015em] transition-colors group-hover:text-muted-foreground sm:text-4xl">{featured.title}</h2>
+            <p className="mt-4 text-lg leading-8 text-muted-foreground">{featured.excerpt}</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-all group-hover:gap-3">
+              Read the article <ArrowRight className="size-4" />
+            </span>
+          </Link>
 
-      <Band tone="grey">
-        <div className="flex flex-wrap gap-2">
-          {(["All", ...blogCategories] as Filter[]).map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "glass-soft text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {category}
-              {category !== "All" && (
-                <span className="ml-1.5 text-xs opacity-70">
-                  ({blogPosts.filter((p) => p.category === category).length})
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
+          <div className="mt-16 flex flex-wrap gap-x-6 gap-y-2 border-b border-border/50 pb-3">
+            {(["All", ...blogCategories] as Filter[]).map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`-mb-[13px] border-b-2 pb-3 text-sm font-medium whitespace-nowrap transition-colors ${
+                  activeCategory === category ? "border-foreground text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((post) => (
-            <Link
-              key={post.slug}
-              to="/blog/$slug"
-              params={{ slug: post.slug }}
-              className="glass glass-lift group flex flex-col rounded-2xl p-6"
-            >
-              <span className="eyebrow">{post.category}</span>
-              <h2 className="mt-3 text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
-                {post.title}
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3">{post.excerpt}</p>
-              <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-                <span>{formatDate(post.date)}</span>
-                <span>{post.readTime}</span>
-              </div>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                Read more <ArrowRight className="size-4" />
-              </span>
-            </Link>
-          ))}
+          <div className="divide-y divide-border/50">
+            {filtered.map((post) => (
+              <Link key={post.slug} to="/blog/$slug" params={{ slug: post.slug }} className="group block py-8">
+                <p className="text-xs text-muted-foreground">{formatDate(post.date)} · {post.category} · {post.readTime}</p>
+                <h2 className="mt-2 text-xl font-medium leading-snug transition-colors group-hover:text-muted-foreground">{post.title}</h2>
+                <p className="mt-2 text-[15px] leading-7 text-muted-foreground">{post.excerpt}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </Band>
 
