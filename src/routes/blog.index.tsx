@@ -58,7 +58,7 @@ function BlogIndexPage() {
 
       <Band tone="grey">
         <div className="flex flex-wrap gap-2">
-          {(["All", ...blogCategories] as Filter[]).map((category) => (
+          {(["All", ...blogCategories, "Compare"] as Filter[]).map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -71,7 +71,7 @@ function BlogIndexPage() {
               {category}
               {category !== "All" && (
                 <span className="ml-1.5 text-xs opacity-70">
-                  ({blogPosts.filter((p) => p.category === category).length})
+                  ({category === "Compare" ? comparisons.length : blogPosts.filter((p) => p.category === category).length})
                 </span>
               )}
             </button>
@@ -79,7 +79,15 @@ function BlogIndexPage() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((post) => (
+          {activeCategory === "Compare" ? comparisons.map((c) => (
+            <Link key={c.to} to={c.to} className="glass glass-lift group flex flex-col rounded-2xl p-6">
+              <h2 className="text-lg font-semibold leading-snug group-hover:text-primary transition-colors">{c.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3">{c.excerpt}</p>
+              <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                See the comparison <ArrowRight className="size-4" />
+              </span>
+            </Link>
+          )) : filtered.map((post) => (
             <Link
               key={post.slug}
               to="/blog/$slug"
