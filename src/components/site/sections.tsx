@@ -28,7 +28,7 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
           {(primary || secondary) && (
             <div className="mt-8 flex flex-wrap gap-3">
-              {primary && <Link to={primary.to} className="button button-primary">{primary.label}<ArrowRight className="size-4" /></Link>}
+              {primary && <Link to={primary.to} className={`button ${primaryVariant === "pink" ? "button-pink" : "button-primary"}`}>{primary.label}<ArrowRight className="size-4" /></Link>}
               {secondary && <Link to={secondary.to} className="button button-ghost">{secondary.label}</Link>}
             </div>
           )}
