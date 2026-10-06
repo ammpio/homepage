@@ -158,7 +158,7 @@ export function CompareTable({ otherLabel, rows }: { otherLabel: string; rows: C
   return (
     <>
       <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
-        <table className="w-full min-w-[640px] text-left text-sm">
+        <table data-compare-table className="w-full min-w-[640px] text-left text-sm">
           <thead className="border-b border-border/60 bg-white/35">
             <tr><th className="p-4 font-semibold">Capability</th><th className="p-4 font-semibold text-primary">AMMP</th><th className="p-4 font-semibold">{otherLabel}</th></tr>
           </thead>

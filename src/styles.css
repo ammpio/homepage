@@ -333,3 +333,12 @@
 .site-luminous main .button-primary { background: var(--color-foreground); color: var(--color-background); box-shadow: 0 14px 30px -20px color-mix(in oklab, var(--color-foreground) 60%, transparent); }
 .site-luminous main .button-primary:hover { box-shadow: 0 18px 34px -20px color-mix(in oklab, var(--color-foreground) 70%, transparent); }
 .site-luminous main h1 .text-primary, .site-luminous main h2 .text-primary { color: inherit; }
+
+/* Comparison pages: wider side margins and centered intro/overview copy */
+main:has([data-compare-table]) .site-container { width: min(1080px, calc(100% - 4rem)); }
+@media (min-width: 1024px) { main:has([data-compare-table]) .site-container { width: min(1080px, calc(100% - 8rem)); } }
+main:has([data-compare-table]) .luminous-hero .site-container > div:first-child { margin-inline: auto; max-width: 52rem; text-align: center; }
+main:has([data-compare-table]) .luminous-hero .site-container > div:first-child > * { margin-inline: auto; }
+main:has([data-compare-table]) .luminous-hero .site-container > div:first-child > div.flex { justify-content: center; }
+main:has([data-compare-table]) section > .site-container > .max-w-5xl { margin-inline: auto; max-width: 48rem; text-align: center; }
+main:has([data-compare-table]) section > .site-container > .max-w-3xl { margin-inline: auto; }
