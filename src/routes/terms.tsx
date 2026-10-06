@@ -31,7 +31,9 @@ function Page() {
             <a
               href="/documents/AMMP-Terms-of-Service.pdf"
               download
-              className="button button-primary"
+              target="_blank"
+              rel="noopener"
+              className="button button-pink"
             >
               <Download className="size-4" />
               Download Terms of Service (PDF)
