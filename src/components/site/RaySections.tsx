@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import rayVideo from "@/assets/ray-overview.mp4.asset.json";
+import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 import rayAvatar from "@/assets/ray-avatar.png";
 

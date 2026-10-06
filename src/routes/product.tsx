@@ -11,7 +11,7 @@ import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
 import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
-import rayVideo from "@/assets/ray-overview.mp4.asset.json";
+import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
