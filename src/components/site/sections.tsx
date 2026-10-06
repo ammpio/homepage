@@ -12,9 +12,9 @@ export function Band({ tone = "white", className = "", children }: { tone?: "whi
   );
 }
 
-export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, secondary, aside }: {
+export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, primaryVariant, secondary, aside }: {
   eyebrow?: string; title: string; highlight?: string; titleEnd?: string; intro: string;
-  primary?: { label: string; to: string }; secondary?: { label: string; to: string }; aside?: ReactNode;
+  primary?: { label: string; to: string }; primaryVariant?: "ink" | "pink"; secondary?: { label: string; to: string }; aside?: ReactNode;
 }) {
   return (
     <section className="luminous-hero relative overflow-hidden py-16 md:py-24">
@@ -28,7 +28,7 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
           {(primary || secondary) && (
             <div className="mt-8 flex flex-wrap gap-3">
-              {primary && <Link to={primary.to} className="button button-primary">{primary.label}<ArrowRight className="size-4" /></Link>}
+              {primary && <Link to={primary.to} className={`button ${primaryVariant === "pink" ? "button-pink" : "button-primary"}`}>{primary.label}<ArrowRight className="size-4" /></Link>}
               {secondary && <Link to={secondary.to} className="button button-ghost">{secondary.label}</Link>}
             </div>
           )}

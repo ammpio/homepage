@@ -53,6 +53,7 @@ function Page() {
         title="AMMP vs Traditional Monitoring"
         intro="Compare modern cloud-based monitoring with traditional SCADA systems, local loggers, and spreadsheet-based tracking."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

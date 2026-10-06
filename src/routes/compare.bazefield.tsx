@@ -51,6 +51,7 @@ function Page() {
         title="C&I Focus vs Utility-Scale SCADA"
         intro="Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

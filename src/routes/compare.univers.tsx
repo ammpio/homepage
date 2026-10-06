@@ -51,6 +51,7 @@ function Page() {
         title="Focused C&I Platform vs Enterprise Scale"
         intro="Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for commercial and industrial distributed energy."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

@@ -62,6 +62,7 @@ function Page() {
         title="Brazilian SCADA vs a portfolio asset management platform"
         intro="PV Operation delivers SCADA and an operations centre for distributed generation plants in Brazil. AMMP is a hardware-agnostic platform for managing solar and storage portfolios across markets."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

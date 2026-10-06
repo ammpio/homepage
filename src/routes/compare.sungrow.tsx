@@ -54,6 +54,7 @@ function Page() {
         title="AMMP vs Sungrow iSolarCloud"
         intro="Compare Sungrow's iSolarCloud with AMMP's open monitoring platform. See why portfolio operators choose hardware independence."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

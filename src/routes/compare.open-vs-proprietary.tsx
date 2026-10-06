@@ -52,6 +52,7 @@ function Page() {
         title="Open Standards vs Proprietary Protocols"
         intro="Compare the long-term implications of open, vendor-neutral monitoring versus closed, proprietary ecosystems."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

@@ -52,6 +52,7 @@ function Page() {
         title="AMMP vs In-House Systems"
         intro="Building your own monitoring platform? Compare the true cost and effort of in-house development versus a purpose-built solution."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">
