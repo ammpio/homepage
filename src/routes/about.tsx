@@ -36,7 +36,7 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <QuoteBand quote="To make clean, reliable, decentralised energy a reality, by giving operators the tools they need to monitor, optimise, and scale distributed energy systems anywhere in the world." author="Our mission" />
+        <QuoteBand quote="A world that runs on reliable and sustainable energy." author="Our mission" />
       </Band>
 
       <Band tone="grey">
