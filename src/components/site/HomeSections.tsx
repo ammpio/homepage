@@ -124,7 +124,7 @@ export function BeforeLogin() {
               <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
               <div>
                 <p className="text-sm"><span className="font-semibold">Ray</span> <span className="text-muted-foreground">· 07:02</span></p>
-                <p className="mt-1 text-sm leading-relaxed">Morning team. I checked yesterday’s performance across all 142 sites. INV-03 at Brightwater Solar produced 38% less than its neighbours, likely a failing fan. I’ve opened a ticket and asked Tom to take a look today.</p>
+                <p className="mt-1 text-sm leading-relaxed">Morning team. I checked yesterday’s performance across all 142 sites. INV-03 at Brightwater Solar shows underperformance across multiple strings, producing 38% less than its neighbours. I’ve opened a ticket and asked Tom to take a look today.</p>
               </div>
             </div>
           </div>
@@ -176,13 +176,13 @@ export function ProactiveOnDemand() {
             <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
-                <p className="ml-auto w-fit rounded-xl bg-muted px-3 py-2 text-sm">Why is Brightwater Solar underperforming?</p>
+                <p className="ml-auto w-fit rounded-xl bg-muted px-3 py-2 text-sm">Did Valle Soleado meet its availability guarantee in September?</p>
                 <div className="mt-4 flex gap-3">
                   <RayIcon className="size-8 shrink-0 ring-2 ring-primary/20" />
                   <div>
-                    <p className="text-sm leading-relaxed">INV-03 shows a fan fault, producing 38% less than its neighbours. SunServe clause 7.2 applies.</p>
+                    <p className="text-sm leading-relaxed">No. Availability was 96.8% against a 98% guarantee, mostly from two unresolved inverter trips. SunServe clause 7.2 applies.</p>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      {["Telemetry · 2 min ago", "Inverter logs", "SunServe contract"].map((s) => (
+                      {["Availability data · Sep", "Work orders", "SunServe contract"].map((s) => (
                         <span key={s} className="rounded-full border border-border/60 px-2.5 py-1 text-xs text-muted-foreground">{s}</span>
                       ))}
                     </div>
