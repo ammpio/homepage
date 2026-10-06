@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import rayAvatar from "@/assets/ray-avatar.png";
+import rayPortrait from "@/assets/ray-portrait.png";
 
 /* Shared Luminous Glass building blocks for every content page. */
 
@@ -181,16 +181,18 @@ function RaySpotlight({ otherLabel }: { otherLabel: string }) {
     ["Shows the evidence", "Every answer cites the telemetry, work orders and contract clauses behind it."],
   ] as const;
   return (
-    <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
-      <div>
-        <img src={rayAvatar} alt="Ray" className="size-14 rounded-full border-2 border-primary/60 object-cover" />
-        <h3 className="mt-5 text-2xl font-medium tracking-tight">Beyond dashboards: meet Ray</h3>
-        <p className="mt-3 max-w-md leading-7 text-muted-foreground">{otherLabel} shows you charts and alarms. AMMP adds Ray, an AI coworker who investigates, prioritizes and prepares the work for your team.</p>
-        <Link to="/ai" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:gap-3 transition-all">Meet Ray <ArrowRight className="size-4" /></Link>
+    <div className="glass-strong mt-14 rounded-3xl p-6 sm:p-10">
+      <div className="grid items-center gap-8 md:grid-cols-[auto_1fr] md:gap-12">
+        <img src={rayPortrait} alt="Ray, the AMMP AI coworker" className="mx-auto size-40 rounded-full border-2 border-primary/50 object-cover shadow-lg sm:size-52" />
+        <div className="text-center md:text-left">
+          <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">Beyond dashboards: meet Ray</h3>
+          <p className="mt-3 max-w-xl leading-7 text-muted-foreground md:mx-0 mx-auto">{otherLabel} shows you charts and alarms. AMMP adds Ray, an AI coworker who investigates, prioritizes and prepares the work for your team.</p>
+          <Link to="/ai" className="button button-primary mt-6">Meet Ray <ArrowRight className="size-4" /></Link>
+        </div>
       </div>
-      <ul className="space-y-6">
+      <ul className="mt-10 grid gap-6 border-t border-border/60 pt-8 sm:grid-cols-3">
         {points.map(([title, text]) => (
-          <li key={title} className="border-l-2 border-primary/40 pl-5">
+          <li key={title}>
             <p className="font-medium">{title}</p>
             <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
           </li>
