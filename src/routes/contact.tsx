@@ -72,9 +72,9 @@ function Page() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Contact information</h2>
               <div className="mt-4 space-y-3">
-                <a href="mailto:contact@ammp.io" className="flex items-center gap-3 text-muted-foreground hover:text-foreground">
+                <a href="mailto:sales@ammp.io" className="flex items-center gap-3 text-muted-foreground hover:text-foreground">
                   <span className="grid size-10 place-items-center rounded-lg bg-primary/10"><Mail className="size-5 text-primary" /></span>
-                  <span><span className="block font-medium text-foreground">Email</span><span className="text-sm">contact@ammp.io</span></span>
+                  <span><span className="block font-medium text-foreground">Email</span><span className="text-sm">sales@ammp.io</span></span>
                 </a>
                 <a href="https://linkedin.com/company/ammptechnologies" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-foreground">
                   <span className="grid size-10 place-items-center rounded-lg bg-primary/10"><Linkedin className="size-5 text-primary" /></span>
