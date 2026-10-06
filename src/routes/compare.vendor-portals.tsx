@@ -53,6 +53,7 @@ function Page() {
         title="AMMP vs Manufacturer Portals"
         intro="Stop juggling multiple monitoring platforms. Unify your entire portfolio, regardless of hardware, in one powerful platform."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

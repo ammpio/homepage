@@ -66,6 +66,7 @@ function Page() {
         title="AMMP vs AlsoEnergy / PowerTrack"
         intro="AlsoEnergy and its PowerTrack platform, now part of Stem, are a fine choice if you want the largest installed base and a standard feature set. If your portfolio has requirements that don't fit the template, keep reading."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "See how tailoring works", to: "/customization" }}
       />
       <Band tone="grey">

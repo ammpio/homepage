@@ -53,6 +53,7 @@ function Page() {
         title="Data-First vs UI-First Platforms"
         intro="What matters more: powerful analytics or a polished interface? With AMMP, you do not have to choose."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

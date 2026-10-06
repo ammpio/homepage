@@ -53,6 +53,7 @@ function Page() {
         title="AMMP vs Growatt ShineServer"
         intro="Break free from vendor lock-in. Compare Growatt's ShineServer with AMMP's open, multi-vendor platform."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

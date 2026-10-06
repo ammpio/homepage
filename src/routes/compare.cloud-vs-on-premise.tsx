@@ -54,6 +54,7 @@ function Page() {
         title="Cloud-Native vs On-Premise Monitoring"
         intro="Explore the tradeoffs between cloud-native platforms like AMMP and traditional on-premise monitoring solutions."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

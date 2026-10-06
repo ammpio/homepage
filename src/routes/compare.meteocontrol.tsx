@@ -52,6 +52,7 @@ function Page() {
         title="AMMP vs Meteocontrol"
         intro="Compare two leading solar monitoring platforms. See how AMMP's modern, vendor-neutral approach compares to Meteocontrol's established solution."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

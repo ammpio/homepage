@@ -53,6 +53,7 @@ function Page() {
         title="AMMP vs SMA Sunny Portal"
         intro="Break free from vendor lock-in. Compare SMA's Sunny Portal with AMMP's open, multi-vendor platform."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

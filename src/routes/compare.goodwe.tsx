@@ -53,6 +53,7 @@ function Page() {
         title="AMMP vs GoodWe SEMS Portal"
         intro="Break free from vendor lock-in. Compare GoodWe's SEMS Portal with AMMP's open, multi-vendor platform."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">

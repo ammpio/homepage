@@ -50,6 +50,7 @@ function Page() {
         title="AMMP vs QOS Energy"
         intro="Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our C&I-focused approach differs from utility-scale platforms."
         primary={{ label: "Book a demo", to: "/demo" }}
+        primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
       />
       <Band tone="grey">
