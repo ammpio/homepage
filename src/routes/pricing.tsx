@@ -1,7 +1,6 @@
 import { Fragment, useState, type ComponentType } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server } from "lucide-react";
-import { RayIcon } from "@/components/site/RayIcon";
+import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server, Sparkles } from "lucide-react";
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
 
 export const Route = createFileRoute("/pricing")({
@@ -14,10 +13,10 @@ export const Route = createFileRoute("/pricing")({
   ]}), component: Page,
 });
 
-type Mod = { name: string; icon: ComponentType<{ className?: string }>; bareIcon?: boolean; description: string; highlights: string[]; note?: string };
+type Mod = { name: string; icon: ComponentType<{ className?: string }>; description: string; highlights: string[]; note?: string };
 
 const aiModule: Mod = {
-  name: "AMMP AI", icon: RayIcon, bareIcon: true,
+  name: "AMMP AI", icon: Sparkles,
   description: "Ray with full access to your portfolio data. Investigates, prioritises and prepares the work for your team.",
   highlights: ["Ray in Slack, Microsoft Teams and AMMP OS", "Full data access: assets, KPIs, alerts, raw time-series", "Root-cause diagnosis and alarm triage by commercial impact", "SLA and contract checks with evidence", "Drafted reports, notes and exports"],
   note: "Runs on top of AMMP OS, or on your existing infrastructure such as Meteocontrol or Power Factors.",
@@ -36,7 +35,7 @@ function ModuleCard({ mod, popular = false }: { mod: Mod; popular?: boolean }) {
   const Icon = mod.icon;
   return (
     <div className={`glass glass-lift relative flex h-full flex-col rounded-3xl p-8 ${popular ? "border-primary/50 shadow-lg" : ""}`}>
-      {mod.bareIcon ? <Icon className="size-12" /> : <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><Icon className="size-7 text-primary" /></div>}
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><Icon className="size-7 text-primary" /></div>
       <h3 className="mt-5 text-2xl font-medium">{mod.name}</h3>
       <p className="mt-2 text-muted-foreground">{mod.description}</p>
       <ul className="mt-6 flex-1 space-y-3">
