@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
