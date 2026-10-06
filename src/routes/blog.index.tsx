@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { Band, PageHero, SectionHeading } from "@/components/site/sections";
+import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { blogPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 
