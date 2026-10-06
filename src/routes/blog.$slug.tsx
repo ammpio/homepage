@@ -122,7 +122,7 @@ function ArticlePage() {
             if (block.type === "chat") return <ChatSnippet key={i} block={block} />;
             if (block.type === "cta") return (
               <div key={i} className="not-prose mt-10 flex justify-center">
-                <Link to={block.to} className="button button-primary">{block.label}<ArrowRight className="size-4" /></Link>
+                <Link to={block.to} className="button button-pink">{block.label}<ArrowRight className="size-4" /></Link>
               </div>
             );
             if (block.type === "quote") return (
