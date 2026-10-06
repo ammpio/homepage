@@ -21,14 +21,14 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
     <section className="luminous-hero relative overflow-hidden py-16 md:py-24">
       <div aria-hidden className="glow-orb orb-drift absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
       <div className={`site-container relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
-        <div>
+        <div className={aside ? "" : "mx-auto max-w-4xl text-center [&>*]:mx-auto"}>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl lg:text-[3.4rem]">
             {title} {highlight && <span>{highlight}</span>} {titleEnd}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
           {(primary || secondary) && (
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className={`mt-8 flex flex-wrap gap-3 ${aside ? "" : "justify-center"}`}>
               {primary && <Link to={primary.to} className={`button ${primaryVariant === "pink" ? "button-pink" : "button-primary"}`}>{primary.label}<ArrowRight className="size-4" /></Link>}
               {secondary && <Link to={secondary.to} className="button button-ghost">{secondary.label}</Link>}
             </div>

@@ -154,7 +154,7 @@
 
 @theme inline { --color-signal: var(--signal); }
 
-@utility site-container { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
+@utility site-container { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; @media (min-width: 768px) { width: min(1180px, calc(100% - 5rem)); } @media (min-width: 1024px) { width: min(1180px, calc(100% - 8rem)); } }
 @utility eyebrow { font-family: var(--font-display); color: var(--color-primary); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; }
 @utility button { display: inline-flex; min-height: 2.5rem; align-items: center; justify-content: center; gap: .5rem; border-radius: var(--radius-sm); padding-inline: 1rem; font-size: .875rem; font-weight: 600; }
 @utility button-primary { background: var(--color-primary); color: var(--color-primary-foreground); &:hover { opacity: .9; } }
@@ -335,8 +335,6 @@
 .site-luminous main h1 .text-primary, .site-luminous main h2 .text-primary { color: inherit; }
 
 /* Comparison pages: wider side margins and centered intro/overview copy */
-main:has([data-compare-table]) .site-container { width: min(1080px, calc(100% - 4rem)); }
-@media (min-width: 1024px) { main:has([data-compare-table]) .site-container { width: min(1080px, calc(100% - 8rem)); } }
 main:has([data-compare-table]) .luminous-hero .site-container > div:first-child { margin-inline: auto; max-width: 52rem; text-align: center; }
 main:has([data-compare-table]) .luminous-hero .site-container > div:first-child > * { margin-inline: auto; }
 main:has([data-compare-table]) .luminous-hero .site-container > div:first-child > div.flex { justify-content: center; }
