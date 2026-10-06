@@ -73,7 +73,7 @@ export function SiteShell() {
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
           <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Log in</a>
-          <Link to="/demo" className="button button-ghost h-10 whitespace-nowrap">Try demo</Link>
+          
           <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">Contact sales</Link>
         </div>
         <details className="relative lg:hidden">
@@ -85,7 +85,7 @@ export function SiteShell() {
                   {item.children.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2 text-sm hover:bg-secondary">{label}</Link>)}
                 </div>
               : <Link key={item.label} to={item.to!} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{item.label}</Link>)}
-            <div className="mt-2 grid gap-2 border-t border-border pt-3"><Link to="/demo" className="button button-ghost">Try demo</Link><Link to="/contact" className="button button-primary">Contact sales</Link></div>
+            <div className="mt-2 grid gap-2 border-t border-border pt-3"><Link to="/contact" className="button button-primary">Contact sales</Link></div>
           </div>
         </details>
       </div>
@@ -116,5 +116,5 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
 }
 
 export function PageCta() {
-  return <section className="relative z-10 py-16 md:py-20"><div className="site-container"><div className="glass-strong mx-auto max-w-4xl rounded-3xl px-6 py-12 text-center sm:px-12"><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to put your portfolio data to work?</h2><div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row"><Link to="/contact" className="button button-pink">Talk to our team <ArrowUpRight className="size-4" /></Link><Link to="/demo" className="button button-ghost">Try the demo</Link></div></div></div></section>;
+  return <section className="relative z-10 py-16 md:py-20"><div className="site-container"><div className="glass-strong mx-auto max-w-4xl rounded-3xl px-6 py-12 text-center sm:px-12"><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to put your portfolio data to work?</h2><div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row"><Link to="/contact" className="button button-pink">Talk to our team <ArrowUpRight className="size-4" /></Link></div></div></div></section>;
 }
