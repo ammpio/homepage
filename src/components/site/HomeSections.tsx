@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Activity, ArrowDown, ArrowRight, BarChart3, BatteryCharging, Bell, ChevronRight, Code, Database, DollarSign,
@@ -26,82 +25,32 @@ export function HomePage() {
   );
 }
 
-/* Desktop only: while the hero is pinned, the video glides from the right column to the centre and grows. */
-function useHeroScroll() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const copyRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const section = sectionRef.current, copy = copyRef.current, video = videoRef.current;
-    if (!section || !copy || !video) return;
-    const desktop = window.matchMedia("(min-width: 1024px)");
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let frame = 0;
-    const stats = statsRef.current;
-    const reset = () => { if (stats) { stats.style.opacity = ""; stats.style.transform = ""; } video.style.transform = ""; copy.style.opacity = ""; copy.style.transform = ""; };
-    const update = () => {
-      frame = 0;
-      if (!desktop.matches || reduced.matches) return reset();
-      const rect = section.getBoundingClientRect();
-      const travel = section.offsetHeight - window.innerHeight;
-      const raw = travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
-      const p = raw < 0.5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
-      // measure the box in its natural, untransformed place
-      video.style.transform = "";
-      const w = video.offsetWidth, h = video.offsetHeight;
-      const box = video.getBoundingClientRect();
-      const vw = document.documentElement.clientWidth, vh = window.innerHeight;
-      const dx = vw / 2 - (box.left + w / 2);
-      const shift = Math.min(0, travel + rect.top); // once unpinned, scroll the enlarged video away with the page
-      const top = 80, bottom = vh - 16; // clear the sticky header, keep a margin below
-      const scale = Math.max(1, Math.min((vw * 0.82) / w, (bottom - top) / h));
-      const dy = top + shift + (h * scale) / 2 - (box.top + h / 2);
-      const pv = Math.min(1, p * 1.25); // settle into the band slightly ahead of the growth
-      video.style.transform = `translate(${dx * p}px, ${dy * pv}px) scale(${1 + (scale - 1) * p})`;
-      copy.style.opacity = String(1 - Math.min(1, p * 1.6));
-      copy.style.transform = `translateX(${-40 * p}px)`;
-      if (stats) { stats.style.opacity = String(1 - Math.min(1, raw * 4)); stats.style.transform = `translateY(${Math.min(1, raw * 4) * 40}px)`; }
-    };
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); };
-  }, []);
-  return { sectionRef, copyRef, videoRef, statsRef };
-}
-
+/* Centered theater hero: copy on top, wide video below, stats right after — no empty gaps on big screens. */
 export function Hero() {
-  const { sectionRef, copyRef, videoRef, statsRef } = useHeroScroll();
   return (
-    <section ref={sectionRef} className="relative lg:h-[148vh] motion-reduce:lg:h-auto">
-      <div className="lg:sticky lg:top-16 lg:flex lg:min-h-[calc(100vh-4rem)] lg:flex-col motion-reduce:lg:static motion-reduce:lg:min-h-0">
-      <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-4 pb-10 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-12 lg:pb-10 lg:pt-20 xl:px-6">
-        <div ref={copyRef} className="text-center will-change-transform lg:text-left">
-          <Reveal delay={90}>
-            <h1 className="mx-auto max-w-[18ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:mx-0 lg:max-w-none xl:text-[3.5rem]">
-              Put AI to work across your renewable energy portfolio
-            </h1>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="mx-auto mt-5 max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-              Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
-            </p>
-          </Reveal>
-          <Reveal delay={270}>
-            <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6 lg:justify-start">
-              <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
-              <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
-            </div>
-          </Reveal>
-        </div>
-        <div ref={videoRef} className="relative z-10 origin-center will-change-transform">
+    <section className="relative">
+      <div className="mx-auto w-full max-w-[1280px] px-4 pb-10 pt-10 text-center sm:px-8 sm:pt-14 lg:px-12 lg:pt-16">
+        <Reveal delay={90}>
+          <h1 className="mx-auto max-w-[22ch] text-balance font-display text-4xl font-medium leading-[1.05] tracking-[-0.02em] sm:text-5xl xl:text-[3.75rem]">
+            Put AI to work across your renewable energy portfolio
+          </h1>
+        </Reveal>
+        <Reveal delay={180}>
+          <p className="mx-auto mt-5 max-w-[56ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
+          </p>
+        </Reveal>
+        <Reveal delay={270}>
+          <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
+            <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
+          </div>
+        </Reveal>
+        <div className="mx-auto mt-10 max-w-4xl lg:mt-14 lg:max-w-5xl 2xl:max-w-6xl">
           <Reveal delay={360}><HeroVideo /></Reveal>
         </div>
       </div>
-      <div ref={statsRef} className="mt-auto hidden pb-8 will-change-transform lg:block"><StatsBar /></div>
-      </div>
+      <div className="hidden pb-8 lg:block"><StatsBar /></div>
     </section>
   );
 }
