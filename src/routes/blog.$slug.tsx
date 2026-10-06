@@ -53,24 +53,20 @@ export const Route = createFileRoute("/blog/$slug")({
 function ChatSnippet({ block }: { block: Extract<BlogBlock, { type: "chat" }> }) {
   return (
     <figure className="not-prose my-8">
-      <div className="glass overflow-hidden rounded-2xl">
-        <div className="border-b border-border/60 px-5 py-3 text-xs font-medium text-muted-foreground">{block.channel}</div>
-        <div className="space-y-4 p-5">
+      <div className="rounded-2xl border border-border/60 bg-background/70 p-6">
+        <p className="text-xs text-muted-foreground">{block.channel}</p>
+        <div className="mt-4 space-y-5">
           {block.lines.map((l, i) => (
             <div key={i} className="flex gap-3">
               {l.from === "ray" ? (
-                <img src={rayAvatar} alt="" className="size-9 shrink-0 rounded-full object-cover ring-2 ring-primary/40" />
+                <img src={rayAvatar} alt="" className="size-9 shrink-0 rounded-full object-cover ring-2 ring-primary/20" />
               ) : (
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground">{l.name.charAt(0)}</div>
               )}
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-foreground">{l.name}</p>
-                <p className="mt-1 text-[15px] leading-6 text-foreground/85">{l.text}</p>
-                {l.sources && (
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {l.sources.map((s) => <span key={s} className="rounded-full border border-border bg-background/70 px-2.5 py-0.5 text-xs text-muted-foreground">{s}</span>)}
-                  </div>
-                )}
+                <p className="mt-1 text-[15px] leading-relaxed text-foreground/85">{l.text}</p>
+                {l.sources && <p className="mt-2 text-xs text-muted-foreground">Sources: {l.sources.join(" · ")}</p>}
               </div>
             </div>
           ))}
