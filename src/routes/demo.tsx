@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { SampleReports, LiveDashboards } from "@/components/demo/DemoEmbeds";
 import { ArrowRight, BarChart3, FileText, Play } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
