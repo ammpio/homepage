@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import rayAvatar from "@/assets/ray-avatar.png";
 
 /* Shared Luminous Glass building blocks for every content page. */
 
@@ -144,21 +145,57 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
 
 export type CompareRow = { feature: string; ammp: string | boolean; other: string | boolean };
 
+const aiRows: CompareRow[] = [
+  { feature: "AI coworker (Ray) with full portfolio data access", ammp: true, other: false },
+  { feature: "Proactive overnight checks across every site", ammp: true, other: false },
+  { feature: "Ask questions in Microsoft Teams or Slack", ammp: true, other: false },
+  { feature: "Answers backed by telemetry, work orders and contracts", ammp: true, other: false },
+];
+
 export function CompareTable({ otherLabel, rows }: { otherLabel: string; rows: CompareRow[] }) {
   const cell = (v: string | boolean) =>
     typeof v === "boolean" ? (v ? <Check className="size-4 text-primary" /> : <Minus className="size-4 text-muted-foreground" />) : <span>{v}</span>;
   return (
-    <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
-      <table className="w-full min-w-[640px] text-left text-sm">
-        <thead className="border-b border-border/60 bg-white/35">
-          <tr><th className="p-4 font-semibold">Capability</th><th className="p-4 font-semibold text-primary">AMMP</th><th className="p-4 font-semibold">{otherLabel}</th></tr>
-        </thead>
-        <tbody className="divide-y divide-border">
-          {rows.map((r) => (
-            <tr key={r.feature}><td className="p-4 font-medium">{r.feature}</td><td className="p-4 text-muted-foreground">{cell(r.ammp)}</td><td className="p-4 text-muted-foreground">{cell(r.other)}</td></tr>
-          ))}
-        </tbody>
-      </table>
+    <>
+      <div className="glass-strong mt-10 overflow-x-auto rounded-2xl">
+        <table className="w-full min-w-[640px] text-left text-sm">
+          <thead className="border-b border-border/60 bg-white/35">
+            <tr><th className="p-4 font-semibold">Capability</th><th className="p-4 font-semibold text-primary">AMMP</th><th className="p-4 font-semibold">{otherLabel}</th></tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {[...aiRows, ...rows].map((r) => (
+              <tr key={r.feature}><td className="p-4 font-medium">{r.feature}</td><td className="p-4 text-muted-foreground">{cell(r.ammp)}</td><td className="p-4 text-muted-foreground">{cell(r.other)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <RaySpotlight otherLabel={otherLabel} />
+    </>
+  );
+}
+
+function RaySpotlight({ otherLabel }: { otherLabel: string }) {
+  const points = [
+    ["Checks your fleet overnight", "Ray flags underperforming sites before anyone logs in."],
+    ["Works where your team works", "Ask Ray in Microsoft Teams, Slack or AMMP OS."],
+    ["Shows the evidence", "Every answer cites the telemetry, work orders and contract clauses behind it."],
+  ] as const;
+  return (
+    <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+      <div>
+        <img src={rayAvatar} alt="Ray" className="size-14 rounded-full border-2 border-primary/60 object-cover" />
+        <h3 className="mt-5 text-2xl font-medium tracking-tight">Beyond dashboards: meet Ray</h3>
+        <p className="mt-3 max-w-md leading-7 text-muted-foreground">{otherLabel} shows you charts and alarms. AMMP adds Ray, an AI coworker who investigates, prioritizes and prepares the work for your team.</p>
+        <Link to="/ai" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:gap-3 transition-all">Meet Ray <ArrowRight className="size-4" /></Link>
+      </div>
+      <ul className="space-y-6">
+        {points.map(([title, text]) => (
+          <li key={title} className="border-l-2 border-primary/40 pl-5">
+            <p className="font-medium">{title}</p>
+            <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
