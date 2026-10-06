@@ -113,8 +113,8 @@ function ArticlePage() {
         </div>
       </section>
 
-      <Band>
-        <Prose>
+      <Band className="!pt-4 md:!pt-6">
+        <Prose plain>
           {post.body.map((block, i) => {
             if (block.type === "heading") return <h2 key={i}>{block.text}</h2>;
             if (block.type === "list") return <ul key={i} className="space-y-2">{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
