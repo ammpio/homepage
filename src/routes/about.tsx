@@ -27,12 +27,14 @@ function Page() {
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Our story" title="From mini-grids in Tanzania to 10,000+ sites worldwide" />
-        <Prose plain>
-          <p>AMMP was founded in 2016 by Svet, Stine and Hendrik, three entrepreneurs who met while building and operating mini-grids in rural Tanzania with Rafiki Power.</p>
-          <p>Working in the field, they experienced firsthand the challenges of managing distributed energy systems in remote locations: unreliable connectivity, diverse equipment from multiple vendors, and the need for real-time visibility to keep systems running efficiently.</p>
-          <p>They built AMMP to solve these problems, not just for themselves, but for the entire distributed energy sector. Today, AMMP monitors over 10,000 sites across 30+ countries, helping solar developers, operators, and asset managers scale their portfolios with confidence—and now adding an AI coworker on top of that same trusted data.</p>
-        </Prose>
+        <div className="mx-auto max-w-3xl">
+          <SectionHeading eyebrow="Our story" title="From mini-grids in Tanzania to 10,000+ sites worldwide" />
+          <Prose plain>
+            <p>AMMP was founded in 2016 by Svet, Stine and Hendrik, three entrepreneurs who met while building and operating mini-grids in rural Tanzania with Rafiki Power.</p>
+            <p>Working in the field, they experienced firsthand the challenges of managing distributed energy systems in remote locations: unreliable connectivity, diverse equipment from multiple vendors, and the need for real-time visibility to keep systems running efficiently.</p>
+            <p>They built AMMP to solve these problems, not just for themselves, but for the entire distributed energy sector. Today, AMMP monitors over 10,000 sites across 30+ countries, helping solar developers, operators, and asset managers scale their portfolios with confidence—and now adding an AI coworker on top of that same trusted data.</p>
+          </Prose>
+        </div>
       </Band>
 
       <Band tone="white">
