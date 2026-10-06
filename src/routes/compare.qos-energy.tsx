@@ -6,9 +6,9 @@ import { PageCta } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/compare/qos-energy")({
   head: () => ({ meta: [
     { title: "AMMP vs QOS Energy — AMMP" },
-    { name: "description", content: "Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our C&I-focused approach differs from utility-scale platforms." },
+    { name: "description", content: "Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our vendor-neutral, AI-assisted approach differs." },
     { property: "og:title", content: "AMMP vs QOS Energy — AMMP" },
-    { property: "og:description", content: "Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our C&I-focused approach differs from utility-scale platforms." },
+    { property: "og:description", content: "Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our vendor-neutral, AI-assisted approach differs." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -30,13 +30,12 @@ const rows = [
   { feature: "Meter integration", ammp: true, other: true },
   { feature: "Generator monitoring", ammp: true, other: false },
   { feature: "Battery systems", ammp: true, other: true },
-  { feature: "C&I solar focus", ammp: true, other: "Partial — QOS focuses more on utility scale" },
   { feature: "South African market features", ammp: true, other: false },
   { feature: "Emerging markets support", ammp: true, other: "Partial" },
 ];
 
 const differentiators = [
-  { icon: Building2, title: "Built for C&I", text: "Purpose-built for commercial and industrial solar, not adapted from utility-scale platforms." },
+  { icon: Building2, title: "Built for Renewable Portfolios", text: "Solar, storage and hybrid assets across mixed hardware, managed in one workspace." },
   { icon: Zap, title: "Generator Integration", text: "Monitor hybrid systems with solar, battery, and diesel generator support in one platform." },
   { icon: Users, title: "South African Expertise", text: "Native support for ToU tariffs, wheeling arrangements, and local utility requirements." },
   { icon: PlayCircle, title: "Try Before You Buy", text: "Access a live demo instantly, no sales call required to see the platform in action." },
@@ -48,7 +47,7 @@ function Page() {
       <PageHero
         eyebrow="Platform comparison"
         title="AMMP vs QOS Energy"
-        intro="Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our C&I-focused approach differs from utility-scale platforms."
+        intro="Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our vendor-neutral, AI-assisted approach differs."
         primary={{ label: "Book a demo", to: "/demo" }}
         primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
@@ -57,7 +56,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>QOS Energy, which acquired Bazefield and was previously known as Quantum, offers a comprehensive asset performance management platform primarily focused on utility-scale wind and solar projects.</p>
-          <p>AMMP takes a different approach, with an AI coworker on AMMP OS specialising in commercial and industrial (C&I) solar with deep expertise in emerging markets. The platform handles the unique challenges of C&I, time-of-use tariffs, wheeling, hybrid systems with generators, that utility-focused platforms often overlook.</p>
+          <p>AMMP takes a different approach, with an AI coworker on AMMP OS built for renewable energy portfolios. The platform handles mixed hardware, storage and hybrid systems, PPA and tariff reporting, and contract tracking in one place.</p>
         </div>
       </Band>
       <Band tone="white">

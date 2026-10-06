@@ -40,7 +40,7 @@ const rows = [
 
 const differentiators = [
   { icon: Layers, title: "True Multi-Vendor Support", text: "Monitor systems from any manufacturer, Huawei, SMA, SolarEdge, and 30+ more, in one unified platform." },
-  { icon: RefreshCw, title: "Commercial-Grade Platform", text: "Purpose-built for C&I and utility-scale projects, not just residential installations." },
+  { icon: RefreshCw, title: "Commercial-Grade Platform", text: "Purpose-built for commercial and utility-scale renewable portfolios, not just residential installations." },
   { icon: BarChart3, title: "Portfolio-Wide Insights", text: "Compare performance across your entire fleet, even when sites have different hardware." },
   { icon: Building, title: "Built for Asset Managers", text: "Purpose-built for portfolio operators and O&M providers managing diverse system types." },
 ];
