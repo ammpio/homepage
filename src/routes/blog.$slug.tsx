@@ -113,7 +113,7 @@ function ArticlePage() {
         </div>
       </section>
 
-      <Band tone="grey">
+      <Band>
         <Prose>
           {post.body.map((block, i) => {
             if (block.type === "heading") return <h2 key={i}>{block.text}</h2>;
