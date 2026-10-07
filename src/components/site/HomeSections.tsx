@@ -212,15 +212,15 @@ export function Details() {
     { icon: Activity, label: "Time-series data" },
   ];
   const modules = [
-    { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device." },
-    { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution." },
-    { icon: Bell, title: "Alerting", body: "Rules that reach the right person quickly." },
-    { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports." },
-    { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance." },
-    { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools." },
-    { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit." },
-    { icon: Code, title: "API", body: "Your data in your own systems." },
-    { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant." },
+    { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device.", tab: "monitoring" },
+    { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution.", tab: "ticketing" },
+    { icon: Bell, title: "Alerting", body: "Rules that reach the right person quickly.", tab: "alerting" },
+    { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports.", tab: "reporting" },
+    { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance.", tab: "commercials" },
+    { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools.", tab: "integrations" },
+    { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit.", tab: "customizations" },
+    { icon: Code, title: "API", body: "Your data in your own systems.", tab: "api" },
+    { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant.", tab: "api" },
   ];
   const arrow = (label: string, delay = "0s") => (
     <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0">

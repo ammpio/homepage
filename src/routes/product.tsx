@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, SplitFeature } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
