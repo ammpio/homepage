@@ -144,8 +144,18 @@ function Page() {
   );
 }
 
+function Status({ v }: { v: CV }) {
+  if (v === true) return <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"><Check className="size-3.5" /><span className="hidden sm:inline">Included</span></span>;
+  if (v === "add-on") return <span className="inline-flex items-center rounded-full border border-border bg-background/70 px-2.5 py-1 text-xs font-medium text-muted-foreground">+ Add-on</span>;
+  return <Minus className="mx-auto size-4 text-muted-foreground/30" aria-label="Not included" />;
+}
+
 function FeatureCompare() {
   const [open, setOpen] = useState(false);
+  const cols = [
+    { name: "AMMP AI", icon: Sparkles, note: "Ray, your AI coworker" },
+    { name: "AMMP OS Monitor", icon: LayoutDashboard, note: "Monitoring and reporting" },
+  ];
   return (
     <>
       <SectionHeading center title="Compare all features" />
@@ -156,29 +166,38 @@ function FeatureCompare() {
         </button>
       </div>
       {open && (
-        <>
-          <div className="glass-strong mt-10 rounded-2xl">
-            <table className="w-full table-fixed text-left text-sm">
-              <colgroup><col /><col className="w-20 sm:w-40" /><col className="w-20 sm:w-40" /></colgroup>
-              <thead>
-                <tr>
-                  <th className="sticky top-16 z-10 rounded-tl-2xl border-b border-border/60 bg-background/95 p-3 font-semibold backdrop-blur sm:p-4">Feature</th>
-                  <th className="sticky top-16 z-10 border-b border-border/60 bg-background/95 p-3 text-center text-xs font-semibold backdrop-blur sm:p-4 sm:text-sm">AMMP AI</th>
-                  <th className="sticky top-16 z-10 rounded-tr-2xl border-b border-border/60 bg-background/95 p-3 text-center text-xs font-semibold backdrop-blur sm:p-4 sm:text-sm">AMMP OS Monitor</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {comparisonData.map((row, i) => (
-                  <Fragment key={i}>
-                    {row.category && <tr className="bg-secondary/30"><td colSpan={3} className="p-3 text-sm font-semibold">{row.category}</td></tr>}
-                    <tr><td className="p-3 font-medium sm:p-4">{row.feature}</td><td className="p-3 text-center sm:p-4"><Cell v={row.ai} /></td><td className="p-3 text-center sm:p-4"><Cell v={row.os} /></td></tr>
-                  </Fragment>
+        <div className="glass-strong mx-auto mt-10 max-w-5xl overflow-x-auto rounded-3xl">
+          <table className="w-full min-w-[560px] table-fixed text-left text-sm">
+            <colgroup><col /><col className="w-36 sm:w-56" /><col className="w-36 sm:w-56" /></colgroup>
+            <thead>
+              <tr>
+                <th className="sticky top-16 z-10 border-b border-border/60 bg-background/95 p-5 align-bottom text-xs font-semibold uppercase tracking-wide text-muted-foreground backdrop-blur">Feature</th>
+                {cols.map(({ name, icon: Icon, note }) => (
+                  <th key={name} className="sticky top-16 z-10 border-b border-border/60 bg-background/95 p-5 text-center align-bottom backdrop-blur">
+                    <div className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10"><Icon className="size-5 text-primary" /></div>
+                    <p className="mt-2 text-sm font-medium">{name}</p>
+                    <p className="mt-0.5 hidden text-xs font-normal text-muted-foreground sm:block">{note}</p>
+                    <Link to="/contact" className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline">Contact sales <ArrowRight className="size-3" /></Link>
+                  </th>
                 ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-center text-sm text-muted-foreground">Included · Not included · Add-on = available as add-on</p>
-        </>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((row, i) => (
+                <Fragment key={i}>
+                  {row.category && (
+                    <tr><td colSpan={3} className="px-5 pb-2 pt-7 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{row.category}</td></tr>
+                  )}
+                  <tr className="border-t border-border/40 transition-colors hover:bg-primary/5">
+                    <td className="px-5 py-3.5 font-medium">{row.feature}</td>
+                    <td className="px-5 py-3.5 text-center"><Status v={row.ai} /></td>
+                    <td className="px-5 py-3.5 text-center"><Status v={row.os} /></td>
+                  </tr>
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );
