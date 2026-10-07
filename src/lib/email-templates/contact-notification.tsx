@@ -34,7 +34,7 @@ const ContactNotification = ({ name, email, company, message }: Props) => (
 
 export const template = {
   component: ContactNotification,
-  subject: (d: Record<string, any>) => `New website message from ${d.name || 'a visitor'}`,
+  subject: (d: Record<string, any>) => `New website message from ${d['name'] || 'a visitor'}`,
   displayName: 'Contact form → sales',
   to: 'sales@ammp.io',
   previewData: { name: 'Jane Doe', email: 'jane@example.com', company: 'Solar Co', message: 'We run 120 sites and want to learn about Ray.' },
