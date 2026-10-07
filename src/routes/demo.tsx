@@ -92,14 +92,52 @@ function Page() {
               <div className="mx-auto mb-8 max-w-3xl">
                 <VimeoPlayer videoId="1201387112" title="AMMP OS product walkthrough" poster={demoVideoThumbnail} chapters={DEMO_CHAPTERS} />
               </div>
-              <FeatureGrid columns={3} features={[
-                { title: "Portfolio Monitoring", text: "Live performance and availability across every site." },
-                { title: "AI coworker", text: "Investigate, prioritize and prepare work automatically." },
-                { title: "KPI Benchmarking", text: "Portfolio-wide KPI tracking and benchmarking." },
-                { title: "Universal Integrations", text: "Connect Solis, Sungrow, Huawei, SMA and more." },
-                { title: "Automated Reporting", text: "Scheduled PDF reports for investors and clients." },
-                { title: "Cost Tracking", text: "Energy savings and PPA billing visibility." },
-              ]} />
+              <div className="space-y-6">
+                <Link to="/ai" className="glass glass-lift group grid items-center gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2">
+                  <div>
+                    <p className="eyebrow">AMMP AI</p>
+                    <h3 className="mt-2 text-2xl font-medium tracking-tight">Ray, your AI coworker</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">Investigate, prioritize and prepare work automatically — with the evidence behind every answer.</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground">See Ray in action <ArrowRight className="size-4" /></span>
+                  </div>
+                  <div className="rounded-2xl border border-border/60 bg-background/70 p-5">
+                    <p className="text-xs text-muted-foreground">Fleet triage · ranked by daily impact</p>
+                    <div className="mt-4 space-y-3">
+                      <div className="flex items-start justify-between gap-4 rounded-xl border border-border/60 p-3">
+                        <div className="flex gap-3">
+                          <span className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden />
+                          <div>
+                            <p className="text-sm font-medium">Brightwater Solar · INV-03</p>
+                            <p className="text-xs text-muted-foreground">−38% yield vs neighbors</p>
+                          </div>
+                        </div>
+                        <span className="shrink-0 text-sm font-medium">−€420/day</span>
+                      </div>
+                      <div className="flex items-start justify-between gap-4 rounded-xl border border-border/60 p-3 opacity-80">
+                        <div className="flex gap-3">
+                          <span className="mt-1.5 size-2 shrink-0 rounded-full bg-muted-foreground/40" aria-hidden />
+                          <div>
+                            <p className="text-sm font-medium">Kalahari Solar · Tracker 02</p>
+                            <p className="text-xs text-muted-foreground">Tracker stalled</p>
+                          </div>
+                        </div>
+                        <span className="shrink-0 text-sm text-muted-foreground">−€35/day</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {demoFeatures.map(({ title, text, image, tab }) => (
+                    <Link key={title} to="/product" search={{ tab }} hash="category-content" className="glass glass-lift group overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1">
+                      <img src={image} alt={title} loading="lazy" className="aspect-[3/2] w-full object-cover object-top" />
+                      <div className="p-5">
+                        <h3 className="text-lg font-semibold">{title}</h3>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
           {tab === "reports" && (
