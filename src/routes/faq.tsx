@@ -27,11 +27,23 @@ function Page() {
       <Band tone="white">
         <SectionHeading eyebrow="Product & Platform" title="How AMMP OS works" />
         <Faq items={[
-          { q: "What is AMMP OS?", a: "AMMP OS is a cloud-based monitoring, reporting, and analytics platform purpose-built for operators of distributed C&I solar and battery portfolios. It unifies data from all your sites and equipment brands into a single operational hub." },
-          { q: "What types of energy systems does AMMP support?", a: "AMMP supports C&I solar PV, battery energy storage systems (BESS), hybrid systems, and mini-grids. Whether you operate rooftop solar, ground-mount installations, or off-grid systems, AMMP can monitor and manage them." },
+          { q: "What is AMMP OS?", a: "AMMP OS is a cloud-based monitoring, reporting, and analytics platform purpose-built for renewable energy portfolios: solar, storage, and hybrids. It unifies data from all your sites and equipment brands into a single operational hub." },
+          { q: "What types of energy systems does AMMP support?", a: "AMMP supports solar PV, battery energy storage systems (BESS), hybrid systems, and mini-grids. Whether you operate rooftop solar, ground-mount installations, or off-grid systems, AMMP can monitor and manage them." },
           { q: "Can I monitor multiple equipment brands in one platform?", a: "Yes. AMMP integrates with 30+ equipment manufacturers including inverters, meters, batteries, and environmental sensors. You get a single view across your entire portfolio regardless of hardware brand." },
           { q: "Is AMMP cloud-based or on-premise?", a: "AMMP is a cloud-based SaaS platform. There's nothing to install or maintain on your side. You access everything through a web browser, and our team handles all infrastructure, updates, and security." },
           { q: "What dashboards and views are available?", a: "AMMP provides portfolio-level overviews, site-level dashboards, a NOC (Network Operations Center) view for O&M teams, and a stakeholder portal for investors and clients. Each view is tailored to the needs of its audience." },
+        ]} />
+      </Band>
+
+      <Band tone="grey">
+        <SectionHeading eyebrow="Ray & AI" title="Our approach to AI" />
+        <Faq items={[
+          { q: "What is Ray?", a: "Ray is AMMP's AI coworker, built for renewable energy portfolio operations. Ray analyzes data across your solar, storage, and hybrid assets, triages issues before your team logs on, answers operational questions with evidence, and drafts reports." },
+          { q: "Where does Ray work?", a: "Right inside AMMP OS, Microsoft Teams, and Slack. Your team can ask Ray for performance summaries or review triaged alerts in the tools they already use every day." },
+          { q: "How does Ray avoid making things up?", a: "Ray is grounded in AMMP OS's unified data foundation. Every answer cites its evidence, such as inverter readings, string comparisons, alarm history, or contract terms. When evidence is incomplete, Ray says so instead of guessing." },
+          { q: "Is our data used to train public AI models?", a: "No. Your portfolio data, operational logs, and conversations stay private to your organization and are never used to train external AI models." },
+          { q: "Can Ray control our hardware?", a: "No. Ray surfaces root causes, drafts work orders, and answers questions, but humans stay in control. Ray does not send control commands or change setpoints." },
+          { q: "Can we connect our own AI tools to AMMP?", a: "Yes. Through the AMMP MCP Server and Data API, you can securely connect assistants like Claude or your own internal agents to your portfolio data." },
         ]} />
       </Band>
 
