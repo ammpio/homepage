@@ -61,6 +61,7 @@ import { Route as CompareVictronRouteImport } from './routes/compare.victron'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
 import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -325,6 +326,12 @@ const UseCasesReportingTeamsRoute = UseCasesReportingTeamsRouteImport.update({
   path: '/use-cases/reporting-teams',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -379,6 +386,7 @@ export interface FileRoutesByFullPath {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -433,6 +441,7 @@ export interface FileRoutesByTo {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog': typeof BlogIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -488,6 +497,7 @@ export interface FileRoutesById {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -544,6 +554,7 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -598,6 +609,7 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -652,6 +664,7 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -707,6 +720,7 @@ export interface RootRouteChildren {
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
   UseCasesReportingTeamsRoute: typeof UseCasesReportingTeamsRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1075,6 +1089,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesReportingTeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1131,6 +1152,7 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
   UseCasesReportingTeamsRoute: UseCasesReportingTeamsRoute,
   BlogIndexRoute: BlogIndexRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
