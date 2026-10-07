@@ -53,11 +53,15 @@ export const Route = createFileRoute("/demo")({
   ]}), component: Page,
 });
 
-const tabs = [
+// Set to true to bring back the Live Dashboards tab (hidden: embeds fail in private mode/some browsers).
+const SHOW_LIVE_DASHBOARDS = false;
+
+const allTabs = [
   { key: "interactive", label: "Interactive Demo", icon: Play },
   { key: "reports", label: "Sample Reports", icon: FileText },
   { key: "dashboards", label: "Live Dashboards", icon: BarChart3 },
 ] as const;
+const tabs = allTabs.filter((t) => SHOW_LIVE_DASHBOARDS || t.key !== "dashboards");
 
 function Page() {
   const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("interactive");
