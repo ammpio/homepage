@@ -314,7 +314,7 @@ export function Details() {
             <div className="glass rounded-3xl p-7">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="font-display text-xl font-medium">Integrations</h3>
-                <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">All 30+ <ArrowRight className="size-4" /></Link>
+                <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See all 30+ <ArrowRight className="size-4" /></Link>
               </div>
               <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4">
                 {vendors.map((v) => <span key={v} className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-center text-sm">{v}</span>)}
