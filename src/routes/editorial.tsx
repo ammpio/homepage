@@ -68,7 +68,7 @@ function Hero() {
             <span className="size-1.5 rounded-full bg-emerald-500" />
             Ray, live in your portfolio
           </p>
-          <h1 className="max-w-[15ch] text-balance text-5xl font-bold leading-[1.0] tracking-tight md:text-7xl" style={serif}>
+          <h1 className="max-w-[15ch] text-balance text-5xl font-medium leading-[1.0] tracking-tight md:text-7xl" style={serif}>
             Put AI to work across your <em className="font-medium">renewable energy portfolio</em>
           </h1>
           <p className="mt-7 max-w-[48ch] text-pretty text-lg leading-relaxed text-slate-600">
@@ -233,7 +233,7 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
         <span className="size-1.5 rounded-full bg-emerald-500" />
         {proactive ? "Proactive · portfolio triage" : "On demand · ask anything"}
       </div>
-      <h3 className="mt-4 text-2xl font-bold tracking-tight" style={serif}>{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
+      <h3 className="mt-4 text-2xl font-medium tracking-tight" style={serif}>{proactive ? "Ranks what needs a human first" : "Answers with evidence, not guesswork"}</h3>
       <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-slate-600">{proactive ? "Continuously scans the fleet and surfaces the issues that deserve attention before they grow." : "Ask in Slack or Teams for a diagnosis, contract check, report, or exploration of your portfolio data."}</p>
       {proactive ? (
         <div className="mt-6 divide-y divide-slate-100 border border-slate-200">
@@ -318,7 +318,7 @@ function ContextPlatformSection() {
             <div className="hidden items-center lg:flex"><ArrowRight className="h-5 w-5 text-slate-900" /></div>
             <div className="relative flex min-h-64 flex-col items-center justify-center border border-slate-950 bg-slate-950 p-8 text-center text-white">
               <div className="flex h-14 w-14 items-center justify-center border border-white/25"><Brain className="h-7 w-7" /></div>
-              <h3 className="mt-5 text-2xl font-bold tracking-tight" style={serif}>AMMP AI</h3>
+              <h3 className="mt-5 text-2xl font-medium tracking-tight" style={serif}>AMMP AI</h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-400">One structured operational context across your entire renewable energy portfolio.</p>
               <div className="mt-5 inline-flex items-center gap-2 border border-white/20 px-3 py-1.5 text-[10px] font-medium uppercase tracking-widest text-slate-300" style={mono}><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
             </div>
@@ -368,7 +368,7 @@ function PlatformOverview() {
                 <span className="size-1.5 rounded-full bg-emerald-500" />{eyebrow}
               </div>
               <div className="mt-5 flex items-start justify-between gap-4">
-                <h3 className="text-2xl font-bold tracking-tight" style={serif}>{title}</h3>
+                <h3 className="text-2xl font-medium tracking-tight" style={serif}>{title}</h3>
                 <span className={`grid size-10 shrink-0 place-items-center border ${index === 0 ? "border-slate-200 text-slate-700" : "border-white/25 text-white"}`}><Icon className="size-5" /></span>
               </div>
               <p className={`mt-3 max-w-md text-sm leading-relaxed ${index === 0 ? "text-slate-600" : "text-slate-400"}`}>{body}</p>
@@ -378,7 +378,7 @@ function PlatformOverview() {
         <div className="mt-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className={monoLabel} style={mono}>Inside AMMP OS</p>
-            <h3 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl" style={serif}>AMMP OS when you need it</h3>
+            <h3 className="mt-3 text-2xl font-medium tracking-tight sm:text-3xl" style={serif}>AMMP OS when you need it</h3>
             <p className="mt-3 text-lg text-slate-600 xl:whitespace-nowrap">The dashboards, tickets and reports your team uses every day. Ray sits on top of them.</p>
           </div>
           <Link to="/product" className="inline-flex items-center gap-2 text-sm font-semibold hover:underline">Full product tour <ArrowRight className="h-4 w-4" /></Link>

@@ -66,7 +66,7 @@ function Page() {
           <div className="mx-auto mt-12 max-w-5xl">
             <div className="text-center">
               <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><Cloud className="size-8 text-primary" /></div>
-              <h2 className="mt-4 text-2xl font-bold">Cloud-to-cloud API integrations</h2>
+              <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">Cloud-to-cloud API integrations</h2>
               <p className="mt-3 text-muted-foreground">AMMP connects directly to manufacturer cloud platforms, pulling data automatically without additional hardware. Zero configuration at the site level.</p>
             </div>
             <div className="relative mx-auto mb-10 mt-8 max-w-md">
@@ -97,7 +97,7 @@ function Page() {
           <div className="mx-auto mt-12 max-w-4xl">
             <div className="text-center">
               <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><Plug className="size-8 text-primary" /></div>
-              <h2 className="mt-4 text-2xl font-bold">Software add-ons & integrations</h2>
+              <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">Software add-ons & integrations</h2>
               <p className="mt-3 text-muted-foreground">Extend AMMP with specialised tools for analytics, maintenance, notifications, and reporting.</p>
             </div>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -116,7 +116,7 @@ function Page() {
           <div className="mx-auto mt-12 max-w-4xl">
             <div className="text-center">
               <div className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-primary/10"><HardDrive className="size-8 text-primary" /></div>
-              <h2 className="mt-4 text-2xl font-bold">AMMP Edge data logger</h2>
+              <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">AMMP Edge data logger</h2>
               <p className="mt-3 text-muted-foreground">AMMP Edge is a hardware gateway that interfaces with on-site devices and connects them to the AMMP platform.</p>
             </div>
             <div className="mt-10 flex flex-wrap justify-center gap-4">

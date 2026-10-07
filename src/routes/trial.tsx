@@ -24,7 +24,7 @@ function Page() {
       <Band tone="grey">
         <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-semibold">What the trial includes</h2>
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">What the trial includes</h2>
             <FeatureGrid columns={2} features={[
               { icon: Check, title: "Run alongside your current setup", text: "Operate AMMP side-by-side with your existing tools during the trial." },
               { icon: Check, title: "No hardware replacement", text: "AMMP connects to equipment you already have from 30+ manufacturers." },
@@ -66,7 +66,7 @@ function Page() {
 
       <Band tone="white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold">Prefer to see it first?</h2>
+          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Prefer to see it first?</h2>
           <p className="mt-4 text-lg text-muted-foreground">Explore the interactive demo before you commit to a trial.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/demo" className="button button-primary">Try the demo <ArrowRight className="size-4" /></Link>

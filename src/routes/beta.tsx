@@ -18,7 +18,7 @@ function Page() {
       <PageHero eyebrow="AMMP Labs · Experimental features" title="Early access to what your" highlight="AI coworker will do next." intro="Welcome to AMMP Labs, where we test and refine new features before they're ready for prime time. Explore our experimental tools and help shape the future of energy monitoring." />
 
       <Band tone="grey">
-        <h2 className="text-2xl font-semibold">Active experiments</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Active experiments</h2>
         <FeatureGrid columns={3} features={[
           { icon: DollarSign, title: "Billing Integration (Alpha)", text: "Explore automated invoicing and payment tracking for energy contracts." },
           { icon: Plug, title: "AMMP AI + MCP Server (Beta)", text: "Connect any MCP-compatible AI assistant (Claude, Cursor, your own agent) to AMMP, or use AMMP's own AI agent \u201cRay\u201d, to query assets, KPIs, alerts and raw time-series in natural language." },

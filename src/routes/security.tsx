@@ -51,7 +51,7 @@ function Page() {
             <ShieldCheck className="h-6 w-6 text-primary" />
           </div>
           <p className="text-xs font-semibold uppercase tracking-wide text-primary">ISO/IEC 27001:2022</p>
-          <h2 className="mt-2 text-2xl font-semibold">ISO/IEC 27001:2022 certified</h2>
+          <h2 className="mt-2 text-3xl font-medium tracking-tight sm:text-4xl">ISO/IEC 27001:2022 certified</h2>
           <p className="mt-4 text-muted-foreground">
             AMMP Technologies operates an independently audited information security management system, certified to ISO/IEC 27001:2022. The scope covers the AMMP platform, its supporting cloud infrastructure, and the processes our team follows to build and operate it.
           </p>

@@ -86,7 +86,7 @@ function ArticlePage() {
       <>
         <Band>
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Article not found</h1>
+            <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">Article not found</h1>
             <p className="mt-4 text-lg leading-8 text-muted-foreground">We couldn't find that article. It may have moved or been renamed.</p>
             <Link to="/blog" className="button button-primary mt-8"><ArrowLeft className="size-4" />Back to the blog</Link>
           </div>
@@ -138,7 +138,7 @@ function ArticlePage() {
 
       {post.related ? (
         <Band>
-          <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">Related</h2>
+          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Related</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {post.related.map((r) => (
               <Link key={r.to} to={r.to} className="glass glass-lift rounded-2xl p-6">
@@ -152,7 +152,7 @@ function ArticlePage() {
       ) : (
         <Band>
           <div className="flex items-end justify-between gap-6">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">More from the blog</h2>
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">More from the blog</h2>
             <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-medium text-primary">All articles <ArrowRight className="size-4" /></Link>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
