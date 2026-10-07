@@ -30,6 +30,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as RayRouteImport } from './routes/ray'
 import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
@@ -164,6 +165,11 @@ const RayRoute = RayRouteImport.update({
 const SecurityRoute = SecurityRouteImport.update({
   id: '/security',
   path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SwitchRoute = SwitchRouteImport.update({
@@ -342,6 +348,7 @@ export interface FileRoutesByFullPath {
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -395,6 +402,7 @@ export interface FileRoutesByTo {
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -449,6 +457,7 @@ export interface FileRoutesById {
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -504,6 +513,7 @@ export interface FileRouteTypes {
     | '/product'
     | '/ray'
     | '/security'
+    | '/sitemap.xml'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -557,6 +567,7 @@ export interface FileRouteTypes {
     | '/product'
     | '/ray'
     | '/security'
+    | '/sitemap.xml'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -610,6 +621,7 @@ export interface FileRouteTypes {
     | '/product'
     | '/ray'
     | '/security'
+    | '/sitemap.xml'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -664,6 +676,7 @@ export interface RootRouteChildren {
   ProductRoute: typeof ProductRoute
   RayRoute: typeof RayRoute
   SecurityRoute: typeof SecurityRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
@@ -843,6 +856,13 @@ declare module '@tanstack/react-router' {
       path: '/security'
       fullPath: '/security'
       preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/switch': {
@@ -1080,6 +1100,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductRoute: ProductRoute,
   RayRoute: RayRoute,
   SecurityRoute: SecurityRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
