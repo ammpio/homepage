@@ -3,6 +3,9 @@ import { useState, type ReactNode } from "react";
 import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, TrendingUp, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, SplitFeature } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { HeroVideo } from "@/components/site/RaySections";
+import overviewVideo from "@/assets/ray-by-ammp-overview.mp4.asset.json";
+import overviewPoster from "@/assets/ray-by-ammp-overview-poster.jpg.asset.json";
 import energyMix from "@/assets/energy-mix.png";
 import performanceAnalytics from "@/assets/performance-analytics.png";
 import ticketingImage from "@/assets/ticketing.png";
@@ -117,9 +120,15 @@ function Page() {
         title="The foundation where Ray"
         highlight="and your team work together."
         intro="AMMP OS combines technical monitoring, commercial tracking, and stakeholder reporting into a single platform designed for distributed renewable portfolios. Ray, your AI coworker, works from the same live data your team already trusts, so every answer and action is grounded in your portfolio."
-        primary={{ label: "Try the demo", to: "/demo" }}
+        primary={{ label: "See the demo", to: "/demo" }}
         secondary={{ label: "See AI at AMMP", to: "/ai" }}
       />
+
+      <Band tone="white">
+        <div className="mx-auto max-w-5xl">
+          <HeroVideo src={overviewVideo.url} poster={overviewPoster.url} />
+        </div>
+      </Band>
 
       <Band tone="grey">
         <div className="-mx-4 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0" role="tablist" aria-label="Product categories">
