@@ -13,7 +13,7 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/concept")({
   head: () => ({ meta: [
     { title: "AMMP concept homepage — an AI coworker for renewable portfolios" },
-    { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritises and prepares work." },
+    { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritizes and prepares work." },
     { property: "og:title", content: "AMMP concept homepage — an AI coworker for renewable portfolios" },
     { property: "og:description", content: "Give every portfolio team an AI coworker grounded in the same trusted operational context." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -56,7 +56,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-relaxed text-muted-foreground">
-              An AI coworker grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
+              An AI coworker grounded in your portfolio data, ready to investigate, prioritize, prepare and collaborate alongside your team.
             </p>
           </Reveal>
           <Reveal delay={270}>
@@ -211,8 +211,8 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
 function SharedByDesign() {
   const outcomes = [
     { icon: BarChart3, title: "Asset managers", text: "See what needs attention first and move from symptom to root cause faster.", href: "/use-cases/asset-managers" as const },
-    { icon: Wrench, title: "O&M teams", text: "Receive prioritised issues with the context needed to plan the right response.", href: "/use-cases/om-providers" as const },
-    { icon: FileText, title: "Reporting teams", text: "Turn standardised portfolio data into clear, reviewable reporting outputs.", href: "/use-cases/reporting-teams" as const },
+    { icon: Wrench, title: "O&M teams", text: "Receive prioritized issues with the context needed to plan the right response.", href: "/use-cases/om-providers" as const },
+    { icon: FileText, title: "Reporting teams", text: "Turn standardized portfolio data into clear, reviewable reporting outputs.", href: "/use-cases/reporting-teams" as const },
   ];
   return (
     <section>
@@ -259,7 +259,7 @@ function ContextPlatformSection() {
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="eyebrow">AI built on an operating platform</p>
-            <h2 className={`mt-3 text-balance ${h2Class}`}>AI can only work with what it understands</h2>
+            <h2 className={`mt-3 text-balance ${h2Class}`}>AI is only as good as the data foundation it builds on</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
@@ -304,7 +304,7 @@ const modulesGrid = [
   { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports." },
   { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance." },
   { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools." },
-  { icon: Settings, title: "Customisations", body: "Dashboards, KPIs and views built to fit." },
+  { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit." },
   { icon: Code, title: "API", body: "Your data in your own systems." },
   { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant." },
 ];
@@ -319,7 +319,7 @@ const interfaces = [
   {
     eyebrow: "For the work nobody gets to",
     title: "AMMP AI coworker",
-    body: "A portfolio-aware coworker that explores, analyses, reports and keeps the team ahead.",
+    body: "A portfolio-aware coworker that explores, analyzes, reports and keeps the team ahead.",
     icon: RayIcon,
   },
 ];

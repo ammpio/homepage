@@ -6,9 +6,9 @@ import { PageCta } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/compare/ammp-vs-alsoenergy")({
   head: () => ({ meta: [
     { title: "AMMP vs AlsoEnergy / PowerTrack — AMMP" },
-    { name: "description", content: "Looking for an AlsoEnergy alternative or a PowerTrack alternative? Compare AMMP and AlsoEnergy on customisation, integrations, support and BESS depth." },
+    { name: "description", content: "Looking for an AlsoEnergy alternative or a PowerTrack alternative? Compare AMMP and AlsoEnergy on customization, integrations, support and BESS depth." },
     { property: "og:title", content: "AMMP vs AlsoEnergy / PowerTrack — AMMP" },
-    { property: "og:description", content: "Looking for an AlsoEnergy alternative or a PowerTrack alternative? Compare AMMP and AlsoEnergy on customisation, integrations, support and BESS depth." },
+    { property: "og:description", content: "Looking for an AlsoEnergy alternative or a PowerTrack alternative? Compare AMMP and AlsoEnergy on customization, integrations, support and BESS depth." },
     { property: "og:type", content: "article" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/compare/ammp-vs-alsoenergy")({
 
 const chooseThem = [
   "You want the largest installed base in the US market.",
-  "A standardised feature set covers what your team needs.",
+  "A standardized feature set covers what your team needs.",
   "You are running utility-scale assets with an established track record behind the platform.",
 ];
 
@@ -30,11 +30,11 @@ const chooseUs = [
 ];
 
 const rows = [
-  { feature: "Customisation model", ammp: "Custom integrations, KPIs and workflows built for you on a maintained platform.", other: "Configuration within a standardised, widely deployed feature set." },
-  { feature: "Integration approach", ammp: "API-first: we connect to vendor clouds and APIs, with an edge gateway only where needed.", other: "Gateway-focused: data collection centred on their own hardware and dataloggers." },
+  { feature: "Customization model", ammp: "Custom integrations, KPIs and workflows built for you on a maintained platform.", other: "Configuration within a standardized, widely deployed feature set." },
+  { feature: "Integration approach", ammp: "API-first: we connect to vendor clouds and APIs, with an edge gateway only where needed.", other: "Gateway-focused: data collection centerd on their own hardware and dataloggers." },
   { feature: "Support model", ammp: "Direct access to platform engineers, not a first-line queue.", other: "Tiered ticket queues with escalation paths." },
   { feature: "BESS and hybrid depth", ammp: "Built for PV, BESS, generators and hybrid sites, including high-datapoint storage systems.", other: "Strong PV heritage, storage supported as part of the standard product." },
-  { feature: "Reporting flexibility", ammp: "Programmable, white-labelled reporting and customer-facing portals.", other: "Comprehensive report library with configurable templates." },
+  { feature: "Reporting flexibility", ammp: "Programmable, white-labeled reporting and customer-facing portals.", other: "Comprehensive report library with configurable templates." },
   { feature: "Time to ship a custom requirement", ammp: "Typically 2 to 6 weeks, against a fixed-price quote.", other: "Depends on the product roadmap for anything outside the standard set." },
   { feature: "Contract flexibility", ammp: "Modular pricing by MWp and modules, with a discounted trial period.", other: "Subscription tied to hardware and platform packages." },
 ];

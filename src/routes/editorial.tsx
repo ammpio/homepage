@@ -14,7 +14,7 @@ export const Route = createFileRoute("/editorial")({
   head: () => ({
     meta: [
       { title: "AMMP — an AI coworker for renewable energy portfolios" },
-      { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritises and prepares work." },
+      { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritizes and prepares work." },
       { property: "og:title", content: "AMMP — an AI coworker for renewable energy portfolios" },
       { property: "og:description", content: "Give every portfolio team an AI coworker grounded in the same trusted operational context." },
       { property: "og:type", content: "website" },
@@ -72,7 +72,7 @@ function Hero() {
             Put AI to work across your <em className="font-medium">renewable energy portfolio</em>
           </h1>
           <p className="mt-7 max-w-[48ch] text-pretty text-lg leading-relaxed text-slate-600">
-            An AI coworker grounded in your portfolio data, ready to investigate, prioritise, prepare and collaborate alongside your team.
+            An AI coworker grounded in your portfolio data, ready to investigate, prioritize, prepare and collaborate alongside your team.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link to="/contact" className="inline-flex items-center gap-2 bg-slate-950 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-slate-800">
@@ -258,8 +258,8 @@ function Capability({ proactive = false }: { proactive?: boolean }) {
 function SharedByDesign() {
   const outcomes = [
     { icon: BarChart3, title: "Asset managers", text: "See what needs attention first and move from symptom to root cause faster.", href: "/use-cases/asset-managers" as const },
-    { icon: Wrench, title: "O&M teams", text: "Receive prioritised issues with the context needed to plan the right response.", href: "/use-cases/om-providers" as const },
-    { icon: FileText, title: "Reporting teams", text: "Turn standardised portfolio data into clear, reviewable reporting outputs.", href: "/use-cases/reporting-teams" as const },
+    { icon: Wrench, title: "O&M teams", text: "Receive prioritized issues with the context needed to plan the right response.", href: "/use-cases/om-providers" as const },
+    { icon: FileText, title: "Reporting teams", text: "Turn standardized portfolio data into clear, reviewable reporting outputs.", href: "/use-cases/reporting-teams" as const },
   ];
   return (
     <section className="border-b border-slate-200">
@@ -300,7 +300,7 @@ function ContextPlatformSection() {
         <SectionIndex n="04" label="AI built on an operating platform" />
         <div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <h2 className={`text-balance ${h2Class}`} style={serif}>AI can only work with what it understands</h2>
+            <h2 className={`text-balance ${h2Class}`} style={serif}>AI is only as good as the data foundation it builds on</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-slate-600">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
@@ -342,14 +342,14 @@ const modulesGrid = [
   { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports." },
   { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance." },
   { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools." },
-  { icon: Settings, title: "Customisations", body: "Dashboards, KPIs and views built to fit." },
+  { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit." },
   { icon: Code, title: "API", body: "Your data in your own systems." },
   { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant." },
 ];
 
 const interfaces = [
   { eyebrow: "For the team on shift", title: "AMMP OS", body: "Live portfolio views, alarms, performance analytics, and drill-down to the asset.", icon: Monitor },
-  { eyebrow: "For the work nobody gets to", title: "AMMP AI coworker", body: "A portfolio-aware coworker that explores, analyses, reports and keeps the team ahead.", icon: Bot },
+  { eyebrow: "For the work nobody gets to", title: "AMMP AI coworker", body: "A portfolio-aware coworker that explores, analyzes, reports and keeps the team ahead.", icon: Bot },
 ];
 
 function PlatformOverview() {

@@ -74,7 +74,7 @@ export function Hero() {
         <Reveal delay={270}>
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
-            <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
+            <Link to="/demo" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
           </div>
         </Reveal>
         <div ref={videoRef} className="mx-auto mt-10 max-w-4xl origin-top will-change-transform lg:mt-12 lg:max-w-5xl 2xl:max-w-6xl">
@@ -109,11 +109,11 @@ export function BeforeLogin() {
     <section className="py-16 lg:py-32">
       <div className="site-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
-          <h2 className={h2Class}>Working before anyone’s logged in</h2>
+          <h2 className={h2Class}>On the job before the team logs on</h2>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
             By the time your team opens Slack, Ray has already checked yesterday’s performance across every site, found what changed and opened the tickets that need a human.
           </p>
-          <p className="mt-4 max-w-[48ch] leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
             It adds capacity to the people you already have, without adding another dashboard to watch.
           </p>
         </div>
@@ -124,7 +124,7 @@ export function BeforeLogin() {
               <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
               <div>
                 <p className="text-sm"><span className="font-semibold">Ray</span> <span className="text-muted-foreground">· 07:02</span></p>
-                <p className="mt-1 text-sm leading-relaxed">Morning team. I checked yesterday’s performance across all 142 sites. INV-03 at Brightwater Solar shows underperformance across multiple strings, producing 38% less than its neighbours. I’ve opened a ticket and asked Tom to take a look today.</p>
+                <p className="mt-1 text-sm leading-relaxed">Morning team. I checked yesterday’s performance across all 142 sites. INV-03 at Brightwater Solar shows underperformance across multiple strings, producing 38% less than its neighbors. I’ve opened a ticket and asked Tom to take a look today.</p>
               </div>
             </div>
           </div>
@@ -142,7 +142,7 @@ export function ProactiveOnDemand() {
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Ranks what needs a human first</h3>
-            <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
+            <p className="mt-3 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
                 <p className="text-xs text-muted-foreground">Fleet triage · ranked by daily impact</p>
@@ -152,7 +152,7 @@ export function ProactiveOnDemand() {
                       <span className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden />
                       <div>
                         <p className="text-sm font-medium">Brightwater Solar · INV-03</p>
-                        <p className="text-xs text-muted-foreground">−38% yield vs neighbours</p>
+                        <p className="text-xs text-muted-foreground">−38% yield vs neighbors</p>
                       </div>
                     </div>
                     <span className="shrink-0 text-sm font-medium">−€420/day</span>
@@ -173,7 +173,7 @@ export function ProactiveOnDemand() {
           </div>
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Answers with evidence</h3>
-            <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
+            <p className="mt-3 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
                 <p className="ml-auto w-fit rounded-xl bg-muted px-3 py-2 text-sm">Did Valle Soleado meet its availability guarantee in September?</p>
@@ -200,8 +200,8 @@ export function ProactiveOnDemand() {
 export function Details() {
   const useCases = [
     { icon: BarChart3, title: "Asset managers", text: "See what needs attention first and move from symptom to root cause faster.", to: "/use-cases/asset-managers" as const },
-    { icon: Wrench, title: "O&M teams", text: "Receive prioritised issues with the context needed to plan the right response.", to: "/use-cases/om-providers" as const },
-    { icon: FileText, title: "Reporting teams", text: "Turn standardised portfolio data into clear, reviewable reporting outputs.", to: "/use-cases/reporting-teams" as const },
+    { icon: Wrench, title: "O&M teams", text: "Receive prioritized issues with the context needed to plan the right response.", to: "/use-cases/om-providers" as const },
+    { icon: FileText, title: "Reporting teams", text: "Turn standardized portfolio data into clear, reviewable reporting outputs.", to: "/use-cases/reporting-teams" as const },
   ];
   const tech = ["Solar PV", "Battery storage", "Hybrid and mini-grids", "Wind", "Diesel gensets", "Meters and weather stations"];
   const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "Fronius", "Victron", "GoodWe", "Solis", "Deye", "Growatt", "AlphaESS", "SigEnergy"];
@@ -218,7 +218,7 @@ export function Details() {
     { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports." },
     { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance." },
     { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools." },
-    { icon: Settings, title: "Customisations", body: "Dashboards, KPIs and views built to fit." },
+    { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit." },
     { icon: Code, title: "API", body: "Your data in your own systems." },
     { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant." },
   ];

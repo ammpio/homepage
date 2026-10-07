@@ -40,7 +40,7 @@ const rows = [
 
 const differentiators = [
   { icon: Layers, title: "One Dashboard, All Vendors", text: "Stop logging into FusionSolar, Sunny Portal, iSolarCloud, and SEMS separately. See everything in one place." },
-  { icon: FileText, title: "Consistent Reporting", text: "Generate unified reports across your entire portfolio with standardised metrics, no more spreadsheet gymnastics." },
+  { icon: FileText, title: "Consistent Reporting", text: "Generate unified reports across your entire portfolio with standardized metrics, no more spreadsheet gymnastics." },
   { icon: Shield, title: "Future-Proof Your Portfolio", text: "Choose the best equipment for each project without worrying about monitoring fragmentation." },
   { icon: TrendingUp, title: "True Performance Comparison", text: "Compare site performance fairly across different hardware vendors with normalised analytics." },
 ];

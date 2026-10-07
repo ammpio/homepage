@@ -33,7 +33,7 @@ function Page() {
             { icon: ScrollText, title: "The SAE framework is in place", text: "ANEEL approved the regulatory framework for energy storage (SAE) in 2026, and the Ministry of Mines and Energy issued guidelines for the first storage-dedicated capacity auctions through Ordinance 136/2026." },
             { icon: CalendarClock, title: "First BESS auctions in December 2026", text: "Auctions 05 and 06/2026 are scheduled for December 2026: 15-year contracts, supply from August 2028, a 30 MW minimum, 85%+ round-trip efficiency and grid-forming capability." },
             { icon: Zap, title: "Roughly 18 GW queued", text: "Around 18 GW of battery projects are queued to register, and co-location with solar or wind is the fastest-growing segment. Pairing can cut contracted network usage by up to 30%." },
-            { icon: Wrench, title: "A recognised O&M skills gap", text: "The market has a known shortage of experience in large-scale BESS design, commissioning and operation, which is exactly where a strong monitoring and asset-management layer earns its place." },
+            { icon: Wrench, title: "A recognized O&M skills gap", text: "The market has a known shortage of experience in large-scale BESS design, commissioning and operation, which is exactly where a strong monitoring and asset-management layer earns its place." },
           ]}
         />
       </Band>
@@ -46,7 +46,7 @@ function Page() {
             <h3 className="mt-4 text-xl font-semibold">What a solar-first tool assumes</h3>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-muted-foreground">
               <li>Performance ratio and irradiance as the primary lens on every asset.</li>
-              <li>An operations centre staffed during daylight hours, when generation happens.</li>
+              <li>An operations center staffed during daylight hours, when generation happens.</li>
               <li>A local SCADA install per plant, with hardware packages tied to the contract.</li>
               <li>Reporting shaped around generation, not around dispatch or revenue.</li>
             </ul>
@@ -71,8 +71,8 @@ function Page() {
           features={[
             { icon: BatteryCharging, title: "Solar and storage in one data model", text: "PV, batteries, meters and generators sit in the same model, so hybrid sites are monitored and reported on like any other asset." },
             { icon: Gauge, title: "No SCADA box required", text: "Hardware-agnostic ingestion from 30+ device brands through vendor APIs and existing equipment, with an edge gateway only where a site genuinely needs one." },
-            { icon: BellRing, title: "Alerts centre and ticketing", text: "Alerts become work: assigned, tracked and closed, with integrations into the tools your field teams already use." },
-            { icon: FileBarChart, title: "Automated reporting", text: "Scheduled, white-labelled reports for investors, offtakers and internal reviews, generated from the same data your team operates on." },
+            { icon: BellRing, title: "Alerts center and ticketing", text: "Alerts become work: assigned, tracked and closed, with integrations into the tools your field teams already use." },
+            { icon: FileBarChart, title: "Automated reporting", text: "Scheduled, white-labeled reports for investors, offtakers and internal reviews, generated from the same data your team operates on." },
             { icon: Receipt, title: "Tariff and financial monitoring", text: "Tariffs, savings and billing logic modelled alongside the technical data, so commercial and technical views stay in sync." },
             { icon: Users, title: "Stakeholder portal", text: "Branded access for offtakers, financiers and end customers, without giving them your operational console." },
           ]}

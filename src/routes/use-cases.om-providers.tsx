@@ -1,8 +1,8 @@
+import { RayDay } from "@/components/site/RaySections";
 import { createFileRoute } from "@tanstack/react-router";
 import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/om-providers")({
   head: () => ({ meta: [
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/use-cases/om-providers")({
 const features = [
   { icon: ClipboardCheck, title: "SLA tracking", text: "Monitor uptime and response times in real-time. Get ahead of issues before they impact SLAs." },
   { icon: Wrench, title: "Maintenance scheduling", text: "Plan preventive maintenance across your fleet. Never miss a service interval or warranty deadline." },
-  { icon: FileBarChart, title: "Automated O&M reports", text: "Demonstrate your service value with comprehensive reports for C&I clients and investors. Requires the AMMP Insight module." },
+  { icon: FileBarChart, title: "Automated O&M reports", text: "Demonstrate your service value with comprehensive reports for clients and investors. Requires the AMMP Insight module." },
   { icon: Users, title: "Client dashboards", text: "Give asset owners visibility into their systems with branded, professional dashboards showing performance and savings." },
 ];
 
@@ -42,22 +42,19 @@ function Page() {
 
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="Ray ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
-        <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
-          <p className="text-sm leading-6 text-muted-foreground">Ray prepares the client-ready SLA narrative each month, complete with the evidence, so your account managers walk in with answers already prepared.</p>
-        </div>
+        <div className="mt-10"><RayDay only="maint" /></div>
       </Band>
 
       <Band>
-        <SectionHeading title="O&M tools that work" intro="Built for the realities of managing C&I solar assets for multiple clients." />
+        <SectionHeading title="O&M tools that work" intro="Built for the realities of managing renewable assets for multiple clients." />
         <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
-        <SectionHeading title="More efficient O&M at every level" intro="From field technicians to account managers, AMMP streamlines C&I solar O&M workflows and improves outcomes." />
+        <SectionHeading title="More efficient O&M at every level" intro="From field technicians to account managers, AMMP streamlines O&M workflows and improves outcomes." />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {benefits.map((b) => (
-            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base">
+            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base text-muted-foreground">
               <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />{b}
             </li>
           ))}

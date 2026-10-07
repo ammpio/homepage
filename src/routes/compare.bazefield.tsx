@@ -36,7 +36,7 @@ const rows = [
 ];
 
 const differentiators = [
-  { icon: Zap, title: "Portfolio-First Platform", text: "While Bazefield is a SCADA-centred solution, AMMP is built for operators managing many renewable sites across mixed hardware." },
+  { icon: Zap, title: "Portfolio-First Platform", text: "While Bazefield is a SCADA-centerd solution, AMMP is built for operators managing many renewable sites across mixed hardware." },
   { icon: Clock, title: "Rapid Deployment", text: "Get up and running in days, not months. AMMP's cloud-native architecture eliminates lengthy enterprise implementation cycles." },
   { icon: MessageSquare, title: "Modern Integrations", text: "Native Slack, Teams, and WhatsApp integrations keep your team connected without complex middleware." },
   { icon: DollarSign, title: "Transparent Pricing", text: "Simple, predictable pricing based on your portfolio size. No hidden enterprise licensing fees or long-term commitments." },

@@ -49,7 +49,7 @@ const meetRayBody: BlogBlock[] = [
   { type: "paragraph", text: "It's 8am. You're an asset manager or O&M lead, and before your first coffee there are alerts waiting in a dozen vendor portals, each with its own login and its own idea of what \"fault\" means. Somewhere in the pile is the one issue that's actually costing money. And the monthly report is due on Friday." },
   { type: "paragraph", text: "Ray is the AI coworker we built for that morning. He lives in the tools your team already uses, starting with Microsoft Teams and then Slack, and he's connected to your live AMMP data. He flags problems before anyone logs in, and he answers questions when you ask." },
   { type: "video" },
-  { type: "heading", text: "Working before anyone's logged in" },
+  { type: "heading", text: "On the job before the team logs on" },
   { type: "paragraph", text: "While your team sleeps, Ray reads the portfolio. He checks production against expectations, looks for inverters and strings drifting away from their neighbours, notices sites that have gone quiet, and compares what he finds with open work orders and contract terms." },
   { type: "paragraph", text: "By the time you open Teams, there's a short morning message waiting. It doesn't list every alert. It ranks the few issues worth your attention, says why each one matters, and links straight to the evidence. You start the day with a plan instead of a backlog." },
   { type: "paragraph", text: "Across a portfolio, that can mean [TODO: number] alerts reduced to a handful of ranked priorities." },

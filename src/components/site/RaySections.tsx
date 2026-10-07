@@ -158,15 +158,20 @@ function Tag({ tone, children }: { tone: "action" | "watch" | "resource"; childr
   return <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${cls}`}>{children}</span>;
 }
 
-export function RayDay() {
-  const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("plan");
+export type RayScene = (typeof tabs)[number]["id"];
+
+/* Pass `only` to render a single scene (no heading or tabs), e.g. on use-case pages. */
+export function RayDay({ only }: { only?: RayScene } = {}) {
+  const [selected, setTab] = useState<RayScene>("plan");
+  const tab = only ?? selected;
   return (
-    <section className="relative py-16 lg:py-24">
-      <div className="site-container">
+    <section className={only ? "relative" : "relative py-16 lg:py-24"}>
+      <div className={only ? "" : "site-container"}>
+        {!only && <>
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>A day with Ray</span></div>
-            <h2 className={`mt-3 ${h2Class}`}>Working before anyone's logged in</h2>
+            <h2 className={`mt-3 ${h2Class}`}>On the job before the team logs on</h2>
             <p className="mt-5 text-lg text-muted-foreground">Seven a.m. Ray has already checked yesterday's performance across every site — and knows which issues need a human.</p>
           </div>
         </Reveal>
@@ -179,6 +184,7 @@ export function RayDay() {
             </button>
           ))}
         </div>
+        </>}
 
         <div className="glass-strong mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl">
           <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 text-sm">
@@ -191,7 +197,7 @@ export function RayDay() {
               <div className="space-y-2 pl-12">
                 {[
                   { icon: Wind, site: "Westerkamp Wind · DE", v: "−6.2%", note: "Wind speed 11% below P50. No fault found.", tone: "resource" as const, tag: "Resource" },
-                  { icon: Sun, site: "Brightwater Solar · US", v: "−14.8%", note: "INV-03 −38% vs. neighbours since Sep 18.", tone: "action" as const, tag: "Action" },
+                  { icon: Sun, site: "Brightwater Solar · US", v: "−14.8%", note: "INV-03 −38% vs. neighbors since Sep 18.", tone: "action" as const, tag: "Action" },
                   { icon: Battery, site: "Pine Ridge Storage · US", v: "95.8%", note: "Availability vs. 98.0% target (PCS trips).", tone: "watch" as const, tag: "Watch" },
                 ].map((r) => (
                   <div key={r.site} className="glass-soft flex flex-wrap items-center gap-3 rounded-xl p-3 text-sm">
