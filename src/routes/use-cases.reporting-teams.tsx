@@ -47,7 +47,7 @@ function Page() {
 
       <Band>
         <SectionHeading title="Reporting without the assembly work" intro="AMMP standardizes the data underneath every report, so outputs are consistent across sites, months and audiences." />
-        <FeatureGrid features={features} />
+        <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
