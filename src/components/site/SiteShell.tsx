@@ -59,9 +59,10 @@ function NavDropdown({ item }: { item: NavItem }) {
 
 export function SiteShell() {
   const { t } = useLanguage();
+  const tt = (label: string) => { const value = t(`nav.${label}`); return value === `nav.${label}` ? label : value; };
   const translatedNav: readonly NavItem[] = nav.map((item) => item.children
-    ? { ...item, label: t(`nav.${item.label}`), children: item.children.map(([label, to]) => [t(`nav.${label}`), to] as const) }
-    : { ...item, label: t(`nav.${item.label}`) });
+    ? { ...item, label: tt(item.label), children: item.children.map(([label, to]) => [tt(label), to] as const) }
+    : { ...item, label: tt(item.label) });
   return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div className="glow-orb orb-drift absolute -left-48 top-[4%] size-[34rem] bg-glow-amber/45" />
@@ -77,10 +78,10 @@ export function SiteShell() {
             : <Link key={item.label} to={item.to!} className={navLinkClass} activeProps={{ className: "text-foreground" }}>{item.label}</Link>)}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{t("nav.Log in")}</a>
+          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{tt("Log in")}</a>
           <LanguageSelector />
           
-          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">{t("nav.Contact sales")}</Link>
+          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">{tt("Contact sales")}</Link>
         </div>
         <details className="relative lg:hidden">
           <summary className="glass-soft cursor-pointer list-none rounded-md px-3 py-2 text-sm font-semibold">Menu</summary>
@@ -91,7 +92,7 @@ export function SiteShell() {
                   {item.children.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2 text-sm hover:bg-secondary">{label}</Link>)}
                 </div>
               : <Link key={item.label} to={item.to!} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{item.label}</Link>)}
-            <div className="mt-2 grid gap-2 border-t border-border pt-3"><LanguageSelector variant="outline" /><Link to="/contact" className="button button-primary">{t("nav.Contact sales")}</Link></div>
+            <div className="mt-2 grid gap-2 border-t border-border pt-3"><LanguageSelector variant="outline" /><Link to="/contact" className="button button-primary">{tt("Contact sales")}</Link></div>
           </div>
         </details>
       </div>
