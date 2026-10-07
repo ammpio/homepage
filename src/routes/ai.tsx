@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo, RayDay } from "@/components/site/RaySections";
+import rayCinematic from "@/assets/ray-launch-cinematic.mp4.asset.json";
+import rayCinematicPoster from "@/assets/ray-launch-thumbnail.png.asset.json";
 
 export const Route = createFileRoute("/ai")({
   head: () => ({ meta: [
@@ -23,7 +25,7 @@ function Page() {
         intro="Ray checks performance, triages alarms, audits contracts and drafts reports, with the evidence behind every answer. It works in Slack, Microsoft Teams and AMMP OS."
         primary={{ label: "Book a walkthrough", to: "/contact" }}
       />
-      <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo /></div></div></section>
+      <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo src={rayCinematic.url} poster={rayCinematicPoster.url} /></div></div></section>
       <RayDay />
 
       <Band>

@@ -6,6 +6,7 @@ import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import VimeoPlayer from "@/components/demo/VimeoPlayer";
+import { RayVideo } from "@/components/site/RaySections";
 import demoVideoThumbnail from "@/assets/demo-video-thumbnail.jpg";
 
 const DEMO_CHAPTERS = [
@@ -88,6 +89,7 @@ function Page() {
           )}
       </Band>
 
+      <RayVideo />
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">

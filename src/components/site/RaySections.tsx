@@ -17,7 +17,7 @@ const chapters = [
 ];
 
 /* Hero video: autoplay, muted, looping, native 16:9 (1920×1080) with an unmute toggle */
-export function HeroVideo() {
+export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const toggle = () => {
@@ -31,8 +31,8 @@ export function HeroVideo() {
     <div className="relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
       <video
         ref={ref}
-        src={rayVideo.url}
-        poster={rayPoster}
+        src={src ?? rayVideo.url}
+        poster={poster ?? rayPoster}
         autoPlay
         muted
         loop
