@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/om-providers")({
   head: () => ({ meta: [

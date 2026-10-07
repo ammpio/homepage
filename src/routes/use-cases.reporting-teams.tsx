@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { FileText, ClipboardList, CheckCircle2, Database, ShieldCheck } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/use-cases/reporting-teams")({
   head: () => ({ meta: [

@@ -34,7 +34,6 @@ const categories = [
   { id: "integrations", label: "Integrations", icon: Plug, title: "Connect every system you already run" },
   { id: "customizations", label: "Customizations", icon: Settings2, title: "Built around your portfolio, not a template" },
   { id: "api", label: "API", icon: Code, title: "Build on the same data Ray uses" },
-  { id: "ai", label: "AI", icon: Sparkles, title: "Where Ray comes in", intro: "Ray, the AI coworker, is built directly on top of AMMP OS, so it sees exactly what your dashboards see." },
 ] as const;
 
 type CategoryId = (typeof categories)[number]["id"];
@@ -97,7 +96,7 @@ const panels: Record<CategoryId, ReactNode> = {
   customizations: (
     <div>
       <SplitFeature text="Bespoke dashboards designed around your portfolio, your KPIs, and how your team actually works, not a one-size-fits-all template." image={customDashboardsImg} imageAlt="Custom dashboards" bullets={["Custom integrations for niche inverters, meters, ERP or billing systems", "Custom KPIs: performance ratios, SLA thresholds, financial benchmarks", "Custom alerts matched to your O&M processes and contracts"]} />
-      <Link to="/customization" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">See how tailoring works <ArrowRight className="size-4" /></Link>
+      <Link to="/customization" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">See tailored solutions <ArrowRight className="size-4" /></Link>
     </div>
   ),
   api: (
@@ -105,17 +104,6 @@ const panels: Record<CategoryId, ReactNode> = {
       <div className="rounded-xl border border-border bg-card p-6"><Code className="size-5 text-primary" /><h3 className="mt-4 text-lg font-semibold">AMMP Data API</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">Connect to performance and generation data across your entire portfolio through a single, standardized access point, no need to integrate with multiple vendors individually.</p><a href="https://data-api.ammp.io/docs" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">Explore API docs <ArrowRight className="size-4" /></a></div>
       <Card icon={Zap} title="Faster time-to-market">Skip end-to-end development involving multiple integrations. Bring your products to market well ahead of the competition.</Card>
       <Card icon={Shield} title="Reliable & maintained">No unexpected breaking changes, expired certificates, or rate limits. Focus on building products on a rock-solid foundation.</Card>
-    </div>
-  ),
-  ai: (
-    <div>
-      <div className="grid gap-5 md:grid-cols-3">
-        <Card icon={Sparkles} title="AMMP Intelligence">AI-powered insights that analyze patterns across your portfolio to predict issues, prioritize tickets, and recommend actions before problems escalate.</Card>
-        <Card icon={Server} title="MCP Server">A Model Context Protocol server, so any MCP-compatible AI assistant can securely query your assets, KPIs, alerts and raw time-series in natural language, within your existing access controls.</Card>
-        <Card icon={Bell} title="AI Agents">A team of agents on top of the MCP server: Ray, an in-platform coworker, plus visualization, QA and monitoring agents that proactively check data, dashboards and portfolio health.</Card>
-      </div>
-      <div className="glass-strong mt-8 overflow-hidden rounded-2xl p-2"><video src={rayVideo.url} poster={rayPoster} controls preload="metadata" className="w-full rounded-xl" /></div>
-      <Link to="/ai" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Learn more about AI at AMMP <ArrowRight className="size-4" /></Link>
     </div>
   ),
 };
@@ -128,9 +116,9 @@ function Page() {
     <>
       <PageHero
         eyebrow="Product"
-        title="Your AI coworker need somewhere to work."
-        highlight="AMMP OS is that platform."
-        intro="AMMP OS combines technical monitoring, commercial tracking, and stakeholder reporting into a single platform designed for distributed renewable portfolios. AI coworker sit on top of it, reading the same live data your team already trusts."
+        title="The foundation where Ray"
+        highlight="and your team work together."
+        intro="AMMP OS combines technical monitoring, commercial tracking, and stakeholder reporting into a single platform designed for distributed renewable portfolios. Ray, your AI coworker, works from the same live data your team already trusts, so every answer and action is grounded in your portfolio."
         primary={{ label: "Try the demo", to: "/demo" }}
         secondary={{ label: "See AI at AMMP", to: "/ai" }}
       />

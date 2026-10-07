@@ -65,7 +65,7 @@ export function SiteShell() {
     </div>
     <header className="glass-nav sticky top-0 z-50 border-b border-border/70">
       <div className="site-container flex h-16 items-center justify-between gap-8">
-        <Link to="/" aria-label="AMMP home"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link>
+        <Link to="/" aria-label="AMMP home" className="cursor-pointer select-none"><img src={ammpLogo} alt="AMMP" draggable={false} className="h-7 w-auto cursor-pointer" /></Link>
         <nav className="hidden flex-1 items-center gap-1 lg:flex" aria-label="Main navigation">
           {nav.map((item) => item.children
             ? <NavDropdown key={item.label} item={item} />

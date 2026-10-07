@@ -20,9 +20,9 @@ import { PageCta } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/customization")({
   head: () => ({
     meta: [
-      { title: "How Tailoring Works — Custom Integrations and Dashboards | AMMP" },
+      { title: "Tailored Solutions — Custom Integrations and Workflows | AMMP" },
       { name: "description", content: "AMMP builds custom integrations, dashboards, KPIs and workflows on top of a maintained monitoring platform. Fixed-price quotes, live in two to six weeks." },
-      { property: "og:title", content: "How Tailoring Works — Custom Integrations and Dashboards | AMMP" },
+      { property: "og:title", content: "Tailored Solutions — Custom Integrations and Workflows | AMMP" },
       { property: "og:description", content: "Your portfolio isn't standard. Your platform shouldn't be either — fixed-price custom builds on AMMP OS." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -51,7 +51,7 @@ const buildItems = [
 const cases = [
   { icon: Map, title: "Custom map with urgent alerts", text: "A geospatial view that surfaces open, high-priority alerts across the fleet so dispatch teams see what needs attention first." },
   { icon: Leaf, title: "Environmental-impact dashboard, live in two weeks", text: "CO2 avoided and trees saved, branded for an O&M provider and shared directly with their end customer." },
-  { icon: Gauge, title: "Custom SCADA integration for a C&I operator", text: "A site-level SCADA connection plus the operational dashboard built on top of it, delivered against a fixed quote." },
+  { icon: Gauge, title: "Custom SCADA integration for a commercial operator", text: "A site-level SCADA connection plus the operational dashboard built on top of it, delivered against a fixed quote." },
 ];
 
 const diy = [
@@ -70,10 +70,10 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="How tailoring works"
+        eyebrow="Tailored solutions"
         title="Your portfolio isn't standard."
         highlight="Your platform shouldn't be either."
-        intro="AMMP builds custom integrations, dashboards, KPIs and workflows on top of a maintained monitoring platform — the same platform your AI coworker run on. You get the specific thing your business needs, without owning the upkeep of a platform."
+        intro="Every portfolio has its own SCADA setups, contracts, tariffs and reporting needs. AMMP adapts the platform to them — custom integrations, KPIs and workflows — so Ray and your team work from data that fits how you actually operate, without you owning the upkeep."
         primary={{ label: "Send us your requirement", to: "/contact" }}
       />
 
