@@ -34,20 +34,45 @@ function Page() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
   const submit = useServerFn(submitContact);
+
+  useEffect(() => {
+    const render = () => {
+      if (turnstileRef.current && window.turnstile && widgetId.current === null) {
+        widgetId.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(""),
+        });
+      }
+    };
+    if (window.turnstile) { render(); return; }
+    window.onTurnstileLoad = render;
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit";
+    s.async = true;
+    document.head.appendChild(s);
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSending(true);
     setFailed(false);
     try {
-      const res = await submit({ data: form });
+      const res = await submit({ data: { ...form, turnstileToken } });
       if (res.ok) setSubmitted(true);
       else setFailed(true);
     } catch {
       setFailed(true);
     } finally {
       setSending(false);
+      if (widgetId.current !== null && window.turnstile) {
+        window.turnstile.reset(widgetId.current);
+        setTurnstileToken("");
+      }
     }
   }
 
