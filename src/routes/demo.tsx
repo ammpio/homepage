@@ -23,7 +23,6 @@ const DEMO_CHAPTERS = [
   { time: 1335, title: "Energy Savings Hub" },
   { time: 1450, title: "Billing Integration" },
   { time: 1625, title: "Automation / AI" },
-  { time: 1740, title: "Outro" },
 ];
 
 export const Route = createFileRoute("/demo")({
