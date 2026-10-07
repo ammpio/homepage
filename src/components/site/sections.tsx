@@ -187,7 +187,7 @@ function RaySpotlight({ otherLabel }: { otherLabel: string }) {
         <div className="text-center md:text-left">
           <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">Beyond dashboards: meet Ray</h3>
           <p className="mt-3 max-w-xl leading-7 text-muted-foreground md:mx-0 mx-auto">{otherLabel} shows you charts and alarms. AMMP adds Ray, an AI coworker who investigates, prioritizes and prepares the work for your team.</p>
-          <Link to="/ai" className="button button-primary mt-6">Meet Ray <ArrowRight className="size-4" /></Link>
+          <Link to="/ray" className="button button-primary mt-6">Meet Ray <ArrowRight className="size-4" /></Link>
         </div>
       </div>
       <ul className="mt-10 grid gap-6 border-t border-border/60 pt-8 sm:grid-cols-3">

@@ -97,7 +97,7 @@ function Page() {
                 <VimeoPlayer videoId="1201387112" title="AMMP OS product walkthrough" poster={demoVideoThumbnail} chapters={DEMO_CHAPTERS} />
               </div>
               <div className="space-y-6">
-                <Link to="/ai" className="glass glass-lift group grid items-center gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2">
+                <Link to="/ray" className="glass glass-lift group grid items-center gap-8 rounded-3xl p-6 sm:p-8 lg:grid-cols-2">
                   <div>
                     <p className="eyebrow">AMMP AI</p>
                     <h3 className="mt-2 text-2xl font-medium tracking-tight">Ray, your AI coworker</h3>

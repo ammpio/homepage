@@ -83,7 +83,7 @@ function Hero() {
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-7 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_-12px_rgba(28,25,23,0.5)] transition-all hover:-translate-y-0.5 hover:bg-stone-800">
               Meet your coworker <ArrowRight className="size-4" />
             </Link>
-            <Link to="/ai" className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-7 py-3.5 text-sm font-bold text-stone-900 transition-all hover:-translate-y-0.5 hover:border-stone-400">
+            <Link to="/ray" className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-7 py-3.5 text-sm font-bold text-stone-900 transition-all hover:-translate-y-0.5 hover:border-stone-400">
               See how it works
             </Link>
           </div>
