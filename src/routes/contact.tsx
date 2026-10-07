@@ -5,6 +5,7 @@ import { submitContact } from "@/lib/contact.functions";
 import { ArrowRight, Calendar, Check, Linkedin, Mail } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
+import { NewsletterSignup } from "@/components/site/NewsletterSignup";
 
 const TURNSTILE_SITE_KEY = "0x4AAAAAAFQPfF249vmbtO0n";
 

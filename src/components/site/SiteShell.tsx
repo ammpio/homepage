@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronDown, Linkedin, ShieldCheck } from "lucide-react";
 import ammpLogo from "@/assets/ammp-logo.png";
 import { LanguageSelector } from "@/components/i18n/LanguageSelector";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { NewsletterSignup } from "@/components/site/NewsletterSignup";
 
 type NavLink = readonly [string, string];
 type NavItem = { label: string; to?: string; children?: readonly NavLink[] };
@@ -106,7 +107,7 @@ export function SiteShell() {
       <div className="glass-footer relative border-t border-border/50">
       <div className="site-container py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
-          <div className="col-span-2 md:col-span-1"><Link to="/" aria-label="AMMP home" className="inline-block"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">Put AI to work across your renewable energy portfolio</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
+          <div className="col-span-2 md:col-span-1"><Link to="/" aria-label="AMMP home" className="inline-block"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">Put AI to work across your renewable energy portfolio</p><div className="mt-6"><p className="mb-2 text-sm font-semibold">Newsletter</p><NewsletterSignup compact /></div><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
           <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["Meet Ray","/ray"],["Tailored solutions","/customization"],["Security","/security"]]} />
           <FooterColumn title="Solutions" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Reporting teams","/use-cases/reporting-teams"],["Case studies","/case-studies"],["Switch to AMMP","/switch"]]} />
           <div>
