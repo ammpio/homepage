@@ -1,6 +1,8 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronDown, Linkedin, ShieldCheck } from "lucide-react";
 import ammpLogo from "@/assets/ammp-logo.png";
+import { LanguageSelector } from "@/components/i18n/LanguageSelector";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 type NavLink = readonly [string, string];
 type NavItem = { label: string; to?: string; children?: readonly NavLink[] };
@@ -56,6 +58,12 @@ function NavDropdown({ item }: { item: NavItem }) {
 }
 
 export function SiteShell() {
+  const { t } = useLanguage();
+  const translatedNav = nav.map((item) => ({
+    ...item,
+    label: t(`nav.${item.label}`),
+    children: item.children?.map(([label, to]) => [t(`nav.${label}`), to] as const),
+  }));
   return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div className="glow-orb orb-drift absolute -left-48 top-[4%] size-[34rem] bg-glow-amber/45" />
@@ -66,25 +74,26 @@ export function SiteShell() {
       <div className="site-container flex h-16 items-center justify-between gap-8">
         <Link to="/" aria-label="AMMP home" className="cursor-pointer select-none"><img src={ammpLogo} alt="AMMP" draggable={false} className="h-7 w-auto cursor-pointer" /></Link>
         <nav className="hidden flex-1 items-center gap-1 lg:flex" aria-label="Main navigation">
-          {nav.map((item) => item.children
+          {translatedNav.map((item) => item.children
             ? <NavDropdown key={item.label} item={item} />
             : <Link key={item.label} to={item.to!} className={navLinkClass} activeProps={{ className: "text-foreground" }}>{item.label}</Link>)}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Log in</a>
+          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{t("nav.Log in")}</a>
+          <LanguageSelector />
           
-          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">Contact sales</Link>
+          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">{t("nav.Contact sales")}</Link>
         </div>
         <details className="relative lg:hidden">
           <summary className="glass-soft cursor-pointer list-none rounded-md px-3 py-2 text-sm font-semibold">Menu</summary>
           <div className="glass-strong absolute right-0 top-12 w-72 rounded-xl p-3 shadow-xl">
-            {nav.map((item) => item.children
+            {translatedNav.map((item) => item.children
               ? <div key={item.label} className="mb-2">
                   <p className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{item.label}</p>
                   {item.children.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2 text-sm hover:bg-secondary">{label}</Link>)}
                 </div>
               : <Link key={item.label} to={item.to!} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{item.label}</Link>)}
-            <div className="mt-2 grid gap-2 border-t border-border pt-3"><Link to="/contact" className="button button-primary">Contact sales</Link></div>
+            <div className="mt-2 grid gap-2 border-t border-border pt-3"><LanguageSelector variant="outline" /><Link to="/contact" className="button button-primary">{t("nav.Contact sales")}</Link></div>
           </div>
         </details>
       </div>

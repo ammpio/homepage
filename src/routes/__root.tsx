@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteShell } from "../components/site/SiteShell";
+import { LanguageProvider } from "../i18n/LanguageContext";
+import { AutoTranslate } from "../i18n/AutoTranslate";
 
 function NotFoundComponent() {
   return (
@@ -116,8 +118,11 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SiteShell />
-    </QueryClientProvider>
+    <LanguageProvider>
+      <QueryClientProvider client={queryClient}>
+        <AutoTranslate />
+        <SiteShell />
+      </QueryClientProvider>
+    </LanguageProvider>
   );
 }
