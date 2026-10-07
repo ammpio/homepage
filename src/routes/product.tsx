@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
@@ -12,8 +13,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 function LocalizedOverviewVideo() {
   const { language } = useLanguage();
-  const src = language === "pt" ? overviewPt.url : language === "es" ? overviewEs.url : overviewVideo.url;
-  return <HeroVideo key={src} src={src} poster={overviewPoster.url} />;
+  const src = language === "pt" ? assetUrl(overviewPt) : language === "es" ? assetUrl(overviewEs) : assetUrl(overviewVideo);
+  return <HeroVideo key={src} src={src} poster={assetUrl(overviewPoster)} />;
 }
 import energyMix from "@/assets/energy-mix.png";
 import performanceAnalytics from "@/assets/performance-analytics.png";

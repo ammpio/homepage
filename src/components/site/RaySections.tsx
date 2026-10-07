@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/assets";
 import { useRef, useState } from "react";
 import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -31,7 +32,7 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
     <div className="relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
       <video
         ref={ref}
-        src={src ?? rayVideo.url}
+        src={src ?? assetUrl(rayVideo)}
         poster={poster === undefined ? rayPoster : poster || undefined}
         autoPlay
         muted
@@ -72,7 +73,7 @@ export function RayPlayer() {
     <div className="relative overflow-hidden rounded-2xl bg-foreground/5">
       <video
         ref={ref}
-        src={rayVideo.url}
+        src={assetUrl(rayVideo)}
         poster={rayPoster}
         controls={started}
         playsInline
