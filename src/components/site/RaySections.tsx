@@ -95,7 +95,7 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
       {(
         <>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
-          <div className="absolute inset-x-3 bottom-[3.75rem] flex items-center gap-3 opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
+          <div className="absolute inset-x-3 bottom-12 sm:bottom-[3.75rem] flex items-center gap-3 opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
             <div className="relative h-5 flex-1">
               <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-background/35 backdrop-blur">
                 <div className="absolute inset-y-0 left-0 rounded-full bg-background" style={{ width: `${pct}%` }} />
@@ -122,25 +122,25 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
         </>
       )}
 
-      <div className="absolute bottom-3 right-3 flex items-center gap-2 sm:bottom-4 sm:right-4">
+      <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 sm:bottom-4 sm:right-4 sm:gap-2">
         {!ended && (
           <button
             type="button"
             onClick={replay}
             aria-label="Restart video"
-            className="grid size-10 place-items-center rounded-full bg-foreground/90 text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground"
+            className="grid size-8 place-items-center rounded-full bg-foreground/90 text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground sm:size-10"
           >
-            <RotateCcw className="size-4" />
+            <RotateCcw className="size-3.5 sm:size-4" />
           </button>
         )}
         <button
           type="button"
           onClick={toggle}
           aria-label={muted ? "Unmute video" : "Mute video"}
-          className="flex h-10 items-center gap-2 rounded-full bg-foreground/90 px-4 text-sm font-medium text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground"
+          className="flex size-8 items-center justify-center gap-2 rounded-full bg-foreground/90 text-sm font-medium text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground sm:h-10 sm:w-auto sm:px-4"
         >
-          {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-          {muted ? "Unmute" : "Mute"}
+          {muted ? <VolumeX className="size-3.5 sm:size-4" /> : <Volume2 className="size-3.5 sm:size-4" />}
+          <span className="hidden sm:inline">{muted ? "Unmute" : "Mute"}</span>
         </button>
       </div>
     </div>
