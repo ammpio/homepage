@@ -9,6 +9,9 @@ import VimeoPlayer from "@/components/demo/VimeoPlayer";
 import { HeroVideo } from "@/components/site/RaySections";
 import overviewVideo from "@/assets/ray-by-ammp-overview.mp4.asset.json";
 import overviewPoster from "@/assets/ray-by-ammp-overview-poster.jpg.asset.json";
+import overviewPt from "@/assets/Ray_by_AMMP_overview_PT-BR.mp4.asset.json";
+import overviewEs from "@/assets/Ray_by_AMMP_overview_ES.mp4.asset.json";
+import { useLanguage } from "@/i18n/LanguageContext";
 import demoVideoThumbnail from "@/assets/demo-video-thumbnail.jpg";
 
 const DEMO_CHAPTERS = [
@@ -43,6 +46,7 @@ const tabs = [
 
 function Page() {
   const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("interactive");
+  const { language } = useLanguage();
   return (
     <>
       <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our platform for solar, storage and hybrid portfolios—and the AI coworker built on top of it—in action." />
@@ -50,7 +54,7 @@ function Page() {
       <Band tone="white">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-8 text-center text-3xl font-medium tracking-tight">See how it works</h2>
-          <HeroVideo src={overviewVideo.url} poster={overviewPoster.url} />
+          <HeroVideo key={language} src={language === "pt" ? overviewPt.url : language === "es" ? overviewEs.url : overviewVideo.url} poster={overviewPoster.url} />
         </div>
       </Band>
 
