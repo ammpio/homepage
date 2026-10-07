@@ -59,9 +59,10 @@ function NavDropdown({ item }: { item: NavItem }) {
 
 export function SiteShell() {
   const { t } = useLanguage();
+  const tt = (label: string) => { const value = t(`nav.${label}`); return value === `nav.${label}` ? label : value; };
   const translatedNav: readonly NavItem[] = nav.map((item) => item.children
-    ? { ...item, label: t(`nav.${item.label}`), children: item.children.map(([label, to]) => [t(`nav.${label}`), to] as const) }
-    : { ...item, label: t(`nav.${item.label}`) });
+    ? { ...item, label: tt(item.label), children: item.children.map(([label, to]) => [tt(label), to] as const) }
+    : { ...item, label: tt(item.label) });
   return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div className="glow-orb orb-drift absolute -left-48 top-[4%] size-[34rem] bg-glow-amber/45" />
