@@ -27,8 +27,7 @@ function Page() {
     <>
       <PageHero
         eyebrow="Careers"
-        title="Help us put AI coworker to work across"
-        highlight="the renewable energy transition."
+        title="Help us put AI to work across the renewable energy transition."
         intro="Be part of something really great. Help us build the operating system for clean energy—and the AI coworker that run on top of it."
         primary={{ label: "View open positions", to: "/careers" }}
         secondary={{ label: "Talk to us", to: "/contact" }}
