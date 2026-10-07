@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo, RayDay } from "@/components/site/RaySections";
+import rayCinematic from "@/assets/ray-launch-cinematic.mp4.asset.json";
+import rayCinematicPoster from "@/assets/ray-launch-thumbnail.png.asset.json";
 
 export const Route = createFileRoute("/ai")({
   head: () => ({ meta: [
