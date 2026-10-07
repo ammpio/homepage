@@ -28,7 +28,7 @@ export const Route = createFileRoute("/demo")({
     { title: "Experience AMMP OS — Interactive Demo" },
     { name: "description", content: "See AMMP OS and its AI coworker in action: interactive demo, sample reports and live dashboards." },
     { property: "og:title", content: "Experience AMMP OS" },
-    { property: "og:description", content: "See our C&I solar monitoring platform, reporting and an AI coworker in action." },
+    { property: "og:description", content: "See our renewable portfolio platform, reporting and an AI coworker in action." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -43,7 +43,7 @@ function Page() {
   const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("interactive");
   return (
     <>
-      <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our C&I solar and BESS monitoring platform—and the AI coworker built on top of it—in action." />
+      <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our platform for solar, storage and hybrid portfolios—and the AI coworker built on top of it—in action." />
 
       <Band tone="grey">
         <div className="flex justify-center">

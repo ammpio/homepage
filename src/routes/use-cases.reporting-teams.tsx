@@ -57,7 +57,7 @@ function Page() {
         <SectionHeading title="Trusted numbers, delivered faster" intro="The workflow stays reviewable end to end: what was requested, what was produced, and what the evidence shows." />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {benefits.map((b) => (
-            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base">
+            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base text-muted-foreground">
               <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />{b}
             </li>
           ))}

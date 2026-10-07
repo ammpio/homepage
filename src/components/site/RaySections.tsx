@@ -166,7 +166,7 @@ export function RayDay() {
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>A day with Ray</span></div>
-            <h2 className={`mt-3 ${h2Class}`}>Working before anyone's logged in</h2>
+            <h2 className={`mt-3 ${h2Class}`}>On the job before the team logs on</h2>
             <p className="mt-5 text-lg text-muted-foreground">Seven a.m. Ray has already checked yesterday's performance across every site — and knows which issues need a human.</p>
           </div>
         </Reveal>

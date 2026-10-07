@@ -7,7 +7,7 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/use-cases/asset-managers")({
   head: () => ({ meta: [
     { title: "AMMP for Asset Managers — AMMP" },
-    { name: "description", content: "Ray and AMMP OS give asset managers total visibility and complete control over a distributed C&I portfolio." },
+    { name: "description", content: "Ray and AMMP OS give asset managers total visibility and complete control over a renewable energy portfolio." },
     { property: "og:title", content: "AMMP for Asset Managers — AMMP" },
     { property: "og:description", content: "Total visibility. Complete control. Ray, grounded in your portfolio data." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -50,15 +50,15 @@ function Page() {
       </Band>
 
       <Band>
-        <SectionHeading title="Complete portfolio visibility" intro="Stop juggling spreadsheets and siloed systems. AMMP brings all your C&I sites together." />
+        <SectionHeading title="Complete portfolio visibility" intro="Stop juggling spreadsheets and siloed systems. AMMP brings all your sites together." />
         <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
-        <SectionHeading title="Data-driven decisions at scale" intro="AMMP provides the insights you need to optimize your C&I portfolio and maximize returns on your energy investments." />
+        <SectionHeading title="Data-driven decisions at scale" intro="AMMP provides the insights you need to optimize your renewable portfolio and maximize returns on your energy investments." />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {benefits.map((b) => (
-            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base">
+            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base text-muted-foreground">
               <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />{b}
             </li>
           ))}

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/use-cases/om-providers")({
 const features = [
   { icon: ClipboardCheck, title: "SLA tracking", text: "Monitor uptime and response times in real-time. Get ahead of issues before they impact SLAs." },
   { icon: Wrench, title: "Maintenance scheduling", text: "Plan preventive maintenance across your fleet. Never miss a service interval or warranty deadline." },
-  { icon: FileBarChart, title: "Automated O&M reports", text: "Demonstrate your service value with comprehensive reports for C&I clients and investors. Requires the AMMP Insight module." },
+  { icon: FileBarChart, title: "Automated O&M reports", text: "Demonstrate your service value with comprehensive reports for clients and investors. Requires the AMMP Insight module." },
   { icon: Users, title: "Client dashboards", text: "Give asset owners visibility into their systems with branded, professional dashboards showing performance and savings." },
 ];
 
@@ -49,15 +49,15 @@ function Page() {
       </Band>
 
       <Band>
-        <SectionHeading title="O&M tools that work" intro="Built for the realities of managing C&I solar assets for multiple clients." />
+        <SectionHeading title="O&M tools that work" intro="Built for the realities of managing renewable assets for multiple clients." />
         <FeatureGrid features={features} columns={4} />
       </Band>
 
       <Band tone="grey">
-        <SectionHeading title="More efficient O&M at every level" intro="From field technicians to account managers, AMMP streamlines C&I solar O&M workflows and improves outcomes." />
+        <SectionHeading title="More efficient O&M at every level" intro="From field technicians to account managers, AMMP streamlines O&M workflows and improves outcomes." />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {benefits.map((b) => (
-            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base">
+            <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base text-muted-foreground">
               <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />{b}
             </li>
           ))}

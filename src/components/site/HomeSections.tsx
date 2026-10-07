@@ -74,7 +74,7 @@ export function Hero() {
         <Reveal delay={270}>
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <Link to="/ai" className="button button-primary w-full justify-center rounded-full px-5 sm:w-auto">Meet your coworker <ArrowRight className="size-4" /></Link>
-            <Link to="/mcp" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
+            <Link to="/demo" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See how it works <ArrowRight className="size-4" /></Link>
           </div>
         </Reveal>
         <div ref={videoRef} className="mx-auto mt-10 max-w-4xl origin-top will-change-transform lg:mt-12 lg:max-w-5xl 2xl:max-w-6xl">

@@ -300,7 +300,7 @@ function ContextPlatformSection() {
         <SectionIndex n="04" label="AI built on an operating platform" />
         <div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <h2 className={`text-balance ${h2Class}`} style={serif}>AI can only work with what it understands</h2>
+            <h2 className={`text-balance ${h2Class}`} style={serif}>AI is only as good as the data foundation it builds on</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-slate-600">Underneath every coworker is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
         </div>
