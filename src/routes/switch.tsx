@@ -36,7 +36,7 @@ function Page() {
       <PageHero eyebrow="Switching" title="Why C&I solar companies" highlight="switch to AMMP" intro="Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworker, automated reporting, and a platform that scales." primary={{ label: "Try the demo", to: "/demo" }} secondary={{ label: "Talk to sales", to: "/contact" }} />
 
       <Band tone="grey">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">What's happening</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">What's happening</h2>
         <p className="mt-3 text-center text-lg text-muted-foreground">The C&I solar industry is shifting. Portfolios are growing, but the tools haven't kept up.</p>
         <FeatureGrid columns={3} features={[
           { icon: AlertTriangle, title: "Vendor fragmentation is growing", text: "Every new brand in your portfolio means another portal, another login, another data silo. Visibility gets harder as you scale." },
@@ -46,20 +46,20 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">Three things that make AMMP different</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">Three things that make AMMP different</h2>
         <div className="mx-auto mt-10 max-w-3xl space-y-10">
           <div>
-            <h3 className="text-2xl font-semibold">Teams actually use it</h3>
+            <h3 className="text-2xl font-medium">Teams actually use it</h3>
             <p className="mt-3 text-lg text-muted-foreground">AMMP is built for operators, not just dashboards. Your O&M team, asset managers, and clients all get views that make sense for them.</p>
             <blockquote className="mt-4 border-l-4 border-primary pl-4 italic text-foreground/80">"AMMP has become an integral part of our daily operations. The team actually uses it every day, that's the best proof it works."<footer className="mt-2 text-sm not-italic text-muted-foreground">— Adam Bekker, Broadreach Energy</footer></blockquote>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold">Works with your existing equipment</h3>
+            <h3 className="text-2xl font-medium">Works with your existing equipment</h3>
             <p className="mt-3 text-lg text-muted-foreground">Connect inverters, meters, batteries, and sensors from 30+ manufacturers. No hardware swaps, no vendor lock-in.</p>
             <Link to="/integrations" className="button button-ghost mt-4">View all integrations <ArrowRight className="size-4" /></Link>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold">Reporting that proves your value</h3>
+            <h3 className="text-2xl font-medium">Reporting that proves your value</h3>
             <p className="mt-3 text-lg text-muted-foreground">Automated PDF reports, stakeholder portals, and financial impact dashboards. Give your investors and clients the confidence they expect.</p>
             <blockquote className="mt-4 border-l-4 border-primary pl-4 italic text-foreground/80">"We went from spending a month on reporting to generating everything in a day. It completely changed how we present to investors."<footer className="mt-2 text-sm not-italic text-muted-foreground">— Chris Robinson, SolarSaver</footer></blockquote>
           </div>
@@ -67,7 +67,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">Who else switched</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">Who else switched</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {[{ logo: daystarLogo, name: "Daystar Power", stat: "400+ sites across West Africa" }, { logo: solarsaverLogo, name: "SolarSaver", stat: "Reporting cut from 1 month to 1 day" }, { logo: broadreachLogo, name: "Broadreach Energy", stat: "170+ sites unified in one view" }].map((c) => (
             <div key={c.name} className="flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-6 text-center">
@@ -79,7 +79,7 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">How it works</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">How it works</h2>
         <StepList steps={[
           { title: "Explore the demo", text: "Try the interactive demo and browse our examples. See what AMMP looks like for a portfolio like yours." },
           { title: "Talk to our team", text: "Contact sales and define your needs together. We'll map your equipment, integrations, and reporting requirements." },
@@ -88,7 +88,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">How to pitch AMMP internally</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">How to pitch AMMP internally</h2>
         <p className="mt-3 text-center text-lg text-muted-foreground">Different stakeholders care about different things. Here's how to frame the conversation for each.</p>
         <div className="mx-auto mt-10 max-w-3xl space-y-4">
           {personas.map((p) => (
@@ -113,7 +113,7 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl text-center">Frequently asked questions</h2>
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">Frequently asked questions</h2>
         <div className="mx-auto max-w-3xl"><Faq items={faqs} /></div>
       </Band>
 

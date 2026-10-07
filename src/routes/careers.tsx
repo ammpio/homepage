@@ -82,7 +82,7 @@ function Page() {
 
       <Band tone="grey">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Don't see a fit?</h2>
+          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Don't see a fit?</h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">We're always looking for talented people. Get in touch and tell us how you can contribute.</p>
           <Link to="/contact" className="button button-ghost mt-8">Contact us <ArrowRight className="size-4" /></Link>
         </div>

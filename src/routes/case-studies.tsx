@@ -90,7 +90,7 @@ function Page() {
               </div>
               <div className="mb-2 flex items-center gap-3">
                 {study.logo && <img src={study.logo} alt={study.company} className="h-8 w-auto object-contain" />}
-                <h2 className="text-2xl font-bold">{study.company}</h2>
+                <h2 className="text-2xl font-medium">{study.company}</h2>
               </div>
               <p className="mb-4 text-sm text-muted-foreground">{study.countries} • {study.portfolio}</p>
               <p className="mb-4 text-3xl font-bold text-primary">{study.result}</p>

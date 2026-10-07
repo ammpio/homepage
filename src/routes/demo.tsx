@@ -100,7 +100,7 @@ function Page() {
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-semibold">Want a guided demo?</h2>
+          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Want a guided demo?</h2>
           <p className="mt-4 text-lg text-muted-foreground">Pick a time that suits you and we'll set up a personalised walkthrough with your team.</p>
         </div>
         <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-border/50 bg-white">

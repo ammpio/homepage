@@ -131,7 +131,7 @@ function Page() {
 
       <Band>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Get a custom proposal</h2>
+          <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Get a custom proposal</h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">Tell us about your portfolio and requirements. We'll put together a tailored proposal that fits your needs and budget.</p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link to="/contact" className="button button-pink">Contact sales <ArrowRight className="size-4" /></Link>

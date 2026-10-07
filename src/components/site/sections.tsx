@@ -81,7 +81,7 @@ export function SplitFeature({ eyebrow, title, text, bullets, image, imageAlt, r
     <div className={`grid items-center gap-10 lg:grid-cols-2 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
       <div>
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        {title && <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>}
+        {title && <h2 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>}
         <p className={`text-lg leading-8 text-muted-foreground ${title ? "mt-4" : "mt-3"}`}>{text}</p>
         {bullets && (
           <ul className="mt-6 space-y-3">
