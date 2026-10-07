@@ -41,7 +41,7 @@ function Page() {
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="Triage before it becomes a truck roll" intro="Ray ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
+        <SectionHeading title="Triage before it becomes a truck roll" intro="Ray ranks issues across every client site by operational and commercial impact, so field teams roll out for the ones that matter." />
         <div className="mt-10"><RayDay only="maint" /></div>
       </Band>
 

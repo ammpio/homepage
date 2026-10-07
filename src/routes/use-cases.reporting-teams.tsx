@@ -41,7 +41,7 @@ function Page() {
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardized numbers, drafts the report, and shows the evidence behind every figure before you publish." />
+        <SectionHeading title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardized numbers, drafts the report, and shows the evidence behind every figure before you publish." />
         <div className="mt-10"><RayDay only="report" /></div>
       </Band>
 

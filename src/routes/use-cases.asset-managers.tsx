@@ -42,7 +42,7 @@ function Page() {
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="Ray watches every underperforming site" intro="Instead of scanning spreadsheets, Ray flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
+        <SectionHeading title="Ray watches every underperforming site" intro="Instead of scanning spreadsheets, Ray flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
         <div className="mt-10"><RayDay only="plan" /></div>
       </Band>
 
