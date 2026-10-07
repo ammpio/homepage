@@ -92,7 +92,7 @@ export function SiteShell() {
                   {item.children.map(([label, to]) => <Link key={to} to={to} className="block rounded px-3 py-2 text-sm hover:bg-secondary">{label}</Link>)}
                 </div>
               : <Link key={item.label} to={item.to!} className="block rounded px-3 py-2.5 text-sm hover:bg-secondary">{item.label}</Link>)}
-            <div className="mt-2 grid gap-2 border-t border-border pt-3"><LanguageSelector variant="outline" /><Link to="/contact" className="button button-primary">{t("nav.Contact sales")}</Link></div>
+            <div className="mt-2 grid gap-2 border-t border-border pt-3"><LanguageSelector variant="outline" /><Link to="/contact" className="button button-primary">{tt("Contact sales")}</Link></div>
           </div>
         </details>
       </div>
