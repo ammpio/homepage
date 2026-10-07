@@ -189,7 +189,7 @@ export function RayDay({ only }: { only?: RayScene } = {}) {
         <div className="glass-strong mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl">
           <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 text-sm">
             <span className="font-medium">{tab === "report" ? "# finance-reporting" : tab === "plan" ? "# portfolio-ops" : "Mark de Vries, Tom Visser, Ray"}</span>
-            <span className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>
+            {!only && <span className="flex items-center gap-2 text-xs font-medium text-primary"><span className="status-pulse size-1.5 rounded-full bg-primary" />Ray is online</span>}
           </div>
           <div key={tab} className="msg-in space-y-5 p-5 sm:p-7">
             {tab === "plan" && (<>
