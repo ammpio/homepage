@@ -252,7 +252,7 @@ export function Details() {
       <section className="py-16 lg:py-32">
         <div className="site-container">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI is only as good as the data foundation it builds on</h2>
+            <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI is only as good as its data foundation</h2>
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath Ray is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
           </div>
           <div className="mx-auto mt-14 max-w-6xl">
