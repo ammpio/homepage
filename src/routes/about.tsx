@@ -39,15 +39,16 @@ function Page() {
 
       <Band tone="white">
         <div className="grid items-stretch gap-5 md:grid-cols-2">
-          <div className="glass-strong flex flex-col justify-center rounded-3xl px-6 py-10 text-center sm:px-10">
+          <div className="glass-strong flex flex-col rounded-3xl px-6 py-10 text-center sm:px-10">
             <p className="eyebrow">Our mission</p>
             <p className="mt-4 text-xl font-medium leading-relaxed sm:text-2xl">We enable renewable energy companies to realize the true potential of AI for their portfolios.</p>
           </div>
-          <div className="glass-strong flex flex-col justify-center rounded-3xl px-6 py-10 text-center sm:px-10">
+          <div className="glass-strong flex flex-col rounded-3xl px-6 py-10 text-center sm:px-10">
             <p className="eyebrow">Our vision</p>
             <p className="mt-4 text-xl font-medium leading-relaxed sm:text-2xl">A world that runs on reliable and sustainable energy.</p>
           </div>
         </div>
+
       </Band>
 
 
