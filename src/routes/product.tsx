@@ -56,7 +56,7 @@ function Card({ icon: Icon, title, children }: { icon: typeof Zap; title: string
 const panels: Record<CategoryId, ReactNode> = {
   monitoring: (
     <div className="space-y-16">
-      <SplitFeature eyebrow="Real-time dashboards" title="Live visibility, before your colleagues even ask" text="Customizable portfolio and site-level dashboards give people and Ray the same grounded view of every site — power flows, battery states and grid interactions on one screen." image={energyMix} imageAlt="Real-time dashboards" />
+      <SplitFeature eyebrow="Real-time dashboards" title="Live visibility across your portfolio" text="Customizable portfolio and site-level dashboards give people and Ray the same grounded view of every site — power flows, battery states and grid interactions on one screen." image={energyMix} imageAlt="Real-time dashboards" />
       <SplitFeature reverse eyebrow="Performance analytics" title="Know which sites need attention" text="Track KPIs, identify underperformers, and benchmark across your portfolio. Understand exactly which sites need attention and why." image={performanceAnalytics} imageAlt="Performance analytics" />
     </div>
   ),
