@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
@@ -22,9 +23,9 @@ export const Route = createFileRoute("/ray")({
 
 function Page() {
   const { language } = useLanguage();
-  const vid = language === "pt" ? { src: rayPt.url, poster: "" }
-    : language === "es" ? { src: rayEs.url, poster: "" }
-    : { src: rayCinematic.url, poster: rayCinematicPoster.url };
+  const vid = language === "pt" ? { src: assetUrl(rayPt), poster: "" }
+    : language === "es" ? { src: assetUrl(rayEs), poster: "" }
+    : { src: assetUrl(rayCinematic), poster: assetUrl(rayCinematicPoster) };
   return (
     <>
       <PageHero

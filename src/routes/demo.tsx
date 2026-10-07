@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SampleReports, LiveDashboards } from "@/components/demo/DemoEmbeds";
@@ -74,7 +75,7 @@ function Page() {
       <Band tone="white">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-8 text-center text-3xl font-medium tracking-tight">See how it works</h2>
-          <HeroVideo key={language} src={language === "pt" ? overviewPt.url : language === "es" ? overviewEs.url : overviewVideo.url} poster={overviewPoster.url} />
+          <HeroVideo key={language} src={language === "pt" ? assetUrl(overviewPt) : language === "es" ? assetUrl(overviewEs) : assetUrl(overviewVideo)} poster={assetUrl(overviewPoster)} />
         </div>
       </Band>
 
