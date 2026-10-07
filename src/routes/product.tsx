@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Server, Settings2, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
+import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, TrendingUp, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, SplitFeature } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import energyMix from "@/assets/energy-mix.png";
@@ -11,8 +11,6 @@ import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
 import customDashboardsImg from "@/assets/customizations-dashboards.jpg";
-import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
-import rayPoster from "@/assets/ray-video-poster.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
 export const Route = createFileRoute("/product")({
