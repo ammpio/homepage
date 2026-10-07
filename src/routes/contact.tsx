@@ -5,6 +5,7 @@ import { submitContact } from "@/lib/contact.functions";
 import { ArrowRight, Calendar, Check, Linkedin, Mail } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
+import { NewsletterSignup } from "@/components/site/NewsletterSignup";
 
 const TURNSTILE_SITE_KEY = "0x4AAAAAAFQPfF249vmbtO0n";
 
@@ -122,6 +123,12 @@ function Page() {
                   <button type="submit" disabled={sending || !turnstileToken} className="button button-primary w-full justify-center">{sending ? "Sending…" : "Send Message"} <ArrowRight className="size-4" /></button>
                 </form>
               )}
+            </div>
+
+            <div className="glass rounded-2xl p-6">
+              <h2 className="text-lg font-semibold">Stay in the loop</h2>
+              <p className="mt-2 text-sm text-muted-foreground">Product news, Ray updates and insights for renewable energy teams. No spam, unsubscribe anytime.</p>
+              <div className="mt-4"><NewsletterSignup /></div>
             </div>
 
             <div className="glass rounded-2xl p-6">
