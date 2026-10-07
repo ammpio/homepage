@@ -185,7 +185,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Platform capabilities" title="Functionality and interfaces for every workflow" intro="Whether it's an engineer in a deep-dive dashboard, an O&M lead on the go, Ray in Slack or an investor reading a scheduled report, AMMP gives every person the right way to get work done." />
+        <SectionHeading eyebrow="Platform capabilities" title="Functionality and interfaces for every workflow" intro="Whether it's an engineer in a deep-dive dashboard, an O&M lead on the go, a CFO assessing contractor efficiency or an investor reading a scheduled report, AMMP gives every person the right way to get work done." />
         <div className="-mx-4 mt-10 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0" role="tablist" aria-label="AMMP OS modules">
           <div className="glass-strong flex w-max gap-1 rounded-2xl p-1.5 md:w-full md:flex-wrap">
             {categories.map(({ id, label, icon: Icon }) => (
