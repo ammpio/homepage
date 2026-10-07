@@ -47,7 +47,7 @@ function Page() {
         ]} />
       </Band>
 
-      <Band tone="grey">
+      <Band tone="white">
         <SectionHeading eyebrow="Data & Integrations" title="Connecting your equipment" />
         <Faq items={[
           { q: "How does AMMP connect to my equipment?", a: "AMMP primarily connects through APIs to supported equipment manufacturers' cloud platforms, no additional hardware needed. For sites where cloud connectivity isn't available or direct local communication is required, the AMMP Edge gateway can be deployed to collect data over Modbus, Sunspec, or other protocols and send it securely to the cloud." },
@@ -56,7 +56,7 @@ function Page() {
         ]} />
       </Band>
 
-      <Band tone="white">
+      <Band tone="grey">
         <SectionHeading eyebrow="Reporting" title="Automated, white-labeled reports" />
         <Faq items={[
           { q: "What kind of reports can I generate?", a: "AMMP generates automated PDF reports, financial impact reports, and performance analytics summaries. Reports can be scheduled monthly or on-demand, and cover metrics like energy yield, availability, performance ratio, and savings." },
@@ -64,7 +64,7 @@ function Page() {
         ]} />
       </Band>
 
-      <Band tone="grey">
+      <Band tone="white">
         <SectionHeading eyebrow="Security & Reliability" title="Built to be trusted with your data" />
         <Faq items={[
           { q: "Is AMMP secure?", a: "Yes. AMMP Technologies is ISO/IEC 27001:2022 certified, which means our information security management system meets international standards. Data is encrypted in transit and at rest, and we follow strict access control policies." },
@@ -72,7 +72,7 @@ function Page() {
         ]} />
       </Band>
 
-      <Band tone="white">
+      <Band tone="grey">
         <SectionHeading eyebrow="Switching & Getting Started" title="Moving to AMMP" />
         <Faq items={[
           { q: "How long does setup take?", a: "About a month. Our team handles onboarding, integration, and data migration." },
