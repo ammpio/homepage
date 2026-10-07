@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SampleReports, LiveDashboards } from "@/components/demo/DemoEmbeds";
-import { ArrowRight, BarChart3, Calendar, FileText, Play } from "lucide-react";
-import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
+import { ArrowRight, Calendar, Play, BarChart3, FileText } from "lucide-react";
+import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import VimeoPlayer from "@/components/demo/VimeoPlayer";
@@ -13,6 +13,21 @@ import overviewPt from "@/assets/Ray_by_AMMP_overview_PT-BR.mp4.asset.json";
 import overviewEs from "@/assets/Ray_by_AMMP_overview_ES.mp4.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 import demoVideoThumbnail from "@/assets/demo-video-thumbnail.jpg";
+import energyMix from "@/assets/energy-mix.png";
+import performanceAnalytics from "@/assets/performance-analytics.png";
+import alertsDashboard from "@/assets/alerts-dashboard.png";
+import pdfReportsNew from "@/assets/pdf-reports-new.png";
+import energySavingsHub from "@/assets/energy-savings-hub.png";
+import integrationsImage from "@/assets/integrations.png";
+
+const demoFeatures = [
+  { title: "Portfolio Monitoring", text: "Live performance and availability across every site.", image: energyMix, tab: "monitoring" },
+  { title: "KPI Benchmarking", text: "Portfolio-wide KPI tracking and benchmarking.", image: performanceAnalytics, tab: "monitoring" },
+  { title: "Smart Alerts", text: "Catch issues before they get costly.", image: alertsDashboard, tab: "alerting" },
+  { title: "Automated Reporting", text: "Scheduled PDF reports for investors and clients.", image: pdfReportsNew, tab: "reporting" },
+  { title: "Cost Tracking", text: "Energy savings and PPA billing visibility.", image: energySavingsHub, tab: "commercials" },
+  { title: "Universal Integrations", text: "Connect Solis, Sungrow, Huawei, SMA and more.", image: integrationsImage, tab: "integrations" },
+] as const;
 
 const DEMO_CHAPTERS = [
   { time: 0, title: "Intro" },
