@@ -46,6 +46,7 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
     if (ended && t < duration - 0.1) { setEnded(false); void v.play(); }
   };
   const pct = duration ? (time / duration) * 100 : 0;
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   return (
     <div className="group relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
       <video
@@ -80,23 +81,35 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
         </button>
       )}
 
-      {/* Timeline: hidden until hover or keyboard focus */}
+      {/* Timeline: appears on hover or keyboard focus */}
       {duration > 0 && (
-        <div className="absolute inset-x-3 bottom-[3.75rem] opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
-          <div className="relative h-1.5 rounded-full bg-background/40">
-            <div className="absolute inset-y-0 left-0 rounded-full bg-background" style={{ width: `${pct}%` }} />
-            <input
-              type="range"
-              min={0}
-              max={duration}
-              step={0.1}
-              value={time}
-              onChange={(e) => seek(Number(e.target.value))}
-              aria-label="Video timeline"
-              className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-            />
+        <>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
+          <div className="absolute inset-x-3 bottom-[3.75rem] flex items-center gap-3 opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
+            <div className="relative h-5 flex-1">
+              <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-background/35 backdrop-blur">
+                <div className="absolute inset-y-0 left-0 rounded-full bg-background" style={{ width: `${pct}%` }} />
+              </div>
+              <div
+                className="pointer-events-none absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background shadow-md ring-2 ring-foreground/20"
+                style={{ left: `${pct}%` }}
+              />
+              <input
+                type="range"
+                min={0}
+                max={duration}
+                step={0.1}
+                value={time}
+                onChange={(e) => seek(Number(e.target.value))}
+                aria-label="Video timeline"
+                className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+              />
+            </div>
+            <span className="shrink-0 text-xs font-medium tabular-nums text-background drop-shadow">
+              {fmt(time)} / {fmt(duration)}
+            </span>
           </div>
-        </div>
+        </>
       )}
 
       <div className="absolute bottom-3 right-3 flex items-center gap-2 sm:bottom-4 sm:right-4">
