@@ -13,6 +13,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteShell } from "../components/site/SiteShell";
 import { LanguageProvider } from "../i18n/LanguageContext";
 import { AutoTranslate } from "../i18n/AutoTranslate";
+import { CloudflareAnalytics } from "../components/CloudflareAnalytics";
 
 function NotFoundComponent() {
   return (
@@ -122,6 +123,7 @@ function RootComponent() {
     <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <AutoTranslate />
+        <CloudflareAnalytics />
         <SiteShell />
       </QueryClientProvider>
     </LanguageProvider>
