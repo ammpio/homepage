@@ -158,11 +158,16 @@ function Tag({ tone, children }: { tone: "action" | "watch" | "resource"; childr
   return <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${cls}`}>{children}</span>;
 }
 
-export function RayDay() {
-  const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("plan");
+export type RayScene = (typeof tabs)[number]["id"];
+
+/* Pass `only` to render a single scene (no heading or tabs), e.g. on use-case pages. */
+export function RayDay({ only }: { only?: RayScene } = {}) {
+  const [selected, setTab] = useState<RayScene>("plan");
+  const tab = only ?? selected;
   return (
-    <section className="relative py-16 lg:py-24">
-      <div className="site-container">
+    <section className={only ? "relative" : "relative py-16 lg:py-24"}>
+      <div className={only ? "" : "site-container"}>
+        {!only && <>
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="glass-soft inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-primary"><span>A day with Ray</span></div>
@@ -179,6 +184,7 @@ export function RayDay() {
             </button>
           ))}
         </div>
+        </>}
 
         <div className="glass-strong mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl">
           <div className="flex items-center justify-between border-b border-white/50 px-5 py-3.5 text-sm">
