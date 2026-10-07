@@ -78,10 +78,10 @@ export function SiteShell() {
             : <Link key={item.label} to={item.to!} className={navLinkClass} activeProps={{ className: "text-foreground" }}>{item.label}</Link>)}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{t("nav.Log in")}</a>
+          <a href="https://os.ammp.io" target="_blank" rel="noreferrer" className="whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{tt("Log in")}</a>
           <LanguageSelector />
           
-          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">{t("nav.Contact sales")}</Link>
+          <Link to="/contact" className="button button-primary h-10 whitespace-nowrap">{tt("Contact sales")}</Link>
         </div>
         <details className="relative lg:hidden">
           <summary className="glass-soft cursor-pointer list-none rounded-md px-3 py-2 text-sm font-semibold">Menu</summary>
