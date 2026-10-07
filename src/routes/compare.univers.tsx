@@ -56,7 +56,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
-          <p>Univers (formerly Envision Digital) operates EnOS, one of the world's largest energy IoT platforms. Their platform manages over 845GW of renewable energy assets globally, serving major utilities, enterprises, and governments with AI-powered optimisation and carbon management.</p>
+          <p>Univers (formerly Envision Digital) operates EnOS, one of the world's largest energy IoT platforms. Their platform manages over 845GW of renewable energy assets globally, serving major utilities, enterprises, and governments with AI-powered optimization and carbon management.</p>
           <p>AMMP takes a fundamentally different approach, with an AI coworker on AMMP OS focused specifically on the needs of solar, storage and hybrid portfolios. This specialisation means faster deployment, simpler operations, and pricing accessible to growing renewable energy businesses, not just enterprise giants.</p>
         </div>
       </Band>

@@ -10,7 +10,7 @@ import alertsDashboard from "@/assets/alerts-dashboard.png";
 import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
-import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
+import customDashboardsImg from "@/assets/customizations-dashboards.jpg";
 import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
@@ -32,7 +32,7 @@ const categories = [
   { id: "reporting", label: "Reporting", icon: FileText, title: "Reports your stakeholders trust" },
   { id: "commercials", label: "Commercials", icon: TrendingUp, title: "Prove the financial story of your portfolio" },
   { id: "integrations", label: "Integrations", icon: Plug, title: "Connect every system you already run" },
-  { id: "customizations", label: "Customisations", icon: Settings2, title: "Built around your portfolio, not a template" },
+  { id: "customizations", label: "Customizations", icon: Settings2, title: "Built around your portfolio, not a template" },
   { id: "api", label: "API", icon: Code, title: "Build on the same data Ray uses" },
   { id: "ai", label: "AI", icon: Sparkles, title: "Where Ray comes in", intro: "Ray, the AI coworker, is built directly on top of AMMP OS, so it sees exactly what your dashboards see." },
 ] as const;
@@ -112,7 +112,7 @@ const panels: Record<CategoryId, ReactNode> = {
       <div className="grid gap-5 md:grid-cols-3">
         <Card icon={Sparkles} title="AMMP Intelligence">AI-powered insights that analyze patterns across your portfolio to predict issues, prioritize tickets, and recommend actions before problems escalate.</Card>
         <Card icon={Server} title="MCP Server">A Model Context Protocol server, so any MCP-compatible AI assistant can securely query your assets, KPIs, alerts and raw time-series in natural language, within your existing access controls.</Card>
-        <Card icon={Bell} title="AI Agents">A team of agents on top of the MCP server: Ray, an in-platform coworker, plus visualisation, QA and monitoring agents that proactively check data, dashboards and portfolio health.</Card>
+        <Card icon={Bell} title="AI Agents">A team of agents on top of the MCP server: Ray, an in-platform coworker, plus visualization, QA and monitoring agents that proactively check data, dashboards and portfolio health.</Card>
       </div>
       <div className="glass-strong mt-8 overflow-hidden rounded-2xl p-2"><video src={rayVideo.url} poster={rayPoster} controls preload="metadata" className="w-full rounded-xl" /></div>
       <Link to="/ai" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Learn more about AI at AMMP <ArrowRight className="size-4" /></Link>

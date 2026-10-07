@@ -29,7 +29,7 @@ function Page() {
               { icon: Check, title: "Run alongside your current setup", text: "Operate AMMP side-by-side with your existing tools during the trial." },
               { icon: Check, title: "No hardware replacement", text: "AMMP connects to equipment you already have from 30+ manufacturers." },
               { icon: Check, title: "Guided onboarding", text: "Setup takes about a month; our team handles integration and data migration." },
-              { icon: Check, title: "AI coworker included", text: "See how Ray investigates and prioritise work on your own data." },
+              { icon: Check, title: "AI coworker included", text: "See how Ray investigates and prioritize work on your own data." },
             ]} />
           </div>
           <div className="glass-strong rounded-2xl p-6">

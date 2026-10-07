@@ -31,7 +31,7 @@ function Page() {
           { q: "What types of energy systems does AMMP support?", a: "AMMP supports C&I solar PV, battery energy storage systems (BESS), hybrid systems, and mini-grids. Whether you operate rooftop solar, ground-mount installations, or off-grid systems, AMMP can monitor and manage them." },
           { q: "Can I monitor multiple equipment brands in one platform?", a: "Yes. AMMP integrates with 30+ equipment manufacturers including inverters, meters, batteries, and environmental sensors. You get a single view across your entire portfolio regardless of hardware brand." },
           { q: "Is AMMP cloud-based or on-premise?", a: "AMMP is a cloud-based SaaS platform. There's nothing to install or maintain on your side. You access everything through a web browser, and our team handles all infrastructure, updates, and security." },
-          { q: "What dashboards and views are available?", a: "AMMP provides portfolio-level overviews, site-level dashboards, a NOC (Network Operations Centre) view for O&M teams, and a stakeholder portal for investors and clients. Each view is tailored to the needs of its audience." },
+          { q: "What dashboards and views are available?", a: "AMMP provides portfolio-level overviews, site-level dashboards, a NOC (Network Operations Center) view for O&M teams, and a stakeholder portal for investors and clients. Each view is tailored to the needs of its audience." },
         ]} />
       </Band>
 
@@ -45,10 +45,10 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <SectionHeading eyebrow="Reporting" title="Automated, white-labelled reports" />
+        <SectionHeading eyebrow="Reporting" title="Automated, white-labeled reports" />
         <Faq items={[
           { q: "What kind of reports can I generate?", a: "AMMP generates automated PDF reports, financial impact reports, and performance analytics summaries. Reports can be scheduled monthly or on-demand, and cover metrics like energy yield, availability, performance ratio, and savings." },
-          { q: "Can reports be white-labeled?", a: "Yes. Reports can be customised with your company's branding, logo, and colour scheme. This is especially useful for O&M providers and asset managers who share reports with their own clients and investors." },
+          { q: "Can reports be white-labeled?", a: "Yes. Reports can be customized with your company's branding, logo, and color scheme. This is especially useful for O&M providers and asset managers who share reports with their own clients and investors." },
         ]} />
       </Band>
 

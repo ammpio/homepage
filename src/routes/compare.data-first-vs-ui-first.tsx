@@ -40,7 +40,7 @@ const rows = [
 
 const differentiators = [
   { icon: Database, title: "Data Ownership", text: "Your data is always accessible via API. Export anytime, integrate anywhere, no vendor lock-in." },
-  { icon: BarChart3, title: "Deep Analytics", text: "Beyond pretty charts, financial modelling, portfolio benchmarking, and predictive maintenance." },
+  { icon: BarChart3, title: "Deep Analytics", text: "Beyond pretty charts, financial modeling, portfolio benchmarking, and predictive maintenance." },
   { icon: Code, title: "Programmable Platform", text: "API-first design means you can build custom workflows, automate reports, and integrate with your tools." },
   { icon: Layout, title: "Beautiful UI Too", text: "Data-first does not mean ugly. AMMP combines powerful analytics with an intuitive, modern interface." },
 ];
@@ -59,7 +59,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
-          <p>Some monitoring platforms prioritise visual polish, beautiful dashboards that impress in demos but limit what you can actually do with your data. Others focus on data access but feel clunky and outdated.</p>
+          <p>Some monitoring platforms prioritize visual polish, beautiful dashboards that impress in demos but limit what you can actually do with your data. Others focus on data access but feel clunky and outdated.</p>
           <p>AMMP takes a data-first approach without sacrificing user experience. Full API access, programmable reports, and raw data exports, combined with an AI coworker and a modern, intuitive interface your team will actually enjoy using.</p>
         </div>
       </Band>

@@ -13,7 +13,7 @@ const nav: readonly NavItem[] = [
       ["Product overview", "/product"],
       ["AI coworker", "/ai"],
       ["Integrations", "/integrations"],
-      ["Customisation", "/customization"],
+      ["Customization", "/customization"],
       ["Security", "/security"],
     ],
   },
@@ -100,7 +100,7 @@ export function SiteShell() {
       <div className="site-container py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           <div className="col-span-2 md:col-span-1"><Link to="/" aria-label="AMMP home" className="inline-block"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">Put AI to work across your renewable energy portfolio</p><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
-          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["AI coworker","/ai"],["Customisation","/customization"],["Security","/security"]]} />
+          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["AI coworker","/ai"],["Customization","/customization"],["Security","/security"]]} />
           <FooterColumn title="Solutions" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Case studies","/case-studies"],["Switch to AMMP","/switch"]]} />
           <div>
             <FooterColumn title="Compare" links={[["vs In-House Systems","/compare/in-house-systems"],["vs Traditional Monitoring","/compare/traditional-monitoring"],["vs Meteocontrol","/compare/meteocontrol"],["vs Vendor Portals","/compare/vendor-portals"],["vs AlsoEnergy","/compare/ammp-vs-alsoenergy"],["vs PV Operation","/compare/pv-operation"]]} />

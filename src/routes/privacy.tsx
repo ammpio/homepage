@@ -31,7 +31,7 @@ function Page() {
           <ul>
             <li><strong>Personal data:</strong> Any information relating to an identified or identifiable natural person.</li>
             <li><strong>Data subject:</strong> Any identified or identifiable natural person, whose personal data is processed by the controller responsible for the processing.</li>
-            <li><strong>Processing:</strong> Any operation or set of operations which is performed on personal data, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.</li>
+            <li><strong>Processing:</strong> Any operation or set of operations which is performed on personal data, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.</li>
             <li><strong>Restriction of processing:</strong> The marking of stored personal data with the aim of limiting their processing in the future.</li>
             <li><strong>Controller:</strong> The natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data.</li>
             <li><strong>Processor:</strong> A natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller.</li>

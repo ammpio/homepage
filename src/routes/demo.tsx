@@ -66,7 +66,7 @@ function Page() {
               </div>
               <FeatureGrid columns={3} features={[
                 { title: "Portfolio Monitoring", text: "Live performance and availability across every site." },
-                { title: "AI coworker", text: "Investigate, prioritise and prepare work automatically." },
+                { title: "AI coworker", text: "Investigate, prioritize and prepare work automatically." },
                 { title: "KPI Benchmarking", text: "Portfolio-wide KPI tracking and benchmarking." },
                 { title: "Universal Integrations", text: "Connect Solis, Sungrow, Huawei, SMA and more." },
                 { title: "Automated Reporting", text: "Scheduled PDF reports for investors and clients." },

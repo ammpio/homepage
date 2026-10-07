@@ -7,15 +7,15 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/use-cases/reporting-teams")({
   head: () => ({ meta: [
     { title: "AMMP for Reporting Teams — AMMP" },
-    { name: "description", content: "Ray and AMMP OS turn standardised portfolio data into clear, reviewable reporting outputs for reporting teams." },
+    { name: "description", content: "Ray and AMMP OS turn standardized portfolio data into clear, reviewable reporting outputs for reporting teams." },
     { property: "og:title", content: "AMMP for Reporting Teams — AMMP" },
-    { property: "og:description", content: "Standardised data in. Clear, reviewable reports out. Ray on top of AMMP OS." },
+    { property: "og:description", content: "Standardized data in. Clear, reviewable reports out. Ray on top of AMMP OS." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
 
 const features = [
-  { icon: Database, title: "Standardised data, always", text: "Every site reports into the same data model, so reports start from consistent, comparable inputs instead of cleaned-up spreadsheets." },
+  { icon: Database, title: "Standardized data, always", text: "Every site reports into the same data model, so reports start from consistent, comparable inputs instead of cleaned-up spreadsheets." },
   { icon: FileText, title: "Report templates", text: "Build the technical performance, savings and stakeholder reports your audiences expect, then generate them on schedule." },
   { icon: ClipboardList, title: "Reviewable outputs", text: "Every figure traces back to the underlying site data, so reviewers can verify numbers instead of re-deriving them." },
   { icon: ShieldCheck, title: "Governance built in", text: "Shared workspace with full visibility of what was requested, what was produced and who approved it." },
@@ -25,7 +25,7 @@ const benefits = [
   "One source of truth across every site and stakeholder",
   "Reports generated on schedule, not on demand at midnight",
   "Every number traceable back to source data",
-  "Less time assembling, more time analysing",
+  "Less time assembling, more time analyzing",
 ];
 
 function Page() {
@@ -33,15 +33,15 @@ function Page() {
     <>
       <PageHero
         eyebrow="For Reporting Teams"
-        title="Standardised data in."
+        title="Standardized data in."
         highlight={"\nClear reports out."}
-        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, turning standardised portfolio data into clear, reviewable reporting outputs — so reporting teams produce trusted numbers without the manual assembly."
+        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, turning standardized portfolio data into clear, reviewable reporting outputs — so reporting teams produce trusted numbers without the manual assembly."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="AI + AMMP OS" title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardised numbers, drafts the report, and shows the evidence behind every figure before you publish." />
+        <SectionHeading eyebrow="AI + AMMP OS" title="Ray, on every reporting cycle" intro="Instead of chasing site data and reconciling spreadsheets, Ray pulls the standardized numbers, drafts the report, and shows the evidence behind every figure before you publish." />
         <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
           <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
           <p className="text-sm leading-6 text-muted-foreground">Ask "prepare this month's investor performance pack" and get a draft built from the same portfolio data everyone else works from — ready for review, not rebuilt from scratch.</p>
@@ -49,7 +49,7 @@ function Page() {
       </Band>
 
       <Band>
-        <SectionHeading title="Reporting without the assembly work" intro="AMMP standardises the data underneath every report, so outputs are consistent across sites, months and audiences." />
+        <SectionHeading title="Reporting without the assembly work" intro="AMMP standardizes the data underneath every report, so outputs are consistent across sites, months and audiences." />
         <FeatureGrid features={features} />
       </Band>
 

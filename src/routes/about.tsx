@@ -21,7 +21,7 @@ function Page() {
         eyebrow="About AMMP"
         title="AI coworker, built on a decade of"
         highlight="portfolio operating experience."
-        intro="AMMP gives renewable energy teams an AI coworker that investigates, prioritises and prepares work—grounded in the same operational context we've been building since 2016."
+        intro="AMMP gives renewable energy teams an AI coworker that investigates, prioritizes and prepares work—grounded in the same operational context we've been building since 2016."
         primary={{ label: "Meet your coworker", to: "/contact" }}
         secondary={{ label: "See the platform", to: "/product" }}
       />

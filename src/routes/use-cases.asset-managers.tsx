@@ -36,7 +36,7 @@ function Page() {
         eyebrow="For Asset Managers"
         title="Total visibility."
         highlight="Complete control."
-        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, giving asset managers unified oversight of their entire distributed portfolio, making it easy to optimise performance and demonstrate value to stakeholders."
+        intro="Ray, AMMP's AI coworker, works on top of AMMP OS, giving asset managers unified oversight of their entire distributed portfolio, making it easy to optimize performance and demonstrate value to stakeholders."
         primary={{ label: "Try demo", to: "/demo" }}
         secondary={{ label: "Explore features", to: "/product" }}
       />
@@ -55,7 +55,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading title="Data-driven decisions at scale" intro="AMMP provides the insights you need to optimise your C&I portfolio and maximise returns on your energy investments." />
+        <SectionHeading title="Data-driven decisions at scale" intro="AMMP provides the insights you need to optimize your C&I portfolio and maximize returns on your energy investments." />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {benefits.map((b) => (
             <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-base">

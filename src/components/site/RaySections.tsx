@@ -191,7 +191,7 @@ export function RayDay() {
               <div className="space-y-2 pl-12">
                 {[
                   { icon: Wind, site: "Westerkamp Wind · DE", v: "−6.2%", note: "Wind speed 11% below P50. No fault found.", tone: "resource" as const, tag: "Resource" },
-                  { icon: Sun, site: "Brightwater Solar · US", v: "−14.8%", note: "INV-03 −38% vs. neighbours since Sep 18.", tone: "action" as const, tag: "Action" },
+                  { icon: Sun, site: "Brightwater Solar · US", v: "−14.8%", note: "INV-03 −38% vs. neighbors since Sep 18.", tone: "action" as const, tag: "Action" },
                   { icon: Battery, site: "Pine Ridge Storage · US", v: "95.8%", note: "Availability vs. 98.0% target (PCS trips).", tone: "watch" as const, tag: "Watch" },
                 ].map((r) => (
                   <div key={r.site} className="glass-soft flex flex-wrap items-center gap-3 rounded-xl p-3 text-sm">

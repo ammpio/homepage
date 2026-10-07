@@ -8,7 +8,7 @@ export const comparisons: Comparison[] = [
   { to: "/compare/open-vs-proprietary", title: "Open vs Proprietary Systems", excerpt: "Compare open, vendor-agnostic platforms to proprietary lock-in monitoring solutions." },
   { to: "/compare/vendor-portals", title: "AMMP vs Manufacturer Portals", excerpt: "Why a unified monitoring platform beats juggling multiple vendor portals for your solar portfolio." },
   { to: "/compare/cloud-vs-on-premise", title: "Cloud vs On-Premise Monitoring", excerpt: "Understand the trade-offs between cloud-based and on-premise solar monitoring solutions." },
-  { to: "/compare/ammp-vs-alsoenergy", title: "AMMP vs AlsoEnergy", excerpt: "Compare AMMP and AlsoEnergy (PowerTrack) on customisation, integrations, support and BESS depth." },
+  { to: "/compare/ammp-vs-alsoenergy", title: "AMMP vs AlsoEnergy", excerpt: "Compare AMMP and AlsoEnergy (PowerTrack) on customization, integrations, support and BESS depth." },
   { to: "/compare/pv-operation", title: "AMMP vs PV Operation", excerpt: "Compare AMMP's hardware-agnostic cloud platform to PV Operation's SCADA-based approach in Brazil." },
   { to: "/compare/meteocontrol", title: "AMMP vs Meteocontrol", excerpt: "Compare AMMP's vendor-neutral platform to Meteocontrol for renewable energy portfolios." },
   { to: "/compare/qos-energy", title: "AMMP vs QOS Energy", excerpt: "Compare AMMP's flexibility to QOS Energy for renewable energy monitoring and analytics." },
