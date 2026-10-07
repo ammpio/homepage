@@ -118,6 +118,6 @@ function FooterColumn({ title, links }: { title: string; links: readonly (readon
   return <div><h2 className="text-sm font-semibold">{title}</h2><ul className="mt-4 space-y-3">{links.map(([label,to]) => <li key={to}><Link to={to} className="text-sm text-muted-foreground hover:text-foreground">{label}</Link></li>)}</ul></div>;
 }
 
-export function PageCta() {
-  return <section className="relative z-10 py-16 md:py-20"><div className="site-container"><div className="glass-strong mx-auto max-w-4xl rounded-3xl px-6 py-12 text-center sm:px-12"><p className="eyebrow">Move from visibility to action</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Ready to put your portfolio data to work?</h2><div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row"><Link to="/contact" className="button button-pink">Talk to our team <ArrowUpRight className="size-4" /></Link></div></div></div></section>;
+export function PageCta({ eyebrow = "Move from visibility to action", title = "Ready to put your portfolio data to work?", intro }: { eyebrow?: string; title?: string; intro?: string }) {
+  return <section className="relative z-10 py-16 md:py-20"><div className="site-container"><div className="glass-strong mx-auto max-w-4xl rounded-3xl px-6 py-12 text-center sm:px-12"><p className="eyebrow">{eyebrow}</p><h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>{intro && <p className="mx-auto mt-4 max-w-2xl leading-7 text-muted-foreground">{intro}</p>}<div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row"><Link to="/contact" className="button button-pink">Talk to our team <ArrowUpRight className="size-4" /></Link></div></div></div></section>;
 }
