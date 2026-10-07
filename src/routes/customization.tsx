@@ -21,9 +21,9 @@ export const Route = createFileRoute("/customization")({
   head: () => ({
     meta: [
       { title: "Tailored Solutions — Custom Integrations and Workflows | AMMP" },
-      { name: "description", content: "AMMP builds custom integrations, dashboards, KPIs and workflows on top of a maintained monitoring platform. Fixed-price quotes, live in two to six weeks." },
+      { name: "description", content: "AMMP adapts to your SCADA setups, contracts, tariffs and reporting, so Ray and your team work from data that fits how your portfolio operates." },
       { property: "og:title", content: "Tailored Solutions — Custom Integrations and Workflows | AMMP" },
-      { property: "og:description", content: "Your portfolio isn't standard. Your platform shouldn't be either — fixed-price custom builds on AMMP OS." },
+      { property: "og:description", content: "Your portfolio isn't standard. AMMP OS adapts to it, and keeps it running." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -32,38 +32,38 @@ export const Route = createFileRoute("/customization")({
 });
 
 const steps = [
-  { title: "Scope call", text: "We map your requirement in an initial call and tell you if it is a fit." },
-  { title: "Fixed quote", text: "A fixed price and a delivery date. No open-ended consulting." },
-  { title: "Build", text: "Typically two to six weeks, with visibility as it takes shape." },
-  { title: "Live and maintained", text: "It becomes part of the platform. We own the upkeep, not you." },
+  { title: "Map your setup", text: "We look at your sites, hardware, contracts and the reports your stakeholders expect." },
+  { title: "Connect and model", text: "Your SCADA, loggers, tickets and tariffs flow into AMMP's standard data model." },
+  { title: "Fit the workflows", text: "KPIs, alerts and reports are set up around how your team actually operates." },
+  { title: "Kept running by AMMP", text: "Everything stays part of the maintained platform, used by Ray and your team alike." },
 ];
 
 const buildItems = [
-  { icon: PlugZap, label: "Device and datalogger integrations" },
-  { icon: Cpu, label: "SCADA integrations" },
-  { icon: BarChart3, label: "Custom dashboards and KPIs" },
-  { icon: Ticket, label: "Ticketing and CMMS integrations" },
-  { icon: FileSpreadsheet, label: "Billing and financial reporting logic" },
-  { icon: Building2, label: "Customer-facing branded portals" },
-  { icon: Globe, label: "Market data and API integrations" },
+  { icon: Cpu, label: "Proprietary SCADA and datalogger connections" },
+  { icon: PlugZap, label: "Niche inverters, meters and edge devices" },
+  { icon: Ticket, label: "CMMS, ticketing and dispatch sync" },
+  { icon: FileSpreadsheet, label: "PPA, lease and index-linked tariff formulas" },
+  { icon: BarChart3, label: "Portfolio-specific KPIs and alert rules" },
+  { icon: Building2, label: "Branded portals for owners and investors" },
+  { icon: Globe, label: "Market data, ERP and billing pipelines" },
 ];
 
 const cases = [
-  { icon: Map, title: "Custom map with urgent alerts", text: "A geospatial view that surfaces open, high-priority alerts across the fleet so dispatch teams see what needs attention first." },
-  { icon: Leaf, title: "Environmental-impact dashboard, live in two weeks", text: "CO2 avoided and trees saved, branded for an O&M provider and shared directly with their end customer." },
-  { icon: Gauge, title: "Custom SCADA integration for a commercial operator", text: "A site-level SCADA connection plus the operational dashboard built on top of it, delivered against a fixed quote." },
+  { icon: Map, title: "Fleet map with urgent alerts", text: "A geospatial view that surfaces open, high-priority alerts across the fleet so dispatch teams see what needs attention first." },
+  { icon: Leaf, title: "Environmental impact for end customers", text: "CO2 avoided and trees saved, branded for an O&M provider and shared directly with their end customer." },
+  { icon: Gauge, title: "Site SCADA brought into the data model", text: "A site-level SCADA connection feeding the same dashboards, alerts and reports as every other site in the portfolio." },
 ];
 
 const diy = [
-  "You own maintenance forever, including every vendor API change.",
-  "One vendor API is a weekend. Thirty of them is a team.",
+  "Every vendor API change and broken connector lands on your team.",
+  "Custom scripts live outside the platform, so AI and reports can't use them.",
   "Security, uptime and data retention become your problem.",
 ];
 
 const ammp = [
-  "We own the upkeep as part of the platform.",
-  "Integrations across 30+ manufacturers, already maintained.",
-  "ISO 27001 certified infrastructure, with your data exportable at any time.",
+  "Tailored pieces stay inside the platform and are maintained by AMMP.",
+  "Ray and your team work from the same standardized data.",
+  "ISO/IEC 27001-aligned infrastructure, with your data exportable at any time.",
 ];
 
 function Page() {
@@ -78,12 +78,12 @@ function Page() {
       />
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Process" title="From requirement to live in four steps" center />
+        <SectionHeading eyebrow="Process" title="How AMMP adapts to your portfolio" center />
         <StepList steps={steps} />
       </Band>
 
       <Band>
-        <SectionHeading eyebrow="Scope" title="What we build" center />
+        <SectionHeading eyebrow="Scope" title="What we tailor" center />
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           {buildItems.map(({ icon: Icon, label }) => (
             <div
@@ -100,7 +100,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Examples" title="Three things we tailored" center />
+        <SectionHeading eyebrow="Examples" title="Tailored for real portfolios" center />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {cases.map(({ icon: Icon, title, text }) => (
             <div key={title} className="rounded-xl border border-border bg-card p-6">
@@ -115,10 +115,10 @@ function Page() {
       </Band>
 
       <Band>
-        <SectionHeading eyebrow="Build vs buy" title="Build it yourself, or let us run it" center />
+        <SectionHeading eyebrow="Why inside the platform" title="Side scripts, or part of AMMP OS" center />
         <div className="mt-10 grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           <div className="rounded-xl border border-border bg-card p-6 md:p-8">
-            <h3 className="text-xl font-semibold mb-4">Build it yourself with AI tools</h3>
+            <h3 className="text-xl font-semibold mb-4">Side scripts and one-off builds</h3>
             <ul className="space-y-3">
               {diy.map((item) => (
                 <li key={item} className="flex gap-3 text-sm text-muted-foreground">
@@ -140,14 +140,14 @@ function Page() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 text-center text-lg font-medium">Build the differentiating 10%. Let us run the other 90%.</p>
+        <p className="mt-10 text-center text-lg font-medium">Your specifics, on a platform you don&apos;t have to maintain.</p>
       </Band>
 
       <Band tone="grey">
         <div className="max-w-2xl mx-auto text-center">
-          <SectionHeading title="Send us the requirement your current platform said no to." intro="An initial scope call is usually enough to tell you whether it is a fit, and what it would cost." center />
+          <SectionHeading title="Tell us what makes your portfolio different." intro="A short call is usually enough to see how AMMP would fit your setup." center />
           <Link to="/contact" className="button button-primary mt-8 inline-flex">
-            Book a scope call
+            Talk to our team
             <ArrowRight className="ml-2 size-4" />
           </Link>
         </div>

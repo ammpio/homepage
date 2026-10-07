@@ -6,7 +6,9 @@ import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import VimeoPlayer from "@/components/demo/VimeoPlayer";
-import { RayVideo } from "@/components/site/RaySections";
+import { HeroVideo } from "@/components/site/RaySections";
+import overviewVideo from "@/assets/ray-by-ammp-overview.mp4.asset.json";
+import overviewPoster from "@/assets/ray-by-ammp-overview-poster.jpg.asset.json";
 import demoVideoThumbnail from "@/assets/demo-video-thumbnail.jpg";
 
 const DEMO_CHAPTERS = [
@@ -45,6 +47,13 @@ function Page() {
   return (
     <>
       <PageHero eyebrow="Live demo" title="Experience" highlight="AMMP OS" intro="See our platform for solar, storage and hybrid portfolios—and the AI coworker built on top of it—in action." />
+
+      <Band tone="white">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-8 text-center text-3xl font-medium tracking-tight">See how it works</h2>
+          <HeroVideo src={overviewVideo.url} poster={overviewPoster.url} />
+        </div>
+      </Band>
 
       <Band tone="grey">
         <div className="flex justify-center">
@@ -89,7 +98,6 @@ function Page() {
           )}
       </Band>
 
-      <RayVideo />
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">
