@@ -120,7 +120,6 @@ const panels: Record<CategoryId, ReactNode> = {
 function Page() {
   const { tab } = Route.useSearch();
   const [active, setActive] = useState<CategoryId>(tab ?? "monitoring");
-  const current = categories.find((c) => c.id === active)!;
 
   useEffect(() => {
     if (tab) {
@@ -190,10 +189,7 @@ function Page() {
         </div>
 
         <div id="category-content" className="mt-12 scroll-mt-24">
-          {"intro" in current
-            ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} eyebrowClassName="hidden md:block" />
-            : <SectionHeading eyebrow={current.label} title={current.title} eyebrowClassName="hidden md:block" />}
-          <div className="mt-10">{panels[active]}</div>
+          {panels[active]}
         </div>
       </Band>
 
