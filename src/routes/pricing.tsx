@@ -6,9 +6,9 @@ import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections"
 export const Route = createFileRoute("/pricing")({
   head: () => ({ meta: [
     { title: "Pricing — flexible, modular plans | AMMP" },
-    { name: "description", content: "Two modules priced per MWp/year: AMMP AI with Ray and full data access, and AMMP OS Monitor for monitoring, alerting and reporting." },
+    { name: "description", content: "Two modules priced per MWp/year: AMMP AI with Ray and full data access, and AMMP OS Platform for monitoring, alerting and reporting." },
     { property: "og:title", content: "Pricing — flexible, modular plans | AMMP" },
-    { property: "og:description", content: "Two modules: AMMP AI and AMMP OS Monitor, with MCP and Data API add-ons." },
+    { property: "og:description", content: "Two modules: AMMP AI and AMMP OS Platform, with MCP and Data API add-ons." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -22,7 +22,7 @@ const aiModule: Mod = {
   note: "Runs on top of AMMP OS, or on your existing infrastructure such as Meteocontrol or Power Factors.",
 };
 const osModule: Mod = {
-  name: "AMMP OS Monitor", icon: LayoutDashboard,
+  name: "AMMP OS Platform", icon: LayoutDashboard,
   description: "Dashboards for monitoring, alerting and reporting across every site, inverter brand and datalogger.",
   highlights: ["Real-time portfolio, site and device dashboards", "KPI-based alerting with noise reduction", "Ticketing and work orders", "Performance analysis (PR, availability, loss waterfall)", "Automated technical and financial PDF reports"],
 };
@@ -91,7 +91,7 @@ function Page() {
       <PageHero
         eyebrow="Pricing"
         title="Flexible, modular pricing"
-        intro="Two modules, priced per MWp/year: AMMP AI puts Ray to work on your data, AMMP OS Monitor gives you the dashboards."
+        intro="Two modules, priced per MWp/year: AMMP AI puts Ray to work on your data, AMMP OS Platform gives you the dashboards."
         primary={{ label: "Contact sales", to: "/contact" }}
         secondary={{ label: "Try the demo", to: "/demo" }}
       />
@@ -154,7 +154,7 @@ function FeatureCompare() {
   const [open, setOpen] = useState(false);
   const cols = [
     { name: "AMMP AI", icon: Sparkles, note: "Ray, your AI coworker" },
-    { name: "AMMP OS Monitor", icon: LayoutDashboard, note: "Monitoring and reporting" },
+    { name: "AMMP OS Platform", icon: LayoutDashboard, note: "Monitoring and reporting" },
   ];
   return (
     <>
