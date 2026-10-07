@@ -1,6 +1,6 @@
 import { assetUrl } from "@/lib/assets";
 import { useRef, useState } from "react";
-import { AlertTriangle, ArrowRight, Check, FileText, Play, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
+import { AlertTriangle, ArrowRight, Check, FileText, Play, RotateCcw, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
@@ -17,42 +17,109 @@ const chapters = [
   { t: 52, label: "Investor reporting" },
 ];
 
-/* Hero video: autoplay, muted, looping, native 16:9 (1920×1080) with an unmute toggle */
+/* Hero video: autoplays muted, plays once and stops; prominent sound toggle, replay, and a subtle timeline that appears on hover/focus */
 export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [ended, setEnded] = useState(false);
+  const [time, setTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const toggle = () => {
     const v = ref.current;
     if (!v) return;
     v.muted = !v.muted;
     setMuted(v.muted);
-    if (!v.muted) void v.play();
+    if (!v.muted && !ended) void v.play();
   };
+  const replay = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.currentTime = 0;
+    setEnded(false);
+    void v.play();
+  };
+  const seek = (t: number) => {
+    const v = ref.current;
+    if (!v) return;
+    v.currentTime = t;
+    setTime(t);
+    if (ended && t < duration - 0.1) { setEnded(false); void v.play(); }
+  };
+  const pct = duration ? (time / duration) * 100 : 0;
   return (
-    <div className="relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
+    <div className="group relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
       <video
         ref={ref}
         src={src ?? assetUrl(rayVideo)}
         poster={poster === undefined ? rayPoster : poster || undefined}
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
         width={1920}
         height={1080}
         aria-label="Ray by AMMP overview video"
         className="block aspect-video h-auto w-full bg-background"
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
+        onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
+        onEnded={() => setEnded(true)}
+        onPlay={() => setEnded(false)}
       />
-      <button
-        type="button"
-        onClick={toggle}
-        aria-label={muted ? "Unmute video" : "Mute video"}
-        className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-foreground/80 px-3 py-1.5 text-xs font-medium text-background backdrop-blur transition-colors hover:bg-foreground"
-      >
-        {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-        {muted ? "Unmute" : "Mute"}
-      </button>
+
+      {ended && (
+        <button
+          type="button"
+          onClick={replay}
+          aria-label="Replay video"
+          className="absolute inset-0 grid place-items-center bg-foreground/20 backdrop-blur-[2px] transition-opacity"
+        >
+          <span className="flex items-center gap-2.5 rounded-full bg-background/90 px-6 py-3.5 text-base font-medium text-foreground shadow-xl ring-1 ring-border/60 backdrop-blur transition-transform hover:scale-105">
+            <RotateCcw className="size-5" />
+            Watch again
+          </span>
+        </button>
+      )}
+
+      {/* Timeline: hidden until hover or keyboard focus */}
+      {duration > 0 && (
+        <div className="absolute inset-x-3 bottom-[3.75rem] opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
+          <div className="relative h-1.5 rounded-full bg-background/40">
+            <div className="absolute inset-y-0 left-0 rounded-full bg-background" style={{ width: `${pct}%` }} />
+            <input
+              type="range"
+              min={0}
+              max={duration}
+              step={0.1}
+              value={time}
+              onChange={(e) => seek(Number(e.target.value))}
+              aria-label="Video timeline"
+              className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+            />
+          </div>
+        </div>
+      )}
+
+      <div className="absolute bottom-3 right-3 flex items-center gap-2 sm:bottom-4 sm:right-4">
+        {!ended && (
+          <button
+            type="button"
+            onClick={replay}
+            aria-label="Restart video"
+            className="grid size-10 place-items-center rounded-full bg-foreground/90 text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground"
+          >
+            <RotateCcw className="size-4" />
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={muted ? "Unmute video" : "Mute video"}
+          className="flex h-10 items-center gap-2 rounded-full bg-foreground/90 px-4 text-sm font-medium text-background shadow-lg ring-1 ring-background/20 backdrop-blur transition-colors hover:bg-foreground"
+        >
+          {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+          {muted ? "Unmute" : "Mute"}
+        </button>
+      </div>
     </div>
   );
 }
