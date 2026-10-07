@@ -117,8 +117,9 @@ function Page() {
                     <textarea id="message" required rows={5} placeholder="Tell us about your solar portfolio and how we can help..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="mt-2 w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
                   </div>
+                  <div ref={turnstileRef} />
                   {failed && <p className="text-sm text-destructive">Something went wrong. Please try again or email sales@ammp.io.</p>}
-                  <button type="submit" disabled={sending} className="button button-primary w-full justify-center">{sending ? "Sending…" : "Send Message"} <ArrowRight className="size-4" /></button>
+                  <button type="submit" disabled={sending || !turnstileToken} className="button button-primary w-full justify-center">{sending ? "Sending…" : "Send Message"} <ArrowRight className="size-4" /></button>
                 </form>
               )}
             </div>
