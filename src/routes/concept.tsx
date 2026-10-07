@@ -61,8 +61,8 @@ function Hero() {
           </Reveal>
           <Reveal delay={270}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/ai" className="button button-primary rounded-full px-5 transition-transform hover:-translate-y-0.5">Meet your coworker <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
-              <Link to="/ai" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
+              <Link to="/ray" className="button button-primary rounded-full px-5 transition-transform hover:-translate-y-0.5">Meet your coworker <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" /></Link>
+              <Link to="/ray" className="button glass rounded-full px-5 text-foreground transition-transform hover:-translate-y-0.5">See how it works</Link>
             </div>
           </Reveal>
         </div>

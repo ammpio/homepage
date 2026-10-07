@@ -78,7 +78,7 @@ function Hero() {
             <Link to="/contact" className="inline-flex items-center gap-2 bg-slate-950 px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-slate-800">
               Meet your coworker <ArrowRight className="size-4" />
             </Link>
-            <Link to="/ai" className="inline-flex items-center gap-2 border border-slate-200 px-7 py-3.5 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-50">
+            <Link to="/ray" className="inline-flex items-center gap-2 border border-slate-200 px-7 py-3.5 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-50">
               See how it works
             </Link>
           </div>

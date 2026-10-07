@@ -147,7 +147,7 @@ function Page() {
         highlight="collaborative intelligence."
         intro="AMMP brings live portfolio data, core operations and AI collaboration into a single system. From multi-vendor telemetry and automated ticketing to proactive triage in Slack and Teams, AMMP delivers the right interface for every workflow."
         primary={{ label: "See the demo", to: "/demo" }}
-        secondary={{ label: "Meet Ray", to: "/ai" }}
+        secondary={{ label: "Meet Ray", to: "/ray" }}
       />
 
       <Band tone="white">
@@ -159,7 +159,7 @@ function Page() {
       <Band tone="white">
         <SectionHeading eyebrow="How AMMP works" title="One source of truth, two ways to work" />
         <div className="mx-auto mt-10 max-w-4xl space-y-3">
-          <Link to="/ai" className="glass glass-lift flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
+          <Link to="/ray" className="glass glass-lift flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex min-w-0 items-start gap-4">
               <Sparkles className="mt-1 size-5 shrink-0 text-primary" />
               <div className="min-w-0">
