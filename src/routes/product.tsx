@@ -176,7 +176,7 @@ function Page() {
               <Activity className="mt-1 size-5 shrink-0 text-primary" />
               <div className="min-w-0">
                 <p className="eyebrow">Operational workflows</p>
-                <h3 className="mt-1 text-lg font-semibold">The core management platform</h3>
+                <h3 className="mt-1 text-lg font-semibold">AMMP OS, the core management platform</h3>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">Live data from 30+ vendor systems, SLA-tracked ticketing, rules-based alerting, reporting, commercial tracking, plus the Data API and MCP server.</p>
               </div>
             </div>
