@@ -221,7 +221,7 @@ export function Details() {
     { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit.", tab: "customizations" },
     { icon: Code, title: "API", body: "Your data in your own systems.", tab: "api" },
     { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant.", tab: "api" },
-  ];
+  ] as const;
   const arrow = (label: string, delay = "0s") => (
     <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0">
       <ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: delay }} />

@@ -20,8 +20,8 @@ const categoryIds = ["monitoring", "ticketing", "alerting", "reporting", "commer
 type CategoryId = (typeof categoryIds)[number];
 
 export const Route = createFileRoute("/product")({
-  validateSearch: (search: Record<string, unknown>): { tab?: CategoryId } => ({
-    tab: categoryIds.includes(search.tab as CategoryId) ? (search.tab as CategoryId) : undefined,
+  validateSearch: (search: Record<string, unknown>): { tab?: CategoryId | undefined } => ({
+    tab: categoryIds.includes(search["tab"] as CategoryId) ? (search["tab"] as CategoryId) : undefined,
   }),
   head: () => ({ meta: [
     { title: "AMMP OS — the platform your AI coworker run on" },
