@@ -5,6 +5,11 @@ import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo, RayDay } from "@/components/site/RaySections";
 import rayCinematic from "@/assets/ray-launch-cinematic.mp4.asset.json";
 import rayCinematicPoster from "@/assets/ray-launch-thumbnail.png.asset.json";
+import rayPt from "@/assets/Ray_launch_PT-BR_1080p_master.mp4.asset.json";
+import rayPtPoster from "@/assets/Ray_thumbnail_PT-BR.png.asset.json";
+import rayEs from "@/assets/Ray_launch_ES-LATAM_1080p_master.mp4.asset.json";
+import rayEsPoster from "@/assets/Ray_thumbnail_ES-LATAM.png.asset.json";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/ai")({
   head: () => ({ meta: [
@@ -17,6 +22,10 @@ export const Route = createFileRoute("/ai")({
 });
 
 function Page() {
+  const { language } = useLanguage();
+  const vid = language === "pt" ? { src: rayPt.url, poster: rayPtPoster.url }
+    : language === "es" ? { src: rayEs.url, poster: rayEsPoster.url }
+    : { src: rayCinematic.url, poster: rayCinematicPoster.url };
   return (
     <>
       <PageHero
@@ -25,7 +34,7 @@ function Page() {
         intro="Ray checks performance, triages alarms, audits contracts and drafts reports, with the evidence behind every answer. It works in Slack, Microsoft Teams and AMMP OS."
         primary={{ label: "Book a walkthrough", to: "/contact" }}
       />
-      <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo src={rayCinematic.url} poster={rayCinematicPoster.url} /></div></div></section>
+      <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo key={vid.src} src={vid.src} poster={vid.poster} /></div></div></section>
       <RayDay />
 
       <Band>
