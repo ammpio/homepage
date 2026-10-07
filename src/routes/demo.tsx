@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SampleReports, LiveDashboards } from "@/components/demo/DemoEmbeds";
-import { ArrowRight, BarChart3, FileText, Play } from "lucide-react";
+import { ArrowRight, BarChart3, Calendar, FileText, Play } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { BookMeeting } from "@/components/site/BookMeeting";
@@ -103,7 +103,13 @@ function Page() {
           <h2 className="text-3xl font-semibold">Want a guided demo?</h2>
           <p className="mt-4 text-lg text-muted-foreground">Pick a time that suits you and we'll set up a personalised walkthrough with your team.</p>
         </div>
-        <div className="mx-auto mt-10"><BookMeeting /></div>
+        <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-border/50 bg-white">
+          <div className="px-6 pt-6">
+            <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
+            <p className="mt-3 text-sm text-muted-foreground">Schedule a time to walk through your portfolio monitoring and AI coworker needs with our team.</p>
+          </div>
+          <BookMeeting className="mt-6" />
+        </div>
         <div className="mx-auto mt-8 max-w-2xl text-center">
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="button button-ghost">Contact us <ArrowRight className="size-4" /></Link>
