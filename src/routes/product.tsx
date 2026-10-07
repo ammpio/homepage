@@ -33,10 +33,10 @@ export const Route = createFileRoute("/product")({
     tab: categoryIds.includes(search["tab"] as CategoryId) ? (search["tab"] as CategoryId) : undefined,
   }),
   head: () => ({ meta: [
-    { title: "AMMP OS — the operating platform for renewable portfolios" },
-    { name: "description", content: "AMMP OS brings monitoring, alerting, ticketing, reporting, commercials and integrations into one platform. AMMP AI runs on top of it." },
-    { property: "og:title", content: "AMMP OS — the operating platform for renewable portfolios" },
-    { property: "og:description", content: "One platform for your renewable energy portfolio, with AMMP AI as a separate layer on top." },
+    { title: "AMMP Product Overview — robust data meets collaborative intelligence" },
+    { name: "description", content: "AMMP unifies live portfolio data, monitoring, alerting, ticketing, reporting and Ray, your AI coworker, with the right interface for every workflow." },
+    { property: "og:title", content: "AMMP Product Overview — robust data meets collaborative intelligence" },
+    { property: "og:description", content: "One system for renewable energy portfolios: live data, operations and AI collaboration." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -142,12 +142,12 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="AMMP OS · The operational platform"
-        title="The foundation where Ray"
-        highlight="and your team work together."
-        intro="AMMP OS brings monitoring, alerting, ticketing, commercial tracking and stakeholder reporting for your whole portfolio into one platform. AMMP AI is a separate layer on top: Ray, your AI coworker, works from the same live data in AMMP OS."
+        eyebrow="Product overview"
+        title="Where robust data meets"
+        highlight="collaborative intelligence."
+        intro="AMMP brings live portfolio data, core operations and AI collaboration into a single system. From multi-vendor telemetry and automated ticketing to proactive triage in Slack and Teams, AMMP delivers the right interface for every workflow."
         primary={{ label: "See the demo", to: "/demo" }}
-        secondary={{ label: "Explore AMMP AI", to: "/ai" }}
+        secondary={{ label: "Meet Ray", to: "/ai" }}
       />
 
       <Band tone="white">
@@ -157,27 +157,27 @@ function Page() {
       </Band>
 
       <Band tone="white">
-        <SectionHeading eyebrow="How it fits together" title="Two layers, one source of truth" />
+        <SectionHeading eyebrow="How AMMP works" title="One source of truth, two ways to work" />
         <div className="mx-auto mt-10 max-w-4xl space-y-3">
           <Link to="/ai" className="glass glass-lift flex flex-col gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex min-w-0 items-start gap-4">
               <Sparkles className="mt-1 size-5 shrink-0 text-primary" />
               <div className="min-w-0">
-                <p className="eyebrow">AMMP AI · Optional layer</p>
+                <p className="eyebrow">Collaborative intelligence</p>
                 <h3 className="mt-1 text-lg font-semibold">Ray, your AI coworker</h3>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">Morning triage, root-cause answers with evidence and drafted reports, in Slack, Microsoft Teams or AMMP OS.</p>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">Morning fleet triage, root-cause answers with cited evidence and drafted stakeholder updates, right in Slack, Microsoft Teams or the AMMP workspace.</p>
               </div>
             </div>
-            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-primary">Explore AMMP AI <ArrowRight className="size-4" /></span>
+            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-primary">Meet Ray <ArrowRight className="size-4" /></span>
           </Link>
-          <div className="flex justify-center text-muted-foreground" aria-hidden>↑ works from ↑</div>
+          <div className="flex justify-center"><span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">Unified on one platform and data foundation</span></div>
           <div className="glass-strong rounded-2xl p-6">
             <div className="flex items-start gap-4">
               <Activity className="mt-1 size-5 shrink-0 text-primary" />
               <div className="min-w-0">
-                <p className="eyebrow">AMMP OS · Foundation</p>
-                <h3 className="mt-1 text-lg font-semibold">The operational platform for your portfolio</h3>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">Live data from 30+ vendors, alerting, ticketing, reporting, commercials, plus the Data API and MCP server.</p>
+                <p className="eyebrow">Operational workflows</p>
+                <h3 className="mt-1 text-lg font-semibold">The core management platform</h3>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">Live data from 30+ vendor systems, SLA-tracked ticketing, rules-based alerting, reporting, commercial tracking, plus the Data API and MCP server.</p>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Inside AMMP OS" title="Eight functions on one platform" intro="Everything your team needs to keep the portfolio visible, accountable and reported on." />
+        <SectionHeading eyebrow="Platform capabilities" title="Functionality and interfaces for every workflow" intro="Whether it's an engineer in a deep-dive dashboard, an O&M lead on the go, Ray in Slack or an investor reading a scheduled report, AMMP gives every person the right way to get work done." />
         <div className="-mx-4 mt-10 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0" role="tablist" aria-label="AMMP OS modules">
           <div className="glass-strong flex w-max gap-1 rounded-2xl p-1.5 md:w-full md:flex-wrap">
             {categories.map(({ id, label, icon: Icon }) => (
