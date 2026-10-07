@@ -10,7 +10,7 @@ import alertsDashboard from "@/assets/alerts-dashboard.png";
 import pdfReportsNew from "@/assets/pdf-reports-new.png";
 import energySavingsHub from "@/assets/energy-savings-hub.png";
 import integrationsImage from "@/assets/integrations.png";
-import customDashboardsImg from "@/assets/customizations-dashboards.jpg";
+import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
 export const Route = createFileRoute("/product")({
