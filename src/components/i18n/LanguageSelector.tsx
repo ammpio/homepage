@@ -55,7 +55,7 @@ function FlagBR({ className }: { className?: string }) {
 }
 
 const languages: { code: Language; Flag: React.FC<{ className?: string }>; label: string }[] = [
-  { code: "en", Flag: FlagUS, label: "US English" },
+  { code: "en", Flag: FlagUS, label: "English" },
   { code: "es", Flag: FlagES, label: "Español" },
   { code: "pt", Flag: FlagBR, label: "Português (Brasil)" },
 ];
