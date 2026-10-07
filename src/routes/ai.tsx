@@ -21,8 +21,8 @@ export const Route = createFileRoute("/ai")({
 
 function Page() {
   const { language } = useLanguage();
-  const vid = language === "pt" ? { src: rayPt.url, poster: rayPtPoster.url }
-    : language === "es" ? { src: rayEs.url, poster: rayEsPoster.url }
+  const vid = language === "pt" ? { src: rayPt.url, poster: "" }
+    : language === "es" ? { src: rayEs.url, poster: "" }
     : { src: rayCinematic.url, poster: rayCinematicPoster.url };
   return (
     <>
