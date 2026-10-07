@@ -3427,7 +3427,6 @@ export const runtimeTranslations: Record<"es" | "pt", Record<string, string>> = 
     "Proven across live portfolios.": "Comprovado em portfólios ativos.",
     "Ray and AMMP OS give asset managers total visibility and complete control over a renewable energy portfolio.": "Ray e AMMP OS oferecem aos gestores de ativos visibilidade total e controle completo sobre um portfólio de energia renovável.",
     "Total visibility. Complete control. Ray, grounded in your portfolio data.": "Visibilidade total. Controle completo. Ray, baseado nos dados do seu portfólio.",
-    "AI + AMMP OS": "IA + AMMP OS",
     "Ray watches every underperforming site": "Ray monitora cada site com baixo desempenho",
     "Instead of scanning spreadsheets, Ray flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask.": "Em vez de escanear planilhas, Ray sinaliza os sites que se desviam do rendimento esperado, explica o porquê e elabora a nota para o stakeholder antes mesmo de você pedir.",
     "AMMP for O&M Providers — AMMP": "AMMP para Provedores de O&M — AMMP",
