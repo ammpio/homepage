@@ -1,6 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowRight,
   BarChart3,
   Building2,
   Check,
@@ -143,17 +142,7 @@ function Page() {
         <p className="mt-10 text-center text-lg font-medium">Your specifics, on a platform you don&apos;t have to maintain.</p>
       </Band>
 
-      <Band tone="grey">
-        <div className="max-w-2xl mx-auto text-center">
-          <SectionHeading title="Tell us what makes your portfolio different." intro="A short call is usually enough to see how AMMP would fit your setup." center />
-          <Link to="/contact" className="button button-primary mt-8 inline-flex">
-            Talk to our team
-            <ArrowRight className="ml-2 size-4" />
-          </Link>
-        </div>
-      </Band>
-
-      <PageCta />
+      <PageCta title="Tell us what makes your portfolio different." intro="A short call is usually enough to see how AMMP would fit your setup." />
     </>
   );
 }
