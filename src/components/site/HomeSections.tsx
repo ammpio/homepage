@@ -141,7 +141,7 @@ export function ProactiveOnDemand() {
         <h2 className={`max-w-3xl ${h2Class}`}>Proactive when you don’t ask.<br />On demand when you do.</h2>
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Ranks what needs a human first</h3>
+            <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Ranks what needs your team's input first</h3>
             <p className="mt-3 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
