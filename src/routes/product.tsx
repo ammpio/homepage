@@ -197,7 +197,7 @@ function Page() {
           </div>
         </div>
 
-        <div id="category-content" className="mt-12 scroll-mt-24">
+        <div id="category-content" key={active} className="mt-12 scroll-mt-24">
           {panels[active]}
         </div>
       </Band>
