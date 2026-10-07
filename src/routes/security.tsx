@@ -77,17 +77,7 @@ function Page() {
         </div>
       </Band>
 
-      <Band>
-        <div className="max-w-2xl mx-auto text-center">
-          <SectionHeading title="Security questions before you buy?" intro="Send us your security questionnaire or vendor assessment. We answer them ourselves, without a sales layer in between." center />
-          <Link to="/contact" className="button button-primary mt-8 inline-flex">
-            Contact our team
-            <ArrowRight className="ml-2 size-4" />
-          </Link>
-        </div>
-      </Band>
-
-      <PageCta />
+      <PageCta title="Security questions before you buy?" intro="Send us your security questionnaire or vendor assessment. We answer them ourselves, without a sales layer in between." />
     </>
   );
 }
