@@ -4,6 +4,8 @@ import { runtimeTranslations } from "./runtime-translations";
 
 const blocked = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "OPTION"]);
 const originals = new WeakMap<Text, string>();
+const attributeOriginals = new WeakMap<Element, Map<string, string>>();
+const translatedAttributes = ["placeholder", "aria-label", "title", "alt"] as const;
 
 function translated(value: string, language: "en" | "es" | "pt") {
   if (language === "en") return value;
@@ -24,6 +26,19 @@ function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {
     const source = originals.get(node) ?? node.data;
     originals.set(node, source);
     node.data = translated(source, language);
+  }
+  const elements = root instanceof Element ? [root, ...root.querySelectorAll("*")] : [...root.querySelectorAll("*")];
+  for (const element of elements) {
+    if (element.closest("[data-no-translate]")) continue;
+    let values = attributeOriginals.get(element);
+    if (!values) { values = new Map(); attributeOriginals.set(element, values); }
+    for (const attribute of translatedAttributes) {
+      const current = element.getAttribute(attribute);
+      if (!current) continue;
+      const source = values.get(attribute) ?? current;
+      values.set(attribute, source);
+      element.setAttribute(attribute, translated(source, language));
+    }
   }
 }
 
