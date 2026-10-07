@@ -1,10 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContact } from "@/lib/contact.functions";
 import { ArrowRight, Calendar, Check, Linkedin, Mail } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFQPfF249vmbtO0n";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: { sitekey: string; callback: (token: string) => void; "expired-callback"?: () => void }) => string;
+      reset: (id?: string) => void;
+    };
+    onTurnstileLoad?: () => void;
+  }
+}
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
