@@ -1,10 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContact } from "@/lib/contact.functions";
 import { ArrowRight, Calendar, Check, Linkedin, Mail } from "lucide-react";
 import { Band, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFQPfF249vmbtO0n";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: { sitekey: string; callback: (token: string) => void; "expired-callback"?: () => void }) => string;
+      reset: (id?: string) => void;
+    };
+    onTurnstileLoad?: () => void;
+  }
+}
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
@@ -22,20 +34,45 @@ function Page() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
   const submit = useServerFn(submitContact);
+
+  useEffect(() => {
+    const render = () => {
+      if (turnstileRef.current && window.turnstile && widgetId.current === null) {
+        widgetId.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(""),
+        });
+      }
+    };
+    if (window.turnstile) { render(); return; }
+    window.onTurnstileLoad = render;
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit";
+    s.async = true;
+    document.head.appendChild(s);
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSending(true);
     setFailed(false);
     try {
-      const res = await submit({ data: form });
+      const res = await submit({ data: { ...form, turnstileToken } });
       if (res.ok) setSubmitted(true);
       else setFailed(true);
     } catch {
       setFailed(true);
     } finally {
       setSending(false);
+      if (widgetId.current !== null && window.turnstile) {
+        window.turnstile.reset(widgetId.current);
+        setTurnstileToken("");
+      }
     }
   }
 
@@ -80,8 +117,9 @@ function Page() {
                     <textarea id="message" required rows={5} placeholder="Tell us about your solar portfolio and how we can help..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="mt-2 w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
                   </div>
+                  <div ref={turnstileRef} />
                   {failed && <p className="text-sm text-destructive">Something went wrong. Please try again or email sales@ammp.io.</p>}
-                  <button type="submit" disabled={sending} className="button button-primary w-full justify-center">{sending ? "Sending…" : "Send Message"} <ArrowRight className="size-4" /></button>
+                  <button type="submit" disabled={sending || !turnstileToken} className="button button-primary w-full justify-center">{sending ? "Sending…" : "Send Message"} <ArrowRight className="size-4" /></button>
                 </form>
               )}
             </div>
