@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 
 export const Route = createFileRoute("/trial")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Start a Trial — AMMP" },
     { name: "description", content: "Start a discounted 6-month trial of AMMP OS and AI coworker, with a pilot phase on a subset of your portfolio." },

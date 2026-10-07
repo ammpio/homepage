@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/mcp")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP MCP server — your portfolio, for any AI assistant" },
     { name: "description", content: "The AMMP MCP server gives Claude, Copilot or your own agent secure, permission-aware access to live renewable portfolio data." },

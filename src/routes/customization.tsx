@@ -17,6 +17,7 @@ import { Band, PageHero, SectionHeading, StepList } from "@/components/site/sect
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/customization")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Tailored Solutions — Custom Integrations and Workflows | AMMP" },

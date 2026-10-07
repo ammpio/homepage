@@ -3,6 +3,7 @@ import { ArrowUpRight, DollarSign, FlaskConical, Kanban, Plug } from "lucide-rea
 import { Band, PageHero, FeatureGrid } from "@/components/site/sections";
 
 export const Route = createFileRoute("/beta")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [
     { title: "AMMP Labs — Experimental features" },
     { name: "description", content: "Early access to experimental AMMP features: billing integration, AI + MCP server, and monday.com sync." },

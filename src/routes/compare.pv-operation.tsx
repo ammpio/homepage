@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable, Prose } from
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/pv-operation")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs PV Operation — AMMP" },
     { name: "description", content: "How AMMP compares with PV Operation, the Brazilian SCADA and monitoring provider for distributed generation plants, and where the two approaches differ." },

@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/solaredge")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs SolarEdge Monitoring — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare SolarEdge's proprietary monitoring with AMMP's open, multi-vendor platform." },

@@ -7,6 +7,7 @@ import teamCycling from "@/assets/team/team-cycling.jpeg";
 import teamGames from "@/assets/team/team-games.jpeg";
 
 export const Route = createFileRoute("/careers")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Careers at AMMP — Build the operating system for clean energy" },
     { name: "description", content: "Join the team building an AI coworker and the operating layer renewable energy operators depend on every day." },

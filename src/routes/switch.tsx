@@ -7,6 +7,7 @@ import solarsaverLogo from "@/assets/partners/solarsaver-logo.png";
 import broadreachLogo from "@/assets/partners/broadreach-logo.png";
 
 export const Route = createFileRoute("/switch")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Why renewable energy companies switch to AMMP" },
     { name: "description", content: "Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, an AI coworker and automated reporting." },

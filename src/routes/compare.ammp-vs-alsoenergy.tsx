@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable, StepList, Qu
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/ammp-vs-alsoenergy")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs AlsoEnergy / PowerTrack — AMMP" },
     { name: "description", content: "Looking for an AlsoEnergy alternative or a PowerTrack alternative? Compare AMMP and AlsoEnergy on customization, integrations, support and BESS depth." },

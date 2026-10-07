@@ -5,6 +5,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/s
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/use-cases/om-providers")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP for O&M Providers — AMMP" },
     { name: "description", content: "Ray and AMMP OS help O&M providers streamline workflows and track SLAs with precision." },

@@ -7,6 +7,7 @@ import { BrandGrid } from "@/components/site/BrandGrid";
 import { apiIntegrations, softwareAddons, edgeFeatures, type Brand } from "@/data/integrations";
 
 export const Route = createFileRoute("/integrations")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Integrations & Add-ons — AMMP" },
     { name: "description", content: "Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, giving your AI coworker one grounded view of every system." },

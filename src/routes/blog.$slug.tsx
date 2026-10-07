@@ -10,6 +10,7 @@ import rayPoster from "@/assets/ray-video-poster.jpg";
 const SITE = "https://ai-cozy-nest.lovable.app";
 
 export const Route = createFileRoute("/blog/$slug")({
+  staticData: { sitemap: true },
   head: ({ params }) => {
     const post = getBlogPost(params.slug);
     const title = post ? (post.seoTitle ?? `${post.title} — AMMP Blog`) : "Article not found — AMMP Blog";

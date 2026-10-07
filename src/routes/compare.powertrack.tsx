@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/powertrack")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs PowerTrack — AMMP" },
     { name: "description", content: "Looking for a PowerTrack alternative? PowerTrack is AlsoEnergy's monitoring platform, now part of Stem. Compare it with AMMP on customization, integrations, support and BESS depth." },

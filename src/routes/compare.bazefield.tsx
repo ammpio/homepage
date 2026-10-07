@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/bazefield")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Renewable Portfolios vs Traditional SCADA — AMMP" },
     { name: "description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for renewable energy portfolios across solar, storage and hybrids." },

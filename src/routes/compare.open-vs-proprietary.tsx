@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/open-vs-proprietary")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Open Standards vs Proprietary Protocols — AMMP" },
     { name: "description", content: "Compare the long-term implications of open, vendor-neutral monitoring versus closed, proprietary ecosystems." },

@@ -10,6 +10,7 @@ import rayEs from "@/assets/Ray_launch_ES-LATAM_1080p_master_subtitled.mp4.asset
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Route = createFileRoute("/ray")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Meet Ray — AMMP's AI coworker for renewable portfolios" },
     { name: "description", content: "Ray checks performance, triages alarms, audits contracts and drafts reports with the evidence behind every answer." },

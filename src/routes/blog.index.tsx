@@ -9,6 +9,7 @@ import { comparisons } from "@/data/comparisons";
 type Filter = "All" | BlogCategory | "Compare";
 
 export const Route = createFileRoute("/blog/")({
+  staticData: { sitemap: true },
   validateSearch: (search: Record<string, unknown>): { category?: Filter } => {
     const c = search["category"];
     return typeof c === "string" && (c === "Compare" || (blogCategories as string[]).includes(c)) ? { category: c as Filter } : {};

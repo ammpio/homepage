@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/s
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/brazil")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP Brazil — Solar and BESS monitoring with AI coworker" },
     { name: "description", content: "Monitoring and asset management, with an AI coworker on top, for solar, storage and hybrid portfolios in Brazil. Built for BESS as the SAE framework and 2026 storage auctions arrive." },

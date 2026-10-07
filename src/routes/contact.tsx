@@ -5,6 +5,7 @@ import { Band, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Contact AMMP — Talk to our team" },
     { name: "description", content: "Ready to put an AI coworker and portfolio-wide visibility to work? Talk to AMMP about your renewable energy operations." },

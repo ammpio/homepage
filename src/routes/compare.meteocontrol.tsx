@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/meteocontrol")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Meteocontrol — AMMP" },
     { name: "description", content: "Compare two renewable energy monitoring platforms. See how AMMP's vendor-neutral platform and AI coworker compare to Meteocontrol's established solution." },
