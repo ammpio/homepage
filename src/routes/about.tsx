@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Globe2, Handshake, Sparkles, Target, Compass, Wrench, UserCheck } from "lucide-react";
-import { Band, PageHero, SectionHeading, FeatureGrid, QuoteBand, Prose } from "@/components/site/sections";
+import { Band, PageHero, SectionHeading, FeatureGrid, Prose } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { RayIcon } from "@/components/site/RayIcon";
 
