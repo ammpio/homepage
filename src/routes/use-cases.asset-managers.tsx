@@ -1,3 +1,4 @@
+import { RayDay } from "@/components/site/RaySections";
 import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, Building2, FileText, Bell, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
@@ -43,10 +44,7 @@ function Page() {
 
       <Band tone="grey">
         <SectionHeading eyebrow="AI + AMMP OS" title="Ray watches every underperforming site" intro="Instead of scanning spreadsheets, Ray flags the sites drifting from expected yield, explains why, and drafts the stakeholder note before you ask." />
-        <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-card p-6">
-          <RayIcon className="size-10 shrink-0 ring-2 ring-primary/20" />
-          <p className="text-sm leading-6 text-muted-foreground">Ask Ray "which PPA sites are at risk of missing guarantee this month?" and get an answer with the evidence behind it, not another dashboard to interpret.</p>
-        </div>
+        <div className="mt-10"><RayDay only="plan" /></div>
       </Band>
 
       <Band>
