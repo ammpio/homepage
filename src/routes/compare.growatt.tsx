@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/growatt")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Growatt ShineServer — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare Growatt's ShineServer with AMMP's open, multi-vendor platform." },

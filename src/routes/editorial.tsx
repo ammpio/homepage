@@ -11,6 +11,7 @@ const SERIF = "'Playfair Display', Georgia, serif";
 const MONO = "'IBM Plex Mono', ui-monospace, monospace";
 
 export const Route = createFileRoute("/editorial")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "AMMP — an AI coworker for renewable energy portfolios" },

@@ -44,6 +44,7 @@ const DEMO_CHAPTERS = [
 ];
 
 export const Route = createFileRoute("/demo")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Experience AMMP OS — Interactive Demo" },
     { name: "description", content: "See AMMP OS and its AI coworker in action: interactive demo, sample reports and live dashboards." },

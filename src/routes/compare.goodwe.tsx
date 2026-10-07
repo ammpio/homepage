@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/goodwe")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs GoodWe SEMS Portal — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare GoodWe's SEMS Portal with AMMP's open, multi-vendor platform." },

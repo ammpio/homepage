@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/vendor-portals")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Manufacturer Portals — AMMP" },
     { name: "description", content: "Stop juggling multiple monitoring platforms. Unify your entire portfolio, regardless of hardware, in one powerful platform." },

@@ -5,6 +5,7 @@ import { PageCta } from "@/components/site/SiteShell";
 import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "About AMMP — an AI coworker for the energy transition" },
     { name: "description", content: "AMMP started in Tanzania's mini-grids and now gives renewable energy teams an AI coworker grounded in real portfolio data." },

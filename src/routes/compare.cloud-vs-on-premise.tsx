@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/cloud-vs-on-premise")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Cloud-Native vs On-Premise Monitoring — AMMP" },
     { name: "description", content: "Explore the tradeoffs between cloud-native platforms like AMMP and traditional on-premise monitoring solutions." },

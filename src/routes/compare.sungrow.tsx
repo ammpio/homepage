@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/sungrow")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Sungrow iSolarCloud — AMMP" },
     { name: "description", content: "Compare Sungrow's iSolarCloud with AMMP's open monitoring platform. See why portfolio operators choose hardware independence." },

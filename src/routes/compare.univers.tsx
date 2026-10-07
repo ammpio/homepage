@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/univers")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Focused Renewables Platform vs Enterprise Scale — AMMP" },
     { name: "description", content: "Univers operates a massive IoT and AI platform managing 845GW of energy assets. AMMP offers a focused, accessible solution for renewable energy portfolios." },

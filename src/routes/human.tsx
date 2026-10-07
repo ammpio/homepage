@@ -8,6 +8,7 @@ import {
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/human")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: "AMMP — an AI coworker for renewable energy portfolios" },

@@ -11,6 +11,7 @@ import { ProofLockup, ExecutionTrace, ModeDeck, TrustBento } from "@/components/
 import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/concept")({
+  staticData: { sitemap: false },
   head: () => ({ meta: [
     { title: "AMMP concept homepage — an AI coworker for renewable portfolios" },
     { name: "description", content: "AMMP combines renewable energy portfolio software with an AI coworker that investigates, prioritizes and prepares work." },

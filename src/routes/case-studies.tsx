@@ -8,6 +8,7 @@ import broadreachLogo from "@/assets/broadreach-logo.png";
 import { RayIcon } from "@/components/site/RayIcon";
 
 export const Route = createFileRoute("/case-studies")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Customer Success Stories — AMMP" },
     { name: "description", content: "See how renewable energy operators use AMMP and AI coworker to scale their operations and deliver exceptional results." },

@@ -5,6 +5,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/s
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/use-cases/asset-managers")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP for Asset Managers — AMMP" },
     { name: "description", content: "Ray and AMMP OS give asset managers total visibility and complete control over a renewable energy portfolio." },

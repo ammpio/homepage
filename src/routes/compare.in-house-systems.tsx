@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/in-house-systems")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs In-House Systems — AMMP" },
     { name: "description", content: "Building your own monitoring platform? Compare the true cost and effort of in-house development versus a purpose-built solution." },

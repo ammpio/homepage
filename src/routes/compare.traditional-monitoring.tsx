@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/traditional-monitoring")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Traditional Monitoring — AMMP" },
     { name: "description", content: "Compare modern cloud-based monitoring with traditional SCADA systems, local loggers, and spreadsheet-based tracking." },

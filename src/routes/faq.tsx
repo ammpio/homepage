@@ -3,6 +3,7 @@ import { Band, PageHero, SectionHeading, Faq } from "@/components/site/sections"
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/faq")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "FAQ — AMMP OS and an AI coworker for renewable energy" },
     { name: "description", content: "Answers about AMMP OS: monitoring, integrations, reporting, security and switching, plus how AI coworker build on that data." },

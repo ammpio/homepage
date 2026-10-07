@@ -13,6 +13,7 @@ import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/security")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Security & Trust — ISO 27001 Certified Monitoring | AMMP" },

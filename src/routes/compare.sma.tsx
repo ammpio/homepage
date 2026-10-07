@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/sma")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs SMA Sunny Portal — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare SMA's Sunny Portal with AMMP's open, multi-vendor platform." },

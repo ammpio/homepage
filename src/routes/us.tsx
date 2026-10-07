@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, QuoteBand } from "@/compon
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/us")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP US — Tailored solar and BESS monitoring, plus AI coworker" },
     { name: "description", content: "Asset management tailored to your vendors, KPIs and workflows, now with an AI coworker built on top. PV, BESS and hybrid portfolios, 10,000+ sites across 35 countries." },

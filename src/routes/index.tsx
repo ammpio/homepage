@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/site/HomeSections";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP — Ray, the AI coworker for renewable energy portfolios" },
     { name: "description", content: "Ray is AMMP's AI coworker: it checks performance, triages alarms, audits contracts and drafts reports across your renewable energy portfolio." },

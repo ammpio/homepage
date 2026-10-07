@@ -5,6 +5,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/s
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/use-cases/reporting-teams")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP for Reporting Teams — AMMP" },
     { name: "description", content: "Ray and AMMP OS turn standardized portfolio data into clear, reviewable reporting outputs for reporting teams." },

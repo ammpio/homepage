@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/fronius")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Fronius Solar.web — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare Fronius Solar.web with AMMP's open, multi-vendor platform." },

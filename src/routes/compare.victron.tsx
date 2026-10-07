@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/victron")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Victron VRM Portal — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare Victron's VRM Portal with AMMP's open, multi-vendor platform." },

@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/qos-energy")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs QOS Energy — AMMP" },
     { name: "description", content: "Compare AMMP with QOS Energy (formerly Bazefield/Quantum). See how our vendor-neutral, AI-assisted approach differs." },

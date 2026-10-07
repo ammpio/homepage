@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/data-first-vs-ui-first")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Data-First vs UI-First Platforms — AMMP" },
     { name: "description", content: "What matters more: powerful analytics or a polished interface? With AMMP, you do not have to choose." },

@@ -3,6 +3,7 @@ import { Download } from "lucide-react";
 import { Band, PageHero, Prose } from "@/components/site/sections";
 
 export const Route = createFileRoute("/terms")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Terms of Service — AMMP Technologies B.V." },
     { name: "description", content: "The terms and conditions for using AMMP's platform and services. Download the full AMMP Terms of Service document." },

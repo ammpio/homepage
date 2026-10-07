@@ -4,6 +4,7 @@ import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/com
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/compare/huawei")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs Huawei FusionSolar — AMMP" },
     { name: "description", content: "Break free from vendor lock-in. Compare Huawei's FusionSolar with AMMP's open, multi-vendor platform." },

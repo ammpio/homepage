@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Band, PageHero, Prose } from "@/components/site/sections";
 
 export const Route = createFileRoute("/privacy")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Privacy Policy — AMMP Technologies B.V." },
     { name: "description", content: "How AMMP Technologies B.V. collects, uses and protects personal data across ammp.io and the AMMP platform." },

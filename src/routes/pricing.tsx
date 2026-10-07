@@ -4,6 +4,7 @@ import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server, S
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
 
 export const Route = createFileRoute("/pricing")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Pricing — flexible, modular plans | AMMP" },
     { name: "description", content: "Two modules priced per MWp/year: AMMP AI with Ray and full data access, and AMMP OS Platform for monitoring, alerting and reporting." },
