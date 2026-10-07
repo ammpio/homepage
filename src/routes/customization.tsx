@@ -73,7 +73,7 @@ function Page() {
         eyebrow="Tailored solutions"
         title="Your portfolio isn't standard."
         highlight="Your platform shouldn't be either."
-        intro="Every portfolio has its own SCADA setups, contracts, tariffs and reporting needs. AMMP adapts the platform to them — custom integrations, KPIs and workflows — so Ray and your team work from data that fits how you actually operate, without you owning the upkeep."
+        intro="Every portfolio has its own SCADA setups, contracts, tariffs and reporting needs. AMMP adapts the platform to them with custom integrations, KPIs and workflows, so Ray and your team work from data that fits how you actually operate, without you owning the upkeep."
         primary={{ label: "Send us your requirement", to: "/contact" }}
       />
 
