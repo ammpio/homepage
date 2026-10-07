@@ -89,6 +89,7 @@ function Page() {
           )}
       </Band>
 
+      <RayVideo />
 
       <Band tone="white">
         <div className="mx-auto max-w-3xl text-center">
