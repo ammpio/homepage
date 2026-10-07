@@ -111,7 +111,7 @@ export function BeforeLogin() {
         <div>
           <h2 className={h2Class}>On the job before the team logs on</h2>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
-            By the time your team opens Slack, Ray has already checked yesterday’s performance across every site, found what changed and opened the tickets that need a human.
+            By the time your team opens Slack, Ray has already checked yesterday’s performance across every site, found what changed and opened the tickets that need input.
           </p>
           <p className="mt-4 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
             It adds capacity to the people you already have, without adding another dashboard to watch.
