@@ -109,11 +109,11 @@ export function BeforeLogin() {
     <section className="py-16 lg:py-32">
       <div className="site-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
-          <h2 className={h2Class}>Working before anyone’s logged in</h2>
+          <h2 className={h2Class}>On the job before the team logs on</h2>
           <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
             By the time your team opens Slack, Ray has already checked yesterday’s performance across every site, found what changed and opened the tickets that need a human.
           </p>
-          <p className="mt-4 max-w-[48ch] leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">
             It adds capacity to the people you already have, without adding another dashboard to watch.
           </p>
         </div>
@@ -142,7 +142,7 @@ export function ProactiveOnDemand() {
         <div className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Ranks what needs a human first</h3>
-            <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
+            <p className="mt-3 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">Ray scans the fleet continuously and surfaces the issues worth your attention, ranked by operational and commercial impact, before they grow.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
                 <p className="text-xs text-muted-foreground">Fleet triage · ranked by daily impact</p>
@@ -173,7 +173,7 @@ export function ProactiveOnDemand() {
           </div>
           <div>
             <h3 className="font-display text-2xl font-medium tracking-[-0.015em]">Answers with evidence</h3>
-            <p className="mt-3 max-w-[48ch] leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
+            <p className="mt-3 max-w-[48ch] text-lg leading-relaxed text-muted-foreground">Ask in Slack, Teams or AMMP OS for a diagnosis, a contract check or a report. Every answer shows the data behind it, and people stay in control of the decision.</p>
             <Reveal>
               <div className="mt-8 rounded-2xl border border-border/60 bg-background/70 p-5">
                 <p className="ml-auto w-fit rounded-xl bg-muted px-3 py-2 text-sm">Did Valle Soleado meet its availability guarantee in September?</p>
