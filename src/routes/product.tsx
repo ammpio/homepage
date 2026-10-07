@@ -43,8 +43,6 @@ const categories = [
   { id: "api", label: "API & MCP", icon: Code, title: "Build on the same data Ray uses" },
 ] as const;
 
-type CategoryId = (typeof categories)[number]["id"];
-
 function Card({ icon: Icon, title, children }: { icon: typeof Zap; title: string; children: ReactNode }) {
   return (
     <div className="glass glass-lift rounded-2xl p-6">
@@ -117,8 +115,18 @@ const panels: Record<CategoryId, ReactNode> = {
 };
 
 function Page() {
-  const [active, setActive] = useState<CategoryId>("monitoring");
+  const { tab } = Route.useSearch();
+  const [active, setActive] = useState<CategoryId>(tab ?? "monitoring");
   const current = categories.find((c) => c.id === active)!;
+
+  useEffect(() => {
+    if (tab) {
+      setActive(tab);
+      requestAnimationFrame(() =>
+        document.getElementById("category-content")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      );
+    }
+  }, [tab]);
 
   return (
     <>
@@ -149,7 +157,7 @@ function Page() {
           </div>
         </div>
 
-        <div className="mt-12">
+        <div id="category-content" className="mt-12 scroll-mt-24">
           {"intro" in current
             ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} eyebrowClassName="hidden md:block" />
             : <SectionHeading eyebrow={current.label} title={current.title} eyebrowClassName="hidden md:block" />}
