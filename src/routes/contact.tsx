@@ -18,10 +18,23 @@ export const Route = createFileRoute("/contact")({
 function Page() {
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const submit = useServerFn(submitContact);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setFailed(false);
+    try {
+      const res = await submit({ data: form });
+      if (res.ok) setSubmitted(true);
+      else setFailed(true);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
