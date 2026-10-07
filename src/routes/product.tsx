@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, SplitFeature } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
@@ -16,7 +16,13 @@ import integrationsImage from "@/assets/integrations.png";
 import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
+const categoryIds = ["monitoring", "ticketing", "alerting", "reporting", "commercials", "integrations", "customizations", "api"] as const;
+type CategoryId = (typeof categoryIds)[number];
+
 export const Route = createFileRoute("/product")({
+  validateSearch: (search: Record<string, unknown>): { tab?: CategoryId | undefined } => ({
+    tab: categoryIds.includes(search["tab"] as CategoryId) ? (search["tab"] as CategoryId) : undefined,
+  }),
   head: () => ({ meta: [
     { title: "AMMP OS — the platform your AI coworker run on" },
     { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with an AI coworker grounded in the same data." },
@@ -36,8 +42,6 @@ const categories = [
   { id: "customizations", label: "Customizations", icon: Settings2, title: "Built around your portfolio, not a template" },
   { id: "api", label: "API & MCP", icon: Code, title: "Build on the same data Ray uses" },
 ] as const;
-
-type CategoryId = (typeof categories)[number]["id"];
 
 function Card({ icon: Icon, title, children }: { icon: typeof Zap; title: string; children: ReactNode }) {
   return (
@@ -111,8 +115,18 @@ const panels: Record<CategoryId, ReactNode> = {
 };
 
 function Page() {
-  const [active, setActive] = useState<CategoryId>("monitoring");
+  const { tab } = Route.useSearch();
+  const [active, setActive] = useState<CategoryId>(tab ?? "monitoring");
   const current = categories.find((c) => c.id === active)!;
+
+  useEffect(() => {
+    if (tab) {
+      setActive(tab);
+      requestAnimationFrame(() =>
+        document.getElementById("category-content")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      );
+    }
+  }, [tab]);
 
   return (
     <>
@@ -143,7 +157,7 @@ function Page() {
           </div>
         </div>
 
-        <div className="mt-12">
+        <div id="category-content" className="mt-12 scroll-mt-24">
           {"intro" in current
             ? <SectionHeading eyebrow={current.label} title={current.title} intro={current.intro} eyebrowClassName="hidden md:block" />
             : <SectionHeading eyebrow={current.label} title={current.title} eyebrowClassName="hidden md:block" />}
