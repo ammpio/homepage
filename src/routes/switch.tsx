@@ -8,9 +8,9 @@ import broadreachLogo from "@/assets/partners/broadreach-logo.png";
 
 export const Route = createFileRoute("/switch")({
   head: () => ({ meta: [
-    { title: "Why C&I solar companies switch to AMMP" },
+    { title: "Why renewable energy companies switch to AMMP" },
     { name: "description", content: "Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, an AI coworker and automated reporting." },
-    { property: "og:title", content: "Why C&I solar companies switch to AMMP" },
+    { property: "og:title", content: "Why renewable energy companies switch to AMMP" },
     { property: "og:description", content: "Unified visibility, automated reporting, and a platform that scales." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
@@ -33,11 +33,11 @@ const faqs = [
 function Page() {
   return (
     <>
-      <PageHero eyebrow="Switching" title="Why C&I solar companies" highlight="switch to AMMP" intro="Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworker, automated reporting, and a platform that scales." primary={{ label: "Try the demo", to: "/demo" }} secondary={{ label: "Talk to sales", to: "/contact" }} />
+      <PageHero eyebrow="Switching" title="Why renewable energy companies" highlight="switch to AMMP" intro="Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, AI coworker, automated reporting, and a platform that scales." primary={{ label: "Try the demo", to: "/demo" }} secondary={{ label: "Talk to sales", to: "/contact" }} />
 
       <Band tone="grey">
         <h2 className="text-3xl font-medium tracking-tight sm:text-4xl text-center">What's happening</h2>
-        <p className="mt-3 text-center text-lg text-muted-foreground">The C&I solar industry is shifting. Portfolios are growing, but the tools haven't kept up.</p>
+        <p className="mt-3 text-center text-lg text-muted-foreground">The renewable energy industry is shifting. Portfolios are growing, but the tools haven't kept up.</p>
         <FeatureGrid columns={3} features={[
           { icon: AlertTriangle, title: "Vendor fragmentation is growing", text: "Every new brand in your portfolio means another portal, another login, another data silo. Visibility gets harder as you scale." },
           { icon: Clock, title: "Manual reporting is unsustainable", text: "Compiling monthly reports from spreadsheets and screenshots costs your team hours, and the data is stale before it's sent." },

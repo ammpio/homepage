@@ -6,9 +6,9 @@ import { PageCta } from "@/components/site/SiteShell";
 export const Route = createFileRoute("/compare/bazefield")({
   head: () => ({ meta: [
     { title: "Renewable Portfolios vs Traditional SCADA — AMMP" },
-    { name: "description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios." },
+    { name: "description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for renewable energy portfolios across solar, storage and hybrids." },
     { property: "og:title", content: "Renewable Portfolios vs Traditional SCADA — AMMP" },
-    { property: "og:description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios." },
+    { property: "og:description", content: "Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for renewable energy portfolios across solar, storage and hybrids." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -48,7 +48,7 @@ function Page() {
       <PageHero
         eyebrow="AMMP vs Bazefield"
         title="Renewable Portfolios vs Traditional SCADA"
-        intro="Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for commercial and industrial distributed energy portfolios."
+        intro="Bazefield (now part of Univers) is a powerful SCADA platform built for utility-scale renewable energy. AMMP offers a focused solution for renewable energy portfolios across solar, storage and hybrids."
         primary={{ label: "Book a demo", to: "/demo" }}
         primaryVariant="pink"
         secondary={{ label: "Talk to sales", to: "/contact" }}
@@ -57,7 +57,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the approaches differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Bazefield is a market-leading SCADA and operations management platform, now part of the Univers family. It supports solar, wind, storage, and hydro assets, with particular strength in utility-scale projects requiring advanced control capabilities.</p>
-          <p>AMMP takes a different approach, with an AI coworker on AMMP OS focused specifically on commercial and industrial distributed energy systems. This allows for faster deployment, simpler operations, and pricing that scales with your portfolio rather than enterprise licensing models.</p>
+          <p>AMMP takes a different approach, with an AI coworker on AMMP OS focused specifically on renewable energy portfolios across solar, storage and hybrids. This allows for faster deployment, simpler operations, and pricing that scales with your portfolio rather than enterprise licensing models.</p>
         </div>
       </Band>
       <Band tone="white">

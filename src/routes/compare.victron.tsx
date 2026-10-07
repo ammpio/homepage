@@ -60,7 +60,7 @@ function Page() {
         <SectionHeading eyebrow="Overview" title="Where the platforms differ" />
         <div className="mt-6 max-w-3xl space-y-4 text-base leading-7 text-muted-foreground">
           <p>Victron VRM Portal provides monitoring for Victron energy systems, popular in off-grid, marine, and small hybrid installations. While excellent for Victron ecosystems, it operates as a proprietary system tied to Victron hardware.</p>
-          <p>AMMP is hardware-agnostic and commercial-focused, with an AI coworker on AMMP OS covering 30+ device brands including Victron. That means you can monitor your entire commercial and industrial portfolio, Victron sites, Huawei sites, SMA sites, in one platform with professional-grade reporting and analytics.</p>
+          <p>AMMP is hardware-agnostic and commercial-focused, with an AI coworker on AMMP OS covering 30+ device brands including Victron. That means you can monitor your entire renewable energy portfolio, Victron sites, Huawei sites, SMA sites, in one platform with professional-grade reporting and analytics.</p>
         </div>
       </Band>
       <Band tone="white">

@@ -10,7 +10,7 @@ import { RayIcon } from "@/components/site/RayIcon";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({ meta: [
     { title: "Customer Success Stories — AMMP" },
-    { name: "description", content: "See how C&I solar developers across Africa use AMMP and AI coworker to scale their operations and deliver exceptional results." },
+    { name: "description", content: "See how renewable energy operators use AMMP and AI coworker to scale their operations and deliver exceptional results." },
     { property: "og:title", content: "Customer Success Stories — AMMP" },
     { property: "og:description", content: "Trusted by Daystar Power (a Shell company), Broadreach Energy, SolarSaver, and more." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -27,7 +27,7 @@ type Study = {
 const caseStudies: Study[] = [
   {
     id: 1, company: "Daystar Power", logo: daystarPowerLogo, region: "West Africa", countries: "Nigeria, Ghana, Togo, Senegal",
-    industry: "C&I Hybrid Solar", portfolio: "200+ sites", result: "99.9% uptime achieved",
+    industry: "Hybrid Solar", portfolio: "200+ sites", result: "99.9% uptime achieved",
     description: "Managing 200+ hybrid solar systems across West Africa with real-time monitoring and remote diagnostics.",
     quote: "AMMP is a crucial tool in maintaining and operating our power systems across West Africa. It allows us to monitor all critical aspects of our operations in real time, enabling us to intervene immediately if and when necessary.",
     author: "Jasper Graf Von Hardenberg", role: "Former CEO, Daystar Power",
@@ -36,8 +36,8 @@ const caseStudies: Study[] = [
   },
   {
     id: 2, company: "SolarSaver", logo: solarsaverLogo, region: "Southern Africa", countries: "South Africa, Namibia, Botswana",
-    industry: "C&I Rooftop Solar (PPA/Rent-to-own)", portfolio: "700+ systems", result: "Reporting reduced from 1 month to 1 day",
-    description: "Streamlined billing and reporting for a distributed portfolio of C&I rooftop installations across Southern Africa.",
+    industry: "Rooftop Solar (PPA/Rent-to-own)", portfolio: "700+ systems", result: "Reporting reduced from 1 month to 1 day",
+    description: "Streamlined billing and reporting for a distributed portfolio of rooftop installations across Southern Africa.",
     quote: "The AMMP solutions have not only streamlined our reporting but also simplified billing processes, marking a significant reduction in our monthly reporting time.",
     author: "Chris Robinson", role: "Head of Maintenance and Reporting, SolarSaver",
     highlights: ["Reduced reporting from 2+ FTE to 1 person", "Automated billing data extraction", "Simplified multi-site management"],
@@ -45,7 +45,7 @@ const caseStudies: Study[] = [
   },
   {
     id: 3, company: "Broadreach Energy", logo: broadreachLogo, region: "South Africa", countries: "South Africa",
-    industry: "C&I Solar (PPA, Solarleases, Shared Savings)", portfolio: "170+ sites, 30+ MW", result: "Simplified monitoring of 170+ sites in 1 portal",
+    industry: "Distributed Solar (PPA, Solarleases, Shared Savings)", portfolio: "170+ sites, 30+ MW", result: "Simplified monitoring of 170+ sites in 1 portal",
     description: "Broadreach Energy manages a diverse portfolio of commercial solar installations across South Africa, requiring unified monitoring across multiple business models and client types.",
     quote: "It has been a pleasure to work with AMMP... Their willingness to work with us to understand our needs, and to modify their systems to cater for our requirements, is invaluable.",
     author: "Adam Bekker", role: "Managing Director, Broadreach Energy",
@@ -77,7 +77,7 @@ function Page() {
         eyebrow="Customer results"
         title="Customer"
         highlight="success stories"
-        intro="See how C&I solar developers across Africa use AMMP, and now an AI coworker grounded in that same operating data, to scale their operations and deliver exceptional results."
+        intro="See how renewable energy operators use AMMP, and now an AI coworker grounded in that same operating data, to scale their operations and deliver exceptional results."
       />
 
 
