@@ -12,15 +12,30 @@ export const submitContact = createServerFn({ method: "POST" })
   .inputValidator((data) => schema.parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.from("contact_submissions").insert({
-      name: data.name,
-      email: data.email,
-      company: data.company || null,
-      message: data.message,
-    });
-    if (error) {
+    const { data: row, error } = await supabaseAdmin
+      .from("contact_submissions")
+      .insert({
+        name: data.name,
+        email: data.email,
+        company: data.company || null,
+        message: data.message,
+      })
+      .select("id")
+      .single();
+    if (error || !row) {
       console.error("contact insert failed", error);
       return { ok: false as const };
+    }
+    try {
+      const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+      await sendTemplateEmail("contact-notification", "sales@ammp.io", {
+        templateData: { name: data.name, email: data.email, company: data.company, message: data.message },
+        idempotencyKey: `contact-notification-${row.id}`,
+        replyTo: data.email,
+      });
+    } catch (e) {
+      // Message is already saved; don't fail the visitor's submission.
+      console.error("contact email failed", e);
     }
     return { ok: true as const };
   });
