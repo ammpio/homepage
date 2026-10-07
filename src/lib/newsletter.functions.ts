@@ -12,7 +12,7 @@ export const subscribeNewsletter = createServerFn({ method: "POST" })
       console.error("Newsletter: Brevo is not configured");
       return { ok: false as const };
     }
-    const listId = Number(process.env["BREVO_LIST_ID"]);
+    const listId = Number(process.env["BREVO_LIST_ID"] ?? 3); // Brevo "Footer" list
     const body: Record<string, unknown> = { email: data.email, updateEnabled: true };
     if (Number.isFinite(listId) && listId > 0) body.listIds = [listId];
     const res = await fetch("https://connector-gateway.lovable.dev/brevo/contacts", {
