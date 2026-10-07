@@ -125,6 +125,12 @@ function Page() {
             </div>
 
             <div className="glass rounded-2xl p-6">
+              <h2 className="text-lg font-semibold">Stay in the loop</h2>
+              <p className="mt-2 text-sm text-muted-foreground">Product news, Ray updates and insights for renewable energy teams. No spam, unsubscribe anytime.</p>
+              <div className="mt-4"><NewsletterSignup /></div>
+            </div>
+
+            <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold">Contact information</h2>
               <div className="mt-4 space-y-3">
                 <a href="mailto:sales@ammp.io" className="flex items-center gap-3 text-muted-foreground hover:text-foreground">
