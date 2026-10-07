@@ -294,7 +294,7 @@ export function Details() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {modules.map((m, i) => (
               <Reveal key={m.title} delay={(i % 3) * 90}>
-                <Link to="/product" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
+                <Link to="/product" search={{ tab: m.tab }} hash="category-content" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
                   <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                   <span>
                     <span className="block text-sm font-semibold text-foreground">{m.title}</span>

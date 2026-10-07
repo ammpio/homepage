@@ -16,7 +16,13 @@ import integrationsImage from "@/assets/integrations.png";
 import customDashboardsImg from "@/assets/customisations-dashboards.jpg";
 import financialImpactReport from "@/assets/financial-impact-report.png";
 
+const categoryIds = ["monitoring", "ticketing", "alerting", "reporting", "commercials", "integrations", "customizations", "api"] as const;
+type CategoryId = (typeof categoryIds)[number];
+
 export const Route = createFileRoute("/product")({
+  validateSearch: (search: Record<string, unknown>): { tab?: CategoryId } => ({
+    tab: categoryIds.includes(search.tab as CategoryId) ? (search.tab as CategoryId) : undefined,
+  }),
   head: () => ({ meta: [
     { title: "AMMP OS — the platform your AI coworker run on" },
     { name: "description", content: "Monitoring, ticketing, alerting, reporting, commercials and integrations in one platform, with an AI coworker grounded in the same data." },
