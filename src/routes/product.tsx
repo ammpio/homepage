@@ -176,7 +176,7 @@ function Page() {
       </Band>
 
       <Band tone="grey">
-        <SectionHeading eyebrow="Inside AMMP OS" title="Eight modules, one platform" intro="Everything your team needs to keep the portfolio visible, accountable and reported on." />
+        <SectionHeading eyebrow="Inside AMMP OS" title="Eight functions on one platform" intro="Everything your team needs to keep the portfolio visible, accountable and reported on." />
         <div className="-mx-4 mt-10 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0" role="tablist" aria-label="AMMP OS modules">
           <div className="glass-strong flex w-max gap-1 rounded-2xl p-1.5 md:w-full md:flex-wrap">
             {categories.map(({ id, label, icon: Icon }) => (
