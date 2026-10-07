@@ -32,7 +32,7 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
       <video
         ref={ref}
         src={src ?? rayVideo.url}
-        poster={poster ?? rayPoster}
+        poster={poster === undefined ? rayPoster : poster || undefined}
         autoPlay
         muted
         loop
