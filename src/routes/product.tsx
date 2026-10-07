@@ -6,6 +6,15 @@ import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo } from "@/components/site/RaySections";
 import overviewVideo from "@/assets/ray-by-ammp-overview.mp4.asset.json";
 import overviewPoster from "@/assets/ray-by-ammp-overview-poster.jpg.asset.json";
+import overviewPt from "@/assets/Ray_by_AMMP_overview_PT-BR.mp4.asset.json";
+import overviewEs from "@/assets/Ray_by_AMMP_overview_ES.mp4.asset.json";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+function LocalizedOverviewVideo() {
+  const { language } = useLanguage();
+  const src = language === "pt" ? overviewPt.url : language === "es" ? overviewEs.url : overviewVideo.url;
+  return <HeroVideo key={src} src={src} poster={overviewPoster.url} />;
+}
 import energyMix from "@/assets/energy-mix.png";
 import performanceAnalytics from "@/assets/performance-analytics.png";
 import ticketingImage from "@/assets/ticketing.png";
@@ -143,7 +152,7 @@ function Page() {
 
       <Band tone="white">
         <div className="mx-auto max-w-5xl">
-          <HeroVideo src={overviewVideo.url} poster={overviewPoster.url} />
+          <LocalizedOverviewVideo />
         </div>
       </Band>
 
