@@ -111,7 +111,8 @@ const panels: Record<CategoryId, ReactNode> = {
       <div className="rounded-xl border border-border bg-card p-6"><Code className="size-5 text-primary" /><h3 className="mt-4 text-lg font-semibold">AMMP Data API</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">Connect to performance and generation data across your entire portfolio through a single, standardized access point, no need to integrate with multiple vendors individually.</p><a href="https://data-api.ammp.io/docs" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">Explore API docs <ArrowRight className="size-4" /></a></div>
       <div className="rounded-xl border border-border bg-card p-6"><Sparkles className="size-5 text-primary" /><h3 className="mt-4 text-lg font-semibold">AMMP MCP Server</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">Give your own AI assistants and agents secure, structured access to your portfolio data. The MCP server exposes the same evidence Ray works from, so tools like Claude or your internal copilots can query sites, KPIs and alerts directly.</p><Link to="/mcp" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">Learn about the MCP server <ArrowRight className="size-4" /></Link></div>
       <Card icon={Zap} title="Faster time-to-market">Skip end-to-end development involving multiple integrations. Bring your products to market well ahead of the competition.</Card>
-      <Card icon={Shield} title="Reliable & maintained">No unexpected breaking changes, expired certificates, or rate limits. Focus on building products on a rock-solid foundation.</Card>
+        <Card icon={Shield} title="Reliable & maintained">No unexpected breaking changes, expired certificates, or rate limits. Focus on building products on a rock-solid foundation.</Card>
+      </div>
     </div>
   ),
 };
