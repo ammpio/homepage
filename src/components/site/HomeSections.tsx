@@ -8,6 +8,17 @@ import { PageCta } from "@/components/site/SiteShell";
 import { Reveal } from "@/components/site/Reveal";
 import { HeroVideo, RayEverywhere } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { assetUrl } from "@/lib/assets";
+import homeVideoEs from "@/assets/Ray_by_AMMP_overview_music_only_ES.mp4.asset.json";
+import homeVideoPt from "@/assets/Ray_by_AMMP_overview_music_only_PT-BR.mp4.asset.json";
+
+function LocalizedHomeVideo() {
+  const { language } = useLanguage();
+  if (language === "es") return <HeroVideo key="es" src={assetUrl(homeVideoEs)} poster="" />;
+  if (language === "pt") return <HeroVideo key="pt" src={assetUrl(homeVideoPt)} poster="" />;
+  return <HeroVideo key="en" />;
+}
 
 const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
@@ -78,7 +89,7 @@ export function Hero() {
           </div>
         </Reveal>
         <div ref={videoRef} className="mx-auto mt-10 max-w-4xl origin-top will-change-transform lg:mt-12 lg:max-w-5xl 2xl:max-w-6xl">
-          <Reveal delay={360}><HeroVideo /></Reveal>
+          <Reveal delay={360}><LocalizedHomeVideo /></Reveal>
         </div>
       </div>
       <div className="hidden pb-8 lg:block"><StatsBar /></div>
