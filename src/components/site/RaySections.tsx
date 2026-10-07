@@ -1,5 +1,5 @@
 import { assetUrl } from "@/lib/assets";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AlertTriangle, ArrowRight, Check, FileText, Play, RotateCcw, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
@@ -45,6 +45,10 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
     setTime(t);
     if (ended && t < duration - 0.1) { setEnded(false); void v.play(); }
   };
+  useEffect(() => {
+    const v = ref.current;
+    if (v && v.duration) setDuration(v.duration);
+  }, []);
   const pct = duration ? (time / duration) * 100 : 0;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   return (
@@ -62,7 +66,13 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
         aria-label="Ray by AMMP overview video"
         className="block aspect-video h-auto w-full bg-background"
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
-        onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
+        onDurationChange={(e) => setDuration(e.currentTarget.duration || 0)}
+        onCanPlay={(e) => setDuration(e.currentTarget.duration || 0)}
+        onTimeUpdate={(e) => {
+          const v = e.currentTarget;
+          setTime(v.currentTime);
+          if (v.duration && v.duration !== duration) setDuration(v.duration);
+        }}
         onEnded={() => setEnded(true)}
         onPlay={() => setEnded(false)}
       />
@@ -82,7 +92,7 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
       )}
 
       {/* Timeline: appears on hover or keyboard focus */}
-      {duration > 0 && (
+      {(
         <>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
           <div className="absolute inset-x-3 bottom-[3.75rem] flex items-center gap-3 opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
