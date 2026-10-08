@@ -1,5 +1,5 @@
 import { assetUrl } from "@/lib/assets";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AlertTriangle, ArrowRight, Check, FileText, Play, RotateCcw, Sun, Wind, Battery, Wrench, Scale, BarChart3, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
@@ -17,13 +17,11 @@ const chapters = [
   { t: 52, label: "Investor reporting" },
 ];
 
-/* Hero video: autoplays muted, plays once and stops; prominent sound toggle, replay, and a subtle timeline that appears on hover/focus */
+/* Hero video: autoplays muted, plays once and stops; sound toggle and restart in the corner, plus a full "Watch again" prompt at the end */
 export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [ended, setEnded] = useState(false);
-  const [time, setTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const toggle = () => {
     const v = ref.current;
     if (!v) return;
@@ -38,19 +36,6 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
     setEnded(false);
     void v.play();
   };
-  const seek = (t: number) => {
-    const v = ref.current;
-    if (!v) return;
-    v.currentTime = t;
-    setTime(t);
-    if (ended && t < duration - 0.1) { setEnded(false); void v.play(); }
-  };
-  useEffect(() => {
-    const v = ref.current;
-    if (v && v.duration) setDuration(v.duration);
-  }, []);
-  const pct = duration ? (time / duration) * 100 : 0;
-  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
   return (
     <div className="group relative overflow-hidden rounded-2xl shadow-[0_30px_80px_-30px_rgba(20,17,26,0.35)] ring-1 ring-border/60">
       <video
@@ -65,14 +50,6 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
         height={1080}
         aria-label="Ray by AMMP overview video"
         className="block aspect-video h-auto w-full bg-background"
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
-        onDurationChange={(e) => setDuration(e.currentTarget.duration || 0)}
-        onCanPlay={(e) => setDuration(e.currentTarget.duration || 0)}
-        onTimeUpdate={(e) => {
-          const v = e.currentTarget;
-          setTime(v.currentTime);
-          if (v.duration && v.duration !== duration) setDuration(v.duration);
-        }}
         onEnded={() => setEnded(true)}
         onPlay={() => setEnded(false)}
       />
@@ -89,37 +66,6 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
             Watch again
           </span>
         </button>
-      )}
-
-      {/* Timeline: appears on hover or keyboard focus */}
-      {(
-        <>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
-          <div className="absolute inset-x-3 bottom-12 sm:bottom-[3.75rem] flex items-center gap-3 opacity-0 transition-opacity duration-200 focus-within:opacity-100 group-hover:opacity-100 sm:inset-x-4">
-            <div className="relative h-5 flex-1">
-              <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-background/35 backdrop-blur">
-                <div className="absolute inset-y-0 left-0 rounded-full bg-background" style={{ width: `${pct}%` }} />
-              </div>
-              <div
-                className="pointer-events-none absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background shadow-md ring-2 ring-foreground/20"
-                style={{ left: `${pct}%` }}
-              />
-              <input
-                type="range"
-                min={0}
-                max={duration}
-                step={0.1}
-                value={time}
-                onChange={(e) => seek(Number(e.target.value))}
-                aria-label="Video timeline"
-                className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-              />
-            </div>
-            <span className="shrink-0 text-xs font-medium tabular-nums text-background drop-shadow">
-              {fmt(time)} / {fmt(duration)}
-            </span>
-          </div>
-        </>
       )}
 
       <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 sm:bottom-4 sm:right-4 sm:gap-2">
