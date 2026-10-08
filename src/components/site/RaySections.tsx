@@ -17,7 +17,7 @@ const chapters = [
   { t: 52, label: "Investor reporting" },
 ];
 
-/* Hero video: autoplays muted, plays once and stops; prominent sound toggle, replay, and a subtle timeline that appears on hover/focus */
+/* Hero video: autoplays muted, plays once and stops; sound toggle and restart in the corner, plus a full "Watch again" prompt at the end */
 export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
@@ -67,7 +67,6 @@ export function HeroVideo({ src, poster }: { src?: string; poster?: string } = {
           </span>
         </button>
       )}
-
 
       <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 sm:bottom-4 sm:right-4 sm:gap-2">
         {!ended && (
