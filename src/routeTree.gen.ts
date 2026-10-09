@@ -31,9 +31,11 @@ import { Route as ProductRouteImport } from './routes/product'
 import { Route as RayRouteImport } from './routes/ray'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StratopiImageRouteImport } from './routes/stratopi-image'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
+import { Route as UnipiImageRouteImport } from './routes/unipi-image'
 import { Route as UsRouteImport } from './routes/us'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -173,6 +175,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StratopiImageRoute = StratopiImageRouteImport.update({
+  id: '/stratopi-image',
+  path: '/stratopi-image',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SwitchRoute = SwitchRouteImport.update({
   id: '/switch',
   path: '/switch',
@@ -186,6 +193,11 @@ const TermsRoute = TermsRouteImport.update({
 const TrialRoute = TrialRouteImport.update({
   id: '/trial',
   path: '/trial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnipiImageRoute = UnipiImageRouteImport.update({
+  id: '/unipi-image',
+  path: '/unipi-image',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UsRoute = UsRouteImport.update({
@@ -356,9 +368,11 @@ export interface FileRoutesByFullPath {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stratopi-image': typeof StratopiImageRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/unipi-image': typeof UnipiImageRoute
   '/us': typeof UsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
@@ -411,9 +425,11 @@ export interface FileRoutesByTo {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stratopi-image': typeof StratopiImageRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/unipi-image': typeof UnipiImageRoute
   '/us': typeof UsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
@@ -467,9 +483,11 @@ export interface FileRoutesById {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stratopi-image': typeof StratopiImageRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
+  '/unipi-image': typeof UnipiImageRoute
   '/us': typeof UsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
@@ -524,9 +542,11 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/stratopi-image'
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/unipi-image'
     | '/us'
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
@@ -579,9 +599,11 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/stratopi-image'
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/unipi-image'
     | '/us'
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
@@ -634,9 +656,11 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/stratopi-image'
     | '/switch'
     | '/terms'
     | '/trial'
+    | '/unipi-image'
     | '/us'
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
@@ -690,9 +714,11 @@ export interface RootRouteChildren {
   RayRoute: typeof RayRoute
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StratopiImageRoute: typeof StratopiImageRoute
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
+  UnipiImageRoute: typeof UnipiImageRoute
   UsRoute: typeof UsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
@@ -879,6 +905,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stratopi-image': {
+      id: '/stratopi-image'
+      path: '/stratopi-image'
+      fullPath: '/stratopi-image'
+      preLoaderRoute: typeof StratopiImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/switch': {
       id: '/switch'
       path: '/switch'
@@ -898,6 +931,13 @@ declare module '@tanstack/react-router' {
       path: '/trial'
       fullPath: '/trial'
       preLoaderRoute: typeof TrialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unipi-image': {
+      id: '/unipi-image'
+      path: '/unipi-image'
+      fullPath: '/unipi-image'
+      preLoaderRoute: typeof UnipiImageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/us': {
@@ -1122,9 +1162,11 @@ const rootRouteChildren: RootRouteChildren = {
   RayRoute: RayRoute,
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StratopiImageRoute: StratopiImageRoute,
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
+  UnipiImageRoute: UnipiImageRoute,
   UsRoute: UsRoute,
   BlogSlugRoute: BlogSlugRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
