@@ -25,7 +25,7 @@ export const Route = createFileRoute("/contact")({
     { title: "Contact AMMP — Talk to our team" },
     { name: "description", content: "Ready to put an AI coworker and portfolio-wide visibility to work? Talk to AMMP about your renewable energy operations." },
     { property: "og:title", content: "Contact AMMP" },
-    { property: "og:description", content: "Ready to scale your solar operations? Let's discuss how AMMP can help." },
+    { property: "og:description", content: "Ready to scale your renewable operations? Let's discuss how AMMP can help." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}), component: Page,
 });
@@ -83,7 +83,7 @@ function Page() {
         eyebrow="Contact"
         title="Get in"
         highlight="touch."
-        intro="Ready to scale your solar operations? Let's discuss how an AI coworker and AMMP can help."
+        intro="Ready to scale your renewable operations? Let's discuss how an AI coworker and AMMP can help."
       />
 
       <Band tone="grey">
@@ -115,7 +115,7 @@ function Page() {
                   </div>
                   <div>
                     <label htmlFor="message" className="text-sm font-medium">Message</label>
-                    <textarea id="message" required rows={5} placeholder="Tell us about your solar portfolio and how we can help..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    <textarea id="message" required rows={5} placeholder="Tell us about your renewable portfolio and how we can help..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="mt-2 w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary" />
                   </div>
                   <div ref={turnstileRef} />
@@ -149,7 +149,7 @@ function Page() {
           <div className="overflow-hidden rounded-2xl border border-border/50 bg-white">
             <div className="px-6 pt-6">
               <h2 className="flex items-center gap-2 text-lg font-semibold"><Calendar className="size-5 text-primary" />Book a meeting</h2>
-              <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your solar monitoring and AI coworker needs with our team.</p>
+              <p className="mt-3 text-sm text-muted-foreground">Schedule a time to discuss your renewable operations and AI coworker needs with our team.</p>
             </div>
             <BookMeeting className="mt-6" />
           </div>

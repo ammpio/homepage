@@ -340,3 +340,8 @@ main:has([data-compare-table]) .luminous-hero .site-container > div:first-child 
 main:has([data-compare-table]) .luminous-hero .site-container > div:first-child > div.flex { justify-content: center; }
 main:has([data-compare-table]) section > .site-container > .max-w-5xl { margin-inline: auto; max-width: 48rem; text-align: center; }
 main:has([data-compare-table]) section > .site-container > .max-w-3xl { margin-inline: auto; }
+
+/* HubSpot meetings embed: its auto-resize (~733px) clips the details-step Confirm button */
+.meetings-iframe-container iframe {
+  min-height: 900px !important;
+}
