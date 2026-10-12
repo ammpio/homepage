@@ -116,7 +116,7 @@ export function SiteShell() {
           </div>
           <FooterColumn title="Company" links={[["About","/about"],["Blog","/blog"],["Careers","/careers"],["Contact","/contact"],["FAQ","/faq"]]} />
         </div>
-        <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 AMMP Technologies</span><Link to="/security" className="inline-flex items-center gap-1.5 hover:text-foreground"><ShieldCheck className="size-4" />ISO/IEC 27001:2022</Link><div className="flex gap-5"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/security">Security</Link></div></div>
+        <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 AMMP Technologies</span><Link to="/security" className="inline-flex items-center gap-1.5 hover:text-foreground"><ShieldCheck className="size-4" />ISO/IEC 27001:2022</Link><a href="https://launchstag.com/p/ray-by-ammp" target="_blank" rel="noopener" className="inline-flex opacity-60 transition-opacity hover:opacity-100"><img src="https://launchstag.com/badge-light.svg" alt="Featured on Launchstag" width="198" height="62" className="h-8 w-auto" loading="lazy" /></a><div className="flex gap-5"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/security">Security</Link></div></div>
       </div>
       </div>
     </footer>
