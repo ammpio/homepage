@@ -252,16 +252,9 @@
 .site-luminous main iframe:not(.meetings-iframe-container iframe) {
   box-shadow: 0 24px 52px -34px oklch(0.4 0.05 260 / .45);
 }
-/* HubSpot meetings embed: clip the widget's own card frame so only the calendar shows */
-.site-luminous .meetings-iframe-container { max-width: 100%; margin-inline: auto; overflow: hidden; }
-@media (min-width: 640px) {
-  .site-luminous .meetings-iframe-container { width: 396px; height: 560px; }
-  .site-luminous .meetings-iframe-container iframe {
-    width: 608px !important;
-    margin-left: -105px !important;
-    margin-top: -6px !important;
-  }
-}
+/* HubSpot meetings embed: let it grow to its natural height so the Confirm step is never clipped */
+.site-luminous .meetings-iframe-container { width: 100%; max-width: 100%; margin-inline: auto; min-height: 720px; }
+.site-luminous .meetings-iframe-container iframe { width: 100% !important; margin: 0 !important; }
 .site-luminous .button-primary, .site-luminous .button-pink { box-shadow: 0 14px 32px -18px var(--primary); transition: transform 180ms ease, opacity 160ms ease, box-shadow 180ms ease; }
 .site-luminous .button-primary:hover, .site-luminous .button-pink:hover { transform: translateY(-1px); box-shadow: 0 18px 36px -18px var(--primary); }
 .site-luminous .button-ghost {
@@ -341,7 +334,7 @@ main:has([data-compare-table]) .luminous-hero .site-container > div:first-child 
 main:has([data-compare-table]) section > .site-container > .max-w-5xl { margin-inline: auto; max-width: 48rem; text-align: center; }
 main:has([data-compare-table]) section > .site-container > .max-w-3xl { margin-inline: auto; }
 
-/* HubSpot meetings embed: its auto-resize (~733px) clips the details-step Confirm button */
+/* HubSpot meetings embed: its auto-resize can undershoot the details step */
 .meetings-iframe-container iframe {
-  min-height: 900px !important;
+  min-height: 720px !important;
 }
