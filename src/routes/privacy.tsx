@@ -74,7 +74,7 @@ function Page() {
           </ul>
 
           <h2>Contact for Privacy Matters</h2>
-          <p>If you have any questions about this privacy policy or wish to exercise your rights, please contact us at <a href="mailto:info@ammp.io" className="text-primary underline underline-offset-2 hover:text-primary/80">info@ammp.io</a>.</p>
+          <p>If you have any questions about this privacy policy or wish to exercise your rights, please contact us at <a href="mailto:contact@ammp.io" className="text-primary underline underline-offset-2 hover:text-primary/80">contact@ammp.io</a>.</p>
         </Prose>
       </Band>
     </>
