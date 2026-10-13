@@ -48,7 +48,7 @@ function Page() {
             Papaverweg 34<br />
             1032 KJ Amsterdam<br />
             The Netherlands<br />
-            Email: info@ammp.io
+            Email: contact@ammp.io
           </address>
 
           <h2>Cookies</h2>
