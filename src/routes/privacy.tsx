@@ -45,8 +45,8 @@ function Page() {
           <p>Controller for the purposes of the General Data Protection Regulation (GDPR):</p>
           <address className="not-italic">
             AMMP Technologies B.V.<br />
-            Weesperstraat 61<br />
-            1018 VN Amsterdam<br />
+            Papaverweg 34<br />
+            1032 KJ Amsterdam<br />
             The Netherlands<br />
             Email: info@ammp.io
           </address>
