@@ -32,6 +32,7 @@ import { Route as RayRouteImport } from './routes/ray'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StratopiImageRouteImport } from './routes/stratopi-image'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as SwitchRouteImport } from './routes/switch'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrialRouteImport } from './routes/trial'
@@ -178,6 +179,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const StratopiImageRoute = StratopiImageRouteImport.update({
   id: '/stratopi-image',
   path: '/stratopi-image',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SwitchRoute = SwitchRouteImport.update({
@@ -369,6 +375,7 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stratopi-image': typeof StratopiImageRoute
+  '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -426,6 +433,7 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stratopi-image': typeof StratopiImageRoute
+  '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -484,6 +492,7 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stratopi-image': typeof StratopiImageRoute
+  '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
   '/terms': typeof TermsRoute
   '/trial': typeof TrialRoute
@@ -543,6 +552,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/stratopi-image'
+    | '/support'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -600,6 +610,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/stratopi-image'
+    | '/support'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -657,6 +668,7 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/stratopi-image'
+    | '/support'
     | '/switch'
     | '/terms'
     | '/trial'
@@ -715,6 +727,7 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StratopiImageRoute: typeof StratopiImageRoute
+  SupportRoute: typeof SupportRoute
   SwitchRoute: typeof SwitchRoute
   TermsRoute: typeof TermsRoute
   TrialRoute: typeof TrialRoute
@@ -910,6 +923,13 @@ declare module '@tanstack/react-router' {
       path: '/stratopi-image'
       fullPath: '/stratopi-image'
       preLoaderRoute: typeof StratopiImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/switch': {
@@ -1163,6 +1183,7 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StratopiImageRoute: StratopiImageRoute,
+  SupportRoute: SupportRoute,
   SwitchRoute: SwitchRoute,
   TermsRoute: TermsRoute,
   TrialRoute: TrialRoute,
