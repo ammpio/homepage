@@ -100,7 +100,7 @@ export const blogPosts: BlogPost[] = [
     title: "Introducing the AMMP MCP server",
     excerpt: "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series.",
     category: "Product",
-    date: "2025-06-10",
+    date: "2026-06-10",
     readTime: "5 min read",
     body: [
       { type: "paragraph", text: "We're opening up the beta of the AMMP MCP server. It's a new way to put your renewable energy portfolio data directly in front of an AI assistant. Connect any MCP-compatible client (Claude, Cursor, or your own agent) to AMMP and ask the kind of questions you'd normally answer by opening five dashboards and exporting a CSV." },
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     title: "SPS Africa chooses AMMP OS as monitoring platform",
     excerpt: "SPS Africa, with over 350 solar plants and 150 MWp installed, selects AMMP OS as their unified monitoring and reporting platform.",
     category: "Customers",
-    date: "2025-03-18",
+    date: "2026-03-18",
     readTime: "4 min read",
     body: [
       { type: "paragraph", text: "We're excited to announce that SPS Africa (Sustainable Power Solutions) has selected AMMP OS as their monitoring and reporting platform, a significant milestone for both teams!" },
