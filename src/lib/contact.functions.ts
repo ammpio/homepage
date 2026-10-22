@@ -10,7 +10,7 @@ const schema = z.object({
 });
 
 export const submitContact = createServerFn({ method: "POST" })
-  .inputValidator((data) => schema.parse(data))
+  .validator((data) => schema.parse(data))
   .handler(async ({ data }) => {
     // Verify the Cloudflare Turnstile token before saving anything.
     const verify = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
