@@ -127,6 +127,9 @@ function ArticlePage() {
                 <Link to={block.to} className="button button-pink">{block.label}<ArrowRight className="size-4" /></Link>
               </div>
             );
+            if (block.type === "postLink") return (
+              <p key={i}><Link to="/blog/$slug" params={{ slug: block.slug }} className="font-medium text-foreground underline underline-offset-4">{block.label}</Link></p>
+            );
             if (block.type === "quote") return (
               <figure key={i} className="rounded-xl border border-border bg-card p-6">
                 <blockquote className="text-lg font-medium leading-relaxed text-foreground">“{block.text}”</blockquote>
