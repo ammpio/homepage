@@ -4,7 +4,7 @@ import { z } from "zod";
 const schema = z.object({ email: z.string().trim().email().max(254) });
 
 export const subscribeNewsletter = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => schema.parse(data))
+  .validator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
     const lovableKey = process.env["LOVABLE_API_KEY"];
     const brevoKey = process.env["BREVO_API_KEY"];

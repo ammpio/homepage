@@ -16,13 +16,10 @@ import { Route as BetaRouteImport } from './routes/beta'
 import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
-import { Route as ConceptRouteImport } from './routes/concept'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomizationRouteImport } from './routes/customization'
 import { Route as DemoRouteImport } from './routes/demo'
-import { Route as EditorialRouteImport } from './routes/editorial'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as HumanRouteImport } from './routes/human'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -101,11 +98,6 @@ const CaseStudiesRoute = CaseStudiesRouteImport.update({
   path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ConceptRoute = ConceptRouteImport.update({
-  id: '/concept',
-  path: '/concept',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -121,19 +113,9 @@ const DemoRoute = DemoRouteImport.update({
   path: '/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EditorialRoute = EditorialRouteImport.update({
-  id: '/editorial',
-  path: '/editorial',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HumanRoute = HumanRouteImport.update({
-  id: '/human',
-  path: '/human',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IntegrationsRoute = IntegrationsRouteImport.update({
@@ -359,13 +341,10 @@ export interface FileRoutesByFullPath {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -417,13 +396,10 @@ export interface FileRoutesByTo {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -476,13 +452,10 @@ export interface FileRoutesById {
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -536,13 +509,10 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -594,13 +564,10 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -652,13 +619,10 @@ export interface FileRouteTypes {
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -711,13 +675,10 @@ export interface RootRouteChildren {
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
-  ConceptRoute: typeof ConceptRoute
   ContactRoute: typeof ContactRoute
   CustomizationRoute: typeof CustomizationRoute
   DemoRoute: typeof DemoRoute
-  EditorialRoute: typeof EditorialRoute
   FaqRoute: typeof FaqRoute
-  HumanRoute: typeof HumanRoute
   IntegrationsRoute: typeof IntegrationsRoute
   McpRoute: typeof McpRoute
   PricingRoute: typeof PricingRoute
@@ -813,13 +774,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/concept': {
-      id: '/concept'
-      path: '/concept'
-      fullPath: '/concept'
-      preLoaderRoute: typeof ConceptRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -841,25 +795,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/editorial': {
-      id: '/editorial'
-      path: '/editorial'
-      fullPath: '/editorial'
-      preLoaderRoute: typeof EditorialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/human': {
-      id: '/human'
-      path: '/human'
-      fullPath: '/human'
-      preLoaderRoute: typeof HumanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/integrations': {
@@ -1167,13 +1107,10 @@ const rootRouteChildren: RootRouteChildren = {
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
-  ConceptRoute: ConceptRoute,
   ContactRoute: ContactRoute,
   CustomizationRoute: CustomizationRoute,
   DemoRoute: DemoRoute,
-  EditorialRoute: EditorialRoute,
   FaqRoute: FaqRoute,
-  HumanRoute: HumanRoute,
   IntegrationsRoute: IntegrationsRoute,
   McpRoute: McpRoute,
   PricingRoute: PricingRoute,

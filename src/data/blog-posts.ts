@@ -52,7 +52,7 @@ const meetRayBody: BlogBlock[] = [
   { type: "heading", text: "On the job before the team logs on" },
   { type: "paragraph", text: "While your team sleeps, Ray reads the portfolio. He checks production against expectations, looks for inverters and strings drifting away from their neighbours, notices sites that have gone quiet, and compares what he finds with open work orders and contract terms." },
   { type: "paragraph", text: "By the time you open Teams, there's a short morning message waiting. It doesn't list every alert. It ranks the few issues worth your attention, says why each one matters, and links straight to the evidence. You start the day with a plan instead of a backlog." },
-  { type: "paragraph", text: "Across a portfolio, that can mean [TODO: number] alerts reduced to a handful of ranked priorities." },
+  { type: "paragraph", text: "Across a portfolio, that can mean hundreds of alerts reduced to a handful of ranked priorities." },
   { type: "heading", text: "Proactive when you don't ask. On demand when you do." },
   { type: "paragraph", text: "Ray works in two modes. Some mornings he comes to you. Other times you go to him with a question, the way you'd ping a colleague who knows the fleet." },
   { type: "chat", channel: "#portfolio-ops · Microsoft Teams", caption: "Proactive: Ray's morning message", lines: [
@@ -62,7 +62,7 @@ const meetRayBody: BlogBlock[] = [
   ] },
   { type: "chat", channel: "Direct message · Microsoft Teams", caption: "On demand: a question from the team", lines: [
     { from: "user", name: "O&M lead", text: "Did Valle Soleado meet its availability guarantee last month?" },
-    { from: "ray", name: "Ray", text: "No. Availability was [TODO: number]% against a [TODO: number]% guarantee, mostly from two unresolved inverter trips. The O&M contract's availability clause applies. I can build the chart for your monthly report.", sources: ["Availability data", "Work orders", "O&M contract"] },
+    { from: "ray", name: "Ray", text: "No. Availability came in below the guarantee, mostly from two unresolved inverter trips. The O&M contract's availability clause applies. I can build the chart for your monthly report.", sources: ["Availability data", "Work orders", "O&M contract"] },
   ] },
   { type: "paragraph", text: "Every answer shows its sources, so you can check the working before you act on it. Ray investigates, prioritises and prepares the work. Your team stays in charge of the decisions." },
   { type: "heading", text: "Wherever your team already works" },
