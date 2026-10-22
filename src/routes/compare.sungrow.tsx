@@ -44,7 +44,7 @@ const differentiators = [
   { icon: Unplug, title: "Hardware Freedom", text: "Monitor Sungrow alongside Huawei, SMA, GoodWe, and 30+ other brands in one unified platform." },
   { icon: LineChart, title: "Advanced Analytics", text: "Go beyond basic monitoring with PPA tracking, financial reporting, and portfolio-wide benchmarking." },
   { icon: Wrench, title: "Professional O&M Tools", text: "Built-in ticketing, SLA tracking, and performance guarantee monitoring for O&M providers." },
-  { icon: Globe, title: "Global Portfolios", text: "Used by renewable energy operators across 35+ countries, with support for local reporting requirements." },
+  { icon: Globe, title: "Global Portfolios", text: "Used by renewable energy operators across 30+ countries, with support for local reporting requirements." },
 ];
 
 function Page() {
