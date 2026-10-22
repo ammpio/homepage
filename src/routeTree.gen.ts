@@ -12,17 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiRouteImport } from './routes/ai'
-import { Route as BetaRouteImport } from './routes/beta'
 import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
-import { Route as ConceptRouteImport } from './routes/concept'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomizationRouteImport } from './routes/customization'
 import { Route as DemoRouteImport } from './routes/demo'
-import { Route as EditorialRouteImport } from './routes/editorial'
 import { Route as FaqRouteImport } from './routes/faq'
-import { Route as HumanRouteImport } from './routes/human'
 import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -81,11 +77,6 @@ const AiRoute = AiRouteImport.update({
   path: '/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BetaRoute = BetaRouteImport.update({
-  id: '/beta',
-  path: '/beta',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BrazilRoute = BrazilRouteImport.update({
   id: '/brazil',
   path: '/brazil',
@@ -99,11 +90,6 @@ const CareersRoute = CareersRouteImport.update({
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConceptRoute = ConceptRouteImport.update({
-  id: '/concept',
-  path: '/concept',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -121,19 +107,9 @@ const DemoRoute = DemoRouteImport.update({
   path: '/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EditorialRoute = EditorialRouteImport.update({
-  id: '/editorial',
-  path: '/editorial',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HumanRoute = HumanRouteImport.update({
-  id: '/human',
-  path: '/human',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IntegrationsRoute = IntegrationsRouteImport.update({
@@ -355,17 +331,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
-  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -413,17 +385,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
-  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -472,17 +440,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
-  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
-  '/concept': typeof ConceptRoute
   '/contact': typeof ContactRoute
   '/customization': typeof CustomizationRoute
   '/demo': typeof DemoRoute
-  '/editorial': typeof EditorialRoute
   '/faq': typeof FaqRoute
-  '/human': typeof HumanRoute
   '/integrations': typeof IntegrationsRoute
   '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
@@ -532,17 +496,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
-    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -590,17 +550,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
-    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -648,17 +604,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
-    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
-    | '/concept'
     | '/contact'
     | '/customization'
     | '/demo'
-    | '/editorial'
     | '/faq'
-    | '/human'
     | '/integrations'
     | '/mcp'
     | '/pricing'
@@ -707,17 +659,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
-  BetaRoute: typeof BetaRoute
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
-  ConceptRoute: typeof ConceptRoute
   ContactRoute: typeof ContactRoute
   CustomizationRoute: typeof CustomizationRoute
   DemoRoute: typeof DemoRoute
-  EditorialRoute: typeof EditorialRoute
   FaqRoute: typeof FaqRoute
-  HumanRoute: typeof HumanRoute
   IntegrationsRoute: typeof IntegrationsRoute
   McpRoute: typeof McpRoute
   PricingRoute: typeof PricingRoute
@@ -785,13 +733,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/beta': {
-      id: '/beta'
-      path: '/beta'
-      fullPath: '/beta'
-      preLoaderRoute: typeof BetaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/brazil': {
       id: '/brazil'
       path: '/brazil'
@@ -811,13 +752,6 @@ declare module '@tanstack/react-router' {
       path: '/case-studies'
       fullPath: '/case-studies'
       preLoaderRoute: typeof CaseStudiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/concept': {
-      id: '/concept'
-      path: '/concept'
-      fullPath: '/concept'
-      preLoaderRoute: typeof ConceptRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -841,25 +775,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/editorial': {
-      id: '/editorial'
-      path: '/editorial'
-      fullPath: '/editorial'
-      preLoaderRoute: typeof EditorialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/human': {
-      id: '/human'
-      path: '/human'
-      fullPath: '/human'
-      preLoaderRoute: typeof HumanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/integrations': {
@@ -1163,17 +1083,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
-  BetaRoute: BetaRoute,
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
-  ConceptRoute: ConceptRoute,
   ContactRoute: ContactRoute,
   CustomizationRoute: CustomizationRoute,
   DemoRoute: DemoRoute,
-  EditorialRoute: EditorialRoute,
   FaqRoute: FaqRoute,
-  HumanRoute: HumanRoute,
   IntegrationsRoute: IntegrationsRoute,
   McpRoute: McpRoute,
   PricingRoute: PricingRoute,
