@@ -4,6 +4,7 @@ import { Band, Prose } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo } from "@/components/site/RaySections";
 import { blogPosts, getBlogPost, type BlogBlock } from "@/data/blog-posts";
+import { postAuthor, POST_UPDATED, formatDate } from "@/data/authors";
 import rayAvatar from "@/assets/ray-avatar.png";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
@@ -39,8 +40,9 @@ export const Route = createFileRoute("/blog/$slug")({
               headline: post.title,
               description,
               datePublished: post.date,
-              author: { "@type": "Person", name: post.author ?? "AMMP" },
-              publisher: { "@type": "Organization", name: "AMMP", url: SITE },
+              dateModified: POST_UPDATED[post.slug] ?? post.date,
+              author: (() => { const a = postAuthor(post.slug); return a ? { "@type": "Person", name: a.name, jobTitle: a.jobTitle, ...(a.url ? { url: a.url, sameAs: [a.url] } : {}), worksFor: { "@id": `${SITE}/#organization` } } : { "@type": "Organization", "@id": `${SITE}/#organization`, name: "AMMP" }; })(),
+              publisher: { "@type": "Organization", "@id": `${SITE}/#organization`, name: "AMMP Technologies B.V.", url: SITE },
               url,
               mainEntityOfPage: url,
               ...(image ? { image } : {}),
@@ -100,6 +102,8 @@ function ArticlePage() {
 
   const more = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const date = post.displayDate ?? new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const author = postAuthor(post.slug);
+  const updated = POST_UPDATED[post.slug];
   const hasCta = post.body.some((b) => b.type === "cta");
 
   return (
@@ -111,7 +115,14 @@ function ArticlePage() {
           <p className="eyebrow mt-8">{post.category}</p>
           <h1 className="mt-4 font-display text-4xl font-medium leading-[1.1] tracking-[-0.018em] sm:text-5xl">{post.title}</h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">{post.excerpt}</p>
-          <p className="mt-6 text-sm text-muted-foreground">{post.author ? `${post.author} · ` : ""}{date} · {post.readTime}</p>
+          <p className="mt-6 text-sm text-muted-foreground">
+            {author ? (author.url ? <a href={author.url} target="_blank" rel="noopener" className="font-medium text-foreground underline-offset-4 hover:underline">{author.name}</a> : <span className="font-medium text-foreground">{author.name}</span>) : <span className="font-medium text-foreground">AMMP</span>}
+            {author && <span>, {author.jobTitle}</span>} · {post.readTime}
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Published <time dateTime={post.date}>{date}</time>
+            {updated && updated !== post.date && <> · Last updated <time dateTime={updated}>{formatDate(updated)}</time></>}
+          </p>
         </div>
       </section>
 

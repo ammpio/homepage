@@ -1,3 +1,5 @@
+import { LastUpdated } from "@/components/site/LastUpdated";
+import { PAGE_UPDATED } from "@/data/authors";
 import { assetUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
@@ -205,6 +207,7 @@ function Page() {
         </div>
       </Band>
 
+      <LastUpdated date={PAGE_UPDATED.product} />
       <PageCta />
     </>
   );
