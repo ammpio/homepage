@@ -63,10 +63,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// English fallback so a missing provider (e.g. after a hot reload swaps this module) never blanks the page.
+const FALLBACK: LanguageContextType = {
+  language: "en",
+  setLanguage: () => {},
+  t: (key) => translations.en[key] ?? key,
+};
+
 export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
+  return useContext(LanguageContext) ?? FALLBACK;
 }
