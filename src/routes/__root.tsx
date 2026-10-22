@@ -80,12 +80,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: ({ matches }) => {
     const last = matches[matches.length - 1];
     const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
+    const canonical = `https://www.ammp.io${path === "/" ? "/" : path}`;
     return {
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "AMMP Technologies" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: canonical },
+      { property: "og:site_name", content: "AMMP" },
     ],
     links: [
       {
@@ -97,8 +100,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
       { rel: "icon", type: "image/png", href: "/favicon.png?v=2" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-      { rel: "canonical", href: `https://ammp.io${path === "/" ? "/" : path}` },
+      { rel: "canonical", href: canonical },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify([
+        { "@context": "https://schema.org", "@type": "Organization", name: "AMMP Technologies B.V.", url: "https://www.ammp.io", logo: "https://www.ammp.io/apple-touch-icon.png" },
+        { "@context": "https://schema.org", "@type": "WebSite", name: "AMMP", url: "https://www.ammp.io" },
+      ]),
+    }],
   };
   },
   shellComponent: RootShell,
