@@ -1,3 +1,4 @@
+import { multiBrandGuideBody } from "./blog-guide-multibrand";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
 export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
@@ -9,7 +10,8 @@ export type BlogBlock =
   | { type: "quote"; text: string; author?: string }
   | { type: "video" }
   | { type: "chat"; channel: string; caption?: string; lines: ChatLine[] }
-  | { type: "cta"; label: string; to: "/contact" };
+  | { type: "cta"; label: string; to: "/contact" }
+  | { type: "postLink"; label: string; slug: string };
 
 export type BlogPost = {
   slug: string;
@@ -23,7 +25,7 @@ export type BlogPost = {
   displayDate?: string;
   seoTitle?: string;
   heroVideoPoster?: boolean;
-  related?: { to: "/ray" | "/mcp"; title: string; text: string }[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
@@ -79,6 +81,22 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "commercial-solar-portfolio-monitoring-software",
+    title: "How to Choose Multi-Brand Solar Monitoring",
+    seoTitle: "Commercial Solar Portfolio Monitoring Software: Buyer's Guide",
+    excerpt: "A practical buyer's guide for commercial solar owners and operators: what to look for in portfolio monitoring, alerts and O&M workflows across every brand.",
+    category: "Insights",
+    date: "2026-10-22",
+    readTime: computeReadTime(multiBrandGuideBody),
+    body: multiBrandGuideBody,
+    related: [
+      { to: "/product", title: "AMMP OS Platform", text: "Monitoring, alerting, ticketing, reporting and commercials in one place." },
+      { to: "/integrations", title: "Integrations", text: "30+ integrations by cloud API or the AMMP Edge datalogger." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+      { to: "/case-studies", title: "Case studies", text: "How portfolio owners run their sites with AMMP." },
+    ],
+  },
   {
     slug: "meet-ray",
     title: "Meet Ray, your portfolio's newest coworker",
@@ -571,6 +589,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     body: [
       { type: "paragraph", text: "Hendrik Broering, Co-founder and CPO, AMMP Technologies | February 2021" },
+      { type: "postLink", label: "Updated for 2026: How to Choose Multi-Brand Solar Monitoring", slug: "commercial-solar-portfolio-monitoring-software" },
       { type: "heading", text: "Solving Operational Challenges with Technology" },
       { type: "paragraph", text: "Monitoring and the Internet-of-Things (IoT) are cornerstones of any successful energy service company of the 21st century. Utilizing these technologies has the potential to significantly reduce operational costs, to enable new business models and to attract investors." },
       { type: "paragraph", text: "There are currently 3 ways in which energy service companies implement monitoring:" },
