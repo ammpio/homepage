@@ -37,6 +37,3 @@ https://ammp-homepage.netlify.app/*  https://www.ammp.io/:splat  301!
 /_server/*  https://ai-cozy-nest.lovable.app/_server/:splat  200!
 /_server  https://ai-cozy-nest.lovable.app/_server  200!
 /__l5e/*  https://ai-cozy-nest.lovable.app/__l5e/:splat  200!
-/:a/  /:a  301!
-/:a/:b/  /:a/:b  301!
-/:a/:b/:c/  /:a/:b/:c  301!
