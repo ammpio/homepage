@@ -10,9 +10,9 @@ export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "FAQ — AMMP OS and an AI coworker for renewable energy" },
-      { name: "description", content: "Answers about AMMP OS: monitoring, integrations, reporting, security and switching, plus how AI coworker build on that data." },
+      { name: "description", content: "Answers to common questions about AMMP: what AMMP OS Platform and Ray do, integrations, pricing, security, reporting and switching from another platform." },
       { property: "og:title", content: "FAQ — AMMP OS and an AI coworker for renewable energy" },
-      { property: "og:description", content: "Everything you need to know about AMMP OS, from platform capabilities to getting started with AI coworker." },
+      { property: "og:description", content: "Common questions about AMMP OS Platform and Ray, your AI coworker: integrations, pricing, security and getting started." },
       { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(FAQ_JSON_LD) }],
