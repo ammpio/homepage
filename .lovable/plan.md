@@ -20,6 +20,8 @@
 
 1. **/llms.txt and /llms-full.txt**, written from your product framing:
    - The two modules, buyable alone or together: AMMP AI (Ray) and AMMP OS Platform.
+   - "AMMP AI (Ray) can run on AMMP OS or on top of an existing monitoring stack such as Meteocontrol or Power Factors."
+   - Monitoring, alerting, ticketing, reporting and commercials are capabilities of AMMP OS Platform, not separate products.
    - The MCP server and Data API as add-ons that work with either module. The MCP server is generally available. No endpoint URL.
    - Who it's for: asset managers, O&M teams and reporting teams.
    - Supported technologies and the named integration brands, connected by cloud API or the AMMP Edge datalogger.
@@ -38,14 +40,14 @@
    - How is AMMP priced?
 
    The /faq page gets the same wording, so there is one source:
-   - "What is AMMP?" is new, written from your framing.
+   - "What is AMMP?" is new, written from your framing. It includes the Meteocontrol / Power Factors sentence and says that monitoring, alerting, ticketing, reporting and commercials are capabilities of AMMP OS Platform, not separate products.
    - "Can I monitor multiple equipment brands…" becomes "Which devices and brands do you integrate with?", with the brand list.
    - "How does pricing work?" becomes "How is AMMP priced?": annual subscription per MWp, contact sales.
 
    All of this is translated, and the homepage and /pricing get FAQPage details.
 4. **Structured data:**
    - Organization gets the LinkedIn link (https://www.linkedin.com/company/ammptechnologies) and sales@ammp.io as the sales contact. No phone number.
-   - A SoftwareApplication entry for AMMP on the homepage, /product and /pricing, with the two modules as offers and no price.
+   - A SoftwareApplication entry for AMMP on the homepage, /product and /pricing, with no "offers" at all (offers without a price cause Search Console errors). Its "description" and "featureList" cover the two modules (AMMP AI and AMMP OS Platform) and the add-ons (MCP server and Data API).
 5. **robots.txt:** allow GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended and CCBot by name. Keep the general allow rule and the sitemap line.
 6. **Fix the facts everywhere:**
    - Change "35+ countries" to "30+ countries" in all 6 places and their translations. Keep 10,000+ sites and 30+ integrations.
