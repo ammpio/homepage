@@ -3,7 +3,7 @@ import { getRouterInstance } from "@tanstack/react-start";
 import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
 import { blogPosts } from "@/data/blog-posts";
 
-const BASE_URL = "https://ammp.io";
+const BASE_URL = "https://www.ammp.io";
 
 export const Route = createFileRoute("/sitemap.xml")({
   staticData: { sitemap: false },

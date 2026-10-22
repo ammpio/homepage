@@ -7,7 +7,7 @@ import { blogPosts, getBlogPost, type BlogBlock } from "@/data/blog-posts";
 import rayAvatar from "@/assets/ray-avatar.png";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
-const SITE = "https://ammp.io";
+const SITE = "https://www.ammp.io";
 
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
@@ -40,7 +40,8 @@ export const Route = createFileRoute("/blog/$slug")({
               description,
               datePublished: post.date,
               author: { "@type": "Person", name: post.author ?? "AMMP" },
-              publisher: { "@type": "Organization", name: "AMMP" },
+              publisher: { "@type": "Organization", name: "AMMP", url: SITE },
+              url,
               mainEntityOfPage: url,
               ...(image ? { image } : {}),
             }),

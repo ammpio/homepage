@@ -11,3 +11,4 @@
 - Homepage sections live in src/components/site/HomeSections.tsx and are reused by / and /ray; the shared HeroVideo (RaySections) is the only hero video player — why: one source for the team-approved layout.
 - All public UI copy uses the shared i18n dictionaries with US English fallback; language choice is persisted client-side — why: one maintainable source for English, Brazilian Portuguese, and Spanish.
 - Media links use full Lovable CDN address via src/lib/assets.ts assetUrl() — why: /__l5e paths only resolve on Lovable hosting, not Netlify.
+- Canonical origin is https://www.ammp.io: canonical/og:url are set once in __root head from the path; sitemap and blog use the same origin — why: one indexed domain.
