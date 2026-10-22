@@ -1,3 +1,5 @@
+import { LastUpdated } from "@/components/site/LastUpdated";
+import { PAGE_UPDATED } from "@/data/authors";
 import { Fragment, useState, type ComponentType } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server, Sparkles } from "lucide-react";
@@ -205,6 +207,7 @@ function FeatureCompare() {
           </table>
         </div>
       )}
+      <LastUpdated date={PAGE_UPDATED.pricing} />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { LastUpdated } from "@/components/site/LastUpdated";
+import { PAGE_UPDATED } from "@/data/authors";
 import { createFileRoute } from "@tanstack/react-router";
 import { Band, PageHero, SectionHeading, Faq } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
@@ -39,6 +41,7 @@ function Page() {
         </Band>
       ))}
 
+      <LastUpdated date={PAGE_UPDATED.faq} />
       <PageCta />
     </>
   );

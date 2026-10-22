@@ -5,7 +5,7 @@ import { Band, PageHero } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo, RayDay } from "@/components/site/RaySections";
 import rayCinematic from "@/assets/Ray_launch_1080p_master_subtitled.mp4.asset.json";
-import rayCinematicPoster from "@/assets/ray-launch-thumbnail.png.asset.json";
+import rayCinematicPoster from "@/assets/ray-launch-thumbnail.webp.asset.json";
 import rayPt from "@/assets/Ray_launch_PT-BR_1080p_master_subtitled.mp4.asset.json";
 import rayEs from "@/assets/Ray_launch_ES-LATAM_1080p_master_subtitled.mp4.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";

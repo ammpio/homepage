@@ -1,3 +1,5 @@
+import { LastUpdated } from "@/components/site/LastUpdated";
+import { PAGE_UPDATED } from "@/data/authors";
 import { assetUrl } from "@/lib/assets";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
@@ -17,8 +19,8 @@ function LocalizedOverviewVideo() {
   const src = language === "pt" ? assetUrl(overviewPt) : language === "es" ? assetUrl(overviewEs) : assetUrl(overviewVideo);
   return <HeroVideo key={src} src={src} poster={assetUrl(overviewPoster)} />;
 }
-import energyMix from "@/assets/energy-mix.png";
-import performanceAnalytics from "@/assets/performance-analytics.png";
+import energyMix from "@/assets/energy-mix.webp";
+import performanceAnalytics from "@/assets/performance-analytics.webp";
 import ticketingImage from "@/assets/ticketing.png";
 import alertsDashboard from "@/assets/alerts-dashboard.png";
 import pdfReportsNew from "@/assets/pdf-reports-new.png";
@@ -205,6 +207,7 @@ function Page() {
         </div>
       </Band>
 
+      <LastUpdated date={PAGE_UPDATED.product} />
       <PageCta />
     </>
   );

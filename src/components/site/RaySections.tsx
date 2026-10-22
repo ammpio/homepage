@@ -4,7 +4,7 @@ import { AlertTriangle, ArrowRight, Check, FileText, Play, RotateCcw, Sun, Wind,
 import { Reveal } from "@/components/site/Reveal";
 import rayVideo from "@/assets/ray-overview-full.mp4.asset.json";
 import rayPoster from "@/assets/ray-video-poster.jpg";
-import rayAvatar from "@/assets/ray-avatar.png";
+import rayAvatar from "@/assets/ray-avatar.webp";
 
 const h2Class = "font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl";
 
