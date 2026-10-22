@@ -60,6 +60,6 @@ Not included: share images and a GW/MWp figure.
 
 - New server routes: `src/routes/llms[.]txt.ts` and `src/routes/llms-full[.]txt.ts`, served as `text/plain` with a 1-hour cache and sitemap set to false. They are built from shared data so they can't drift from the pages.
 - The FAQ data moves from `faq.tsx` into a shared module. /faq, the homepage FAQ block and /pricing all use it to build their FAQPage JSON-LD. The homepage block reuses the existing section and accordion styles: no new motion, ink buttons, and headings that follow the headline rules.
-- Organization JSON-LD in `__root.tsx` gets `sameAs` and `contactPoint`. SoftwareApplication goes in the leaf `head()` scripts, with `offers` as two `Offer` items with no price.
+- Organization JSON-LD in `__root.tsx` gets `sameAs` and `contactPoint`. SoftwareApplication goes in the leaf `head()` scripts, with no `offers` property. The modules and add-ons go in `description` and `featureList`.
 - robots.txt stays a static file in `public/`.
 - "35+" is fixed in HomeSections, us.tsx, usMarket.ts, compare.sungrow.tsx, blog-posts.ts and the matching runtime-translation keys and values, so the es/pt lookups keep matching.
