@@ -47,7 +47,7 @@ export function computeReadTime(body: BlogBlock[]): string {
 */
 const meetRayBody: BlogBlock[] = [
   { type: "paragraph", text: "It's 8am. You're an asset manager or O&M lead, and before your first coffee there are alerts waiting in a dozen vendor portals, each with its own login and its own idea of what \"fault\" means. Somewhere in the pile is the one issue that's actually costing money. And the monthly report is due on Friday." },
-  { type: "paragraph", text: "Ray is the AI coworker we built for that morning. He lives in the tools your team already uses, starting with Microsoft Teams and then Slack, and he's connected to your live AMMP data. He flags problems before anyone logs in, and he answers questions when you ask." },
+  { type: "paragraph", text: "Ray is the AI coworker we built for that morning. He lives in the tools your team already uses, in Microsoft Teams, Slack and AMMP OS, and he's connected to your live AMMP data. He flags problems before anyone logs in, and he answers questions when you ask." },
   { type: "video" },
   { type: "heading", text: "On the job before the team logs on" },
   { type: "paragraph", text: "While your team sleeps, Ray reads the portfolio. He checks production against expectations, looks for inverters and strings drifting away from their neighbours, notices sites that have gone quiet, and compares what he finds with open work orders and contract terms." },
@@ -66,15 +66,15 @@ const meetRayBody: BlogBlock[] = [
   ] },
   { type: "paragraph", text: "Every answer shows its sources, so you can check the working before you act on it. Ray investigates, prioritises and prepares the work. Your team stays in charge of the decisions." },
   { type: "heading", text: "Wherever your team already works" },
-  { type: "paragraph", text: "Nobody needs another tab. Ray starts in Microsoft Teams, with Slack next, so your team can ask questions in the channels where they already talk about the portfolio." },
-  { type: "paragraph", text: "The same Ray will also power the chat inside the AMMP web app. Ask from Teams in the morning and from AMMP OS in the afternoon, and you're talking to one coworker with one view of your data." },
+  { type: "paragraph", text: "Nobody needs another tab. Ray works in Microsoft Teams, Slack and AMMP OS, so your team can ask questions in the channels where they already talk about the portfolio." },
+  { type: "paragraph", text: "The same Ray also powers the chat inside the AMMP web app. Ask from Teams in the morning and from AMMP OS in the afternoon, and you're talking to one coworker with one view of your data." },
   { type: "paragraph", text: "Some teams want to bring their own AI tools. For them, there's the AMMP MCP server. It connects any MCP-compatible assistant, such as Claude or Cursor, to your assets, KPIs, alerts and raw time-series, using the same access controls you already have in AMMP." },
   { type: "heading", text: "Built on 10,000+ sites of data" },
-  { type: "paragraph", text: "An AI coworker is only as good as the data under him. Ray sits on top of AMMP's vendor-agnostic data layer, which already brings together telemetry from more than 10,000 sites in 35+ countries." },
+  { type: "paragraph", text: "An AI coworker is only as good as the data under him. Ray sits on top of AMMP's vendor-agnostic data layer, which already brings together telemetry from more than 10,000 sites in 30+ countries." },
   { type: "paragraph", text: "With 30+ integrations across inverters, meters, batteries, weather data and business tools, data from different vendors lands in one consistent model. That's why Ray can compare an inverter from one brand with its neighbour from another, and why a question about the whole fleet gets one answer instead of twelve." },
   { type: "paragraph", text: "Ray also follows the permissions you've already set in AMMP OS. He only sees what the person asking is allowed to see, so nothing new needs to be configured to keep data in the right hands." },
   { type: "heading", text: "What's next" },
-  { type: "paragraph", text: "Ray is rolling out in Microsoft Teams first, with Slack and the chat in the AMMP web app to follow. Teams that want to connect their own assistants can use the AMMP MCP server and Data API as add-ons today. If you'd like to see Ray on your own portfolio, we'll walk you through it." },
+  { type: "paragraph", text: "Ray works in Microsoft Teams, Slack and AMMP OS today. Teams that want to connect their own assistants can use the AMMP MCP server and Data API as add-ons today. If you'd like to see Ray on your own portfolio, we'll walk you through it." },
   { type: "cta", label: "Book a demo", to: "/contact" },
 ];
 

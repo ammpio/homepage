@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/site/HomeSections";
+import { HOME_FAQ, faqPageJsonLd } from "@/data/faq";
+import { softwareApplicationJsonLd } from "@/data/ammp-facts";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -9,6 +11,9 @@ export const Route = createFileRoute("/")({
     { property: "og:title", content: "AMMP — Put AI to work across your renewable energy portfolio" },
     { property: "og:description", content: "Meet Ray, AMMP's AI coworker: he checks performance, triages alarms, audits contracts and drafts reports across your renewable energy portfolio." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
+  ], scripts: [
+    { type: "application/ld+json", children: JSON.stringify(softwareApplicationJsonLd()) },
+    { type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(HOME_FAQ)) },
   ]}), component: HomePage,
 });
 
