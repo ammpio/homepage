@@ -7,7 +7,7 @@ import { blogPosts, getBlogPost, type BlogBlock } from "@/data/blog-posts";
 import rayAvatar from "@/assets/ray-avatar.png";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
-const SITE = "https://ai-cozy-nest.lovable.app";
+const SITE = "https://ammp.io";
 
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/blog/$slug")({
         ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
         ...(post ? [] : [{ name: "robots", content: "noindex" }]),
       ],
-      links: post ? [{ rel: "canonical", href: url }] : [],
+
       scripts: post
         ? [{
             type: "application/ld+json",

@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-cozy-nest.lovable.app/sitemap.xml
+Sitemap: https://ammp.io/sitemap.xml

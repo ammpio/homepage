@@ -77,7 +77,10 @@ function ErrorComponent({ error, reset }: import("@tanstack/react-router").Error
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
-  head: () => ({
+  head: ({ matches }) => {
+    const last = matches[matches.length - 1];
+    const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
+    return {
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -94,8 +97,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" },
       { rel: "icon", type: "image/png", href: "/favicon.png?v=2" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "canonical", href: `https://ammp.io${path === "/" ? "/" : path}` },
     ],
-  }),
+  };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

@@ -44,8 +44,21 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+const LEGACY: Record<string, string> = {"/home": "/", "/os": "/product", "/ammp-products": "/product", "/ammp-edge": "/integrations", "/data-api": "/mcp", "/oem-solutions": "/use-cases/asset-managers", "/ammp-x-daystar-power": "/case-studies", "/case-study-ammp-x-solarsaver": "/case-studies", "/news": "/blog", "/white-paper": "/blog", "/downloads": "/blog", "/blog/bright-light-partnership": "/blog", "/blog/featured-techleap-climate-report": "/blog"};
+
+function legacyRedirect(request: Request): Response | undefined {
+  const url = new URL(request.url);
+  let path = url.pathname;
+  if (path.length > 1 && path.endsWith("/")) path = path.replace(/\/+$/, "");
+  const target = LEGACY[path] ?? (path !== url.pathname ? path : undefined);
+  if (!target) return undefined;
+  return new Response(null, { status: 301, headers: { Location: target + url.search } });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const redirect = legacyRedirect(request);
+    if (redirect) return redirect;
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
