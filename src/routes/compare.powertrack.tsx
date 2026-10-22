@@ -7,9 +7,9 @@ export const Route = createFileRoute("/compare/powertrack")({
   staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP vs PowerTrack — AMMP" },
-    { name: "description", content: "Looking for a PowerTrack alternative? PowerTrack is AlsoEnergy's monitoring platform, now part of Stem. Compare it with AMMP on customization, integrations, support and BESS depth." },
+    { name: "description", content: "Looking for a PowerTrack alternative? Compare AlsoEnergy's PowerTrack with AMMP on customization, integrations, support and BESS depth." },
     { property: "og:title", content: "AMMP vs PowerTrack — AMMP" },
-    { property: "og:description", content: "Looking for a PowerTrack alternative? PowerTrack is AlsoEnergy's monitoring platform, now part of Stem. Compare it with AMMP on customization, integrations, support and BESS depth." },
+    { property: "og:description", content: "Looking for a PowerTrack alternative? Compare AlsoEnergy's PowerTrack with AMMP on customization, integrations, support and BESS depth." },
     { property: "og:type", content: "article" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/us")({
   staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP US — Tailored solar and BESS monitoring, plus AI coworker" },
-    { name: "description", content: "Asset management tailored to your vendors, KPIs and workflows, now with an AI coworker built on top. PV, BESS and hybrid portfolios, 10,000+ sites across 30 countries." },
+    { name: "description", content: "Asset management tailored to your vendors, KPIs and workflows, with an AI coworker on top. PV, BESS and hybrid portfolios across 30+ countries." },
     { property: "og:title", content: "AMMP US — Tailored solar and BESS monitoring, plus AI coworker" },
     { property: "og:description", content: "Demos in US business hours, pricing in USD. Engineers, not ticket queues." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },

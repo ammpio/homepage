@@ -7,7 +7,7 @@ export const Route = createFileRoute("/brazil")({
   staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "AMMP Brazil — Solar and BESS monitoring with AI coworker" },
-    { name: "description", content: "Monitoring and asset management, with an AI coworker on top, for solar, storage and hybrid portfolios in Brazil. Built for BESS as the SAE framework and 2026 storage auctions arrive." },
+    { name: "description", content: "Monitoring and asset management with an AI coworker for solar, storage and hybrid portfolios in Brazil, built for BESS and the 2026 storage auctions." },
     { property: "og:title", content: "AMMP Brazil — Solar and BESS monitoring with AI coworker" },
     { property: "og:description", content: "No local SCADA box required, and batteries are first-class assets, not an add-on." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },

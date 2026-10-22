@@ -10,7 +10,7 @@ export const Route = createFileRoute("/switch")({
   staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Why renewable energy companies switch to AMMP" },
-    { name: "description", content: "Operators managing distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, an AI coworker and automated reporting." },
+    { name: "description", content: "Distributed solar and battery portfolios need more than vendor portals. AMMP gives you unified visibility, an AI coworker and automated reporting." },
     { property: "og:title", content: "Why renewable energy companies switch to AMMP" },
     { property: "og:description", content: "Unified visibility, automated reporting, and a platform that scales." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },

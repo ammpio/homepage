@@ -10,7 +10,7 @@ export const Route = createFileRoute("/integrations")({
   staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Integrations & Add-ons — AMMP" },
-    { name: "description", content: "Connect any device, any brand. AMMP integrates with leading manufacturers through cloud-to-cloud APIs, plus AMMP Edge for non-API equipment, giving your AI coworker one grounded view of every system." },
+    { name: "description", content: "Connect any device, any brand. AMMP integrates via cloud APIs and AMMP Edge, giving your AI coworker one grounded view of every system." },
     { property: "og:title", content: "Integrations & Add-ons — AMMP" },
     { property: "og:description", content: "30+ integrations across inverters, meters, batteries, EMS and data services." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
