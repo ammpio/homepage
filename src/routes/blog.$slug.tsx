@@ -5,7 +5,7 @@ import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo } from "@/components/site/RaySections";
 import { blogPosts, getBlogPost, type BlogBlock } from "@/data/blog-posts";
 import { postAuthor, POST_UPDATED, formatDate } from "@/data/authors";
-import rayAvatar from "@/assets/ray-avatar.png";
+import rayAvatar from "@/assets/ray-avatar.webp";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
 const SITE = "https://www.ammp.io";

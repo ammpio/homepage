@@ -1,4 +1,4 @@
-import rayAvatar from "@/assets/ray-avatar.png";
+import rayAvatar from "@/assets/ray-avatar.webp";
 
 /** Ray's avatar, drop-in replacement for an icon (accepts the same className sizing). */
 export function RayIcon({ className = "" }: { className?: string }) {

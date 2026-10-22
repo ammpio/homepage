@@ -1,6 +1,6 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronDown, Linkedin, ShieldCheck } from "lucide-react";
-import ammpLogo from "@/assets/ammp-logo.png";
+import ammpLogo from "@/assets/ammp-logo.webp";
 import { LanguageSelector } from "@/components/i18n/LanguageSelector";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { NewsletterSignup } from "@/components/site/NewsletterSignup";
