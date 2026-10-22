@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AiRouteImport } from './routes/ai'
+import { Route as BetaRouteImport } from './routes/beta'
 import { Route as BrazilRouteImport } from './routes/brazil'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -75,6 +76,11 @@ const AboutRoute = AboutRouteImport.update({
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BetaRoute = BetaRouteImport.update({
+  id: '/beta',
+  path: '/beta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrazilRoute = BrazilRouteImport.update({
@@ -331,6 +337,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -385,6 +392,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -440,6 +448,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/ai': typeof AiRoute
+  '/beta': typeof BetaRoute
   '/brazil': typeof BrazilRoute
   '/careers': typeof CareersRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -496,6 +505,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
+    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -550,6 +560,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
+    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -604,6 +615,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/ai'
+    | '/beta'
     | '/brazil'
     | '/careers'
     | '/case-studies'
@@ -659,6 +671,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AiRoute: typeof AiRoute
+  BetaRoute: typeof BetaRoute
   BrazilRoute: typeof BrazilRoute
   CareersRoute: typeof CareersRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
@@ -731,6 +744,13 @@ declare module '@tanstack/react-router' {
       path: '/ai'
       fullPath: '/ai'
       preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beta': {
+      id: '/beta'
+      path: '/beta'
+      fullPath: '/beta'
+      preLoaderRoute: typeof BetaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brazil': {
@@ -1083,6 +1103,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AiRoute: AiRoute,
+  BetaRoute: BetaRoute,
   BrazilRoute: BrazilRoute,
   CareersRoute: CareersRoute,
   CaseStudiesRoute: CaseStudiesRoute,
