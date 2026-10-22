@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Activity, ArrowRight, BarChart2, Bell, Code, FileText, Kanban, Plug, Receipt, Settings2, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, SplitFeature } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { softwareApplicationJsonLd } from "@/data/ammp-facts";
 import { HeroVideo } from "@/components/site/RaySections";
 import overviewVideo from "@/assets/ray-by-ammp-overview.mp4.asset.json";
 import overviewPoster from "@/assets/ray-by-ammp-overview-poster.jpg.asset.json";
@@ -40,7 +41,7 @@ export const Route = createFileRoute("/product")({
     { property: "og:title", content: "AMMP Product Overview — robust data meets collaborative intelligence" },
     { property: "og:description", content: "One system for renewable energy portfolios: live data, operations and AI collaboration." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
-  ]}), component: Page,
+  ], scripts: [{ type: "application/ld+json", children: JSON.stringify(softwareApplicationJsonLd()) }]}), component: Page,
 });
 
 const categories = [

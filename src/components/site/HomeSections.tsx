@@ -10,6 +10,8 @@ import { HeroVideo, RayEverywhere } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { assetUrl } from "@/lib/assets";
+import { Faq } from "@/components/site/sections";
+import { HOME_FAQ } from "@/data/faq";
 import homeVideoEs from "@/assets/Ray_by_AMMP_overview_music_only_ES.mp4.asset.json";
 import homeVideoPt from "@/assets/Ray_by_AMMP_overview_music_only_PT-BR.mp4.asset.json";
 
@@ -32,6 +34,7 @@ export function HomePage() {
       <RayEverywhere />
       <Details />
       <Results />
+      <HomeFaq />
       <PageCta />
     </div>
   );
@@ -81,6 +84,9 @@ export function Hero() {
           <p className="mx-auto mt-5 max-w-[56ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
             Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
           </p>
+          <p className="mx-auto mt-3 max-w-[60ch] text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+            AMMP is a vendor-agnostic platform for monitoring and managing solar, battery, hybrid, wind and genset portfolios, with Ray, an AI coworker, working on top of your data.
+          </p>
         </Reveal>
         <Reveal delay={270}>
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
@@ -98,7 +104,7 @@ export function Hero() {
 }
 
 export function StatsBar({ className = "" }: { className?: string }) {
-  const metrics = [["10,000+", "Sites"], ["35+", "Countries"], ["30+", "Integrations"]] as const;
+  const metrics = [["10,000+", "Sites"], ["30+", "Countries"], ["30+", "Integrations"]] as const;
   return (
     <section aria-label="AMMP portfolio scale" className={className}>
       <div className="site-container">
@@ -357,6 +363,20 @@ export function Results() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeFaq() {
+  return (
+    <section className="py-16 lg:py-24">
+      <div className="site-container mx-auto max-w-3xl">
+        <h2 className={`${h2Class} text-center`}>Frequently asked questions</h2>
+        <Faq items={HOME_FAQ} />
+        <p className="mt-6 text-center">
+          <Link to="/faq" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See all FAQs <ArrowRight className="size-4" /></Link>
+        </p>
       </div>
     </section>
   );

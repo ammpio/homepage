@@ -2,6 +2,8 @@ import { Fragment, useState, type ComponentType } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronDown, Code, LayoutDashboard, Minus, Server, Sparkles } from "lucide-react";
 import { Band, Faq, PageHero, SectionHeading } from "@/components/site/sections";
+import { FAQ_PRICING, faqPageJsonLd } from "@/data/faq";
+import { softwareApplicationJsonLd } from "@/data/ammp-facts";
 
 export const Route = createFileRoute("/pricing")({
   staticData: { sitemap: true },
@@ -11,6 +13,9 @@ export const Route = createFileRoute("/pricing")({
     { property: "og:title", content: "Pricing — flexible, modular plans | AMMP" },
     { property: "og:description", content: "Two modules: AMMP AI and AMMP OS Platform, with MCP and Data API add-ons." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
+  ], scripts: [
+    { type: "application/ld+json", children: JSON.stringify(softwareApplicationJsonLd()) },
+    { type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(pricingFaqs)) },
   ]}), component: Page,
 });
 
@@ -79,7 +84,7 @@ function Cell({ v }: { v: CV }) {
 }
 
 const pricingFaqs = [
-  { q: "How is AMMP priced?", a: "Both modules are priced per megawatt-peak (MWp) of capacity, billed annually. Take one module or both." },
+  FAQ_PRICING,
   { q: "Do I need AMMP OS to use AMMP AI?", a: "No. Ray can work on top of AMMP OS or directly on your existing monitoring infrastructure, such as Meteocontrol or Power Factors." },
   { q: "Is there a minimum contract?", a: "A minimum annual fee applies to ensure quality support and service for all customers, regardless of portfolio size." },
   { q: "What are the add-ons?", a: "The MCP server and the Data API can be added to either module when you want your own tools or assistants to access your portfolio data." },
