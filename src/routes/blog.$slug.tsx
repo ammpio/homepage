@@ -101,7 +101,7 @@ function ArticlePage() {
   }
 
   const more = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
-  const date = post.displayDate ?? new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const date = post.displayDate ?? formatDate(post.date);
   const author = postAuthor(post.slug);
   const updated = POST_UPDATED[post.slug];
   const hasCta = post.body.some((b) => b.type === "cta");
