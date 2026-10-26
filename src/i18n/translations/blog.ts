@@ -13,8 +13,8 @@ export const blogTranslations: TranslationSet = {
     "blogPage.category.Awards": "Awards",
 
     // Posts
-    "blog.post.mcp-server-beta.title": "Introducing the AMMP MCP server (beta)",
-    "blog.post.mcp-server-beta.excerpt": "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series. Now in beta.",
+    "blog.post.mcp-server-beta.title": "Introducing the AMMP MCP server",
+    "blog.post.mcp-server-beta.excerpt": "Connect any MCP-compatible AI assistant to your portfolio's assets, KPIs, alerts and raw time-series.",
 
     "blog.post.sps-africa.title": "SPS Africa chooses AMMP OS as monitoring platform",
     "blog.post.sps-africa.excerpt": "SPS Africa, with over 350 solar plants and 150 MWp installed, selects AMMP OS as their unified monitoring and reporting platform.",
@@ -148,8 +148,8 @@ export const blogTranslations: TranslationSet = {
     "blogPage.category.Press": "Prensa",
     "blogPage.category.Awards": "Premios",
 
-    "blog.post.mcp-server-beta.title": "Presentamos el servidor MCP de AMMP (beta)",
-    "blog.post.mcp-server-beta.excerpt": "Conecta cualquier asistente de IA compatible con MCP a los activos, KPIs, alertas y series temporales de tu portafolio. Ya disponible en beta.",
+    "blog.post.mcp-server-beta.title": "Presentamos el servidor MCP de AMMP",
+    "blog.post.mcp-server-beta.excerpt": "Conecta cualquier asistente de IA compatible con MCP a los activos, KPIs, alertas y series temporales de tu portafolio.",
 
     "blog.post.sps-africa.title": "SPS Africa elige AMMP OS como plataforma de monitoreo",
     "blog.post.sps-africa.excerpt": "SPS Africa, con más de 350 plantas solares y 150 MWp instalados, selecciona AMMP OS como su plataforma unificada de monitoreo y reportes.",
@@ -283,8 +283,8 @@ export const blogTranslations: TranslationSet = {
     "blogPage.category.Press": "Imprensa",
     "blogPage.category.Awards": "Prêmios",
 
-    "blog.post.mcp-server-beta.title": "Apresentando o servidor MCP da AMMP (beta)",
-    "blog.post.mcp-server-beta.excerpt": "Conecte qualquer assistente de IA compatível com MCP aos ativos, KPIs, alertas e séries temporais do seu portfólio. Agora em beta.",
+    "blog.post.mcp-server-beta.title": "Apresentando o servidor MCP da AMMP",
+    "blog.post.mcp-server-beta.excerpt": "Conecte qualquer assistente de IA compatível com MCP aos ativos, KPIs, alertas e séries temporais do seu portfólio.",
 
     "blog.post.sps-africa.title": "SPS Africa escolhe o AMMP OS como plataforma de monitoramento",
     "blog.post.sps-africa.excerpt": "A SPS Africa, com mais de 350 usinas solares e 150 MWp instalados, seleciona o AMMP OS como sua plataforma unificada de monitoramento e relatórios.",

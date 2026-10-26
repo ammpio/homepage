@@ -22,6 +22,13 @@ export const FAQ_PRICING: FaqItem = {
   a: "AMMP is priced as an annual subscription per MWp of installed capacity. Take one module or both. Contact sales@ammp.io for a proposal.",
 };
 
+export const MCP_FAQ: FaqItem[] = [
+  { q: "What is the AMMP MCP server?", a: "A server that speaks the open Model Context Protocol and gives any AI assistant structured portfolio context from AMMP OS: assets and metadata, computed KPIs, active and historical alerts, and raw time-series. It is generally available as an add-on to either module, AMMP AI or AMMP OS Platform." },
+  { q: "Which AI assistants work with it?", a: "Any MCP-compatible assistant, such as Claude, Copilot or an agent you build yourself. Ray, AMMP's AI coworker, runs on the same server." },
+  { q: "What data can an assistant see?", a: "Permissions and scope follow your existing AMMP access controls. An assistant can only see what the connected user can already see in AMMP." },
+  { q: "How do we get access?", a: "Write to sales@ammp.io or book a walkthrough. The MCP server is an add-on to AMMP AI or AMMP OS Platform." },
+];
+
 export const HOME_FAQ: FaqItem[] = [FAQ_WHAT_IS_AMMP, FAQ_WHAT_IS_RAY, FAQ_DEVICES, FAQ_RAY_EVIDENCE, FAQ_PRICING];
 
 export const FAQ_GROUPS: { eyebrow: string; title: string; tone: "white" | "grey"; items: FaqItem[] }[] = [

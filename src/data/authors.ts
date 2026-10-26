@@ -33,7 +33,7 @@ export function postAuthor(slug: string): Author | undefined {
 /** Real last-edit dates; posts never edited after publishing are absent. */
 export const POST_UPDATED: Record<string, string> = {
   "meet-ray": "2026-10-22",
-  "mcp-server-beta": "2026-10-22",
+  "mcp-server-beta": "2026-10-26",
   "sps-africa": "2026-10-22",
   "monitoring-solution-selection-guide": "2026-10-22",
 };
