@@ -93,8 +93,8 @@ function Rich({ parts }: { parts: RichPart[] }) {
       {parts.map((p, i) => {
         if (typeof p === "string") return <span key={i}>{p}</span>;
         if ("b" in p) return <strong key={i}>{p.b}</strong>;
-        if (p.href.startsWith("/")) return <Link key={i} to={p.href as "/ray"}>{p.a}</Link>;
-        return <a key={i} href={p.href}>{p.a}</a>;
+        if (p.href.startsWith("/")) return <Link key={i} to={p.href as "/ray"} data-no-translate>{p.a}</Link>;
+        return <a key={i} href={p.href} data-no-translate>{p.a}</a>;
       })}
     </p>
   );
