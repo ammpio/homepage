@@ -51,7 +51,7 @@ export const alarmsBody: BlogBlock[] = [
     "The agent proposes; your team decides what gets fixed and when.",
     "When data is missing or a contract term is unclear, the agent says so instead of guessing.",
   ] },
-  { type: "rich", parts: ["That's the job we built Ray, AMMP's AI coworker, to do. Ray checks every site each morning, ranks issues by operational and commercial impact, opens tickets with the evidence, and works in Microsoft Teams, Slack or AMMP OS. Ray can run on AMMP OS or on top of the monitoring stack you already use. More at", { a: "www.ammp.io/ray", href: "/ray" }, "."] },
+  { type: "rich", parts: ["That's the job we built Ray, AMMP's AI coworker, to do. Ray checks every site each morning, ranks issues by operational and commercial impact, opens tickets with the evidence, and works in Microsoft Teams, Slack or AMMP OS. Ray can run on AMMP OS or on top of the monitoring stack you already use. More at ", { a: "www.ammp.io/ray", href: "/ray" }, "."] },
   closing,
 ];
 
@@ -72,7 +72,7 @@ export const reportsBody: BlogBlock[] = [
   { type: "paragraph", text: "Second, every draft has a reviewer. The point is to turn two days of compiling into an hour of checking, with the reviewer's time spent on the commentary instead of the copy-paste." },
   { type: "heading", text: "Where to start" },
   { type: "paragraph", text: "Pick one report, one month and one portfolio. Run the AI draft alongside your usual process, compare the two line by line, and fix what differs. After two or three months you'll know which parts you trust and which still need a person. That's a far better basis for rolling it out than any demo." },
-  { type: "rich", parts: ["At AMMP, this is part of what Ray, our AI coworker, does: it pulls the portfolio data from AMMP OS or your existing monitoring stack, drafts the report with every number linked to its source, and delivers it as Word, PowerPoint or PDF for your team to review. More at", { a: "www.ammp.io/ray", href: "/ray" }, "."] },
+  { type: "rich", parts: ["At AMMP, this is part of what Ray, our AI coworker, does: it pulls the portfolio data from AMMP OS or your existing monitoring stack, drafts the report with every number linked to its source, and delivers it as Word, PowerPoint or PDF for your team to review. More at ", { a: "www.ammp.io/ray", href: "/ray" }, "."] },
   closing,
 ];
 
