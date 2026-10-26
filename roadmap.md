@@ -9,4 +9,4 @@
 - [x] Pricing: two modules (AMMP AI, AMMP OS Platform) + MCP/API add-ons.
 - [ ] Meeting scheduler image — skipped by user for now.
 - [x] Streamline /ai: Ray first (video + day), MCP second, drop roadmap and duplicate closing.
-- [ ] Spanish and Portuguese for the 8 new solution/compare/South Africa pages
+- [x] Spanish and Portuguese for the 8 new solution/compare/South Africa pages
