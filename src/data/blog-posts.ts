@@ -1,4 +1,5 @@
 import { multiBrandGuideBody } from "./blog-guide-multibrand";
+import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
 export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
@@ -11,7 +12,11 @@ export type BlogBlock =
   | { type: "video" }
   | { type: "chat"; channel: string; caption?: string; lines: ChatLine[] }
   | { type: "cta"; label: string; to: "/contact" }
-  | { type: "postLink"; label: string; slug: string };
+  | { type: "postLink"; label: string; slug: string }
+  | { type: "rich"; parts: RichPart[] };
+
+/** Inline text run: plain, bold, or link (internal path or mailto). */
+export type RichPart = string | { b: string } | { a: string; href: string };
 
 export type BlogPost = {
   slug: string;
@@ -25,6 +30,9 @@ export type BlogPost = {
   displayDate?: string;
   seoTitle?: string;
   heroVideoPoster?: boolean;
+  /** Exact go-live moment (ISO UTC). Before it the post is hidden everywhere and its URL 404s. */
+  publishAt?: string;
+  cover?: { src: string; alt: string };
   related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies"; title: string; text: string }[];
 };
 
@@ -34,6 +42,7 @@ export function computeReadTime(body: BlogBlock[]): string {
     .map((b) => {
       if (b.type === "heading" || b.type === "paragraph" || b.type === "quote") return b.text;
       if (b.type === "list") return b.items.join(" ");
+      if (b.type === "rich") return b.parts.map((p) => (typeof p === "string" ? p : "b" in p ? p.b : p.a)).join("");
       if (b.type === "chat") return b.lines.map((l) => l.text).join(" ");
       return "";
     })
@@ -81,6 +90,51 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "solar-investor-reports-with-ai",
+    title: "How to draft solar investor reports with AI",
+    excerpt: "What to automate in monthly portfolio reporting, and what people should keep.",
+    category: "Insights",
+    date: "2026-11-11",
+    publishAt: "2026-11-11T08:00:00Z",
+    readTime: computeReadTime(reportsBody),
+    body: reportsBody,
+    cover: covers.reports,
+    related: [
+      { to: "/product", title: "AMMP OS Platform", text: "Monitoring, alerting, ticketing, reporting and commercials in one place." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "rank-solar-alarms-by-revenue-risk",
+    title: "How to rank solar alarms by revenue risk",
+    excerpt: "A simple method for O&M and asset teams, and where AI takes over the daily work.",
+    category: "Insights",
+    date: "2026-11-04",
+    publishAt: "2026-11-04T08:00:00Z",
+    readTime: computeReadTime(alarmsBody),
+    body: alarmsBody,
+    cover: covers.alarms,
+    related: [
+      { to: "/product", title: "AMMP OS Platform", text: "Monitoring, alerting, ticketing, reporting and commercials in one place." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "multi-brand-solar-monitoring-checklist",
+    title: "Five questions to ask before you buy multi-brand solar monitoring",
+    excerpt: "A buyer's checklist for renewable energy portfolios with solar and batteries that run more than one inverter brand.",
+    category: "Insights",
+    date: "2026-10-28",
+    publishAt: "2026-10-28T08:00:00Z",
+    readTime: computeReadTime(checklistBody),
+    body: checklistBody,
+    cover: covers.multibrand,
+    related: [
+      { to: "/product", title: "AMMP OS Platform", text: "Monitoring, alerting, ticketing, reporting and commercials in one place." },
+      { to: "/integrations", title: "Integrations", text: "30+ integrations by cloud API or the AMMP Edge datalogger." },
+    ],
+  },
   {
     slug: "commercial-solar-portfolio-monitoring-software",
     title: "How to Choose Multi-Brand Solar Monitoring",
@@ -910,8 +964,20 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+/** True once the post's go-live moment has passed (posts without publishAt are always live). */
+export function isPublished(post: BlogPost, now: Date = new Date()): boolean {
+  return !post.publishAt || now.getTime() >= Date.parse(post.publishAt);
+}
+
+/** Posts visible right now. Use this everywhere posts are listed (index, sitemap, "more" cards). */
+export function publishedPosts(now: Date = new Date()): BlogPost[] {
+  return blogPosts.filter((post) => isPublished(post, now));
+}
+
+/** A live post by slug; scheduled posts return undefined until they go live. */
+export function getBlogPost(slug: string, now: Date = new Date()): BlogPost | undefined {
+  const post = blogPosts.find((p) => p.slug === slug);
+  return post && isPublished(post, now) ? post : undefined;
 }
 
 export const blogCategories: BlogCategory[] = ["Customers", "Product", "Insights", "Press", "Awards"];

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { blogPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
+import { publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 import { comparisons } from "@/data/comparisons";
 
 type Filter = "All" | BlogCategory | "Compare";
@@ -30,6 +30,7 @@ function formatDate(iso: string) {
 function BlogIndexPage() {
   const search = Route.useSearch();
   const [activeCategory, setActiveCategory] = useState<Filter>(search.category ?? "All");
+  const blogPosts = publishedPosts();
   const sorted = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
   const featured = sorted[0]!;
   const rest = sorted.slice(1);
@@ -95,6 +96,7 @@ function BlogIndexPage() {
               params={{ slug: post.slug }}
               className="glass glass-lift group flex flex-col rounded-2xl p-6"
             >
+              {post.cover && <img src={post.cover.src} alt={post.cover.alt} loading="lazy" width={1600} height={900} className="-mx-2 -mt-2 mb-4 aspect-video w-[calc(100%+1rem)] rounded-xl object-cover" />}
               <span className="eyebrow">{post.category}</span>
               <h2 className="mt-3 text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
                 {post.title}

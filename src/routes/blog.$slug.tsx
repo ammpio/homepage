@@ -1,9 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Band, Prose } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo } from "@/components/site/RaySections";
-import { blogPosts, getBlogPost, type BlogBlock } from "@/data/blog-posts";
+import { publishedPosts, getBlogPost, type BlogBlock, type RichPart } from "@/data/blog-posts";
 import { postAuthor, POST_UPDATED, formatDate } from "@/data/authors";
 import rayAvatar from "@/assets/ray-avatar.webp";
 import rayPoster from "@/assets/ray-video-poster.jpg";
@@ -12,12 +12,18 @@ const SITE = "https://www.ammp.io";
 
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
+  // Checked per request: scheduled posts return a real 404 until their publishAt moment.
+  loader: ({ params }) => {
+    if (!getBlogPost(params.slug)) throw notFound();
+    return null;
+  },
+  notFoundComponent: ArticleNotFound,
   head: ({ params }) => {
     const post = getBlogPost(params.slug);
     const title = post ? (post.seoTitle ?? `${post.title} — AMMP Blog`) : "Article not found — AMMP Blog";
     const description = post?.excerpt ?? "This article could not be found. Browse the AMMP blog for the latest on an AI coworker and renewable energy operations.";
     const url = `${SITE}/blog/${params.slug}`;
-    const image = post?.heroVideoPoster ? `${SITE}${rayPoster}` : undefined;
+    const image = post?.cover?.src ?? (post?.heroVideoPoster ? `${SITE}${rayPoster}` : undefined);
     return {
       meta: [
         { title },
@@ -81,12 +87,21 @@ function ChatSnippet({ block }: { block: Extract<BlogBlock, { type: "chat" }> })
   );
 }
 
-function ArticlePage() {
-  const { slug } = Route.useParams();
-  const post = getBlogPost(slug);
+function Rich({ parts }: { parts: RichPart[] }) {
+  return (
+    <p>
+      {parts.map((p, i) => {
+        if (typeof p === "string") return <span key={i}>{p}</span>;
+        if ("b" in p) return <strong key={i}>{p.b}</strong>;
+        if (p.href.startsWith("/")) return <Link key={i} to={p.href as "/ray"} data-no-translate>{p.a}</Link>;
+        return <a key={i} href={p.href} data-no-translate>{p.a}</a>;
+      })}
+    </p>
+  );
+}
 
-  if (!post) {
-    return (
+function ArticleNotFound() {
+  return (
       <>
         <Band>
           <div className="mx-auto max-w-2xl text-center">
@@ -97,10 +112,15 @@ function ArticlePage() {
         </Band>
         <PageCta />
       </>
-    );
-  }
+  );
+}
 
-  const more = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+function ArticlePage() {
+  const { slug } = Route.useParams();
+  const post = getBlogPost(slug);
+  if (!post) return <ArticleNotFound />;
+
+  const more = publishedPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
   const date = post.displayDate ?? formatDate(post.date);
   const author = postAuthor(post.slug);
   const updated = POST_UPDATED[post.slug];
@@ -123,6 +143,7 @@ function ArticlePage() {
             Published <time dateTime={post.date}>{date}</time>
             {updated && updated !== post.date && <> · Last updated <time dateTime={updated}>{formatDate(updated)}</time></>}
           </p>
+          {post.cover && <img src={post.cover.src} alt={post.cover.alt} width={1600} height={900} className="mt-10 aspect-video w-full rounded-2xl border border-border/60 object-cover" />}
         </div>
       </section>
 
@@ -130,6 +151,7 @@ function ArticlePage() {
         <Prose plain>
           {post.body.map((block, i) => {
             if (block.type === "heading") return <h2 key={i}>{block.text}</h2>;
+            if (block.type === "rich") return <Rich key={i} parts={block.parts} />;
             if (block.type === "list") return <ul key={i} className="space-y-2">{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
             if (block.type === "video") return <div key={i} className="not-prose my-8"><HeroVideo /></div>;
             if (block.type === "chat") return <ChatSnippet key={i} block={block} />;
