@@ -2661,6 +2661,8 @@ export const runtimeTranslations: Record<"es" | "pt", Record<string, string>> = 
     "Can it check O&M availability, response times and performance guarantees against the contract?": "¿Puede verificar la disponibilidad, los tiempos de respuesta y las garantías de desempeño de O&M frente al contrato?",
     "Data access": "Acceso a datos",
     "Is there an open API, bulk export and an MCP server so your own tools and AI assistants can use the data?": "¿Dispone de una API abierta, exportación masiva y un servidor MCP para que sus propias herramientas y asistentes de IA puedan utilizar los datos?",
+    "Mini-grids": "Minirredes",
+    "Alternatives": "Alternativas",
   },
   "pt": {
     "How to draft solar investor reports with AI": "Como redigir relatórios para investidores solares com IA",
@@ -5319,5 +5321,7 @@ export const runtimeTranslations: Record<"es" | "pt", Record<string, string>> = 
     "Can it check O&M availability, response times and performance guarantees against the contract?": "Ele pode verificar a disponibilidade de O&M, tempos de resposta e garantias de desempenho em relação ao contrato?",
     "Data access": "Acesso a dados",
     "Is there an open API, bulk export and an MCP server so your own tools and AI assistants can use the data?": "Existe uma API aberta, exportação em massa e um servidor MCP para que suas próprias ferramentas e assistentes de IA possam usar os dados?",
+    "Mini-grids": "Minirredes",
+    "Alternatives": "Alternativas",
   }
 };
