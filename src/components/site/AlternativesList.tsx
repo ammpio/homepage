@@ -12,7 +12,7 @@ export function AlternativesList({ items }: { items: Alternative[] }) {
           <p className="mt-3 text-sm leading-6"><span className="font-medium">Fits best: </span><span className="text-muted-foreground">{alt.fits}</span></p>
           {alt.to && (
             <Link to={alt.to} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">
-              {alt.to.startsWith("/compare") ? `AMMP vs ${alt.name}` : "Learn more"} <ArrowRight className="size-4" />
+              {String(alt.to).startsWith("/compare") ? `AMMP vs ${alt.name}` : "Learn more"} <ArrowRight className="size-4" />
             </Link>
           )}
         </div>

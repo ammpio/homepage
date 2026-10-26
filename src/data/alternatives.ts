@@ -1,6 +1,7 @@
 // Neutral platform descriptions for the alternatives and "best platforms" pages.
 // Only facts already stated on our /compare pages. Power Factors has no /compare page: keep it neutral, no feature claims.
-export type Alternative = { name: string; description: string; fits: string; to?: string };
+import type { LinkProps } from "@tanstack/react-router";
+export type Alternative = { name: string; description: string; fits: string; to?: LinkProps["to"] };
 
 export const METEOCONTROL: Alternative = {
   name: "Meteocontrol",
