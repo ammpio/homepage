@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Activity, ArrowRight, BarChart3, Bell, Lock, Server, Waves } from "lucide-react";
-import { Band, PageHero, SectionHeading } from "@/components/site/sections";
+import { Band, PageHero, SectionHeading, Faq } from "@/components/site/sections";
+import { MCP_FAQ, faqPageJsonLd } from "@/data/faq";
 import { PageCta } from "@/components/site/SiteShell";
 
 export const Route = createFileRoute("/mcp")({
   staticData: { sitemap: true },
-  head: () => ({ meta: [
+  head: () => ({ scripts: [{ type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(MCP_FAQ)) }], meta: [
     { title: "AMMP MCP server — your portfolio, for any AI assistant" },
     { name: "description", content: "The AMMP MCP server gives Claude, Copilot or your own agent secure, permission-aware access to live renewable portfolio data." },
     { property: "og:title", content: "AMMP MCP server — your portfolio, for any AI assistant" },
