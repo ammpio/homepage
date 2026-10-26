@@ -14,33 +14,35 @@
 5. /solutions/solar-monitoring does not exist today. I will create it as a new page (see C) with the multi-brand section: Huawei, SMA, Sungrow and other brands in one portal, alerts into Microsoft Teams and Slack (Teams first), linking to /integrations and /compare/vendor-portals.
 6. /compare/meteocontrol: link to /compare/meteocontrol-alternatives.
 
-## C. New pages (English first)
+## C. New pages (English only for now; other languages fall back to English)
 | URL | Content |
 |---|---|
 | /solutions/solar-monitoring | Multi-brand solar monitoring (item 5) |
 | /solutions/om-sla-tracking | O&M availability and response times against contracts, PPA guarantees, Ray drafts claims with evidence, people review |
-| /solutions/investor-reporting | Investor and PPA billing/savings reports, scheduled delivery, Word/PowerPoint/PDF, branding on reports; links to /use-cases/reporting-teams and the 11 Nov post once live |
-| /solutions/hybrid-sites | Solar, battery, genset, mini-grid; AMMP Edge for non-API equipment; unreliable connectivity; general Africa experience, linking to /case-studies |
-| /south-africa | Load-shedding backup sites, SA tariff database, time-of-use battery checks; same layout as /us and /brazil |
-| /compare/meteocontrol-alternatives | Selection criteria, fair short descriptions, where each fits |
-| /compare/power-factors-alternatives | Same structure |
-| /compare/best-renewable-solar-monitoring-platforms (name to confirm, see Q1) | Platforms for multi-brand portfolios against six criteria |
+| /solutions/investor-reporting | Investor and PPA billing/savings reports, scheduled delivery, Word/PowerPoint/PDF, white-label branding on reports; links to /use-cases/reporting-teams and the 11 Nov post once live |
+| /solutions/hybrid-sites | Solar, battery, genset, mini-grid; AMMP Edge for non-API equipment; unreliable connectivity; general Africa experience, linking the Daystar Power, SolarSaver and Broadreach case studies |
+| /south-africa | Load-shedding backup sites; tariff database with 1,000+ South African tariffs; Ray checks each battery's charging and discharging against the site's time-of-use tariff and flags sites that lost money to the wrong window; same layout as /us and /brazil; links SolarSaver and Broadreach case studies |
+| /compare/meteocontrol-alternatives | Selection criteria, fair short descriptions of platforms with existing /compare pages plus Power Factors (neutral), where each fits |
+| /compare/power-factors-alternatives | "Power Factors alternatives, and how to add AI alongside Power Factors": Power Factors described neutrally in one or two sentences as renewable asset performance management software; Ray can run on top of it, or teams can switch to AMMP OS Platform; Meteocontrol and other /compare platforms listed neutrally |
+| /compare/best-commercial-solar-monitoring-platforms | Platforms for multi-brand commercial and industrial portfolios against six criteria: brand coverage, KPI consistency, alerting, reporting, SLA tracking, data access/API/MCP |
 
 Every new page: one unique headline, title and description under 160 characters, WebPage details (plus FAQ details where there's an FAQ), own canonical, in sitemap.xml, listed in llms.txt and llms-full.txt.
 
-Linking: a new "Solutions" group in the footer with the four solution pages; /south-africa next to US and Brazil wherever those are linked; alternatives pages from their /compare page and the comparisons list; solution pages linked from the matching Product and use-case pages. Header menu unchanged unless you want a Solutions dropdown (Q6).
+Linking: a new "Solutions" group in the footer with the four solution pages; /south-africa next to US and Brazil wherever those are linked; alternatives pages from their /compare page and the comparisons list; solution pages linked from the matching Product and use-case pages. Header menu unchanged.
+
+## Decisions
+- Wording: "commercial and industrial (C&I)" once per page, then "commercial and industrial".
+- Competitor facts: only what existing /compare pages say; Power Factors and Meteocontrol described neutrally on each other's alternatives page. AMMP is one option, not the only good one.
+- Numbers: 10,000+ sites, 30+ countries, 30+ integrations. No prices.
+- Customer names only where a published case study exists, always linked.
+- No white-label/OEM product page.
 
 ## Open questions
-1. "C&I" never appears on the site (your earlier decision). Use /compare/best-commercial-solar-monitoring-platforms and "commercial and industrial" in text instead?
-2. Power Factors: there is no /compare page for it, so I have no approved facts. What may I say about it? Otherwise the page describes only what you give me.
-3. Alternatives pages: which other platforms should be listed? I can use only those with existing /compare pages (Meteocontrol, AlsoEnergy, PowerTrack, Bazefield, QOS Energy, Univers, PV Operation, vendor portals). OK?
-4. /south-africa: the site only says the tariff database covers "up-to-date South African tariff structures" and lists SolarSaver and Broadreach case studies. Confirm load-shedding and time-of-use battery check claims, or send facts.
-5. Hybrid sites and investor reporting: may I say "scheduled delivery" and "branding on reports" (the site already lists white-label reports)? Any Africa facts beyond the Daystar Power, SolarSaver, Broadreach case studies?
-6. Add a "Solutions" dropdown to the header, or footer only?
-7. Spanish/Portuguese for new pages now or later? Default: English only; other languages fall back to English.
+None.
 
 ## Technical details
-- New routes: solutions.solar-monitoring.tsx, solutions.om-sla-tracking.tsx, solutions.investor-reporting.tsx, solutions.hybrid-sites.tsx, south-africa.tsx, compare.meteocontrol-alternatives.tsx, compare.power-factors-alternatives.tsx, compare.best-...tsx; each staticData { sitemap: true }, head() with WebPage JSON-LD.
-- Gated links use isPublished(getPostBySlugRaw) from blog-posts.ts so they appear at request time without a deploy.
+- New routes: solutions.solar-monitoring.tsx, solutions.om-sla-tracking.tsx, solutions.investor-reporting.tsx, solutions.hybrid-sites.tsx, south-africa.tsx, compare.meteocontrol-alternatives.tsx, compare.power-factors-alternatives.tsx, compare.best-commercial-solar-monitoring-platforms.tsx; each staticData { sitemap: true }, head() with WebPage JSON-LD.
+- Gated blog links use the existing isPublished check in blog-posts.ts so they appear at request time without a deploy.
 - llms.txt PAGES list in ammp-facts.ts gains the new URLs; MCP FAQ added to faq.ts and emitted as FAQPage on /mcp.
 - Wikidata removed from sameAs in __root.tsx.
+- The "C&I" exception is saved to memory so it isn't flagged later.
