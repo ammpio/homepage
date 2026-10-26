@@ -39,7 +39,7 @@ function McpPage() {
       <PageHero
         title="The MCP server:"
         highlight="your portfolio, for any assistant."
-        intro="The same foundation Ray runs on, available to Claude, Copilot or an agent you build yourself, under your existing AMMP permissions."
+        intro="The same foundation Ray runs on, available to Claude, Copilot or an agent you build yourself, under your existing AMMP permissions. Generally available as an add-on to either module, AMMP AI or AMMP OS Platform."
         primary={{ label: "Book a walkthrough", to: "/contact" }}
       />
       <Band tone="grey">
@@ -53,7 +53,7 @@ function McpPage() {
           <Lock className="size-5 shrink-0 text-primary" />
           <p className="text-sm text-muted-foreground">Permissions and scope follow your existing AMMP access controls. An assistant can only see what the connected user can already see.</p>
         </div>
-        <Link to="/blog" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Read the announcement <ArrowRight className="size-4" /></Link>
+        <Link to="/blog/$slug" params={{ slug: "mcp-server-beta" }} className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Read the announcement <ArrowRight className="size-4" /></Link>
       </Band>
 
       <Band>
@@ -74,6 +74,11 @@ function McpPage() {
             <DiagramCard dashed title="Other software tools" subtitle="Optional integration" items={["CRM, CMMS, ERP systems", "Connect via the MCP server", "Or via your AI assistant"]} />
           </div>
         </div>
+      </Band>
+
+      <Band tone="grey">
+        <SectionHeading title="MCP server questions" />
+        <Faq items={MCP_FAQ} />
       </Band>
 
       <PageCta />

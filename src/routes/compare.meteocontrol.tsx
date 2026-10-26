@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { FileText, Globe, MessageSquare, Shield } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, FileText, Globe, MessageSquare, Shield } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid, CompareTable } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 
@@ -70,6 +70,9 @@ function Page() {
       <Band tone="grey">
         <SectionHeading eyebrow="Why AMMP" title="Why choose AMMP?" center />
         <FeatureGrid columns={4} features={differentiators} />
+      </Band>
+      <Band tone="white">
+        <div className="text-center"><Link to="/compare/meteocontrol-alternatives" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Looking at other options? See Meteocontrol alternatives <ArrowRight className="size-4" /></Link></div>
       </Band>
       <PageCta />
     </>

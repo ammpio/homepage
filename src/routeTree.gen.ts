@@ -42,6 +42,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
+import { Route as CompareBestCommercialSolarMonitoringPlatformsRouteImport } from './routes/compare.best-commercial-solar-monitoring-platforms'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
 import { Route as CompareDataFirstVsUiFirstRouteImport } from './routes/compare.data-first-vs-ui-first'
 import { Route as CompareFroniusRouteImport } from './routes/compare.fronius'
@@ -50,7 +51,9 @@ import { Route as CompareGrowattRouteImport } from './routes/compare.growatt'
 import { Route as CompareHuaweiRouteImport } from './routes/compare.huawei'
 import { Route as CompareInHouseSystemsRouteImport } from './routes/compare.in-house-systems'
 import { Route as CompareMeteocontrolRouteImport } from './routes/compare.meteocontrol'
+import { Route as CompareMeteocontrolAlternativesRouteImport } from './routes/compare.meteocontrol-alternatives'
 import { Route as CompareOpenVsProprietaryRouteImport } from './routes/compare.open-vs-proprietary'
+import { Route as ComparePowerFactorsAlternativesRouteImport } from './routes/compare.power-factors-alternatives'
 import { Route as ComparePowertrackRouteImport } from './routes/compare.powertrack'
 import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
 import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
@@ -235,6 +238,12 @@ const CompareBazefieldRoute = CompareBazefieldRouteImport.update({
   path: '/compare/bazefield',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareBestCommercialSolarMonitoringPlatformsRoute =
+  CompareBestCommercialSolarMonitoringPlatformsRouteImport.update({
+    id: '/compare/best-commercial-solar-monitoring-platforms',
+    path: '/compare/best-commercial-solar-monitoring-platforms',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompareCloudVsOnPremiseRoute = CompareCloudVsOnPremiseRouteImport.update({
   id: '/compare/cloud-vs-on-premise',
   path: '/compare/cloud-vs-on-premise',
@@ -276,10 +285,22 @@ const CompareMeteocontrolRoute = CompareMeteocontrolRouteImport.update({
   path: '/compare/meteocontrol',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareMeteocontrolAlternativesRoute =
+  CompareMeteocontrolAlternativesRouteImport.update({
+    id: '/compare/meteocontrol-alternatives',
+    path: '/compare/meteocontrol-alternatives',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompareOpenVsProprietaryRoute =
   CompareOpenVsProprietaryRouteImport.update({
     id: '/compare/open-vs-proprietary',
     path: '/compare/open-vs-proprietary',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ComparePowerFactorsAlternativesRoute =
+  ComparePowerFactorsAlternativesRouteImport.update({
+    id: '/compare/power-factors-alternatives',
+    path: '/compare/power-factors-alternatives',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ComparePowertrackRoute = ComparePowertrackRouteImport.update({
@@ -410,6 +431,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -418,7 +440,9 @@ export interface FileRoutesByFullPath {
   '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -472,6 +496,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -480,7 +505,9 @@ export interface FileRoutesByTo {
   '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -535,6 +562,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -543,7 +571,9 @@ export interface FileRoutesById {
   '/compare/huawei': typeof CompareHuaweiRoute
   '/compare/in-house-systems': typeof CompareInHouseSystemsRoute
   '/compare/meteocontrol': typeof CompareMeteocontrolRoute
+  '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
+  '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -599,6 +629,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -607,7 +638,9 @@ export interface FileRouteTypes {
     | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
+    | '/compare/power-factors-alternatives'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -661,6 +694,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -669,7 +703,9 @@ export interface FileRouteTypes {
     | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
+    | '/compare/power-factors-alternatives'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -723,6 +759,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -731,7 +768,9 @@ export interface FileRouteTypes {
     | '/compare/huawei'
     | '/compare/in-house-systems'
     | '/compare/meteocontrol'
+    | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
+    | '/compare/power-factors-alternatives'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -786,6 +825,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
+  CompareBestCommercialSolarMonitoringPlatformsRoute: typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
   CompareDataFirstVsUiFirstRoute: typeof CompareDataFirstVsUiFirstRoute
   CompareFroniusRoute: typeof CompareFroniusRoute
@@ -794,7 +834,9 @@ export interface RootRouteChildren {
   CompareHuaweiRoute: typeof CompareHuaweiRoute
   CompareInHouseSystemsRoute: typeof CompareInHouseSystemsRoute
   CompareMeteocontrolRoute: typeof CompareMeteocontrolRoute
+  CompareMeteocontrolAlternativesRoute: typeof CompareMeteocontrolAlternativesRoute
   CompareOpenVsProprietaryRoute: typeof CompareOpenVsProprietaryRoute
+  ComparePowerFactorsAlternativesRoute: typeof ComparePowerFactorsAlternativesRoute
   ComparePowertrackRoute: typeof ComparePowertrackRoute
   ComparePvOperationRoute: typeof ComparePvOperationRoute
   CompareQosEnergyRoute: typeof CompareQosEnergyRoute
@@ -1049,6 +1091,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareBazefieldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/best-commercial-solar-monitoring-platforms': {
+      id: '/compare/best-commercial-solar-monitoring-platforms'
+      path: '/compare/best-commercial-solar-monitoring-platforms'
+      fullPath: '/compare/best-commercial-solar-monitoring-platforms'
+      preLoaderRoute: typeof CompareBestCommercialSolarMonitoringPlatformsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/cloud-vs-on-premise': {
       id: '/compare/cloud-vs-on-premise'
       path: '/compare/cloud-vs-on-premise'
@@ -1105,11 +1154,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareMeteocontrolRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/meteocontrol-alternatives': {
+      id: '/compare/meteocontrol-alternatives'
+      path: '/compare/meteocontrol-alternatives'
+      fullPath: '/compare/meteocontrol-alternatives'
+      preLoaderRoute: typeof CompareMeteocontrolAlternativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/open-vs-proprietary': {
       id: '/compare/open-vs-proprietary'
       path: '/compare/open-vs-proprietary'
       fullPath: '/compare/open-vs-proprietary'
       preLoaderRoute: typeof CompareOpenVsProprietaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/power-factors-alternatives': {
+      id: '/compare/power-factors-alternatives'
+      path: '/compare/power-factors-alternatives'
+      fullPath: '/compare/power-factors-alternatives'
+      preLoaderRoute: typeof ComparePowerFactorsAlternativesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/powertrack': {
@@ -1274,6 +1337,8 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
   CompareBazefieldRoute: CompareBazefieldRoute,
+  CompareBestCommercialSolarMonitoringPlatformsRoute:
+    CompareBestCommercialSolarMonitoringPlatformsRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
   CompareDataFirstVsUiFirstRoute: CompareDataFirstVsUiFirstRoute,
   CompareFroniusRoute: CompareFroniusRoute,
@@ -1282,7 +1347,9 @@ const rootRouteChildren: RootRouteChildren = {
   CompareHuaweiRoute: CompareHuaweiRoute,
   CompareInHouseSystemsRoute: CompareInHouseSystemsRoute,
   CompareMeteocontrolRoute: CompareMeteocontrolRoute,
+  CompareMeteocontrolAlternativesRoute: CompareMeteocontrolAlternativesRoute,
   CompareOpenVsProprietaryRoute: CompareOpenVsProprietaryRoute,
+  ComparePowerFactorsAlternativesRoute: ComparePowerFactorsAlternativesRoute,
   ComparePowertrackRoute: ComparePowertrackRoute,
   ComparePvOperationRoute: ComparePvOperationRoute,
   CompareQosEnergyRoute: CompareQosEnergyRoute,

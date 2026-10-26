@@ -24,7 +24,7 @@ function Page() {
         highlight="commercial solar portfolios."
         intro="Commercial and industrial (C&I) portfolios rarely run on one inverter brand. This page sets out six criteria for choosing a platform and a fair description of the main options. AMMP is one of them, not the only good one."
         primary={{ label: "Talk to our team", to: "/contact" }}
-        secondary={{ label: "Buyer's guide", to: "/blog/$slug", params: { slug: "commercial-solar-portfolio-monitoring-software" } } as never}
+        secondary={{ label: "AMMP vs manufacturer portals", to: "/compare/vendor-portals" }}
       />
       <Band tone="grey">
         <SectionHeading title="Six criteria for multi-brand portfolios" />
