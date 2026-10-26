@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A buyer's checklist for renewable energy portfolios with solar and batteries that run more than one inverter brand.",
     category: "Insights",
     date: "2026-10-28",
-    publishAt: "2026-10-02T08:00:00Z",
+    publishAt: "2026-10-28T08:00:00Z",
     readTime: computeReadTime(checklistBody),
     body: checklistBody,
     cover: covers.multibrand,
