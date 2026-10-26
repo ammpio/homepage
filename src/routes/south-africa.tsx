@@ -43,7 +43,7 @@ function Page() {
       <Band tone="grey">
         <SectionHeading title="The platform underneath" center />
         <FeatureGrid columns={3} features={[
-          { icon: Plug, title: "30+ integrations", text: "Huawei, SMA, Sungrow, Victron, Deye, Sunsynk-compatible stacks and more through cloud API or AMMP Edge." },
+          { icon: Plug, title: "30+ integrations", text: "Huawei, SMA, Sungrow, Victron, Deye and more, through cloud API or the AMMP Edge datalogger." },
           { icon: BatteryCharging, title: "Batteries as first-class assets", text: "Battery storage monitored with the same depth as solar." },
           { icon: ShieldCheck, title: "ISO/IEC 27001:2022 certified", text: "Independently audited information security management." },
         ]} />

@@ -30,6 +30,7 @@ import { Route as ProductRouteImport } from './routes/product'
 import { Route as RayRouteImport } from './routes/ray'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SouthAfricaRouteImport } from './routes/south-africa'
 import { Route as StratopiImageRouteImport } from './routes/stratopi-image'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SwitchRouteImport } from './routes/switch'
@@ -60,6 +61,10 @@ import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compa
 import { Route as CompareUniversRouteImport } from './routes/compare.univers'
 import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendor-portals'
 import { Route as CompareVictronRouteImport } from './routes/compare.victron'
+import { Route as SolutionsHybridSitesRouteImport } from './routes/solutions.hybrid-sites'
+import { Route as SolutionsInvestorReportingRouteImport } from './routes/solutions.investor-reporting'
+import { Route as SolutionsOmSlaTrackingRouteImport } from './routes/solutions.om-sla-tracking'
+import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
 import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
@@ -168,6 +173,11 @@ const SecurityRoute = SecurityRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SouthAfricaRoute = SouthAfricaRouteImport.update({
+  id: '/south-africa',
+  path: '/south-africa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StratopiImageRoute = StratopiImageRouteImport.update({
@@ -323,6 +333,28 @@ const CompareVictronRoute = CompareVictronRouteImport.update({
   path: '/compare/victron',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsHybridSitesRoute = SolutionsHybridSitesRouteImport.update({
+  id: '/solutions/hybrid-sites',
+  path: '/solutions/hybrid-sites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsInvestorReportingRoute =
+  SolutionsInvestorReportingRouteImport.update({
+    id: '/solutions/investor-reporting',
+    path: '/solutions/investor-reporting',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsOmSlaTrackingRoute = SolutionsOmSlaTrackingRouteImport.update({
+  id: '/solutions/om-sla-tracking',
+  path: '/solutions/om-sla-tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsSolarMonitoringRoute =
+  SolutionsSolarMonitoringRouteImport.update({
+    id: '/solutions/solar-monitoring',
+    path: '/solutions/solar-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const UseCasesAssetManagersRoute = UseCasesAssetManagersRouteImport.update({
   id: '/use-cases/asset-managers',
   path: '/use-cases/asset-managers',
@@ -367,6 +399,7 @@ export interface FileRoutesByFullPath {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/south-africa': typeof SouthAfricaRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -396,6 +429,10 @@ export interface FileRoutesByFullPath {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
+  '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
+  '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
@@ -424,6 +461,7 @@ export interface FileRoutesByTo {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/south-africa': typeof SouthAfricaRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -453,6 +491,10 @@ export interface FileRoutesByTo {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
+  '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
+  '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
@@ -482,6 +524,7 @@ export interface FileRoutesById {
   '/ray': typeof RayRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/south-africa': typeof SouthAfricaRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -511,6 +554,10 @@ export interface FileRoutesById {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
+  '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
+  '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
@@ -541,6 +588,7 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/south-africa'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -570,6 +618,10 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/hybrid-sites'
+    | '/solutions/investor-reporting'
+    | '/solutions/om-sla-tracking'
+    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
@@ -598,6 +650,7 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/south-africa'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -627,6 +680,10 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/hybrid-sites'
+    | '/solutions/investor-reporting'
+    | '/solutions/om-sla-tracking'
+    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
@@ -655,6 +712,7 @@ export interface FileRouteTypes {
     | '/ray'
     | '/security'
     | '/sitemap.xml'
+    | '/south-africa'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -684,6 +742,10 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/hybrid-sites'
+    | '/solutions/investor-reporting'
+    | '/solutions/om-sla-tracking'
+    | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
@@ -713,6 +775,7 @@ export interface RootRouteChildren {
   RayRoute: typeof RayRoute
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SouthAfricaRoute: typeof SouthAfricaRoute
   StratopiImageRoute: typeof StratopiImageRoute
   SupportRoute: typeof SupportRoute
   SwitchRoute: typeof SwitchRoute
@@ -742,6 +805,10 @@ export interface RootRouteChildren {
   CompareUniversRoute: typeof CompareUniversRoute
   CompareVendorPortalsRoute: typeof CompareVendorPortalsRoute
   CompareVictronRoute: typeof CompareVictronRoute
+  SolutionsHybridSitesRoute: typeof SolutionsHybridSitesRoute
+  SolutionsInvestorReportingRoute: typeof SolutionsInvestorReportingRoute
+  SolutionsOmSlaTrackingRoute: typeof SolutionsOmSlaTrackingRoute
+  SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
   UseCasesReportingTeamsRoute: typeof UseCasesReportingTeamsRoute
@@ -896,6 +963,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/south-africa': {
+      id: '/south-africa'
+      path: '/south-africa'
+      fullPath: '/south-africa'
+      preLoaderRoute: typeof SouthAfricaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/stratopi-image': {
@@ -1108,6 +1182,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareVictronRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/hybrid-sites': {
+      id: '/solutions/hybrid-sites'
+      path: '/solutions/hybrid-sites'
+      fullPath: '/solutions/hybrid-sites'
+      preLoaderRoute: typeof SolutionsHybridSitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/investor-reporting': {
+      id: '/solutions/investor-reporting'
+      path: '/solutions/investor-reporting'
+      fullPath: '/solutions/investor-reporting'
+      preLoaderRoute: typeof SolutionsInvestorReportingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/om-sla-tracking': {
+      id: '/solutions/om-sla-tracking'
+      path: '/solutions/om-sla-tracking'
+      fullPath: '/solutions/om-sla-tracking'
+      preLoaderRoute: typeof SolutionsOmSlaTrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/solar-monitoring': {
+      id: '/solutions/solar-monitoring'
+      path: '/solutions/solar-monitoring'
+      fullPath: '/solutions/solar-monitoring'
+      preLoaderRoute: typeof SolutionsSolarMonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-cases/asset-managers': {
       id: '/use-cases/asset-managers'
       path: '/use-cases/asset-managers'
@@ -1161,6 +1263,7 @@ const rootRouteChildren: RootRouteChildren = {
   RayRoute: RayRoute,
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SouthAfricaRoute: SouthAfricaRoute,
   StratopiImageRoute: StratopiImageRoute,
   SupportRoute: SupportRoute,
   SwitchRoute: SwitchRoute,
@@ -1190,6 +1293,10 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversRoute: CompareUniversRoute,
   CompareVendorPortalsRoute: CompareVendorPortalsRoute,
   CompareVictronRoute: CompareVictronRoute,
+  SolutionsHybridSitesRoute: SolutionsHybridSitesRoute,
+  SolutionsInvestorReportingRoute: SolutionsInvestorReportingRoute,
+  SolutionsOmSlaTrackingRoute: SolutionsOmSlaTrackingRoute,
+  SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
   UseCasesReportingTeamsRoute: UseCasesReportingTeamsRoute,
