@@ -22,7 +22,7 @@ function Page() {
         <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Active experiments</h2>
         <FeatureGrid columns={3} features={[
           { icon: DollarSign, title: "Billing Integration (Alpha)", text: "Explore automated invoicing and payment tracking for energy contracts." },
-          { icon: Plug, title: "AMMP AI + MCP Server (Beta)", text: "Connect any MCP-compatible AI assistant (Claude, Cursor, your own agent) to AMMP, or use AMMP's own AI agent \u201cRay\u201d, to query assets, KPIs, alerts and raw time-series in natural language." },
+          { icon: Plug, title: "AMMP AI + MCP Server", text: "Connect any MCP-compatible AI assistant (Claude, Cursor, your own agent) to AMMP, or use AMMP's own AI agent \u201cRay\u201d, to query assets, KPIs, alerts and raw time-series in natural language." },
           { icon: Kanban, title: "monday.com integration (Alpha)", text: "Two-way sync between AMMP tickets and monday.com boards, so O&M teams can triage, assign and close work in the tool they already use every day." },
         ]} />
       </Band>

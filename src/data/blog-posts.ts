@@ -174,7 +174,8 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-10",
     readTime: "5 min read",
     body: [
-      { type: "paragraph", text: "We're opening up the beta of the AMMP MCP server. It's a new way to put your renewable energy portfolio data directly in front of an AI assistant. Connect any MCP-compatible client (Claude, Cursor, or your own agent) to AMMP and ask the kind of questions you'd normally answer by opening five dashboards and exporting a CSV." },
+      { type: "rich", parts: [{ b: "Update (26 October 2026):" }, " the AMMP MCP server is now generally available."] },
+      { type: "paragraph", text: "The AMMP MCP server is a new way to put your renewable energy portfolio data directly in front of an AI assistant. Connect any MCP-compatible client (Claude, Cursor, or your own agent) to AMMP and ask the kind of questions you'd normally answer by opening five dashboards and exporting a CSV." },
       { type: "paragraph", text: "The server exposes the same view our platform has, including assets, KPIs, alerts and raw time-series, as a set of tools the model can call on its own. No copy-paste, no exports, no jumping between tabs." },
       { type: "heading", text: "Dashboards on demand" },
       { type: "paragraph", text: "One prompt, two outputs. We asked Claude for a 28-day overview of a 27-asset portfolio. It returned a dashboard with the 2.96 GWh portfolio total, a daily production curve and the top producers ranked. While building it, the model also flagged a bug in the KPI pipeline it was being asked to visualise. A May 9th \"spike\" wasn't real: integrated 15-minute telemetry came to 3.20 MWh, but the daily aggregate read 44.9 MWh. A 14x discrepancy, caught by cross-checking the sources we'd asked it to chart." },
@@ -191,8 +192,8 @@ export const blogPosts: BlogPost[] = [
         "Raw time-series telemetry at native resolution",
       ] },
       { type: "paragraph", text: "The model decides which tools to call, runs the queries, and answers in natural language. Permissions and scope follow your existing AMMP access controls." },
-      { type: "heading", text: "Join the beta" },
-      { type: "paragraph", text: "The AMMP MCP server is currently in development and we're onboarding a small group of Asset Managers and O&M Providers to the beta. If you'd like early access, or just want to see the demos live against your own portfolio, get in touch." },
+      { type: "heading", text: "Get access" },
+      { type: "paragraph", text: "The AMMP MCP server is now generally available as an add-on to either AMMP module, AMMP AI or AMMP OS Platform. If you'd like access, or want to see the demos live against your own portfolio, write to sales@ammp.io." },
     ],
   },
   {
