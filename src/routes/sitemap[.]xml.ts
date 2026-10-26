@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getRouterInstance } from "@tanstack/react-start";
 import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
-import { blogPosts } from "@/data/blog-posts";
+import { publishedPosts } from "@/data/blog-posts";
 
 const BASE_URL = "https://www.ammp.io";
 
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = sitemapStaticPaths(router).map((path) => ({ path }));
         const routeId = "/blog/$slug";
         if (isSitemapRouteIncluded(router.routesById[routeId])) {
-          for (const post of blogPosts) {
+          for (const post of publishedPosts()) {
             const location = router.buildLocation({ to: "/blog/$slug", params: { slug: post.slug }, search: () => ({}), hash: "" });
             const path = sitemapPathForLocation(router, location, routeId);
             if (path) entries.push({ path });
