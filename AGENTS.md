@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - Homepage sections live in src/components/site/HomeSections.tsx and are reused by / and /ray; the shared HeroVideo (RaySections) is the only hero video player — why: one source for the team-approved layout.
-- All public UI copy uses the shared i18n dictionaries with US English fallback; language choice is persisted client-side — why: one maintainable source for English, Brazilian Portuguese, and Spanish.
+- All public UI copy uses shared i18n dictionaries with US English fallback; persisted language is read after hydration, and code/pre content stays untranslated — why: server and first client render must match and code must remain usable.
 - Media links use full Lovable CDN address via src/lib/assets.ts assetUrl() — why: /__l5e paths only resolve on Lovable hosting, not Netlify.
 - Canonical origin is https://www.ammp.io: canonical/og:url are set once in __root head from the path; sitemap and blog use the same origin — why: one indexed domain.
 - FAQ copy lives in src/data/faq.ts and product facts for llms.txt/SoftwareApplication JSON-LD in src/data/ammp-facts.ts; /faq, home, /pricing, /llms.txt and /llms-full.txt read from them — why: one source so pages, schema and AI-facing text never drift.

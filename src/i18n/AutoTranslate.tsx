@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLanguage } from "./LanguageContext";
 import { runtimeTranslations } from "./runtime-translations";
+import { docsTranslations } from "./docs-translations";
 
 const blocked = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "OPTION"]);
 const originals = new WeakMap<Text, string>();
@@ -13,7 +14,7 @@ function translated(value: string, language: "en" | "es" | "pt") {
   const ending = value.match(/\s*$/)?.[0] ?? "";
   const content = value.trim();
   if (!content) return value;
-  return `${whitespace}${runtimeTranslations[language][content] ?? content}${ending}`;
+  return `${whitespace}${docsTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
 }
 
 function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {
@@ -22,14 +23,14 @@ function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {
   while (walker.nextNode()) nodes.push(walker.currentNode as Text);
   for (const node of nodes) {
     const parent = node.parentElement;
-    if (!parent || blocked.has(parent.tagName) || parent.closest("[data-no-translate]")) continue;
+    if (!parent || blocked.has(parent.tagName) || parent.closest("[data-no-translate], code, pre")) continue;
     const source = originals.get(node) ?? node.data;
     originals.set(node, source);
     node.data = translated(source, language);
   }
   const elements = root instanceof Element ? [root, ...root.querySelectorAll("*")] : [...root.querySelectorAll("*")];
   for (const element of elements) {
-    if (element.closest("[data-no-translate]")) continue;
+    if (element.closest("[data-no-translate], code, pre")) continue;
     let values = attributeOriginals.get(element);
     if (!values) { values = new Map(); attributeOriginals.set(element, values); }
     for (const attribute of translatedAttributes) {

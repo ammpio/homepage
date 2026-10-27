@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { buildDocSet, parseCategories, parseDocFile, renderDocMarkdown, rewriteDocLink } from "./docs-core";
+import { llmsTxt } from "../data/ammp-facts";
 
 const ROOT = join(__dirname, "../../content/docs");
 const fm = (extra: Record<string, string> = {}) => {
@@ -18,6 +19,13 @@ describe("frontmatter validation", () => {
 });
 
 describe("doc set", () => {
+  it("allows zero current pages", () => {
+    expect(buildDocSet([parseDocFile("draft.md", fm({ status: "draft" }))], [])).toEqual([]);
+  });
+  it("does not advertise the documentation index without current pages", () => {
+    expect(llmsTxt(false)).not.toContain("https://www.ammp.io/product/documentation");
+    expect(llmsTxt(true)).toContain("https://www.ammp.io/product/documentation");
+  });
   it("excludes drafts and sorts by category order then page order", () => {
     const cats = parseCategories("- name: Getting started\n  order: 1\n- name: Modules\n  order: 2");
     const set = buildDocSet(
@@ -62,6 +70,9 @@ describe("content/docs files", () => {
 
   it("has valid frontmatter and unique names", () => {
     expect(() => buildDocSet(docs, parseCategories(existsSync(catsPath) ? readFileSync(catsPath, "utf8") : undefined))).not.toThrow();
+  });
+  it.each(["getting-started-with-ammp-os", "alerting", "ticketing"])("keeps the %s placeholder unpublished", (slug) => {
+    expect(docs.find((doc) => doc.slug === slug)?.status).toBe("draft");
   });
   it.each(docs.map((d) => [d.sourcePath, d] as const))("%s renders with all images and doc links present", (_p, d) => {
     const { html } = renderDocMarkdown(d.body, images, d.sourcePath);
