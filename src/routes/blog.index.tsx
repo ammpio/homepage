@@ -103,7 +103,7 @@ function BlogIndexPage() {
               </h2>
               <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3">{post.excerpt}</p>
               <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-                <span>{formatDate(post.date)}</span>
+                <span>{post.displayDate ?? formatDate(post.date)}</span>
                 <span>{post.readTime}</span>
               </div>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
