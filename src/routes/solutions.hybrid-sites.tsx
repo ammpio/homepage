@@ -48,8 +48,8 @@ function Page() {
           { icon: WifiOff, title: "Unreliable connectivity", text: "Built from experience running hybrid sites across Africa, where connections drop and data arrives late." },
         ]} />
         <p className="mt-8 max-w-3xl text-base leading-7 text-muted-foreground">
-          Operators such as Daystar Power, SolarSaver and Broadreach run their portfolios on AMMP.{" "}
-          <Link to="/case-studies" className="font-medium text-foreground hover:underline">Read the case studies</Link>.
+          Daystar Power runs its solar, battery and genset hybrid sites on AMMP.{" "}
+          <Link to="/case-studies" className="font-medium text-foreground hover:underline">Read the Daystar Power case study</Link>.
         </p>
         <Link to="/integrations" className="mt-4 inline-flex items-center gap-1 text-sm font-medium hover:underline">Supported equipment <ArrowRight className="size-4" /></Link>
       </Band>

@@ -28,7 +28,7 @@ function Page() {
         secondary={{ label: "Meet Ray", to: "/ray" }}
       />
       <Band tone="grey">
-        <SectionHeading title="Two ways to work with AMMP" />
+        <SectionHeading title="Add AI on top of Power Factors" intro="Ray can run on an existing monitoring stack such as Power Factors, ranking issues by operational and commercial impact, as an alternative to switching platforms." />
         <FeatureGrid columns={2} features={[
           { icon: Bot, title: "Keep Power Factors, add Ray", text: "AMMP AI (Ray) can run on top of an existing monitoring stack such as Power Factors. Ray checks every site daily, ranks issues by impact and drafts reports, without replacing your current system." },
           { icon: Repeat, title: "Switch to AMMP OS Platform", text: "Move monitoring, alerting, ticketing, reporting and commercials to AMMP OS Platform, with Ray working on top." },

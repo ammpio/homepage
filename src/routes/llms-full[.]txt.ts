@@ -13,10 +13,12 @@ export const Route = createFileRoute("/llms-full.txt")({
   staticData: { sitemap: false },
   server: {
     handlers: {
-      GET: async () =>
-        new Response(llmsFullTxt(), {
+      GET: async () => {
+        const { docsLlmsSection } = await import("@/lib/docs-llms");
+        return new Response(llmsFullTxt() + docsLlmsSection(true), {
           headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
-        }),
+        });
+      },
     },
   },
 });

@@ -41,6 +41,7 @@ const PAGES: [string, string, string][] = [
   ["Integrations", "/integrations", "Supported devices and brands"],
   ["MCP server and Data API", "/mcp", "Connect your own AI assistants and tools"],
   ["Security", "/security", "ISO/IEC 27001:2022 certification and data protection"],
+  ["Documentation", "/product/documentation", "Product documentation for AMMP OS Platform and AMMP AI"],
   ["Case studies", "/case-studies", "Customer results"],
   ["Multi-brand solar monitoring", "/solutions/solar-monitoring", "Huawei, SMA, Sungrow and 30+ integrations in one portal, alerts in Microsoft Teams and Slack"],
   ["O&M SLA tracking", "/solutions/om-sla-tracking", "O&M availability, response times and PPA guarantees against contract terms"],

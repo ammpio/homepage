@@ -5,10 +5,12 @@ export const Route = createFileRoute("/llms.txt")({
   staticData: { sitemap: false },
   server: {
     handlers: {
-      GET: async () =>
-        new Response(llmsTxt(), {
+      GET: async () => {
+        const { docsLlmsSection } = await import("@/lib/docs-llms");
+        return new Response(llmsTxt() + docsLlmsSection(false), {
           headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
-        }),
+        });
+      },
     },
   },
 });

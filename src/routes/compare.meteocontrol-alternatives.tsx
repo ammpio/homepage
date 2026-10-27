@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Bot, Repeat } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { AlternativesList } from "@/components/site/AlternativesList";
@@ -32,6 +32,14 @@ function Page() {
         <FeatureGrid columns={3} features={SELECTION_CRITERIA} />
       </Band>
       <Band>
+        <SectionHeading title="Add AI on top of Meteocontrol" intro="Ray can run on an existing monitoring stack such as Meteocontrol, ranking issues by operational and commercial impact, as an alternative to switching platforms." />
+        <FeatureGrid columns={2} features={[
+          { icon: Bot, title: "Keep Meteocontrol, add Ray", text: "AMMP AI (Ray) works on top of your current monitoring. Ray checks every site daily, ranks issues by impact and drafts reports, without replacing your current system." },
+          { icon: Repeat, title: "Switch to AMMP OS Platform", text: "Move monitoring, alerting, ticketing, reporting and commercials to AMMP OS Platform, with Ray working on top." },
+        ]} />
+        <Link to="/ray" className="mt-8 inline-flex items-center gap-1 text-sm font-medium hover:underline">Meet Ray <ArrowRight className="size-4" /></Link>
+      </Band>
+      <Band tone="grey">
         <SectionHeading title="The options" intro="Short, neutral descriptions based on our published comparisons." />
         <AlternativesList items={[AMMP, POWER_FACTORS, ALSOENERGY, QOS, BAZEFIELD, UNIVERS, VENDOR_PORTALS]} />
         <Link to="/compare/best-commercial-solar-monitoring-platforms" className="mt-8 inline-flex items-center gap-1 text-sm font-medium hover:underline">Platforms for commercial and industrial portfolios <ArrowRight className="size-4" /></Link>

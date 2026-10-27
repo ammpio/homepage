@@ -10,3 +10,9 @@
 - [ ] Meeting scheduler image — skipped by user for now.
 - [x] Streamline /ai: Ray first (video + day), MCP second, drop roadmap and duplicate closing.
 - [x] Spanish and Portuguese for the 8 new solution/compare/South Africa pages
+- [x] Three Nov/Dec posts scheduled (18 Nov, 25 Nov, 2 Dec)
+- [ ] Original links for Sifted, ESI Africa, Foresight Media, TechLeap press pages — waiting on URLs from user
+- [ ] IndexNow on deploy: waiting on user to add INDEXNOW_DEPLOY_TOKEN and a Netlify "Deploy succeeded" webhook
+- [ ] Author LinkedIn URLs — waiting on user
+- [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to dev/main, agent rules in AGENTS.md).
+- [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
