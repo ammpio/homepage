@@ -960,7 +960,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "2 min read",
     body: [
       { type: "paragraph", text: "Afrik21, a publication covering green economy news in Africa, reported on AMMP's €1.15 million funding round and its plans to bring its monitoring for off-grid energy systems to more operators." },
-      { type: "paragraph", text: "The coverage focuses on what the round means for distributed and off-grid energy in Africa, where AMMP has worked with operators since its start." },
       { type: "rich", parts: [{ a: "Read the original article on Afrik21", href: "https://afrik21.africa/en/africa-ammp-raises-1-15-million-to-distribute-its-off-grid-monitoring-solutions" }] },
     ],
   },
