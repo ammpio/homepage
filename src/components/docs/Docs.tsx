@@ -1,26 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowRight, Search } from "lucide-react";
-import { useLanguage } from "@/i18n/LanguageContext";
 import { groupByCategory } from "@/lib/docs-core";
 import type { DocSummary } from "@/lib/docs.functions";
-
-const ENGLISH_ONLY: Record<string, string> = {
-  pt: "Esta documentação está disponível apenas em inglês.",
-  es: "Esta documentación está disponible solo en inglés.",
-};
-
-/** Shown only to Portuguese/Spanish visitors; docs content itself is English-only. */
-export function EnglishOnlyNote() {
-  const { language } = useLanguage();
-  const text = ENGLISH_ONLY[language];
-  if (!text) return null;
-  return (
-    <p data-no-translate className="glass-soft mb-6 rounded-xl px-4 py-2 text-sm text-muted-foreground">
-      {text}
-    </p>
-  );
-}
 
 export function formatDocDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
@@ -71,7 +53,7 @@ export function DocsSidebar({ docs, current }: { docs: DocSummary[]; current?: s
   const [q, setQ] = useState("");
   const groups = useMemo(() => groupByCategory(filterDocs(docs, q)), [docs, q]);
   return (
-    <nav aria-label="Documentation" data-no-translate className="text-sm">
+    <nav aria-label="Documentation" className="text-sm">
       <DocsSearchInput value={q} onChange={setQ} className="mb-5" />
       {groups.length === 0 && <p className="text-muted-foreground">No pages match.</p>}
       {groups.map((g) => (
@@ -100,7 +82,7 @@ export function DocsSidebar({ docs, current }: { docs: DocSummary[]; current?: s
 export function DocsToc({ headings }: { headings: { depth: 2 | 3; text: string; id: string }[] }) {
   if (!headings.length) return null;
   return (
-    <nav aria-label="On this page" data-no-translate className="text-sm">
+    <nav aria-label="On this page" className="text-sm">
       <p className="eyebrow mb-2">On this page</p>
       <ul className="space-y-1.5">
         {headings.map((h) => (

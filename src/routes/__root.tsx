@@ -14,6 +14,7 @@ import { SiteShell } from "../components/site/SiteShell";
 import { LanguageProvider } from "../i18n/LanguageContext";
 import { AutoTranslate } from "../i18n/AutoTranslate";
 import { CloudflareAnalytics } from "../components/CloudflareAnalytics";
+import { getDocsIndex } from "../lib/docs.functions";
 
 function NotFoundComponent() {
   return (
@@ -77,6 +78,7 @@ function ErrorComponent({ error, reset }: import("@tanstack/react-router").Error
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
+  loader: async () => ({ hasDocumentation: (await getDocsIndex()).length > 0 }),
   head: ({ matches }) => {
     const last = matches[matches.length - 1];
     const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
@@ -133,13 +135,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { hasDocumentation } = Route.useLoaderData();
 
   return (
     <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <AutoTranslate />
         <CloudflareAnalytics />
-        <SiteShell />
+        <SiteShell hasDocumentation={hasDocumentation} />
       </QueryClientProvider>
     </LanguageProvider>
   );

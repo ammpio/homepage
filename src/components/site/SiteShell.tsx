@@ -59,11 +59,11 @@ function NavDropdown({ item }: { item: NavItem }) {
   );
 }
 
-export function SiteShell() {
+export function SiteShell({ hasDocumentation }: { hasDocumentation: boolean }) {
   const { t } = useLanguage();
   const tt = (label: string) => { const value = t(`nav.${label}`); return value === `nav.${label}` ? label : value; };
   const translatedNav: readonly NavItem[] = nav.map((item) => item.children
-    ? { ...item, label: tt(item.label), children: item.children.map(([label, to]) => [tt(label), to] as const) }
+    ? { ...item, label: tt(item.label), children: item.children.filter(([, to]) => hasDocumentation || to !== "/product/documentation").map(([label, to]) => [tt(label), to] as const) }
     : { ...item, label: tt(item.label) });
   return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -109,7 +109,7 @@ export function SiteShell() {
       <div className="site-container py-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
           <div className="col-span-2 md:col-span-1"><Link to="/" aria-label="AMMP home" className="inline-block"><img src={ammpLogo} alt="AMMP" className="h-7 w-auto" /></Link><p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">Put AI to work across your renewable energy portfolio</p><div className="mt-6"><p className="mb-2 text-sm font-semibold">Newsletter</p><NewsletterSignup compact /></div><a href="https://linkedin.com/company/ammptechnologies" className="mt-5 inline-flex text-muted-foreground" aria-label="AMMP on LinkedIn"><Linkedin className="size-5" /></a></div>
-          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["Meet Ray","/ray"],["Tailored solutions","/customization"],["Security","/security"],["Documentation","/product/documentation"]]} />
+          <FooterColumn title="Platform" links={[["Product","/product"],["Integrations","/integrations"],["Pricing","/pricing"],["Meet Ray","/ray"],["Tailored solutions","/customization"],["Security","/security"],...(hasDocumentation ? [["Documentation","/product/documentation"] as const] : [])]} />
           <div><FooterColumn title="Solutions" links={[["Solar monitoring","/solutions/solar-monitoring"],["O&M SLA tracking","/solutions/om-sla-tracking"],["Investor reporting","/solutions/investor-reporting"],["Hybrid sites","/solutions/hybrid-sites"],["South Africa","/south-africa"]]} /><div className="mt-6"><FooterColumn title="Use cases" links={[["Asset managers","/use-cases/asset-managers"],["O&M providers","/use-cases/om-providers"],["Reporting teams","/use-cases/reporting-teams"],["Case studies","/case-studies"],["Switch to AMMP","/switch"]]} /></div></div>
           <div>
             <FooterColumn title="Compare" links={[["vs In-House Systems","/compare/in-house-systems"],["vs Traditional Monitoring","/compare/traditional-monitoring"],["vs Meteocontrol","/compare/meteocontrol"],["vs Vendor Portals","/compare/vendor-portals"],["vs AlsoEnergy","/compare/ammp-vs-alsoenergy"],["vs PV Operation","/compare/pv-operation"],["Meteocontrol alternatives","/compare/meteocontrol-alternatives"],["Power Factors alternatives","/compare/power-factors-alternatives"],["Commercial solar platforms","/compare/best-commercial-solar-monitoring-platforms"]]} />

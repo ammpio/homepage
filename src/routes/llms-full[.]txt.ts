@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { llmsTxt } from "@/data/ammp-facts";
 import { FAQ_GROUPS } from "@/data/faq";
 
-function llmsFullTxt(): string {
+function llmsFullTxt(hasDocumentation: boolean): string {
   const faq = FAQ_GROUPS.map(
     (g) => `### ${g.eyebrow}\n\n${g.items.map((i) => `**${i.q}**\n${i.a}`).join("\n\n")}`,
   ).join("\n\n");
-  return `${llmsTxt()}\n## Frequently asked questions\n\n${faq}\n`;
+  return `${llmsTxt(hasDocumentation)}\n## Frequently asked questions\n\n${faq}\n`;
 }
 
 export const Route = createFileRoute("/llms-full.txt")({
@@ -15,7 +15,8 @@ export const Route = createFileRoute("/llms-full.txt")({
     handlers: {
       GET: async () => {
         const { docsLlmsSection } = await import("@/lib/docs-llms");
-        return new Response(llmsFullTxt() + docsLlmsSection(true), {
+        const docsSection = docsLlmsSection(true);
+        return new Response(llmsFullTxt(Boolean(docsSection)) + docsSection, {
           headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
         });
       },

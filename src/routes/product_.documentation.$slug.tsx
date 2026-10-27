@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
-import { DocsSidebar, DocsToc, EnglishOnlyNote, formatDocDate } from "@/components/docs/Docs";
+import { DocsSidebar, DocsToc, formatDocDate } from "@/components/docs/Docs";
 import { getDocPage } from "@/lib/docs.functions";
 import { pageHead } from "@/lib/page-head";
 import { SITE } from "@/data/ammp-facts";
@@ -43,8 +43,7 @@ function DocPage() {
           <DocsSidebar docs={nav} current={doc.slug} />
         </aside>
         <article className="min-w-0">
-          <EnglishOnlyNote />
-          <nav aria-label="Breadcrumb" data-no-translate className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
             <Link to="/product" className="hover:text-foreground">Product</Link>
             <ChevronRight className="size-3.5" />
             <Link to="/product/documentation" className="hover:text-foreground">Documentation</Link>
@@ -53,13 +52,13 @@ function DocPage() {
             <ChevronRight className="size-3.5" />
             <span aria-current="page" className="text-foreground">{doc.title}</span>
           </nav>
-          <h1 data-no-translate className="mt-4 font-display text-4xl font-medium tracking-[-0.02em]">{doc.title}</h1>
+          <h1 className="mt-4 font-display text-4xl font-medium tracking-[-0.02em]">{doc.title}</h1>
           <p className="mt-3 text-sm text-muted-foreground">
             Last updated <time dateTime={doc.updated}>{formatDocDate(doc.updated)}</time>
             {" · "}
             <a href={`/product/documentation/${doc.slug}.md`} className="underline-offset-4 hover:underline">View as markdown</a>
           </p>
-          <div data-no-translate className="docs-prose mt-8" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="docs-prose mt-8" dangerouslySetInnerHTML={{ __html: html }} />
         </article>
         <aside className="hidden lg:sticky lg:top-24 lg:block lg:self-start">
           <DocsToc headings={headings} />

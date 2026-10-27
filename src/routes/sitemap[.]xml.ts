@@ -23,6 +23,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const docsRouteId = "/product_/documentation/$slug";
         if (isSitemapRouteIncluded(router.routesById[docsRouteId])) {
           const { allDocs } = await import("@/lib/docs.server");
+          if (allDocs().length) entries.push({ path: "/product/documentation" });
           for (const doc of allDocs()) {
             const location = router.buildLocation({ to: "/product/documentation/$slug", params: { slug: doc.slug }, search: () => ({}), hash: "" });
             const path = sitemapPathForLocation(router, location, docsRouteId);

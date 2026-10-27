@@ -60,7 +60,7 @@ const PAGES: [string, string, string][] = [
   ["Contact", "/contact", "Talk to sales or book a meeting"],
 ];
 
-export function llmsTxt(): string {
+export function llmsTxt(hasDocumentation = false): string {
   return `# AMMP
 
 > ${SUMMARY}
@@ -94,7 +94,7 @@ Solar PV, battery storage, hybrid and mini-grids, wind, diesel gensets, meters a
 AMMP is priced as an annual subscription per MWp of installed capacity. Prices are not published; contact sales@ammp.io.
 
 ## Key pages
-${PAGES.map(([name, path, desc]) => `- [${name}](${SITE}${path === "/" ? "/" : path}): ${desc}`).join("\n")}
+${PAGES.filter(([, path]) => hasDocumentation || path !== "/product/documentation").map(([name, path, desc]) => `- [${name}](${SITE}${path === "/" ? "/" : path}): ${desc}`).join("\n")}
 
 ## Contact
 Sales: sales@ammp.io

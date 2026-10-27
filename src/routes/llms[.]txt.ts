@@ -7,7 +7,8 @@ export const Route = createFileRoute("/llms.txt")({
     handlers: {
       GET: async () => {
         const { docsLlmsSection } = await import("@/lib/docs-llms");
-        return new Response(llmsTxt() + docsLlmsSection(false), {
+        const docsSection = docsLlmsSection(false);
+        return new Response(llmsTxt(Boolean(docsSection)) + docsSection, {
           headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
         });
       },
