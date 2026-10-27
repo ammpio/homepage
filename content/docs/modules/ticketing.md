@@ -4,7 +4,7 @@ description: Placeholder page showing the structure of the Ticketing module docu
 category: Modules
 order: 20
 updated: 2026-10-27
-status: current
+status: draft
 ---
 
 > [!IMPORTANT]

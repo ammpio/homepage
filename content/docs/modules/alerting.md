@@ -4,7 +4,7 @@ description: Placeholder page showing the structure of the Alerting module docum
 category: Modules
 order: 10
 updated: 2026-10-27
-status: current
+status: draft
 ---
 
 > [!IMPORTANT]

@@ -4,7 +4,7 @@ description: Placeholder page showing the structure of an AMMP OS getting-starte
 category: Getting started
 order: 10
 updated: 2026-10-27
-status: current
+status: draft
 ---
 
 > [!IMPORTANT]

@@ -59,11 +59,11 @@ function NavDropdown({ item }: { item: NavItem }) {
   );
 }
 
-export function SiteShell() {
+export function SiteShell({ hasDocumentation }: { hasDocumentation: boolean }) {
   const { t } = useLanguage();
   const tt = (label: string) => { const value = t(`nav.${label}`); return value === `nav.${label}` ? label : value; };
   const translatedNav: readonly NavItem[] = nav.map((item) => item.children
-    ? { ...item, label: tt(item.label), children: item.children.map(([label, to]) => [tt(label), to] as const) }
+    ? { ...item, label: tt(item.label), children: item.children.filter(([, to]) => hasDocumentation || to !== "/product/documentation").map(([label, to]) => [tt(label), to] as const) }
     : { ...item, label: tt(item.label) });
   return <div className="site-luminous canvas-porcelain relative min-h-screen text-foreground">
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">

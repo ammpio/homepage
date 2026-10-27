@@ -1,5 +1,9 @@
 # Roadmap
 
+- [ ] Hide draft documentation from navigation and discovery; keep a noindex coming-soon index.
+- [ ] Fix language switching and enable translated documentation except code/raw markdown.
+- [ ] Correct production branch guidance and verify all three fixes.
+
 - [x] Anchor ambient glows to page positions so they scroll away naturally.
 - [x] Replace shared grey separators with seamless homepage-style section transitions.
 - [x] Verify representative desktop and mobile pages while scrolling.
