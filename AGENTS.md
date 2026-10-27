@@ -19,3 +19,20 @@
 - Competitor descriptions for alternatives/comparison pages live in src/data/alternatives.ts — why: one neutral source reused across pages.
 - Links to scheduled blog posts use LivePostLink, which renders nothing until the post is live — why: no early leaks of scheduled posts.
 - IndexNow: key lives in src/lib/indexnow.ts and public/<key>.txt; a daily backend schedule calls /api/public/indexnow-scheduled for newly live posts, and Netlify's deploy webhook calls /api/public/indexnow-deploy — why: the site is request-rendered, so posts go live without a deploy.
+- Product docs are markdown in content/docs/** rendered at /product/documentation via src/lib/docs-core.ts (pure, tested) and src/lib/docs.server.ts (Vite globs; images are bundled build assets so they work on any host) — why: AI agents keep docs current through PRs without touching code.
+
+## Product documentation (content/docs) — rules for agents
+- Docs content lives only in `content/docs/**/*.md`; images live in `content/docs/images/`. Agents edit only files under `content/docs/**`. Never edit TSX, `src/data` or i18n dictionaries for docs (docs are English-only).
+- Branches: open a pull request into `dev`. Never push directly to `dev` or `main` (`main` only receives PRs from `dev`). The "Docs check" workflow must pass.
+- One page per file; the file name is the URL slug (`content/docs/modules/alerting.md` → `/product/documentation/alerting`, raw markdown at `/product/documentation/alerting.md`). File names are lowercase-hyphen and unique across all folders.
+- Frontmatter (all required):
+  - `title`: text, used as the H1 (do not add an H1 in the body; start sections at `##`).
+  - `description`: text, max 160 characters (meta description, cards, llms.txt).
+  - `category`: text, must match a `name` in `content/docs/_categories.yml`.
+  - `order`: number, sort order within the category.
+  - `updated`: date `YYYY-MM-DD`, set to the date of your change.
+  - `status`: `current` (published) or `draft` (not rendered, listed, or in sitemap/llms.txt).
+- Add a page: create the `.md` file in its category folder with the frontmatter above; use `status: draft` until it is ready.
+- Add a category: add `- name: <Name>` with an `order` to `content/docs/_categories.yml` and create a matching folder.
+- Markdown: GitHub-flavoured (tables, fenced code). Callouts: `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`. Link other docs with relative paths (`./ticketing.md`, `../modules/alerting.md#settings`). Images: `![alt text](../images/file.png)`, always with alt text.
+- Check locally with `bunx vitest run src/lib/docs.test.ts`.

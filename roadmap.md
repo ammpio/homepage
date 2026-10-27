@@ -14,3 +14,5 @@
 - [ ] Original links for Sifted, ESI Africa, Foresight Media, TechLeap press pages — waiting on URLs from user
 - [ ] IndexNow on deploy: waiting on user to add INDEXNOW_DEPLOY_TOKEN and a Netlify "Deploy succeeded" webhook
 - [ ] Author LinkedIn URLs — waiting on user
+- [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to dev/main, agent rules in AGENTS.md).
+- [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
