@@ -7,7 +7,7 @@ export const Route = createFileRoute("/api/public/indexnow-deploy")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const expected = process.env.INDEXNOW_DEPLOY_TOKEN;
+        const expected = process.env['INDEXNOW_DEPLOY_TOKEN'];
         const token = new URL(request.url).searchParams.get("token");
         if (!expected || !token || token !== expected) return new Response("Unauthorized", { status: 401 });
         const body = await request.json().catch(() => ({}) as Record<string, unknown>);

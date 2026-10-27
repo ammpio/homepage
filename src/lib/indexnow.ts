@@ -24,5 +24,5 @@ export async function submitToIndexNow(urls: string[]): Promise<{ submitted: num
 
 export async function sitemapUrls(): Promise<string[]> {
   const xml = await (await fetch(`${ORIGIN}/sitemap.xml`)).text();
-  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).filter((u) => u.startsWith(ORIGIN));
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1] ?? "").filter((u) => u.startsWith(ORIGIN));
 }
