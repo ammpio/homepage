@@ -73,6 +73,9 @@ import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-p
 import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
 import { Route as ApiPublicIndexnowDeployRouteImport } from './routes/api/public/indexnow-deploy'
 import { Route as ApiPublicIndexnowScheduledRouteImport } from './routes/api/public/indexnow-scheduled'
+import { Route as ProductDocumentationIndexRouteImport } from './routes/product_.documentation.index'
+import { Route as ProductDocumentationSlugRouteImport } from './routes/product_.documentation.$slug'
+import { Route as ProductDocumentationChar123slugChar125DotmdRouteImport } from './routes/product_.documentation.{$slug}[.]md'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -404,6 +407,24 @@ const ApiPublicIndexnowScheduledRoute =
     path: '/api/public/indexnow-scheduled',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProductDocumentationIndexRoute =
+  ProductDocumentationIndexRouteImport.update({
+    id: '/product_/documentation/',
+    path: '/product/documentation/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductDocumentationSlugRoute =
+  ProductDocumentationSlugRouteImport.update({
+    id: '/product_/documentation/$slug',
+    path: '/product/documentation/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductDocumentationChar123slugChar125DotmdRoute =
+  ProductDocumentationChar123slugChar125DotmdRouteImport.update({
+    id: '/product_/documentation/{$slug}.md',
+    path: '/product/documentation/{$slug}.md',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
     id: '/lovable/email/transactional/preview',
@@ -476,6 +497,9 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
+  '/product/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
+  '/product/documentation/': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
@@ -543,6 +567,9 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
+  '/product/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
+  '/product/documentation': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
@@ -611,6 +638,9 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
+  '/product_/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product_/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
+  '/product_/documentation/': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -680,6 +710,9 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
+    | '/product/documentation/$slug'
+    | '/product/documentation/{$slug}.md'
+    | '/product/documentation/'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -747,6 +780,9 @@ export interface FileRouteTypes {
     | '/blog'
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
+    | '/product/documentation/$slug'
+    | '/product/documentation/{$slug}.md'
+    | '/product/documentation'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
@@ -814,6 +850,9 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
+    | '/product_/documentation/$slug'
+    | '/product_/documentation/{$slug}.md'
+    | '/product_/documentation/'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
@@ -882,6 +921,9 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicIndexnowDeployRoute: typeof ApiPublicIndexnowDeployRoute
   ApiPublicIndexnowScheduledRoute: typeof ApiPublicIndexnowScheduledRoute
+  ProductDocumentationSlugRoute: typeof ProductDocumentationSlugRoute
+  ProductDocumentationChar123slugChar125DotmdRoute: typeof ProductDocumentationChar123slugChar125DotmdRoute
+  ProductDocumentationIndexRoute: typeof ProductDocumentationIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -1335,6 +1377,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicIndexnowScheduledRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product_/documentation/': {
+      id: '/product_/documentation/'
+      path: '/product/documentation'
+      fullPath: '/product/documentation/'
+      preLoaderRoute: typeof ProductDocumentationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product_/documentation/$slug': {
+      id: '/product_/documentation/$slug'
+      path: '/product/documentation/$slug'
+      fullPath: '/product/documentation/$slug'
+      preLoaderRoute: typeof ProductDocumentationSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product_/documentation/{$slug}.md': {
+      id: '/product_/documentation/{$slug}.md'
+      path: '/product/documentation/{$slug}.md'
+      fullPath: '/product/documentation/{$slug}.md'
+      preLoaderRoute: typeof ProductDocumentationChar123slugChar125DotmdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
       path: '/lovable/email/transactional/preview'
@@ -1411,6 +1474,10 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   ApiPublicIndexnowDeployRoute: ApiPublicIndexnowDeployRoute,
   ApiPublicIndexnowScheduledRoute: ApiPublicIndexnowScheduledRoute,
+  ProductDocumentationSlugRoute: ProductDocumentationSlugRoute,
+  ProductDocumentationChar123slugChar125DotmdRoute:
+    ProductDocumentationChar123slugChar125DotmdRoute,
+  ProductDocumentationIndexRoute: ProductDocumentationIndexRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
