@@ -1,5 +1,6 @@
 import { multiBrandGuideBody } from "./blog-guide-multibrand";
 import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled";
+import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
 export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
@@ -33,7 +34,7 @@ export type BlogPost = {
   /** Exact go-live moment (ISO UTC). Before it the post is hidden everywhere and its URL 404s. */
   publishAt?: string;
   cover?: { src: string; alt: string };
-  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies"; title: string; text: string }[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
@@ -90,6 +91,51 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "solar-investor-reporting-tools-compared",
+    title: "Investor reporting tools for C&I solar portfolios compared",
+    excerpt: "Criteria for choosing an investor reporting tool for a commercial and industrial solar portfolio, and a neutral look at the main platforms.",
+    category: "Insights",
+    date: "2026-12-02",
+    publishAt: "2026-12-02T08:00:00Z",
+    readTime: computeReadTime(toolsBody),
+    body: toolsBody,
+    cover: covers2.tools,
+    related: [
+      { to: "/solutions/investor-reporting", title: "Investor and PPA reporting", text: "Billing, savings and investor reports from one source, delivered on schedule." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "track-solar-ppa-performance-guarantees",
+    title: "How to track solar PPA performance guarantees",
+    excerpt: "A step-by-step method to define, measure and evidence solar performance guarantees each month, and act before a guarantee is missed.",
+    category: "Insights",
+    date: "2026-11-25",
+    publishAt: "2026-11-25T08:00:00Z",
+    readTime: computeReadTime(guaranteesBody),
+    body: guaranteesBody,
+    cover: covers2.guarantees,
+    related: [
+      { to: "/solutions/om-sla-tracking", title: "O&M and SLA tracking", text: "Track contractor response times and performance guarantees across the portfolio." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "automated-ppa-billing-solar",
+    title: "The complete guide to automated PPA billing for C&I solar",
+    excerpt: "How operators turn meter, inverter and tariff data into billing-grade savings reports and PPA invoices across many sites, without spreadsheets.",
+    category: "Insights",
+    date: "2026-11-18",
+    publishAt: "2026-11-18T08:00:00Z",
+    readTime: computeReadTime(billingBody),
+    body: billingBody,
+    cover: covers2.billing,
+    related: [
+      { to: "/solutions/investor-reporting", title: "Investor and PPA reporting", text: "Billing, savings and investor reports from one source, delivered on schedule." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
   {
     slug: "solar-investor-reports-with-ai",
     title: "How to draft solar investor reports with AI",
