@@ -26,9 +26,9 @@ const FM = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)([\s\S]*)$/;
 export function splitFrontmatter(raw: string): { data: Record<string, unknown>; body: string } {
   const m = FM.exec(raw.replace(/^\uFEFF/, ""));
   if (!m) throw new Error("missing frontmatter block (--- ... ---) at the top of the file");
-  const data = parseYaml(m[1]) as unknown;
+  const data = parseYaml(m[1] ?? "") as unknown;
   if (!data || typeof data !== "object" || Array.isArray(data)) throw new Error("frontmatter must be a YAML mapping");
-  return { data: data as Record<string, unknown>, body: m[2] };
+  return { data: data as Record<string, unknown>, body: m[2] ?? "" };
 }
 
 export function slugFromPath(path: string): string {
@@ -54,13 +54,13 @@ export function parseDocFile(path: string, raw: string): DocFile {
     if (typeof v !== "string" || !v.trim()) fail(`"${k}" is required and must be text`);
     return (v as string).trim();
   };
-  const order = d.order;
+  const order = d["order"];
   if (typeof order !== "number" || !Number.isFinite(order)) fail(`"order" is required and must be a number`);
-  let updated = d.updated as unknown;
+  let updated = d["updated"] as unknown;
   if (updated instanceof Date) updated = updated.toISOString().slice(0, 10);
   if (typeof updated !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(updated) || Number.isNaN(Date.parse(updated)))
     fail(`"updated" must be a date like 2026-10-27`);
-  const status = d.status;
+  const status = d["status"];
   if (!DOC_STATUSES.includes(status as DocStatus)) fail(`"status" must be one of: ${DOC_STATUSES.join(", ")}`);
   const description = str("description");
   if (description.length > 160) fail(`"description" must be 160 characters or fewer (is ${description.length})`);
@@ -167,7 +167,7 @@ export function renderDocMarkdown(body: string, images: Record<string, string>, 
         const inner = this.parser.parse(tokens);
         const m = /^<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*/.exec(inner);
         if (!m) return `<blockquote>${inner}</blockquote>\n`;
-        const kind = m[1];
+        const kind = m[1] ?? "NOTE";
         const rest = `<p>${inner.slice(m[0].length)}`.replace(/^<p><\/p>\s*/, "");
         return `<div class="docs-callout docs-callout-${kind.toLowerCase()}" role="note"><p class="docs-callout-title">${CALLOUTS[kind]}</p>${rest}</div>\n`;
       },
