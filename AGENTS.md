@@ -18,3 +18,4 @@
 - New content pages build head() with src/lib/page-head.ts pageHead() (WebPage + optional FAQPage JSON-LD) and are listed in ammp-facts.ts PAGES — why: schema and llms.txt stay consistent.
 - Competitor descriptions for alternatives/comparison pages live in src/data/alternatives.ts — why: one neutral source reused across pages.
 - Links to scheduled blog posts use LivePostLink, which renders nothing until the post is live — why: no early leaks of scheduled posts.
+- IndexNow: key lives in src/lib/indexnow.ts and public/<key>.txt; a daily backend schedule calls /api/public/indexnow-scheduled for newly live posts, and Netlify's deploy webhook calls /api/public/indexnow-deploy — why: the site is request-rendered, so posts go live without a deploy.

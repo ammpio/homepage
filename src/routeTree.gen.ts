@@ -71,6 +71,8 @@ import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
 import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
+import { Route as ApiPublicIndexnowDeployRouteImport } from './routes/api/public/indexnow-deploy'
+import { Route as ApiPublicIndexnowScheduledRouteImport } from './routes/api/public/indexnow-scheduled'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -391,6 +393,17 @@ const UseCasesReportingTeamsRoute = UseCasesReportingTeamsRouteImport.update({
   path: '/use-cases/reporting-teams',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicIndexnowDeployRoute = ApiPublicIndexnowDeployRouteImport.update({
+  id: '/api/public/indexnow-deploy',
+  path: '/api/public/indexnow-deploy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicIndexnowScheduledRoute =
+  ApiPublicIndexnowScheduledRouteImport.update({
+    id: '/api/public/indexnow-scheduled',
+    path: '/api/public/indexnow-scheduled',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
     id: '/lovable/email/transactional/preview',
@@ -461,6 +474,8 @@ export interface FileRoutesByFullPath {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
+  '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
@@ -526,6 +541,8 @@ export interface FileRoutesByTo {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
+  '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
@@ -592,6 +609,8 @@ export interface FileRoutesById {
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
+  '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -659,6 +678,8 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
+    | '/api/public/indexnow-deploy'
+    | '/api/public/indexnow-scheduled'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -724,6 +745,8 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog'
+    | '/api/public/indexnow-deploy'
+    | '/api/public/indexnow-scheduled'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
@@ -789,6 +812,8 @@ export interface FileRouteTypes {
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
+    | '/api/public/indexnow-deploy'
+    | '/api/public/indexnow-scheduled'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
@@ -855,6 +880,8 @@ export interface RootRouteChildren {
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
   UseCasesReportingTeamsRoute: typeof UseCasesReportingTeamsRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ApiPublicIndexnowDeployRoute: typeof ApiPublicIndexnowDeployRoute
+  ApiPublicIndexnowScheduledRoute: typeof ApiPublicIndexnowScheduledRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -1294,6 +1321,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesReportingTeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/indexnow-deploy': {
+      id: '/api/public/indexnow-deploy'
+      path: '/api/public/indexnow-deploy'
+      fullPath: '/api/public/indexnow-deploy'
+      preLoaderRoute: typeof ApiPublicIndexnowDeployRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/indexnow-scheduled': {
+      id: '/api/public/indexnow-scheduled'
+      path: '/api/public/indexnow-scheduled'
+      fullPath: '/api/public/indexnow-scheduled'
+      preLoaderRoute: typeof ApiPublicIndexnowScheduledRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
       path: '/lovable/email/transactional/preview'
@@ -1368,6 +1409,8 @@ const rootRouteChildren: RootRouteChildren = {
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
   UseCasesReportingTeamsRoute: UseCasesReportingTeamsRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ApiPublicIndexnowDeployRoute: ApiPublicIndexnowDeployRoute,
+  ApiPublicIndexnowScheduledRoute: ApiPublicIndexnowScheduledRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport

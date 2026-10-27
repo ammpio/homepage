@@ -76,6 +76,15 @@ export const blogTranslations: TranslationSet = {
     "blog.post.featured-techleap-climate-report.title": "Featured in TechLeap Climate Report",
     "blog.post.featured-techleap-climate-report.excerpt": "AMMP recognized in TechLeap's annual report on leading climate technology companies.",
 
+    "blog.post.featured-tech-eu.title": "Featured in Tech.eu",
+    "blog.post.featured-tech-eu.excerpt": "Tech.eu reported on AMMP's €1.15 million seed round, led by Point Nine Capital.",
+
+    "blog.post.featured-afrik21.title": "Featured in Afrik21",
+    "blog.post.featured-afrik21.excerpt": "Afrik21 reported on AMMP's €1.15 million raise to expand its off-grid monitoring solutions.",
+
+    "blog.post.featured-silicon-canals.title": "Featured in Silicon Canals",
+    "blog.post.featured-silicon-canals.excerpt": "Silicon Canals listed AMMP among Amsterdam startups working to cool the planet.",
+
     "blog.post.set100-award-2021.title": "AMMP Named in SET100 List 2021",
     "blog.post.set100-award-2021.excerpt": "AMMP Technologies recognized as one of the top 100 innovative energy transition companies globally.",
 
@@ -211,6 +220,15 @@ export const blogTranslations: TranslationSet = {
     "blog.post.featured-techleap-climate-report.title": "Destacados en el informe climático de TechLeap",
     "blog.post.featured-techleap-climate-report.excerpt": "AMMP reconocida en el informe anual de TechLeap sobre las principales empresas de tecnología climática.",
 
+    "blog.post.featured-tech-eu.title": "Destacados en Tech.eu",
+    "blog.post.featured-tech-eu.excerpt": "Tech.eu informó sobre la ronda semilla de 1,15 millones de euros de AMMP, liderada por Point Nine Capital.",
+
+    "blog.post.featured-afrik21.title": "Destacados en Afrik21",
+    "blog.post.featured-afrik21.excerpt": "Afrik21 informó sobre la ronda de 1,15 millones de euros de AMMP para ampliar sus soluciones de monitoreo fuera de red.",
+
+    "blog.post.featured-silicon-canals.title": "Destacados en Silicon Canals",
+    "blog.post.featured-silicon-canals.excerpt": "Silicon Canals incluyó a AMMP entre las startups de Ámsterdam que trabajan para enfriar el planeta.",
+
     "blog.post.set100-award-2021.title": "AMMP incluida en la lista SET100 2021",
     "blog.post.set100-award-2021.excerpt": "AMMP Technologies reconocida como una de las 100 empresas más innovadoras de la transición energética a nivel mundial.",
 
@@ -345,6 +363,15 @@ export const blogTranslations: TranslationSet = {
 
     "blog.post.featured-techleap-climate-report.title": "Destaque no relatório climático da TechLeap",
     "blog.post.featured-techleap-climate-report.excerpt": "AMMP reconhecida no relatório anual da TechLeap sobre as principais empresas de climate tech.",
+
+    "blog.post.featured-tech-eu.title": "Destaque na Tech.eu",
+    "blog.post.featured-tech-eu.excerpt": "A Tech.eu noticiou a rodada seed de 1,15 milhão de euros da AMMP, liderada pela Point Nine Capital.",
+
+    "blog.post.featured-afrik21.title": "Destaque na Afrik21",
+    "blog.post.featured-afrik21.excerpt": "A Afrik21 noticiou a captação de 1,15 milhão de euros da AMMP para expandir suas soluções de monitoramento off-grid.",
+
+    "blog.post.featured-silicon-canals.title": "Destaque na Silicon Canals",
+    "blog.post.featured-silicon-canals.excerpt": "A Silicon Canals incluiu a AMMP entre as startups de Amsterdã que trabalham para resfriar o planeta.",
 
     "blog.post.set100-award-2021.title": "AMMP incluída na lista SET100 2021",
     "blog.post.set100-award-2021.excerpt": "AMMP Technologies reconhecida como uma das 100 empresas mais inovadoras da transição energética no mundo.",
