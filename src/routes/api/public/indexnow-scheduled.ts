@@ -4,6 +4,7 @@ import { recentlyPublishedUrls, submitToIndexNow } from "@/lib/indexnow";
 
 // Daily job: submits blog posts that went live in the last 26 hours.
 export const Route = createFileRoute("/api/public/indexnow-scheduled")({
+  staticData: { sitemap: false },
   server: {
     handlers: {
       POST: async ({ request }) => {

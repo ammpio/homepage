@@ -3,6 +3,7 @@ import { sitemapUrls, submitToIndexNow } from "@/lib/indexnow";
 
 // Called by Netlify's "Deploy succeeded" outgoing webhook: ?token=<INDEXNOW_DEPLOY_TOKEN>. Submits every sitemap URL.
 export const Route = createFileRoute("/api/public/indexnow-deploy")({
+  staticData: { sitemap: false },
   server: {
     handlers: {
       POST: async ({ request }) => {
