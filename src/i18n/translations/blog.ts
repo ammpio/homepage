@@ -80,7 +80,7 @@ export const blogTranslations: TranslationSet = {
     "blog.post.featured-tech-eu.excerpt": "Tech.eu reported on AMMP's €1.15 million seed round, led by Point Nine Capital.",
 
     "blog.post.featured-afrik21.title": "Featured in Afrik21",
-    "blog.post.featured-afrik21.excerpt": "Afrik21 reported on AMMP's €1.15 million raise to expand its off-grid monitoring solutions.",
+    "blog.post.featured-afrik21.excerpt": "Afrik21 reported on AMMP's $1.15 million equity financing from Point Nine Capital, The Raba Partnership and Musha Ventures to expand its off-grid monitoring solutions.",
 
     "blog.post.featured-silicon-canals.title": "Featured in Silicon Canals",
     "blog.post.featured-silicon-canals.excerpt": "Silicon Canals listed AMMP among Amsterdam startups working to cool the planet.",
@@ -224,7 +224,7 @@ export const blogTranslations: TranslationSet = {
     "blog.post.featured-tech-eu.excerpt": "Tech.eu informó sobre la ronda semilla de 1,15 millones de euros de AMMP, liderada por Point Nine Capital.",
 
     "blog.post.featured-afrik21.title": "Destacados en Afrik21",
-    "blog.post.featured-afrik21.excerpt": "Afrik21 informó sobre la ronda de 1,15 millones de euros de AMMP para ampliar sus soluciones de monitoreo fuera de red.",
+    "blog.post.featured-afrik21.excerpt": "Afrik21 informó sobre la financiación de capital de 1,15 millones de dólares de AMMP, aportada por Point Nine Capital, The Raba Partnership y Musha Ventures, para ampliar sus soluciones de monitoreo fuera de red.",
 
     "blog.post.featured-silicon-canals.title": "Destacados en Silicon Canals",
     "blog.post.featured-silicon-canals.excerpt": "Silicon Canals incluyó a AMMP entre las startups de Ámsterdam que trabajan para enfriar el planeta.",
@@ -368,7 +368,7 @@ export const blogTranslations: TranslationSet = {
     "blog.post.featured-tech-eu.excerpt": "A Tech.eu noticiou a rodada seed de 1,15 milhão de euros da AMMP, liderada pela Point Nine Capital.",
 
     "blog.post.featured-afrik21.title": "Destaque na Afrik21",
-    "blog.post.featured-afrik21.excerpt": "A Afrik21 noticiou a captação de 1,15 milhão de euros da AMMP para expandir suas soluções de monitoramento off-grid.",
+    "blog.post.featured-afrik21.excerpt": "A Afrik21 noticiou o aporte de capital de US$ 1,15 milhão na AMMP, feito por Point Nine Capital, The Raba Partnership e Musha Ventures, para expandir suas soluções de monitoramento off-grid.",
 
     "blog.post.featured-silicon-canals.title": "Destaque na Silicon Canals",
     "blog.post.featured-silicon-canals.excerpt": "A Silicon Canals incluiu a AMMP entre as startups de Amsterdã que trabalham para resfriar o planeta.",

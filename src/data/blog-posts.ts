@@ -1000,12 +1000,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "featured-afrik21",
     title: "Featured in Afrik21",
-    excerpt: "Afrik21 reported on AMMP's €1.15 million raise to expand its off-grid monitoring solutions.",
+    excerpt: "Afrik21 reported on AMMP's $1.15 million equity financing from Point Nine Capital, The Raba Partnership and Musha Ventures to expand its off-grid monitoring solutions.",
     category: "Press",
-    date: "2020-09-07",
+    date: "2020-09-01",
+    displayDate: "September 2020",
     readTime: "2 min read",
     body: [
-      { type: "paragraph", text: "Afrik21, a publication covering green economy news in Africa, reported on AMMP's €1.15 million funding round and its plans to bring its monitoring for off-grid energy systems to more operators." },
+      { type: "paragraph", text: "Afrik21, a publication covering green economy news in Africa, reported on AMMP's $1.15 million equity financing from Point Nine Capital, The Raba Partnership and Musha Ventures, and its plans to bring its monitoring for off-grid energy systems to more operators." },
       { type: "rich", parts: [{ a: "Read the original article on Afrik21", href: "https://afrik21.africa/en/africa-ammp-raises-1-15-million-to-distribute-its-off-grid-monitoring-solutions" }] },
     ],
   },
