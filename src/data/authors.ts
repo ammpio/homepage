@@ -22,6 +22,9 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "multi-brand-solar-monitoring-checklist": "andreas",
   "rank-solar-alarms-by-revenue-risk": "andreas",
   "solar-investor-reports-with-ai": "andreas",
+  "automated-ppa-billing-solar": "andreas",
+  "track-solar-ppa-performance-guarantees": "andreas",
+  "solar-investor-reporting-tools-compared": "andreas",
 };
 
 /** Named author, or undefined when the post is credited to AMMP as the organisation. */

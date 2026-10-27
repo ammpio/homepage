@@ -1,4 +1,14 @@
 import type { BlogBlock } from "./blog-posts";
+import billingCover from "@/assets/blog-billing-cover.jpg.asset.json";
+import guaranteesCover from "@/assets/blog-guarantees-cover.jpg.asset.json";
+import toolsCover from "@/assets/blog-reporting-tools-cover.jpg.asset.json";
+import { assetUrl } from "@/lib/assets";
+
+export const covers2 = {
+  billing: { src: assetUrl(billingCover), alt: "Three data source cards connected by dotted pink lines to one invoice with a pink total bar" },
+  guarantees: { src: assetUrl(guaranteesCover), alt: "Monthly bars against a dashed pink guarantee line, with check dots under each month and one grey month" },
+  tools: { src: assetUrl(toolsCover), alt: "Three criteria cards side by side with pink and grey rows and a pink check mark" },
+};
 
 const closing: BlogBlock = { type: "rich", parts: ["Questions about your own portfolio? Write to ", { a: "sales@ammp.io", href: "mailto:sales@ammp.io" }, "."] };
 
