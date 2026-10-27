@@ -20,6 +20,15 @@ export const Route = createFileRoute("/sitemap.xml")({
             if (path) entries.push({ path });
           }
         }
+        const docsRouteId = "/product_/documentation/$slug";
+        if (isSitemapRouteIncluded(router.routesById[docsRouteId])) {
+          const { allDocs } = await import("@/lib/docs.server");
+          for (const doc of allDocs()) {
+            const location = router.buildLocation({ to: "/product/documentation/$slug", params: { slug: doc.slug }, search: () => ({}), hash: "" });
+            const path = sitemapPathForLocation(router, location, docsRouteId);
+            if (path) entries.push({ path, lastmod: doc.updated });
+          }
+        }
         if (entries.length === 0) {
           return new Response("No pages are included in this sitemap.", { status: 404, headers: { "Cache-Control": "no-store" } });
         }
