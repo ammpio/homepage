@@ -1,0 +1,6 @@
+# Order of categories on /product/documentation. Lower numbers come first.
+# A page whose category is not listed here is shown after all listed categories.
+- name: Getting started
+  order: 10
+- name: Modules
+  order: 20

@@ -13,7 +13,7 @@ export const getDocsIndex = createServerFn({ method: "GET" }).handler(async () =
 });
 
 export const getDocPage = createServerFn({ method: "GET" })
-  .validator(z.object({ slug: z.string().min(1).max(120) }))
+  .inputValidator(z.object({ slug: z.string().min(1).max(120) }))
   .handler(async ({ data }) => {
     const { allDocs, getDoc, renderDoc } = await import("./docs.server");
     const doc = getDoc(data.slug);
