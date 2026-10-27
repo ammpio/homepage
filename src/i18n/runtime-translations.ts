@@ -5508,7 +5508,6 @@ export const runtimeTranslations: Record<"es" | "pt", Record<string, string>> = 
     "commercial solar portfolios.": "portfólios solares comerciais.",
     "Commercial and industrial (C&I) portfolios rarely run on one inverter brand. This page sets out six criteria for choosing a platform and a fair description of the main options. AMMP is one of them, not the only good one.": "Portfólios comerciais e industriais (C&I) raramente operam com apenas uma marca de inversor. Esta página apresenta seis critérios para a escolha de uma plataforma e uma descrição imparcial das principais opções. O AMMP é uma delas, não a única boa opção.",
     "Six criteria for multi-brand portfolios": "Seis critérios para portfólios multimarcas",
-    "The platforms": "As plataformas",
     "Short, neutral descriptions based on our published comparisons, with where each fits best.": "Descrições breves e neutras baseadas em nossas comparações publicadas, indicando onde cada uma melhor se adapta.",
     "An established, hardware-linked monitoring solution with a long track record in solar.": "Uma solução de monitoramento consolidada e vinculada a hardware, com um longo histórico no setor solar.",
     "Solar portfolios that already run on Meteocontrol hardware and want a proven, long-standing setup.": "Portfólios solares que já operam com hardware da Meteocontrol e buscam uma estrutura comprovada e consolidada.",

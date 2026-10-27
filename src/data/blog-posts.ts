@@ -34,7 +34,7 @@ export type BlogPost = {
   /** Exact go-live moment (ISO UTC). Before it the post is hidden everywhere and its URL 404s. */
   publishAt?: string;
   cover?: { src: string; alt: string };
-  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies"; title: string; text: string }[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
