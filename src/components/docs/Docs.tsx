@@ -55,7 +55,7 @@ export function DocCards({ docs }: { docs: DocSummary[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {docs.map((d) => (
-        <Link key={d.slug} to="/product/documentation/$slug" params={{ slug: d.slug }} className="glass-card group flex flex-col rounded-2xl p-5 transition-colors hover:border-foreground/30">
+        <Link key={d.slug} to="/product/documentation/$slug" params={{ slug: d.slug }} className="glass-soft group flex flex-col rounded-2xl p-5 transition-colors hover:border-foreground/30">
           <h3 className="font-display text-lg font-medium">{d.title}</h3>
           <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{d.description}</p>
           <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium">
