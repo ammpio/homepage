@@ -28,7 +28,8 @@ function getInitialLanguage(): Language {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+  // Match the English server render; read browser preferences only after hydration.
+  const [language, setLanguageState] = useState<Language>("en");
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
@@ -41,11 +42,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Sync on mount (for SSR hydration)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === "en" || saved === "es" || saved === "pt") {
-        setLanguageState(saved);
-        document.documentElement.lang = saved === "pt" ? "pt-BR" : saved;
-      }
+      setLanguageState(getInitialLanguage());
     }
   }, []);
 
