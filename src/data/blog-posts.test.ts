@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { blogPosts, isPublished } from "./blog-posts";
+import { blogPosts, getBlogPost, isPublished } from "./blog-posts";
 
 describe("load-shedding post schedule", () => {
   const post = blogPosts.find((p) => p.slug === "monitor-solar-battery-backup-load-shedding-south-africa")!;
