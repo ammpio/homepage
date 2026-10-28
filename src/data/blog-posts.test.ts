@@ -36,9 +36,9 @@ describe("published-now posts", () => {
   });
 });
 
-import { PAGES } from "@/data/ammp-facts";
+import { llmsTxt } from "@/data/ammp-facts";
 describe("EPC use-case page", () => {
   it("is listed for llms.txt", () => {
-    expect(PAGES.some((p) => p[1] === "/use-cases/epcs")).toBe(true);
+    expect(llmsTxt()).toContain("https://www.ammp.io/use-cases/epcs");
   });
 });
