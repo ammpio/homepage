@@ -24,7 +24,7 @@
 
 ## Product documentation (content/docs) — rules for agents
 - Docs content lives only in `content/docs/**/*.md`; images live in `content/docs/images/`. Documentation-content agents edit only files under `content/docs/**`, never TSX, `src/data` or i18n dictionaries. Markdown source and raw .md endpoints stay English; rendered documentation uses the site's runtime translation, except code blocks and inline code.
-- Branches: `dev` is the production branch; Netlify automatically deploys every commit to `dev` to www.ammp.io. `main` is an archive that only receives PRs from `dev`. Agents open PRs into `dev`, never push directly to `dev` or `main`, and the "Docs check" workflow must pass before merging — why: every merged change goes live automatically.
+- Branches: `main` is the production branch; Netlify automatically deploys every commit to `main` to www.ammp.io, and this Lovable project commits to `main`. The `dev` branch is no longer used. Agents open PRs into `main`, never push directly to `main`, which is protected by an org rule requiring one approving review, and the "Docs check" workflow must pass before merging — why: every merged change goes live automatically.
 - One page per file; the file name is the URL slug (`content/docs/modules/alerting.md` → `/product/documentation/alerting`, raw markdown at `/product/documentation/alerting.md`). File names are lowercase-hyphen and unique across all folders.
 - Frontmatter (all required):
   - `title`: text, used as the H1 (do not add an H1 in the body; start sections at `##`).
