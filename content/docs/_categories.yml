@@ -2,6 +2,8 @@
 # A page whose category is not listed here is shown after all listed categories.
 - name: Getting started
   order: 10
+- name: AMMP AI
+  order: 15
 - name: Technical operations
   order: 20
 - name: Commercial operations
