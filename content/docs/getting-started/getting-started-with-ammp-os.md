@@ -7,7 +7,7 @@ updated: 2026-10-28
 status: current
 ---
 
-The AMMP OS Portal is the starting point for everything in AMMP. From here you reach every module for monitoring, operating, reporting on and billing your renewable energy portfolio.
+The AMMP OS Portal is the starting point for everything in AMMP. From here you reach every module for monitoring, operating, reporting on and billing your renewable energy portfolio. New to AMMP? Start with the [Introduction to AMMP](./introduction.md), which explains how AMMP OS and AMMP AI fit together.
 
 ## How the portal is organised
 
@@ -44,9 +44,11 @@ Every user gets one of three permission levels for each organisation, asset grou
 
 Some actions in these guides need Editor or Admin rights; each page says so where it applies.
 
-## Connect AI assistants
+## AMMP AI and AI assistants
 
-You can also query your AMMP data from Claude and other AI assistants. See [AMMP MCP server](./ammp-mcp-server.md).
+Ray, AMMP's AI coworker, works alongside AMMP OS in Microsoft Teams, Slack and AMMP OS. It reads the same data and KPIs you see in the portal, so you can ask "why is this site underperforming?" instead of digging through dashboards. See [Meet Ray](./meet-ray.md) and [Working with Ray](./working-with-ray.md).
+
+You can also connect Claude, Copilot or your own agent to your AMMP data through the [AMMP MCP server](./ammp-mcp-server.md).
 
 ## Getting help
 
