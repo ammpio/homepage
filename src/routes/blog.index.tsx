@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
+import { featuredPost, publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 import { comparisons } from "@/data/comparisons";
 
 type Filter = "All" | BlogCategory | "Compare";

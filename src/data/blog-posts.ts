@@ -1081,6 +1081,12 @@ export function publishedPosts(now: Date = new Date()): BlogPost[] {
   return blogPosts.filter((post) => isPublished(post, now));
 }
 
+/** The featured card on the blog index: the pinned post if it is live, otherwise the newest. */
+export function featuredPost(posts: BlogPost[], now: Date = new Date()): BlogPost {
+  const pinned = posts.find((post) => post.featured);
+  return pinned && isPublished(pinned, now) ? pinned : (posts[0] as BlogPost);
+}
+
 /** A live post by slug; scheduled posts return undefined until they go live. */
 export function getBlogPost(slug: string, now: Date = new Date()): BlogPost | undefined {
   const post = blogPosts.find((p) => p.slug === slug);
