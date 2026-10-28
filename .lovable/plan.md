@@ -1,89 +1,53 @@
-# Plan: publish the load-shedding post and add /use-cases/epcs
+# Make www.ammp.io one consistent deployment
 
-## 1. Publish the load-shedding post now
+Your diagnosis is right. `public/_redirects` sends every `/_serverFn/*`, `/_server*` and `/__l5e/*` request to ai-cozy-nest.lovable.app, so any loader or form call made **after** the first page load runs the last Lovable-published build.
 
-- Set `date`/datePublished, `publishAt` and dateModified to today (2026-10-28), like the other five.
-- It then shows on the blog index, sitemap.xml, llms.txt and llms-full.txt automatically. "Meet Ray" stays pinned as featured.
-- Update the test that keeps it hidden until 9 Dec so it checks the post is live instead.
-- The existing es/pt translations for this post stay as they are. IndexNow picks it up on the next deploy through the sitemap.
+## 1. Server functions and server routes
 
-### Full post text, for final review (no changes from the approved draft)
+| Name (file) | What it does | Used on live site | Needs |
+|---|---|---|---|
+| `getDocsIndex` (lib/docs.functions.ts) | Lists current docs pages. Called by the **root loader on every page** (Documentation menu link) and by the docs index | Yes, on every client-side navigation | None (reads bundled markdown) |
+| `getDocPage` (lib/docs.functions.ts) | Loads one docs page + sidebar/TOC | Yes | None |
+| `submitContact` (lib/contact.functions.ts) | Checks Turnstile, saves to `contact_submissions`, emails sales@ammp.io | Yes, contact form | `TURNSTILE_SECRET_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `LOVABLE_API_KEY`, `LOVABLE_SEND_URL` (email) |
+| `subscribeNewsletter` (lib/newsletter.functions.ts) | Adds email to Brevo list via the Lovable connector gateway | Yes, footer form | `LOVABLE_API_KEY`, `BREVO_API_KEY` (connector key), optional `BREVO_LIST_ID` |
+| `/sitemap.xml`, `/llms.txt`, `/llms-full.txt` | Generated text files | Yes, rendered by Netlify itself (path not proxied) | None |
+| `/product/documentation/{slug}.md` | Raw markdown | Yes, Netlify | None |
+| `/support`, `/unipi-image`, `/stratopi-image` | Redirect handlers (also duplicated in `_redirects`) | `_redirects` wins on Netlify | None |
+| `/api/public/indexnow-deploy` | Pings IndexNow after a Netlify deploy | Yes, Netlify webhook (not proxied) | `INDEXNOW_DEPLOY_TOKEN` |
+| `/api/public/indexnow-scheduled` | Daily ping for newly live posts | Called by the backend schedule — at the **Lovable** URL | `LOVABLE_CRON_SECRET` (+ `_PREVIOUS`) |
+| `/lovable/email/transactional/preview` | Email template preview for Lovable tooling | No (tooling only) | `LOVABLE_API_KEY` |
 
-**How to monitor solar and battery backup sites through load-shedding: a guide for South African C&I operators**
-Excerpt: Monitoring solar and battery backup sites through grid outages: what to track, how to check savings and what to ask monitoring vendors.
-Andreas Lehner, CCO · Insights
+## 2. Why the proxy exists; what `/__l5e/*` is
 
-Across South Africa, many commercial and industrial (C&I) solar sites now include batteries, and some also have a genset. They are there for two jobs: to cut energy costs, and to keep the lights on during load-shedding. Monitoring that only tracks solar yield misses the second job. This guide covers what to watch on backup sites, which KPIs matter, and what to look for in monitoring software.
+Added in commit `7411ec0` (7 Oct 2026, one change to `_redirects` only, no note in AGENTS.md). The evident reason: the contact and newsletter forms need secrets that live only in Lovable Cloud (service-role key, Lovable API key, Brevo connector key), so proxying let them work on Netlify without copying secrets. `/__l5e/*` is Lovable's media/asset CDN path (uploaded images, hero video). AGENTS.md already notes media now use the full Lovable CDN address via `assetUrl()`, so that proxy line is a fallback for any remaining relative `/__l5e/` URLs.
 
-**Why backup sites need different monitoring**
-A grid-tied solar site has one main question: is it producing what it should? A backup site has more:
-- Grid outages: you need to know when the grid was down at each site, and for how long, so you can judge how the system performed during the outage.
-- Battery state of charge: a battery that starts load-shedding half empty can't deliver the backup it was sized for. Track state of charge before each scheduled outage, not just over the day.
-- Gensets, where present: check when the genset started, how long it ran, and whether it ran because the battery ran out early.
-- Communication dropouts: routers and dataloggers often lose power or signal during outages, so the hours you most want to see can be the ones missing from your data.
+## 3. Making Netlify serve its own functions
 
-For data gaps, check three things: whether missing intervals are flagged rather than shown as zero, how gaps are estimated, and whether estimated values are labelled. AMMP OS runs built-in data quality checks and applies configurable estimation rules. When a site's irradiance sensor is missing, it uses backup satellite irradiance data.
+- **Docs:** need no secrets — fixed by point 4, no proxy needed.
+- **Lovable-only blockers:** `SUPABASE_SERVICE_ROLE_KEY` and `LOVABLE_API_KEY` cannot be exported from Lovable Cloud, and the Brevo/email sends go through Lovable's gateway. So `submitContact` and `subscribeNewsletter` cannot simply run on Netlify with copied env vars.
+- **Recommended approach:** move those two to explicit server routes on the Lovable host (`/api/public/contact`, `/api/public/newsletter`, each validating input + Turnstile, CORS limited to www.ammp.io), and have the forms post to that full URL. Then remove all four proxy lines. Netlify then needs only `INDEXNOW_DEPLOY_TOKEN` (already used) and `SUPABASE_URL` / `SUPABASE_PUBLISHABLE_KEY` (public values; the root loader imports nothing that needs them, but set them to be safe). `TURNSTILE_SECRET_KEY` stays on Lovable.
+- Trade-off to accept: the form backend still deploys from Lovable publish, but it is a small, stable, explicit API rather than every function silently.
+- Alternative (fully Netlify): anon-insert RLS policy for contact submissions + your own Brevo and email-provider keys in Netlify. More setup, removes the Lovable dependency.
 
-**KPIs to track**
-- Availability: whether inverters, batteries and the genset were running when they should have been. Exclude grid-down time where the contract calls for it.
-- Battery cycling: daily charge and discharge cycles, depth of discharge, and trends that point to early wear.
-- Backup hours delivered: how many outage hours the system covered at each site, compared with what it was designed for.
-- Performance ratio (PR): solar output against available irradiance, so you can tell weather from faults.
+## 4. Docs loader
 
-**Checking savings and PPA performance when the grid is down part of the day**
-Savings and PPA billing assume a reference: what the site would have paid, or what it should have produced. Load-shedding complicates both. When the grid is down, a grid-tied inverter without backup capability may shut down too, and some contracts treat that energy differently. Check that your reports separate grid-down hours from normal hours, apply the contract's rules for curtailed or lost energy, and show the customer how the figures were calculated.
-Link: See investor and PPA reporting (/solutions/investor-reporting)
+A server function is not needed. Plan: the docs loaders and root `hasDocumentation` use `createIsomorphicFn` — on the server they read the markdown directly (dehydrated into the page on first load); on client navigation they `fetch` a same-origin JSON server route (`/product/documentation/index.json`, `/product/documentation/{slug}.json`) that Netlify serves itself, like the existing `.md` route. Content stays out of the client bundle and never touches `/_serverFn`. For the root menu flag, compute it at build time instead (a constant from the bundled docs metadata, titles/status only) so no call happens on every navigation.
 
-**Checking battery charging and discharging against time-of-use tariffs**
-Under time-of-use tariffs, the value of a battery depends on when it charges and discharges. A battery that charges from the grid at peak rates, or sits full through the evening peak, loses money even if the hardware is fine. Compare each battery's charge and discharge pattern with the site's actual tariff windows. That requires the right tariff for each site. The AMMP tariff database covers 1,000+ South African tariffs.
+## 5. `public/_headers`
 
-**What to look for in vendor-neutral monitoring software**
-- Support for many brands: C&I fleets often mix inverter, battery and meter brands. Look for one portal that covers all of them. AMMP has 30+ integrations.
-- AMMP Edge for equipment without an API: gensets, older meters and some batteries have no cloud API. The AMMP Edge datalogger reads them on site.
-- Alerting where your team works: alerts can be tuned per site and sent to Microsoft Teams, Slack, email or webhooks.
-- Reporting: savings, PPA and investor reports built from the same data as operations.
-Link: See hybrid site monitoring (/solutions/hybrid-sites)
+Netlify merges all matching rules, and for the same header it joins values, so `/assets/*` would get `public, max-age=0, must-revalidate, public, max-age=31536000, immutable` — conflicting. Netlify already sends `max-age=0, must-revalidate` for HTML by default, and the stale page was the proxy, not caching. Plan: delete the `/*` rule, keep only the `/assets/*` rule (or delete the file); update the AGENTS.md caching line.
 
-**Where Ray fits**
-Ray, the AI coworker on AMMP OS, checks each battery's charging and discharging against the site's time-of-use tariff every day. It flags sites that lost money by charging or discharging in the wrong window, so your team can fix the settings before the next bill.
+## 6. Branch
 
-**A short checklist**
-- Can you see grid-down hours for each site?
-- Do you know each battery's state of charge before each scheduled outage?
-- Are communication gaps flagged and estimated values labelled?
-- Do you track availability, battery cycling, backup hours delivered and PR?
-- Do savings and PPA reports separate grid-down hours?
-- Are batteries checked against each site's time-of-use tariff?
-- Are all brands in one portal, with alerts going where your team works?
-Link: Read more about AMMP in South Africa (/south-africa)
+This Lovable project commits to **`main`** (origin/HEAD → main; latest `37b15d4`, 15:04 today; `dev` at `f67094b`, 12:32). Since www.ammp.io shows today's later changes, Netlify appears to build `main`. Once you confirm in Netlify (Site configuration → Build & deploy → Production branch):
+- If `main`: rewrite the AGENTS.md branch rule (main = production; agents PR into main); docs-check already runs on `main` PRs — optionally drop `dev`.
+- If `dev`: reconnect Lovable's GitHub sync to `dev` (or merge `main` → `dev`); AGENTS.md and workflow stay.
 
-Related cards: AMMP in South Africa, Hybrid sites, Investor and PPA reporting.
+## Order of steps
 
-## 2. New page /use-cases/epcs — "Monitoring for EPCs and installers"
-
-Same layout and look as the three existing use-case pages (asset managers, O&M providers, reporting teams).
-
-Sections:
-1. Hero: "Monitoring for EPCs and installers", for EPCs and ESCOs that build commercial and industrial (C&I) solar and battery systems and stay responsible after handover. Buttons: Contact sales (pink, per the button rules) / Book a demo (/demo).
-2. The EPC problem: mixed inverter and battery brands per project, clients expecting proof of performance after commissioning, guarantee and warranty periods that need evidence.
-3. What to look for (criteria list): multi-brand support (cloud API or AMMP Edge datalogger, 30+ integrations); commissioning and handover checks (see question 1); performance guarantee and availability tracking; alerts into Microsoft Teams, Slack, email or webhooks; ticketing for your O&M team; client reports and stakeholder portal access with your branding on reports.
-4. How AMMP fits: AMMP OS Platform plus Ray (daily triage ranked by commercial impact, guarantee and SLA checks with evidence, drafted client reports). Links to /solutions/om-sla-tracking, /solutions/investor-reporting, /integrations, /ray.
-5. FAQ with FAQPage schema: "What should an EPC look for in solar monitoring software?", "Can EPCs give clients access to their own sites?" (stakeholder portal; branding on reports only), "Can AMMP monitor sites with different inverter brands?" (30+ integrations, AMMP Edge).
-6. Closing "Talk to our team" block (pink).
-
-Also: add "EPCs and installers" to the header Use cases menu and footer Use cases list; add to ammp-facts PAGES (so llms.txt / llms-full.txt include it) and sitemap.xml. Numbers only 10,000+ sites / 30+ countries / 30+ integrations; no prices, no customer names, no white-label/OEM claims.
-
-Language: English first. I recommend es/pt follow right after approval of the English copy, since every other use-case page is translated and untranslated text would show in English on a Portuguese/Spanish page.
-
-## Open questions
-
-1. Commissioning and handover checks: the site doesn't currently state a specific AMMP commissioning feature. I propose wording it as a criterion only ("check new sites report every device correctly from day one and that the expected yield baseline is set at handover") plus "AMMP onboards new sites with data quality checks", without claiming a dedicated commissioning tool. OK, or do you have product wording?
-2. Menu label: "EPCs and installers" OK?
-3. Should es/pt for the EPC page be done in the same build, or after you approve the English text?
-
-## Technical details
-
-- Post: edit the entry in `src/data/blog-posts.ts` (date, publishAt) and `src/data/authors.ts` (dateModified); update `src/data/blog-posts.test.ts`.
-- New route `src/routes/use-cases.epcs.tsx` using `pageHead()` with FAQPage JSON-LD; FAQ entries in `src/data/faq.ts`.
-- Edit `src/components/site/SiteShell.tsx` (menu + footer), `src/data/ammp-facts.ts` (PAGES), `src/routes/sitemap[.]xml.ts` if it isn't driven by PAGES.
-- Add a test that /use-cases/epcs is listed in PAGES and the sitemap.
+1. You confirm Netlify's production branch; I fix AGENTS.md accordingly.
+2. Fix `_headers` (remove `/*`).
+3. Docs: build-time menu flag + isomorphic loaders + JSON routes; tests updated.
+4. Contact/newsletter: explicit `/api/public/*` routes on Lovable, forms call them; publish Lovable once.
+5. Point the IndexNow daily schedule at www.ammp.io.
+6. Remove the four proxy lines from `_redirects`; verify forms, docs navigation and media on www.ammp.io in a clean browser.
