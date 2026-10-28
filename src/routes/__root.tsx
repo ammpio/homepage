@@ -107,6 +107,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "canonical", href: canonical },
     ],
     scripts: [{
+      type: "text/javascript",
+      src: "https://visitors.lemlist.com/api/visitors/tracking?k=%2BV8CgWU%2F4LjNyTt2rO6n14I%2BaxSz5l4oZ%2FZFZBIz8sA%3D&t=tea_Y2ogsEes9G3XyBaDk",
+    }, {
       type: "application/ld+json",
       children: JSON.stringify([
         { "@context": "https://schema.org", "@type": "Organization", "@id": "https://www.ammp.io/#organization", name: "AMMP Technologies B.V.", url: "https://www.ammp.io", logo: "https://www.ammp.io/apple-touch-icon.png", sameAs: ["https://www.linkedin.com/company/ammptechnologies"], contactPoint: { "@type": "ContactPoint", contactType: "sales", email: "sales@ammp.io" } },
