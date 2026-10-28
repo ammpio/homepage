@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
-import { publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
+import { featuredPost, publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 import { comparisons } from "@/data/comparisons";
 
 type Filter = "All" | BlogCategory | "Compare";
@@ -32,8 +32,8 @@ function BlogIndexPage() {
   const [activeCategory, setActiveCategory] = useState<Filter>(search.category ?? "All");
   const blogPosts = publishedPosts();
   const sorted = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
-  const featured = sorted[0]!;
-  const rest = sorted.slice(1);
+  const featured = featuredPost(sorted);
+  const rest = sorted.filter((post) => post !== featured);
   const filtered = activeCategory === "All" ? rest : rest.filter((post) => post.category === activeCategory);
 
   return (

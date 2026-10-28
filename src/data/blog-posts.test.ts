@@ -1,5 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { blogPosts, getBlogPost, isPublished } from "./blog-posts";
+import { blogPosts, featuredPost, getBlogPost, isPublished, publishedPosts } from "./blog-posts";
+
+describe("featured blog post", () => {
+  const now = new Date("2026-10-28T12:00:00Z");
+  it("is pinned to Meet Ray even when newer posts exist", () => {
+    const featured = featuredPost(publishedPosts(now), now);
+    expect(featured.slug).toBe("meet-ray");
+    expect(featured.date).toBe("2026-10-07");
+  });
+  it("only ever features a live post", () => {
+    expect(isPublished(featuredPost(publishedPosts(now), now), now)).toBe(true);
+  });
+  it("falls back to the newest post if the pinned one is gone", () => {
+    const withoutPinned = blogPosts.filter((p) => p.slug !== "meet-ray");
+    const fallback = featuredPost(withoutPinned, now);
+    expect(fallback.slug).not.toBe("meet-ray");
+    expect(withoutPinned.filter((p) => p.date === fallback.date).includes(fallback)).toBe(true);
+  });
+});
 
 describe("load-shedding post schedule", () => {
   const post = blogPosts.find((p) => p.slug === "monitor-solar-battery-backup-load-shedding-south-africa")!;

@@ -27,6 +27,8 @@ export type BlogPost = {
   category: BlogCategory;
   date: string;
   readTime: string;
+  /** Pinned to the blog index's featured card, regardless of publish date. */
+  featured?: boolean;
   body: BlogBlock[];
   author?: string;
   displayDate?: string;
@@ -222,6 +224,7 @@ export const blogPosts: BlogPost[] = [
     category: "Product",
     date: "2026-10-07",
     readTime: computeReadTime(meetRayBody),
+    featured: true,
     heroVideoPoster: true,
     body: meetRayBody,
     related: [
@@ -1076,6 +1079,12 @@ export function isPublished(post: BlogPost, now: Date = new Date()): boolean {
 /** Posts visible right now. Use this everywhere posts are listed (index, sitemap, "more" cards). */
 export function publishedPosts(now: Date = new Date()): BlogPost[] {
   return blogPosts.filter((post) => isPublished(post, now));
+}
+
+/** The featured card on the blog index: the pinned post if it is live, otherwise the newest. */
+export function featuredPost(posts: BlogPost[], now: Date = new Date()): BlogPost {
+  const pinned = posts.find((post) => post.featured);
+  return pinned && isPublished(pinned, now) ? pinned : (posts[0] as BlogPost);
 }
 
 /** A live post by slug; scheduled posts return undefined until they go live. */
