@@ -6,7 +6,7 @@ import { notFound } from "@tanstack/react-router";
 // depend on a separately hosted server-function endpoint.
 
 export type DocSummary = { slug: string; title: string; description: string; category: string; updated: string };
-export type DocHeading = { id: string; text: string; depth: number };
+export type DocHeading = { id: string; text: string; depth: 2 | 3 };
 export type DocPageData = { doc: DocSummary; html: string; headings: DocHeading[]; nav: DocSummary[] };
 
 export const loadDocsIndex = createIsomorphicFn()
