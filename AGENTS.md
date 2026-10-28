@@ -19,6 +19,7 @@
 - Competitor descriptions for alternatives/comparison pages live in src/data/alternatives.ts — why: one neutral source reused across pages.
 - Links to scheduled blog posts use LivePostLink, which renders nothing until the post is live — why: no early leaks of scheduled posts.
 - IndexNow: key lives in src/lib/indexnow.ts and public/<key>.txt; a daily backend schedule calls /api/public/indexnow-scheduled for newly live posts, and Netlify's deploy webhook calls /api/public/indexnow-deploy — why: the site is request-rendered, so posts go live without a deploy.
+- Netlify caching lives in public/_headers: HTML must revalidate on every visit, only fingerprinted /assets/* are cached long-term — why: browsers must never show a stale page after a deploy.
 - Product docs are markdown in content/docs/** rendered at /product/documentation via src/lib/docs-core.ts (pure, tested) and src/lib/docs.server.ts (Vite globs; images are bundled build assets so they work on any host). Only current pages enable documentation navigation and discovery; an empty index is noindex — why: drafts must never be promoted as published documentation.
 
 ## Product documentation (content/docs) — rules for agents
