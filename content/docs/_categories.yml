@@ -4,3 +4,5 @@
   order: 10
 - name: Modules
   order: 20
+- name: Integrations
+  order: 30
