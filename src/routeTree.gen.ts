@@ -76,6 +76,8 @@ import { Route as ApiPublicIndexnowDeployRouteImport } from './routes/api/public
 import { Route as ApiPublicIndexnowScheduledRouteImport } from './routes/api/public/indexnow-scheduled'
 import { Route as ProductDocumentationIndexRouteImport } from './routes/product_.documentation.index'
 import { Route as ProductDocumentationSlugRouteImport } from './routes/product_.documentation.$slug'
+import { Route as ProductDocumentationIndexDotjsonRouteImport } from './routes/product_.documentation.index[.]json'
+import { Route as ProductDocumentationChar123slugChar125DotjsonRouteImport } from './routes/product_.documentation.{$slug}[.]json'
 import { Route as ProductDocumentationChar123slugChar125DotmdRouteImport } from './routes/product_.documentation.{$slug}[.]md'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -425,6 +427,18 @@ const ProductDocumentationSlugRoute =
     path: '/product/documentation/$slug',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProductDocumentationIndexDotjsonRoute =
+  ProductDocumentationIndexDotjsonRouteImport.update({
+    id: '/product_/documentation/index.json',
+    path: '/product/documentation/index.json',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductDocumentationChar123slugChar125DotjsonRoute =
+  ProductDocumentationChar123slugChar125DotjsonRouteImport.update({
+    id: '/product_/documentation/{$slug}.json',
+    path: '/product/documentation/{$slug}.json',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProductDocumentationChar123slugChar125DotmdRoute =
   ProductDocumentationChar123slugChar125DotmdRouteImport.update({
     id: '/product_/documentation/{$slug}.md',
@@ -505,6 +519,8 @@ export interface FileRoutesByFullPath {
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/product/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product/documentation/index.json': typeof ProductDocumentationIndexDotjsonRoute
+  '/product/documentation/{$slug}.json': typeof ProductDocumentationChar123slugChar125DotjsonRoute
   '/product/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
   '/product/documentation/': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -576,6 +592,8 @@ export interface FileRoutesByTo {
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/product/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product/documentation/index.json': typeof ProductDocumentationIndexDotjsonRoute
+  '/product/documentation/{$slug}.json': typeof ProductDocumentationChar123slugChar125DotjsonRoute
   '/product/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
   '/product/documentation': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -648,6 +666,8 @@ export interface FileRoutesById {
   '/api/public/indexnow-deploy': typeof ApiPublicIndexnowDeployRoute
   '/api/public/indexnow-scheduled': typeof ApiPublicIndexnowScheduledRoute
   '/product_/documentation/$slug': typeof ProductDocumentationSlugRoute
+  '/product_/documentation/index.json': typeof ProductDocumentationIndexDotjsonRoute
+  '/product_/documentation/{$slug}.json': typeof ProductDocumentationChar123slugChar125DotjsonRoute
   '/product_/documentation/{$slug}.md': typeof ProductDocumentationChar123slugChar125DotmdRoute
   '/product_/documentation/': typeof ProductDocumentationIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -721,6 +741,8 @@ export interface FileRouteTypes {
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
     | '/product/documentation/$slug'
+    | '/product/documentation/index.json'
+    | '/product/documentation/{$slug}.json'
     | '/product/documentation/{$slug}.md'
     | '/product/documentation/'
     | '/lovable/email/transactional/preview'
@@ -792,6 +814,8 @@ export interface FileRouteTypes {
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
     | '/product/documentation/$slug'
+    | '/product/documentation/index.json'
+    | '/product/documentation/{$slug}.json'
     | '/product/documentation/{$slug}.md'
     | '/product/documentation'
     | '/lovable/email/transactional/preview'
@@ -863,6 +887,8 @@ export interface FileRouteTypes {
     | '/api/public/indexnow-deploy'
     | '/api/public/indexnow-scheduled'
     | '/product_/documentation/$slug'
+    | '/product_/documentation/index.json'
+    | '/product_/documentation/{$slug}.json'
     | '/product_/documentation/{$slug}.md'
     | '/product_/documentation/'
     | '/lovable/email/transactional/preview'
@@ -935,6 +961,8 @@ export interface RootRouteChildren {
   ApiPublicIndexnowDeployRoute: typeof ApiPublicIndexnowDeployRoute
   ApiPublicIndexnowScheduledRoute: typeof ApiPublicIndexnowScheduledRoute
   ProductDocumentationSlugRoute: typeof ProductDocumentationSlugRoute
+  ProductDocumentationIndexDotjsonRoute: typeof ProductDocumentationIndexDotjsonRoute
+  ProductDocumentationChar123slugChar125DotjsonRoute: typeof ProductDocumentationChar123slugChar125DotjsonRoute
   ProductDocumentationChar123slugChar125DotmdRoute: typeof ProductDocumentationChar123slugChar125DotmdRoute
   ProductDocumentationIndexRoute: typeof ProductDocumentationIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -1411,6 +1439,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductDocumentationSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product_/documentation/index.json': {
+      id: '/product_/documentation/index.json'
+      path: '/product/documentation/index.json'
+      fullPath: '/product/documentation/index.json'
+      preLoaderRoute: typeof ProductDocumentationIndexDotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product_/documentation/{$slug}.json': {
+      id: '/product_/documentation/{$slug}.json'
+      path: '/product/documentation/{$slug}.json'
+      fullPath: '/product/documentation/{$slug}.json'
+      preLoaderRoute: typeof ProductDocumentationChar123slugChar125DotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product_/documentation/{$slug}.md': {
       id: '/product_/documentation/{$slug}.md'
       path: '/product/documentation/{$slug}.md'
@@ -1496,6 +1538,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicIndexnowDeployRoute: ApiPublicIndexnowDeployRoute,
   ApiPublicIndexnowScheduledRoute: ApiPublicIndexnowScheduledRoute,
   ProductDocumentationSlugRoute: ProductDocumentationSlugRoute,
+  ProductDocumentationIndexDotjsonRoute: ProductDocumentationIndexDotjsonRoute,
+  ProductDocumentationChar123slugChar125DotjsonRoute:
+    ProductDocumentationChar123slugChar125DotjsonRoute,
   ProductDocumentationChar123slugChar125DotmdRoute:
     ProductDocumentationChar123slugChar125DotmdRoute,
   ProductDocumentationIndexRoute: ProductDocumentationIndexRoute,
