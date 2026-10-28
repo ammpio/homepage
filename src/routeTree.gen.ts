@@ -69,6 +69,7 @@ import { Route as SolutionsInvestorReportingRouteImport } from './routes/solutio
 import { Route as SolutionsOmSlaTrackingRouteImport } from './routes/solutions.om-sla-tracking'
 import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
+import { Route as UseCasesEpcsRouteImport } from './routes/use-cases.epcs'
 import { Route as UseCasesOmProvidersRouteImport } from './routes/use-cases.om-providers'
 import { Route as UseCasesReportingTeamsRouteImport } from './routes/use-cases.reporting-teams'
 import { Route as ApiPublicIndexnowDeployRouteImport } from './routes/api/public/indexnow-deploy'
@@ -386,6 +387,11 @@ const UseCasesAssetManagersRoute = UseCasesAssetManagersRouteImport.update({
   path: '/use-cases/asset-managers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseCasesEpcsRoute = UseCasesEpcsRouteImport.update({
+  id: '/use-cases/epcs',
+  path: '/use-cases/epcs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseCasesOmProvidersRoute = UseCasesOmProvidersRouteImport.update({
   id: '/use-cases/om-providers',
   path: '/use-cases/om-providers',
@@ -492,6 +498,7 @@ export interface FileRoutesByFullPath {
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/epcs': typeof UseCasesEpcsRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
@@ -562,6 +569,7 @@ export interface FileRoutesByTo {
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/epcs': typeof UseCasesEpcsRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog': typeof BlogIndexRoute
@@ -633,6 +641,7 @@ export interface FileRoutesById {
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
+  '/use-cases/epcs': typeof UseCasesEpcsRoute
   '/use-cases/om-providers': typeof UseCasesOmProvidersRoute
   '/use-cases/reporting-teams': typeof UseCasesReportingTeamsRoute
   '/blog/': typeof BlogIndexRoute
@@ -705,6 +714,7 @@ export interface FileRouteTypes {
     | '/solutions/om-sla-tracking'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
+    | '/use-cases/epcs'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
@@ -775,6 +785,7 @@ export interface FileRouteTypes {
     | '/solutions/om-sla-tracking'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
+    | '/use-cases/epcs'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog'
@@ -845,6 +856,7 @@ export interface FileRouteTypes {
     | '/solutions/om-sla-tracking'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
+    | '/use-cases/epcs'
     | '/use-cases/om-providers'
     | '/use-cases/reporting-teams'
     | '/blog/'
@@ -916,6 +928,7 @@ export interface RootRouteChildren {
   SolutionsOmSlaTrackingRoute: typeof SolutionsOmSlaTrackingRoute
   SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
+  UseCasesEpcsRoute: typeof UseCasesEpcsRoute
   UseCasesOmProvidersRoute: typeof UseCasesOmProvidersRoute
   UseCasesReportingTeamsRoute: typeof UseCasesReportingTeamsRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1349,6 +1362,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCasesAssetManagersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-cases/epcs': {
+      id: '/use-cases/epcs'
+      path: '/use-cases/epcs'
+      fullPath: '/use-cases/epcs'
+      preLoaderRoute: typeof UseCasesEpcsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-cases/om-providers': {
       id: '/use-cases/om-providers'
       path: '/use-cases/om-providers'
@@ -1469,6 +1489,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsOmSlaTrackingRoute: SolutionsOmSlaTrackingRoute,
   SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
+  UseCasesEpcsRoute: UseCasesEpcsRoute,
   UseCasesOmProvidersRoute: UseCasesOmProvidersRoute,
   UseCasesReportingTeamsRoute: UseCasesReportingTeamsRoute,
   BlogIndexRoute: BlogIndexRoute,
