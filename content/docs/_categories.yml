@@ -10,5 +10,7 @@
   order: 40
 - name: Reference
   order: 50
+- name: AMMP Edge
+  order: 55
 - name: Integrations
   order: 60

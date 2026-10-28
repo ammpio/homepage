@@ -50,4 +50,6 @@ You can also query your AMMP data from Claude and other AI assistants. See [AMMP
 
 ## Getting help
 
+For a quick tour, watch the [video tutorial](https://www.loom.com/share/da4c8529416544c3b264730142638d01).
+
 Email [support@ammp.io](mailto:support@ammp.io), or use the Help icon in the AMMP OS Portal.
