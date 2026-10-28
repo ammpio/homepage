@@ -142,6 +142,10 @@ Standard Alerts are pre-configured alerts available to every AMMP customer. They
 - **Enable or disable** an alert with the toggle in the Status column.
 - **Change thresholds:** click the pencil icon next to the values, edit the Warning and/or Error threshold, and click **Save**. Logic-based alerts have no thresholds and show N/A.
 
+## Alert notifications
+
+AMMP can also send alerts as messages, for example to a Slack channel, so you hear about them on your desktop or phone. Each notification shows the alert name, its state, the site, the parameter and its value, and the date and time. A red marker means the alert has just been triggered; a green one means the condition has cleared.
+
 ## Custom alerts
 
-To set up custom alerts or route notifications to specific people or channels, email [support@ammp.io](mailto:support@ammp.io).
+To set up custom alerts, or to route notifications to email, Microsoft Teams, Slack or a webhook, email [support@ammp.io](mailto:support@ammp.io).

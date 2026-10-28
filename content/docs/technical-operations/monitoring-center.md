@@ -9,6 +9,8 @@ status: current
 
 The AMMP Monitoring Center holds the dashboards set up for your portfolio. Open it from **Technical Operations** in the AMMP OS Portal.
 
+New to AMMP? Watch the [video tutorial](https://www.loom.com/share/da4c8529416544c3b264730142638d01) for a quick tour.
+
 ## The dashboard layout
 
 Every dashboard has three parts: the left sidebar, the top bar and the central display area.
@@ -43,11 +45,14 @@ This shows the dashboard itself: panels, selectors (group, site, field, phase, t
 - **Selectors** at the top of a dashboard filter what you see, for example which site, which group or which time range.
 - **Switching dashboards:** click the four-square icon to see all available dashboards.
 - **Finding a dashboard:** search by name, filter by tag, or tick **Starred** to see your favourites.
+- **Drilling down to a site:** in any table with a site name column, click a site name to open that site's dashboard.
+- **Groups and sites:** use the group dropdown at the top left to choose one or more groups, then pick a site within them.
 
 ## Working with graphs
 
 - **Show or hide a series:** click its name in the legend. Hold ⌘ (Mac) or Ctrl (Windows) to select more than one.
 - **Change a series colour:** click the colour swatch in the legend.
+- **Show a second Y-axis:** click the series colour in the legend and open **Y-axis**.
 - **See a single value:** hover over the graph at that point in time.
 - **Zoom in:** pick a shorter period in the time range picker.
 
@@ -59,6 +64,10 @@ This shows the dashboard itself: panels, selectors (group, site, field, phase, t
 4. Click **Download CSV**.
 
 For larger exports across many sites, use the [Export Center](./export-center.md).
+
+## Switching organisations
+
+If you have access to more than one organisation, hover over your profile avatar at the bottom left, click **Switch Organization** and choose the one you want.
 
 ## Getting help
 
