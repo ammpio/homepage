@@ -1,0 +1,7 @@
+# HTML pages: browsers must check with the server before reusing a cached copy
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Fingerprinted build assets: safe to cache for a year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
