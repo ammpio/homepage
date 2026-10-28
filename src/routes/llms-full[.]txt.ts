@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { llmsTxt } from "@/data/ammp-facts";
+import { blogLlmsSection } from "@/lib/blog-llms";
 import { FAQ_GROUPS } from "@/data/faq";
 
 function llmsFullTxt(hasDocumentation: boolean): string {
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/llms-full.txt")({
       GET: async () => {
         const { docsLlmsSection } = await import("@/lib/docs-llms");
         const docsSection = docsLlmsSection(true);
-        return new Response(llmsFullTxt(Boolean(docsSection)) + docsSection, {
+        return new Response(llmsFullTxt(Boolean(docsSection)) + blogLlmsSection() + docsSection, {
           headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
         });
       },
