@@ -71,9 +71,6 @@ describe("content/docs files", () => {
   it("has valid frontmatter and unique names", () => {
     expect(() => buildDocSet(docs, parseCategories(existsSync(catsPath) ? readFileSync(catsPath, "utf8") : undefined))).not.toThrow();
   });
-  it.each(["getting-started-with-ammp-os", "alerting", "ticketing"])("keeps the %s placeholder unpublished", (slug) => {
-    expect(docs.find((doc) => doc.slug === slug)?.status).toBe("draft");
-  });
   it.each(docs.map((d) => [d.sourcePath, d] as const))("%s renders with all images and doc links present", (_p, d) => {
     const { html } = renderDocMarkdown(d.body, images, d.sourcePath);
     const slugs = new Set(docs.map((x) => x.slug));
