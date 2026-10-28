@@ -19,18 +19,6 @@ describe("featured blog post", () => {
   });
 });
 
-describe("load-shedding post schedule", () => {
-  const post = blogPosts.find((p) => p.slug === "monitor-solar-battery-backup-load-shedding-south-africa")!;
-
-  it("is hidden before Wed 9 Dec 2026, 09:00 CET", () => {
-    expect(isPublished(post, new Date("2026-12-09T07:59:59Z"))).toBe(false);
-  });
-
-  it("is live from Wed 9 Dec 2026, 09:00 CET", () => {
-    expect(isPublished(post, new Date("2026-12-09T08:00:00Z"))).toBe(true);
-  });
-});
-
 import { blogLlmsSection } from "@/lib/blog-llms";
 describe("published-now posts", () => {
   const slugs = ["rank-solar-alarms-by-revenue-risk", "solar-investor-reports-with-ai", "automated-ppa-billing-solar", "track-solar-ppa-performance-guarantees", "solar-investor-reporting-tools-compared"];
@@ -42,8 +30,15 @@ describe("published-now posts", () => {
       expect(section).toContain(`/blog/${s}`);
     }
   });
-  it("keep the load-shedding post hidden until 9 Dec", () => {
-    expect(getBlogPost("monitor-solar-battery-backup-load-shedding-south-africa", now)).toBeUndefined();
-    expect(blogLlmsSection(now)).not.toContain("load-shedding");
+  it("include the load-shedding post, published 28 Oct 2026", () => {
+    expect(getBlogPost("monitor-solar-battery-backup-load-shedding-south-africa", now)?.date).toBe("2026-10-28");
+    expect(blogLlmsSection(now)).toContain("/blog/monitor-solar-battery-backup-load-shedding-south-africa");
+  });
+});
+
+import { PAGES } from "@/data/ammp-facts";
+describe("EPC use-case page", () => {
+  it("is listed for llms.txt", () => {
+    expect(PAGES.some((p) => p[1] === "/use-cases/epcs")).toBe(true);
   });
 });

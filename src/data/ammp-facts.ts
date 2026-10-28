@@ -54,6 +54,7 @@ const PAGES: [string, string, string][] = [
   ["Asset managers", "/use-cases/asset-managers", "Use case"],
   ["O&M providers", "/use-cases/om-providers", "Use case"],
   ["Reporting teams", "/use-cases/reporting-teams", "Use case"],
+  ["EPCs and installers", "/use-cases/epcs", "Monitoring for EPCs and ESCOs responsible for C&I sites after handover"],
   ["FAQ", "/faq", "Frequently asked questions"],
   ["Blog", "/blog", "News and articles"],
   ["About", "/about", "Company, mission and team"],

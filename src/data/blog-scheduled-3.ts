@@ -38,7 +38,7 @@ export const loadSheddingBody: BlogBlock[] = [
   ] },
   { type: "rich", parts: [{ a: "See hybrid site monitoring", href: "/solutions/hybrid-sites" }] },
   { type: "heading", text: "Where Ray fits" },
-  { type: "paragraph", text: "Ray, the AI coworker on AMMP OS, checks each battery's charging and discharging against the site's time-of-use tariff every day. It flags sites that lost money by charging or discharging in the wrong window, so your team can fix the settings before the next bill." },
+  { type: "paragraph", text: "Ray, the AI coworker on AMMP OS, checks each battery's charging and discharging against the site's time-of-use tariff every day. He flags sites that lost money by charging or discharging in the wrong window, so your team can fix the settings before the next bill." },
   { type: "heading", text: "A short checklist" },
   { type: "list", items: [
     "Can you see grid-down hours for each site?",
