@@ -25,6 +25,7 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "automated-ppa-billing-solar": "andreas",
   "track-solar-ppa-performance-guarantees": "andreas",
   "solar-investor-reporting-tools-compared": "andreas",
+  "monitor-solar-battery-backup-load-shedding-south-africa": "andreas",
 };
 
 /** Named author, or undefined when the post is credited to AMMP as the organisation. */

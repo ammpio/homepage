@@ -1,6 +1,7 @@
 import { multiBrandGuideBody } from "./blog-guide-multibrand";
 import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled";
 import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
+import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
 export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
@@ -34,7 +35,7 @@ export type BlogPost = {
   /** Exact go-live moment (ISO UTC). Before it the post is hidden everywhere and its URL 404s. */
   publishAt?: string;
   cover?: { src: string; alt: string };
-  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking"; title: string; text: string }[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
@@ -91,6 +92,22 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "monitor-solar-battery-backup-load-shedding-south-africa",
+    title: "How to monitor solar and battery backup sites through load-shedding: a guide for South African C&I operators",
+    excerpt: "Monitoring solar and battery backup sites through grid outages: what to track, how to check savings and what to ask monitoring vendors.",
+    category: "Insights",
+    date: "2026-12-09",
+    publishAt: "2026-12-09T08:00:00Z",
+    readTime: computeReadTime(loadSheddingBody),
+    body: loadSheddingBody,
+    cover: covers3.loadShedding,
+    related: [
+      { to: "/south-africa", title: "AMMP in South Africa", text: "Load-shedding backup sites, 1,000+ South African tariffs and time-of-use battery checks." },
+      { to: "/solutions/hybrid-sites", title: "Hybrid sites", text: "Solar, battery, genset and mini-grid monitoring with AMMP Edge." },
+      { to: "/solutions/investor-reporting", title: "Investor and PPA reporting", text: "Billing, savings and investor reports from one source, delivered on schedule." },
+    ],
+  },
   {
     slug: "solar-investor-reporting-tools-compared",
     title: "Investor reporting tools for C&I solar portfolios compared",
