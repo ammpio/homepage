@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { DocsSidebar, DocsToc, formatDocDate } from "@/components/docs/Docs";
-import { getDocPage } from "@/lib/docs.functions";
+import { loadDocPage } from "@/lib/docs-data";
 import { pageHead } from "@/lib/page-head";
 import { SITE } from "@/data/ammp-facts";
 
 export const Route = createFileRoute("/product_/documentation/$slug")({
   staticData: { sitemap: true },
-  loader: ({ params }) => getDocPage({ data: { slug: params.slug } }),
+  loader: ({ params }) => loadDocPage(params.slug),
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Documentation page unavailable | AMMP" }, { name: "robots", content: "noindex" }] };
     const { doc } = loaderData;

@@ -1,7 +1,5 @@
-# HTML pages: browsers must check with the server before reusing a cached copy
-/*
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Fingerprinted build assets: safe to cache for a year
+# Fingerprinted build assets: safe to cache for a year.
+# No catch-all rule: Netlify merges matching rules and would join Cache-Control values on /assets/*.
+# HTML already gets Netlify's default "max-age=0, must-revalidate".
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

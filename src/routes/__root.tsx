@@ -14,7 +14,7 @@ import { SiteShell } from "../components/site/SiteShell";
 import { LanguageProvider } from "../i18n/LanguageContext";
 import { AutoTranslate } from "../i18n/AutoTranslate";
 import { CloudflareAnalytics } from "../components/CloudflareAnalytics";
-import { getDocsIndex } from "../lib/docs.functions";
+import { loadDocsIndex } from "../lib/docs-data";
 
 function NotFoundComponent() {
   return (
@@ -79,7 +79,7 @@ function ErrorComponent({ error, reset }: import("@tanstack/react-router").Error
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
   // A failed network call (e.g. during a dev reload or flaky connection) must not blank the whole site; hide the docs link instead.
-  loader: async () => ({ hasDocumentation: await getDocsIndex().then((d) => d.length > 0, () => false) }),
+  loader: async () => ({ hasDocumentation: await loadDocsIndex().then((d) => d.length > 0, () => false) }),
   staleTime: Infinity,
   head: ({ matches }) => {
     const last = matches[matches.length - 1];

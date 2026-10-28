@@ -25,3 +25,18 @@ export function getDoc(slug: string): DocFile | undefined {
 export function renderDoc(doc: DocFile) {
   return renderDocMarkdown(doc.body, IMAGES, doc.sourcePath);
 }
+
+const summary = (d: DocFile) => ({ slug: d.slug, title: d.title, description: d.description, category: d.category, updated: d.updated });
+
+/** Titles/descriptions only, for the index, sidebar, search and the menu flag. */
+export function docsIndexData() {
+  return allDocs().map(summary);
+}
+
+/** One rendered page plus sidebar data, or undefined for drafts/unknown slugs. */
+export function docPageData(slug: string) {
+  const doc = getDoc(slug);
+  if (!doc) return undefined;
+  const { html, headings } = renderDoc(doc);
+  return { doc: summary(doc), html, headings, nav: docsIndexData() };
+}

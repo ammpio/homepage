@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { DocCards, DocsSearchInput, filterDocs } from "@/components/docs/Docs";
 import { groupByCategory } from "@/lib/docs-core";
-import { getDocsIndex } from "@/lib/docs.functions";
+import { loadDocsIndex } from "@/lib/docs-data";
 import { pageHead } from "@/lib/page-head";
 
 const TITLE = "AMMP Documentation — guides for AMMP OS and AMMP AI";
@@ -11,7 +11,7 @@ const DESCRIPTION = "Product documentation for AMMP OS Platform and AMMP AI: get
 export const Route = createFileRoute("/product_/documentation/")({
   // Added dynamically by the sitemap handler only when current docs exist.
   staticData: { sitemap: false },
-  loader: () => getDocsIndex(),
+  loader: () => loadDocsIndex(),
   head: ({ loaderData }) => {
     const head = pageHead({ path: "/product/documentation", title: TITLE, description: DESCRIPTION });
     return { ...head, meta: [...head.meta, ...(!loaderData?.length ? [{ name: "robots", content: "noindex" }] : [])] };
