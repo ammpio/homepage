@@ -27,6 +27,8 @@ export type BlogPost = {
   category: BlogCategory;
   date: string;
   readTime: string;
+  /** Pinned to the blog index's featured card, regardless of publish date. */
+  featured?: boolean;
   body: BlogBlock[];
   author?: string;
   displayDate?: string;
@@ -222,6 +224,7 @@ export const blogPosts: BlogPost[] = [
     category: "Product",
     date: "2026-10-07",
     readTime: computeReadTime(meetRayBody),
+    featured: true,
     heroVideoPoster: true,
     body: meetRayBody,
     related: [
