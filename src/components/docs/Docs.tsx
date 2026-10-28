@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import { groupByCategory } from "@/lib/docs-core";
-import type { DocSummary } from "@/lib/docs.functions";
+import type { DocSummary } from "@/lib/docs-data";
 
 export function formatDocDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
