@@ -78,7 +78,9 @@ function ErrorComponent({ error, reset }: import("@tanstack/react-router").Error
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   staticData: { sitemap: false },
-  loader: async () => ({ hasDocumentation: (await getDocsIndex()).length > 0 }),
+  // A failed network call (e.g. during a dev reload or flaky connection) must not blank the whole site; hide the docs link instead.
+  loader: async () => ({ hasDocumentation: await getDocsIndex().then((d) => d.length > 0, () => false) }),
+  staleTime: Infinity,
   head: ({ matches }) => {
     const last = matches[matches.length - 1];
     const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
