@@ -2,6 +2,8 @@ export type Comparison = { to: string; title: string; excerpt: string };
 
 /** Comparison pages listed under the "Compare" filter on /blog (general topics first, then vendors). */
 export const comparisons: Comparison[] = [
+  { to: "/compare/best-solar-om-platforms", title: "Best solar and battery O&M platforms compared", excerpt: "Buying criteria for O&M teams running multi-brand portfolios, and a neutral look at the main platforms." },
+  { to: "/compare/best-epc-solar-monitoring-software", title: "Best monitoring software for EPCs", excerpt: "What EPCs and installers should look for in client reporting and portfolio visibility, with a neutral look at the main platforms." },
   { to: "/compare/in-house-systems", title: "AMMP vs In-House Systems", excerpt: "Compare AMMP's ready-to-deploy platform to building custom in-house monitoring solutions." },
   { to: "/compare/traditional-monitoring", title: "AMMP vs Traditional Monitoring", excerpt: "Compare AMMP's modern platform to traditional SCADA and monitoring approaches." },
   { to: "/compare/data-first-vs-ui-first", title: "Data-First vs UI-First Platforms", excerpt: "Why a data-first architecture matters for scalable solar portfolio management." },
