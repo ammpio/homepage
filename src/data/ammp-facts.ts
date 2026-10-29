@@ -51,6 +51,8 @@ const PAGES: [string, string, string][] = [
   ["Meteocontrol alternatives", "/compare/meteocontrol-alternatives", "Selection criteria and a neutral look at the options"],
   ["Power Factors alternatives", "/compare/power-factors-alternatives", "Alternatives, and how to add Ray alongside Power Factors"],
   ["Commercial solar monitoring platforms", "/compare/best-commercial-solar-monitoring-platforms", "Platforms for multi-brand commercial and industrial portfolios"],
+  ["Solar and battery O&M platforms", "/compare/best-solar-om-platforms", "O&M platform criteria for multi-brand commercial and industrial portfolios"],
+  ["Monitoring software for EPCs", "/compare/best-epc-solar-monitoring-software", "Client reporting and portfolio visibility criteria for EPCs and ESCOs"],
   ["Asset managers", "/use-cases/asset-managers", "Use case"],
   ["O&M providers", "/use-cases/om-providers", "Use case"],
   ["Reporting teams", "/use-cases/reporting-teams", "Use case"],

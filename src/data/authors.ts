@@ -40,7 +40,7 @@ export const POST_UPDATED: Record<string, string> = {
   "solar-investor-reports-with-ai": "2026-10-28",
   "automated-ppa-billing-solar": "2026-10-28",
   "track-solar-ppa-performance-guarantees": "2026-10-28",
-  "solar-investor-reporting-tools-compared": "2026-10-28",
+  "solar-investor-reporting-tools-compared": "2026-10-29",
   "monitor-solar-battery-backup-load-shedding-south-africa": "2026-10-28",
   "meet-ray": "2026-10-22",
   "mcp-server-beta": "2026-10-26",
