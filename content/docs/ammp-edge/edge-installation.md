@@ -9,12 +9,7 @@ status: current
 
 AMMP Edge is AMMP's on-site datalogger. It reads equipment that has no cloud API, such as generator controllers, fuel sensors, meters and irradiance sensors, and sends the data to AMMP. It runs on a Strato Pi or UniPi device.
 
-This guide is for installers. The add-on guides cover specific equipment:
-
-- [Router and datalogger setup](./edge-router-and-datalogger.md)
-- [Generator controllers](./edge-generator-controllers.md) (DSE, SDMO, Cummins)
-- [Fuel level sensors](./edge-fuel-sensors.md) (Gamicos, Holykell, AKCP)
-- [Meters and irradiance sensors](./edge-meters-and-irradiance.md) (Carlo Gavazzi EM24, IMT)
+This guide is for installers. Start with the [router and datalogger setup](./edge-router-and-datalogger.md). For connecting specific equipment, such as generator controllers, fuel sensors, meters or irradiance sensors, contact [support@ammp.io](mailto:support@ammp.io) for the current wiring and configuration guidance.
 
 ## Required materials
 
