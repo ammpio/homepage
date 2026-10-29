@@ -32,7 +32,7 @@ function Page() {
         <FeatureGrid columns={3} features={OM_CRITERIA} />
       </Band>
       <Band>
-        <SectionHeading title="The platforms" intro="Short, neutral descriptions based on our published comparisons, with where each fits best." />
+        <SectionHeading title="The platforms" />
         <AlternativesList items={OM_EPC_PLATFORMS} />
       </Band>
       <Band tone="grey">

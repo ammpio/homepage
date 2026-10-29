@@ -40,7 +40,7 @@ function Page() {
         <Link to="/ray" className="mt-8 inline-flex items-center gap-1 text-sm font-medium hover:underline">Meet Ray <ArrowRight className="size-4" /></Link>
       </Band>
       <Band tone="grey">
-        <SectionHeading title="The options" intro="Short, neutral descriptions based on our published comparisons." />
+        <SectionHeading title="The options" />
         <AlternativesList items={[AMMP, POWER_FACTORS, ALSOENERGY, QOS, BAZEFIELD, UNIVERS, VENDOR_PORTALS]} />
         <Link to="/compare/best-commercial-solar-monitoring-platforms" className="mt-8 inline-flex items-center gap-1 text-sm font-medium hover:underline">Platforms for commercial and industrial portfolios <ArrowRight className="size-4" /></Link>
       </Band>

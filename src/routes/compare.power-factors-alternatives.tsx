@@ -40,7 +40,7 @@ function Page() {
         <FeatureGrid columns={3} features={SELECTION_CRITERIA} />
       </Band>
       <Band tone="grey">
-        <SectionHeading title="The options" intro="Short, neutral descriptions based on our published comparisons." />
+        <SectionHeading title="The options" />
         <AlternativesList items={[AMMP, METEOCONTROL, ALSOENERGY, QOS, BAZEFIELD, UNIVERS]} />
       </Band>
       <PageCta />
