@@ -43,6 +43,8 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
 import { Route as CompareBestCommercialSolarMonitoringPlatformsRouteImport } from './routes/compare.best-commercial-solar-monitoring-platforms'
+import { Route as CompareBestEpcSolarMonitoringSoftwareRouteImport } from './routes/compare.best-epc-solar-monitoring-software'
+import { Route as CompareBestSolarOmPlatformsRouteImport } from './routes/compare.best-solar-om-platforms'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
 import { Route as CompareDataFirstVsUiFirstRouteImport } from './routes/compare.data-first-vs-ui-first'
 import { Route as CompareFroniusRouteImport } from './routes/compare.fronius'
@@ -250,6 +252,18 @@ const CompareBestCommercialSolarMonitoringPlatformsRoute =
   CompareBestCommercialSolarMonitoringPlatformsRouteImport.update({
     id: '/compare/best-commercial-solar-monitoring-platforms',
     path: '/compare/best-commercial-solar-monitoring-platforms',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareBestEpcSolarMonitoringSoftwareRoute =
+  CompareBestEpcSolarMonitoringSoftwareRouteImport.update({
+    id: '/compare/best-epc-solar-monitoring-software',
+    path: '/compare/best-epc-solar-monitoring-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareBestSolarOmPlatformsRoute =
+  CompareBestSolarOmPlatformsRouteImport.update({
+    id: '/compare/best-solar-om-platforms',
+    path: '/compare/best-solar-om-platforms',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CompareCloudVsOnPremiseRoute = CompareCloudVsOnPremiseRouteImport.update({
@@ -486,6 +500,8 @@ export interface FileRoutesByFullPath {
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
+  '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -559,6 +575,8 @@ export interface FileRoutesByTo {
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
+  '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -633,6 +651,8 @@ export interface FileRoutesById {
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
+  '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
   '/compare/fronius': typeof CompareFroniusRoute
@@ -708,6 +728,8 @@ export interface FileRouteTypes {
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/best-commercial-solar-monitoring-platforms'
+    | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -781,6 +803,8 @@ export interface FileRouteTypes {
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/best-commercial-solar-monitoring-platforms'
+    | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -854,6 +878,8 @@ export interface FileRouteTypes {
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
     | '/compare/best-commercial-solar-monitoring-platforms'
+    | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
     | '/compare/fronius'
@@ -928,6 +954,8 @@ export interface RootRouteChildren {
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
   CompareBestCommercialSolarMonitoringPlatformsRoute: typeof CompareBestCommercialSolarMonitoringPlatformsRoute
+  CompareBestEpcSolarMonitoringSoftwareRoute: typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  CompareBestSolarOmPlatformsRoute: typeof CompareBestSolarOmPlatformsRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
   CompareDataFirstVsUiFirstRoute: typeof CompareDataFirstVsUiFirstRoute
   CompareFroniusRoute: typeof CompareFroniusRoute
@@ -1206,6 +1234,20 @@ declare module '@tanstack/react-router' {
       path: '/compare/best-commercial-solar-monitoring-platforms'
       fullPath: '/compare/best-commercial-solar-monitoring-platforms'
       preLoaderRoute: typeof CompareBestCommercialSolarMonitoringPlatformsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/best-epc-solar-monitoring-software': {
+      id: '/compare/best-epc-solar-monitoring-software'
+      path: '/compare/best-epc-solar-monitoring-software'
+      fullPath: '/compare/best-epc-solar-monitoring-software'
+      preLoaderRoute: typeof CompareBestEpcSolarMonitoringSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/best-solar-om-platforms': {
+      id: '/compare/best-solar-om-platforms'
+      path: '/compare/best-solar-om-platforms'
+      fullPath: '/compare/best-solar-om-platforms'
+      preLoaderRoute: typeof CompareBestSolarOmPlatformsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/cloud-vs-on-premise': {
@@ -1505,6 +1547,9 @@ const rootRouteChildren: RootRouteChildren = {
   CompareBazefieldRoute: CompareBazefieldRoute,
   CompareBestCommercialSolarMonitoringPlatformsRoute:
     CompareBestCommercialSolarMonitoringPlatformsRoute,
+  CompareBestEpcSolarMonitoringSoftwareRoute:
+    CompareBestEpcSolarMonitoringSoftwareRoute,
+  CompareBestSolarOmPlatformsRoute: CompareBestSolarOmPlatformsRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
   CompareDataFirstVsUiFirstRoute: CompareDataFirstVsUiFirstRoute,
   CompareFroniusRoute: CompareFroniusRoute,
