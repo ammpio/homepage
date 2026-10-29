@@ -21,3 +21,4 @@
 - [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to main, agent rules in AGENTS.md).
 - [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
 - [x] Publish load-shedding post now; add /use-cases/epcs (en/es/pt)
+- [x] O&M and EPC comparison pages, O&M/client reporting blog section, investor-report checklist (en/es/pt)

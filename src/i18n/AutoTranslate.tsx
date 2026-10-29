@@ -4,6 +4,7 @@ import { runtimeTranslations } from "./runtime-translations";
 import { docsTranslations } from "./docs-translations";
 import { loadSheddingTranslations } from "./loadshedding-translations";
 import { epcTranslations } from "./epc-translations";
+import { compareOmEpcTranslations } from "./compare-om-epc-translations";
 import { productRuntimeTranslations } from "./product-runtime-translations";
 
 const blocked = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "OPTION"]);
@@ -17,7 +18,7 @@ function translated(value: string, language: "en" | "es" | "pt") {
   const ending = value.match(/\s*$/)?.[0] ?? "";
   const content = value.trim();
   if (!content) return value;
-  return `${whitespace}${docsTranslations[language][content] ?? epcTranslations[language][content] ?? loadSheddingTranslations[language][content] ?? productRuntimeTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
+  return `${whitespace}${docsTranslations[language][content] ?? epcTranslations[language][content] ?? compareOmEpcTranslations[language][content] ?? loadSheddingTranslations[language][content] ?? productRuntimeTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
 }
 
 function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {
