@@ -108,6 +108,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [{
       type: "text/javascript",
+      children: `(function(w,d){ w._obert=w._obert||{}; if(w._obert.loaded)return; w._obert.loaded=1; w._obert.siteKey='ob_sGD83LF6mmcjqy1iL8jCkc-XeOswuzVW'; var s=d.createElement('script'); s.async=1; s.src='https://tracker.obert.io/tracker/v1/obert.js'; d.head.appendChild(s); })(window,document);`,
+    }, {
+      type: "text/javascript",
       src: "https://visitors.lemlist.com/api/visitors/tracking?k=%2BV8CgWU%2F4LjNyTt2rO6n14I%2BaxSz5l4oZ%2FZFZBIz8sA%3D&t=tea_Y2ogsEes9G3XyBaDk",
     }, {
       type: "application/ld+json",
