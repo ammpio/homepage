@@ -8,7 +8,7 @@ export const Route = createFileRoute("/mcp")({
   staticData: { sitemap: true },
   head: () => ({ scripts: [{ type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(MCP_FAQ)) }], meta: [
     { title: "AMMP MCP server — your portfolio, for any AI assistant" },
-    { name: "description", content: "The AMMP MCP server gives Claude, Copilot or your own agent secure, permission-aware access to live renewable portfolio data." },
+    { name: "description", content: "The AMMP MCP server gives Claude, ChatGPT, Copilot or your own agent secure, permission-aware access to live renewable portfolio data." },
     { property: "og:title", content: "AMMP MCP server — your portfolio, for any AI assistant" },
     { property: "og:description", content: "Connect any MCP-compatible assistant to your assets, KPIs, alerts and time-series in AMMP." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -40,11 +40,11 @@ function McpPage() {
       <PageHero
         title="The MCP server:"
         highlight="your portfolio, for any assistant."
-        intro="The same foundation Ray runs on, available to Claude, Copilot or an agent you build yourself, under your existing AMMP permissions. Generally available as an add-on to either module, AMMP AI or AMMP OS Platform."
+        intro="The same foundation Ray runs on, available to Claude, ChatGPT, Copilot or an agent you build yourself, under your existing AMMP permissions. Generally available as an add-on to either module, AMMP AI or AMMP OS Platform."
         primary={{ label: "Book a walkthrough", to: "/contact" }}
       />
       <Band tone="grey">
-        <SectionHeading title="The same foundation, open to your own assistant" intro="Ray runs on the AMMP MCP server, which speaks the open Model Context Protocol. Claude, Cursor, Copilot or an agent you build yourself can query your live portfolio the same way: the model decides which tools to call, runs the queries and answers in natural language." />
+        <SectionHeading title="The same foundation, open to your own assistant" intro="Ray runs on the AMMP MCP server, which speaks the open Model Context Protocol. Claude, ChatGPT, Cursor, Copilot or an agent you build yourself can query your live portfolio the same way: the model decides which tools to call, runs the queries and answers in natural language." />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {mcpItems.map(({ icon: Icon, title, text }) => (
             <div key={title} className="glass-soft rounded-2xl p-5"><Icon className="size-5 text-primary" /><h4 className="mt-4 font-semibold">{title}</h4><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>
@@ -71,7 +71,7 @@ function McpPage() {
             <div className="glass-soft mt-4 rounded-2xl p-5 text-center font-medium">Your energy portfolio</div>
           </div>
           <div className="grid gap-4 content-start">
-            <DiagramCard title="Your AI assistant" subtitle="Claude, Codex, Copilot" items={["Native chat interface", "Direct portfolio access", "Full MCP tool support"]} />
+            <DiagramCard title="Your AI assistant" subtitle="Claude, ChatGPT, Codex, Copilot" items={["Native chat interface", "Direct portfolio access", "Full MCP tool support"]} />
             <DiagramCard dashed title="Other software tools" subtitle="Optional integration" items={["CRM, CMMS, ERP systems", "Connect via the MCP server", "Or via your AI assistant"]} />
           </div>
         </div>

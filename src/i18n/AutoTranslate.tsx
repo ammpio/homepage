@@ -3,6 +3,7 @@ import { useLanguage } from "./LanguageContext";
 import { runtimeTranslations } from "./runtime-translations";
 import { docsTranslations } from "./docs-translations";
 import { loadSheddingTranslations } from "./loadshedding-translations";
+import { blogBatch4Translations } from "./blog-batch4-translations";
 import { epcTranslations } from "./epc-translations";
 import { compareOmEpcTranslations } from "./compare-om-epc-translations";
 import { productRuntimeTranslations } from "./product-runtime-translations";
@@ -18,7 +19,7 @@ function translated(value: string, language: "en" | "es" | "pt") {
   const ending = value.match(/\s*$/)?.[0] ?? "";
   const content = value.trim();
   if (!content) return value;
-  return `${whitespace}${docsTranslations[language][content] ?? epcTranslations[language][content] ?? compareOmEpcTranslations[language][content] ?? loadSheddingTranslations[language][content] ?? productRuntimeTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
+  return `${whitespace}${docsTranslations[language][content] ?? epcTranslations[language][content] ?? compareOmEpcTranslations[language][content] ?? loadSheddingTranslations[language][content] ?? blogBatch4Translations[language][content] ?? productRuntimeTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
 }
 
 function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {

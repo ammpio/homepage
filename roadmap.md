@@ -22,3 +22,5 @@
 - [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
 - [x] Publish load-shedding post now; add /use-cases/epcs (en/es/pt)
 - [x] O&M and EPC comparison pages, O&M/client reporting blog section, investor-report checklist (en/es/pt)
+- [x] Four Insights posts (underperformance, PR, inverter faults, AI assistants) live 2 Nov 2026, en/es/pt; ChatGPT added to MCP assistant lists
+- [ ] Branch notes and docs check say `main` is production; user says production builds from `dev` — waiting on user to confirm which to keep

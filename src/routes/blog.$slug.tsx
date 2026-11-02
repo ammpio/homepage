@@ -5,6 +5,7 @@ import { PageCta } from "@/components/site/SiteShell";
 import { HeroVideo } from "@/components/site/RaySections";
 import { publishedPosts, getBlogPost, type BlogBlock, type RichPart } from "@/data/blog-posts";
 import { postAuthor, POST_UPDATED, formatDate } from "@/data/authors";
+import { faqPageJsonLd } from "@/data/faq";
 import rayAvatar from "@/assets/ray-avatar.webp";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
@@ -53,7 +54,7 @@ export const Route = createFileRoute("/blog/$slug")({
               mainEntityOfPage: url,
               ...(image ? { image } : {}),
             }),
-          }]
+          }, ...(post.faq?.length ? [{ type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(post.faq)) }] : [])]
         : [],
     };
   },
@@ -171,6 +172,17 @@ function ArticlePage() {
             );
             return <p key={i}>{block.text}</p>;
           })}
+          {post.faq?.length ? (
+            <>
+              <h2>Frequently asked questions</h2>
+              {post.faq.map((f) => (
+                <div key={f.q}>
+                  <h3>{f.q}</h3>
+                  <p>{f.a}</p>
+                </div>
+              ))}
+            </>
+          ) : null}
         </Prose>
       </Band>
 

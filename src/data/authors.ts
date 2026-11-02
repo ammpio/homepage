@@ -26,6 +26,10 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "track-solar-ppa-performance-guarantees": "andreas",
   "solar-investor-reporting-tools-compared": "andreas",
   "monitor-solar-battery-backup-load-shedding-south-africa": "andreas",
+  "why-is-my-solar-portfolio-underperforming": "andreas",
+  "calculate-performance-ratio-solar-portfolio": "andreas",
+  "detect-inverter-faults-early-reduce-truck-rolls": "andreas",
+  "can-claude-chatgpt-analyse-solar-monitoring-data": "andreas",
 };
 
 /** Named author, or undefined when the post is credited to AMMP as the organisation. */

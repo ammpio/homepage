@@ -2,6 +2,8 @@ import { multiBrandGuideBody } from "./blog-guide-multibrand";
 import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled";
 import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
+import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
+import type { FaqItem } from "./faq";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
 export type ChatLine = { from: "ray" | "user"; name: string; text: string; sources?: string[] };
@@ -37,7 +39,9 @@ export type BlogPost = {
   /** Exact go-live moment (ISO UTC). Before it the post is hidden everywhere and its URL 404s. */
   publishAt?: string;
   cover?: { src: string; alt: string };
-  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites"; title: string; text: string }[];
+  /** Shown at the end of the post and emitted as FAQPage JSON-LD. */
+  faq?: FaqItem[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites" | "/solutions/solar-monitoring"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
@@ -94,6 +98,70 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "why-is-my-solar-portfolio-underperforming",
+    title: "Why is my solar portfolio underperforming? A diagnostic checklist for asset managers",
+    excerpt: 'A step-by-step way to find where the missing energy went, starting with the causes that most often explain the gap.',
+    category: "Insights",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T00:00:00Z",
+    readTime: computeReadTime(underperfBody),
+    body: underperfBody,
+    faq: underperfFaq,
+    cover: covers4.underperf,
+    related: [
+      { to: "/solutions/solar-monitoring", title: "Solar monitoring", text: "Multi-brand monitoring with loss analysis across your portfolio." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "calculate-performance-ratio-solar-portfolio",
+    title: "How to calculate performance ratio across a solar portfolio",
+    excerpt: 'Performance ratio per IEC 61724, the irradiance question, and why the portfolio number must be energy-weighted.',
+    category: "Insights",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T00:00:00Z",
+    readTime: computeReadTime(prBody),
+    body: prBody,
+    faq: prFaq,
+    cover: covers4.pr,
+    related: [
+      { to: "/solutions/solar-monitoring", title: "Solar monitoring", text: "Multi-brand monitoring with loss analysis across your portfolio." },
+      { to: "/integrations", title: "Integrations", text: "30+ integrations by cloud API or the AMMP Edge datalogger." },
+    ],
+  },
+  {
+    slug: "detect-inverter-faults-early-reduce-truck-rolls",
+    title: "How to detect inverter faults early across many sites (and cut truck rolls)",
+    excerpt: 'Early signals, grouping repeat alarms and checking remotely first, so technicians only drive out when they need to.',
+    category: "Insights",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T00:00:00Z",
+    readTime: computeReadTime(inverterBody),
+    body: inverterBody,
+    faq: inverterFaq,
+    cover: covers4.inverter,
+    related: [
+      { to: "/solutions/om-sla-tracking", title: "O&M SLA tracking", text: "Availability and response times tracked against contract terms." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "can-claude-chatgpt-analyse-solar-monitoring-data",
+    title: "Can Claude or ChatGPT analyse your solar monitoring data? What works and what doesn't",
+    excerpt: 'General AI assistants handle one-off questions on a clean export well. At portfolio scale they need normalised, permissioned live data.',
+    category: "Insights",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T00:00:00Z",
+    readTime: computeReadTime(aiBody),
+    body: aiBody,
+    faq: aiFaq,
+    cover: covers4.ai,
+    related: [
+      { to: "/mcp", title: "AMMP MCP server", text: "Connect your own AI assistant to live, permissioned portfolio data." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
   {
     slug: "monitor-solar-battery-backup-load-shedding-south-africa",
     title: "How to monitor solar and battery backup sites through load-shedding: a guide for South African C&I operators",
