@@ -42,3 +42,30 @@ describe("EPC use-case page", () => {
     expect(llmsTxt()).toContain("https://www.ammp.io/use-cases/epcs");
   });
 });
+
+import { postAuthor } from "@/data/authors";
+import { blogBatch4Translations } from "@/i18n/blog-batch4-translations";
+describe("November 2026 Insights posts", () => {
+  const slugs = ["why-is-my-solar-portfolio-underperforming", "calculate-performance-ratio-solar-portfolio", "detect-inverter-faults-early-reduce-truck-rolls", "can-claude-chatgpt-analyse-solar-monitoring-data"];
+  const now = new Date("2026-11-02T12:00:00Z");
+  it("are live on 2 Nov 2026, by Andreas Lehner, with an FAQ and in llms.txt", () => {
+    const section = blogLlmsSection(now);
+    for (const s of slugs) {
+      const post = getBlogPost(s, now);
+      expect(post?.date).toBe("2026-11-02");
+      expect(post?.faq?.length).toBeGreaterThan(0);
+      expect(postAuthor(s)?.name).toBe("Andreas Lehner");
+      expect(section).toContain(`/blog/${s}`);
+    }
+  });
+  it("have Spanish and Portuguese titles", () => {
+    for (const s of slugs) {
+      const title = getBlogPost(s, now)!.title;
+      expect(blogBatch4Translations.es[title]).toBeTruthy();
+      expect(blogBatch4Translations.pt[title]).toBeTruthy();
+    }
+  });
+  it("say Ray groups repeat alarms in the inverter post", () => {
+    expect(JSON.stringify(getBlogPost(slugs[2], now)!.body)).toContain("groups repeat alarms into one fix list");
+  });
+});
