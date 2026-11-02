@@ -79,7 +79,7 @@ Customers can buy either module or both.
 ## Add-ons
 Available with either module.
 
-- **MCP server** (generally available): gives any AI assistant (Claude, Copilot or your own agent) structured portfolio context from AMMP OS.
+- **MCP server** (generally available): gives any AI assistant (Claude, ChatGPT, Copilot or your own agent) structured portfolio context from AMMP OS.
 - **Data API**: programmatic access to your portfolio data.
 
 ## Who it's for
