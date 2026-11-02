@@ -190,8 +190,8 @@ export const aiBody: BlogBlock[] = [
   { type: "paragraph", text: "Give the assistant normalised, permissioned live data instead of files. There are two ways:" },
   { type: "rich", parts: [
     { b: "1. Connect your own AI assistant through an MCP server." },
-    " The ",
-    { a: "AMMP MCP server", href: "/mcp" },
+    " ",
+    { a: "The AMMP MCP server", href: "/mcp" },
     " uses the open Model Context Protocol. Claude, ChatGPT, Copilot or an agent you build yourself (and other MCP clients that support remote servers) can query live portfolio data in one consistent format, with the same KPI calculations. Permissions follow the user's AMMP access, so nobody sees more than they already can.",
   ] },
   { type: "rich", parts: [
