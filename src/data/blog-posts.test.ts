@@ -66,6 +66,6 @@ describe("November 2026 Insights posts", () => {
     }
   });
   it("say Ray groups repeat alarms in the inverter post", () => {
-    expect(JSON.stringify(getBlogPost(slugs[2], now)!.body)).toContain("groups repeat alarms into one fix list");
+    expect(JSON.stringify(getBlogPost(slugs[2]!, now)!.body)).toContain("groups repeat alarms into one fix list");
   });
 });
