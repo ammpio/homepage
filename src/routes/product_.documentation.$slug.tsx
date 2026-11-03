@@ -4,6 +4,9 @@ import { DocsSidebar, DocsToc, formatDocDate } from "@/components/docs/Docs";
 import { loadDocPage } from "@/lib/docs-data";
 import { pageHead } from "@/lib/page-head";
 import { SITE } from "@/data/ammp-facts";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translateHtml } from "@/i18n/translate";
+import { localizePath } from "@/i18n/locale";
 
 export const Route = createFileRoute("/product_/documentation/$slug")({
   staticData: { sitemap: true },
@@ -36,6 +39,9 @@ export const Route = createFileRoute("/product_/documentation/$slug")({
 
 function DocPage() {
   const { doc, html, headings, nav } = Route.useLoaderData();
+  const { language } = useLanguage();
+  // Prose is rendered markdown; translate its text (not code) and keep internal links in this language.
+  const localizedHtml = translateHtml(language, html, (path) => localizePath(path, language));
   return (
     <section className="luminous-band py-10 md:py-14">
       <div className="site-container grid gap-10 lg:grid-cols-[15rem_minmax(0,1fr)_13rem]">
@@ -58,7 +64,7 @@ function DocPage() {
             {" · "}
             <a href={`/product/documentation/${doc.slug}.md`} className="underline-offset-4 hover:underline">View as markdown</a>
           </p>
-          <div className="docs-prose mt-8" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="docs-prose mt-8" dangerouslySetInnerHTML={{ __html: localizedHtml }} />
         </article>
         <aside className="hidden lg:sticky lg:top-24 lg:block lg:self-start">
           <DocsToc headings={headings} />

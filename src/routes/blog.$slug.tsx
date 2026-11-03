@@ -6,6 +6,7 @@ import { HeroVideo } from "@/components/site/RaySections";
 import { publishedPosts, getBlogPost, type BlogBlock, type RichPart } from "@/data/blog-posts";
 import { postAuthor, POST_UPDATED, formatDate } from "@/data/authors";
 import { faqPageJsonLd } from "@/data/faq";
+import { isLocalizedBlogSlug } from "@/i18n/available";
 import rayAvatar from "@/assets/ray-avatar.webp";
 import rayPoster from "@/assets/ray-video-poster.jpg";
 
@@ -14,8 +15,10 @@ const SITE = "https://www.ammp.io";
 export const Route = createFileRoute("/blog/$slug")({
   staticData: { sitemap: true },
   // Checked per request: scheduled posts return a real 404 until their publishAt moment.
-  loader: ({ params }) => {
+  loader: ({ params, context }) => {
     if (!getBlogPost(params.slug)) throw notFound();
+    // No Spanish/Portuguese URL for posts that have no translation.
+    if (context.i18n.locale !== "en" && !isLocalizedBlogSlug(params.slug)) throw notFound();
     return null;
   },
   notFoundComponent: ArticleNotFound,
