@@ -68,11 +68,10 @@ export function LanguageSelector({ variant = "ghost" }: { variant?: "ghost" | "o
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button type="button" data-no-translate className={`button ${variant === "outline" ? "button-ghost" : "glass-soft"} h-10 gap-1.5 px-3`} aria-label="Select language">
-          <Globe className="h-4 w-4" />
-          {current && <current.Flag className="h-3.5 w-5 rounded-sm overflow-hidden" />}
-        </button>
+      {/* No asChild: the translating JSX runtime wraps host elements, which breaks Radix's Slot ref/handlers. */}
+      <DropdownMenuTrigger className={`button ${variant === "outline" ? "button-ghost" : "glass-soft"} h-10 gap-1.5 px-3`} aria-label="Select language">
+        <Globe className="h-4 w-4" />
+        {current && <current.Flag className="h-3.5 w-5 rounded-sm overflow-hidden" />}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" data-no-translate>
         {languages.map((lang) => (
