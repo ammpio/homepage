@@ -1,203 +1,131 @@
-# Four new Insights posts (AI-visibility batch)
+# Localized, crawlable URLs for Spanish and Portuguese
 
-## What gets built (after you approve the drafts)
+## Findings: how translation works today
 
-Four posts, live straight away with today's date, in English, Spanish and Portuguese. Each has an author byline (Andreas Lehner, CCO), Article schema, a short FAQ with FAQPage schema, a new cover image in the same style as the existing Insights covers, and entries in the sitemap, llms.txt and llms-full.txt. The next deploy to `main` sends the new links to IndexNow automatically.
+- **Client-side only.** The language lives in browser storage (`ammp-lang`). There is no URL prefix, query parameter or cookie.
+- **The server always renders English.** `<html lang="en">`, English title, description, Open Graph tags, JSON-LD and canonical. After the page loads in the browser, the stored language (or the browser language, on a first visit) is applied.
+- **Two translation mechanisms:**
+  1. A `t(key)` dictionary (about 6,400 lines in `src/i18n/translations/*`) used by components.
+  2. An "auto-translate" pass (about 6,300 lines) that runs after load and swaps visible English text, word for word, for Spanish or Portuguese. Most blog posts, docs, newer compare pages and the EPC page are translated this way.
+- **What a crawler gets** (no JavaScript, no cookies): English for every page, whatever language it asks for. Crawlers that run JavaScript but have no stored choice also get English, unless the browser language they report is es or pt. In that case the text changes but the head tags stay English. No es/pt URL exists, so nothing can be indexed separately. The sitemap and llms files are English only, which confirms what you saw.
+- **Auto-detection by browser language exists today** (first visit only, stored). Under the new setup this goes away (see below).
 
-| # | URL | Cover |
-|---|---|---|
-| 1 | /blog/why-is-my-solar-portfolio-underperforming | loss-waterfall style |
-| 2 | /blog/calculate-performance-ratio-solar-portfolio | irradiance and PR |
-| 3 | /blog/detect-inverter-faults-early-reduce-truck-rolls | inverter row and alerts |
-| 4 | /blog/can-claude-chatgpt-analyse-solar-monitoring-data | AI assistant and data |
+## Recommendation: `/pt/` rather than `/pt-br/`
+
+Use **`/pt/…`** in the URL and `hreflang="pt-BR"` / `lang="pt-BR"` in the markup. The URL is shorter and matches the existing internal code `pt`. If a European Portuguese version comes later it can be `/pt-pt/` without moving anything. Search engines read the region from hreflang, not from the path. If you'd rather the URL shows the region explicitly, `/pt-br/` is a one-line change before launch, but not after.
+
+## URL patterns
+
+Every translated page gets three URLs:
+
+```text
+English (x-default)        Spanish                   Portuguese (Brazil)
+/                          /es                       /pt
+/product                   /es/product               /pt/product
+/ray, /ai, /mcp            /es/ray …                 /pt/ray …
+/pricing /about /contact   /es/pricing …             /pt/pricing …
+/demo /faq /security       /es/demo …                /pt/demo …
+/integrations /careers     /es/integrations …        /pt/integrations …
+/customization /switch     /es/switch …              /pt/switch …
+/case-studies              /es/case-studies          /pt/case-studies
+/solutions/*  (4 pages)    /es/solutions/*           /pt/solutions/*
+/use-cases/*  (4 pages)    /es/use-cases/*           /pt/use-cases/*
+/compare/*    (27 pages)   /es/compare/*             /pt/compare/*
+/us /brazil /south-africa  /es/…                     /pt/…   (only if translated)
+/blog                      /es/blog                  /pt/blog
+/blog/$slug                /es/blog/$slug            /pt/blog/$slug   (only fully translated posts)
+/product/documentation     /es/product/documentation /pt/product/documentation
+/product/documentation/$slug  /es/…/$slug            /pt/…/$slug
+/privacy /terms            /es/…  /pt/…  only if a full translation exists
+/llms.txt                  /es/llms.txt              /pt/llms.txt
+```
+
+Slugs stay English in every language (`/es/compare/sungrow`, not `/es/comparar/...`). This keeps the change mechanical, every old link still maps 1:1, and you can localize slugs later if you want.
+
+**Not localized:** `/beta`, `/trial`, `/stratopi-image`, `/unipi-image`, `/support` (redirects), raw `.md`/`.json` docs endpoints (stay English), `/api/*`, `/sitemap.xml`, `/llms-full.txt`.
+
+## What each localized page contains (server HTML)
+
+- `<html lang="es">` / `lang="pt-BR"` (English pages become `lang="en"`).
+- Full translated body text, title, meta description, og:title/og:description, `og:locale` (+ `og:locale:alternate`), and JSON-LD (FAQPage, Article, WebPage, SoftwareApplication) in that language.
+- Self-referencing canonical (`https://www.ammp.io/es/pricing` → itself) and matching `og:url`.
+- hreflang alternates: `en`, `es`, `pt-BR`, `x-default` → English. These are only emitted for languages where the page really exists (for example, a blog post with no Spanish version has no `es` alternate).
+- Internal links on a localized page point to the same language.
+
+## Language switcher and visitor choice
+
+- The EN / ES / PT-BR switcher becomes links to the equivalent URL of the current page. If that page has no translation, it links to the localized home page and shows a short note.
+- The choice is the URL. Links inside the site keep the prefix, so the visitor stays in their language while navigating. The stored preference is kept only for the banner below.
+- **No auto-redirect.** Today's browser-language auto-switch is removed. Instead, an English page shows a small dismissible banner ("Esta página está disponible en español") when the browser language or stored choice is es/pt and a translation exists. Visitors who had picked es/pt before land on English URLs and see the banner, not a silent switch. The banner uses existing styles; no new animation.
+
+## Blog posts and case studies
+
+- A post gets `/es/blog/$slug` / `/pt/blog/$slug` only when it has a full translation. A new test checks that every paragraph, heading and FAQ of the post has an es/pt entry, so a partially translated post can't produce a mixed-language page.
+- Posts without a translation: no localized URL (404), not listed on `/es/blog`, not in the sitemap and no hreflang for that language. No English content under `/es/` or `/pt/`.
+- Case studies follow the same rule. They are currently one page (`/case-studies`), so they are localized as one page.
+- Scheduled posts keep the existing publish-time check in every language.
+
+## Sitemap
+
+Keep one `/sitemap.xml` (about 230 URLs after the change, far below limits). Each URL has `xhtml:link` alternates for every language it exists in, plus x-default. This is simpler than a sitemap index and is what Google documents first. Language versions are built from the same "is this page translated?" check the pages use, so the sitemap can never list a page that 404s.
+
+## llms.txt: recommendation
+
+**Separate files: `/es/llms.txt` and `/pt/llms.txt`**, each in its own language and listing the localized key pages. The English `/llms.txt` gets one short "Other languages" section linking to them. Reasons: each file stays clean and single-language for the model reading it, and the English file doesn't grow 3×. `/llms-full.txt` stays English. Product facts come from the same source as today, so the three files can't drift.
+
+## IndexNow
+
+The production-deploy webhook from `main` already submits sitemap URLs. Because it reads the sitemap, all new `/es/` and `/pt/` URLs are submitted on the next production deploy with no extra setup. Netlify's "Deploy succeeded" webhook still needs to be confirmed on your side, as noted before.
+
+## Redirects and old URLs
+
+- Every existing URL keeps working and stays English. Nothing is renamed.
+- `public/_redirects` rules are unchanged. `/es` and `/pt` don't clash with any existing rule (checked).
+- Requests like `/es/beta` or `/pt/blog/untranslated-post` return a proper 404, not a redirect to English.
+
+## Tests to add
+
+1. For a sample of pages (home, pricing, one solution, one compare, one use case, blog index, one translated post, one docs page): `/es/…` and `/pt/…` return 200 with Spanish/Portuguese text, title and description in the server HTML (no JavaScript).
+2. `lang` attribute is `es` / `pt-BR` / `en`.
+3. Canonical is self-referencing for each language. hreflang lists en, es, pt-BR and x-default with correct absolute URLs, and leaves out languages that don't exist.
+4. Every localized URL is in sitemap.xml with alternates, and every sitemap URL returns 200.
+5. An untranslated blog post has no `/es/` or `/pt/` URL and isn't in the sitemap for those languages.
+6. Internal links on an `/es/` page point to `/es/…` (except intentional English-only targets such as raw docs).
+7. The translation completeness check from the blog section.
+
+## Risks
+
+- **Size of the job.** Around 60 pages and their head metadata are hardcoded in English today, and roughly half the Spanish/Portuguese text is applied by the after-load text swap. Both have to run on the server now. I'd do it in two steps inside one build: (a) the language prefix, head, hreflang, sitemap and switcher; (b) move the after-load text swap to server rendering, using the same dictionaries, so existing translations are reused rather than rewritten.
+- **Gaps become visible.** Untranslated strings currently fall back silently to English. On a crawlable `/es/` page, mixed text is an SEO and quality problem. The build includes a report of missing strings per page. Pages with gaps are either filled using existing wording or kept out of the localized set until translated (your call per page; see question 2).
+- **Page head translations.** Most titles, meta descriptions and FAQ/JSON-LD text have no es/pt version today. They will need new translations (about 60 pages × 2 languages). These are new text, not existing site copy, so you'll want to review them.
+- **Legal pages.** Machine-quality translations of privacy/terms are risky; they stay English-only unless you provide translations.
+- **Duplicate-content risk is low**: canonicals and hreflang are reciprocal, and English stays x-default.
+- **Analytics and trackers** (Obert, Lemlist) see new paths. Reports grouped by path will split by language.
+- **Lovable-hosted preview** (`ai-cozy-nest.lovable.app`) keeps serving older builds through the server-function proxy. That doesn't affect these pages, because localized pages render directly on Netlify.
+
+## Order of steps
+
+1. Shared language-from-URL helper, and English, Spanish and Portuguese route trees reusing the same page components.
+2. Server-side language: `lang` attribute, dictionary and text translation applied during server render, removal of the browser-language auto-switch.
+3. Translated head/JSON-LD per page, plus self canonical, hreflang and `og:locale`.
+4. Language-aware internal links and switcher; suggestion banner.
+5. Blog/case-study/docs translation completeness gate.
+6. Sitemap alternates, `/es/llms.txt`, `/pt/llms.txt`, "Other languages" section.
+7. Tests, then a browser and no-JavaScript fetch check of sample pages in all three languages.
+8. AGENTS.md rule for localized routes; IndexNow picks up new URLs on the next `main` deploy.
 
 ## Open questions
 
-1. **ChatGPT.** The site names Claude, Claude Code, Cursor, Codex and Copilot, plus any MCP client that supports remote servers over Streamable HTTP with OAuth. It never names ChatGPT. In post 4 the drafts say "Claude, Copilot or your own agent, and other MCP clients that support remote servers", and mention ChatGPT only in the title and the general sections. Can we state that ChatGPT works with the AMMP MCP server?
-2. **Ray grouping repeat alarms.** The site doesn't say this (we left it out of the O&M compare page for the same reason). The site does say Ray "checks every site each morning, ranks issues by operational and commercial impact, opens tickets with the evidence". In post 3 the drafts cover grouping repeat alarms as a general practice, and the Ray paragraph uses only the stated claims. Can we add "groups repeat alarms"?
-3. **"What it typically costs" (post 1).** The site has no loss percentages per cause. So the drafts explain how to put a cost on each cause (lost kWh × tariff or PPA price) and give no industry figures. Is that OK, or do you have figures we can publish?
-4. **Remote resets (post 3).** The drafts present remote checks and resets as general practice. They don't say AMMP sends commands; the site says Ray doesn't control hardware. Is that OK?
+1. `/pt/` (recommended) or `/pt-br/`?
+2. Pages with untranslated strings: should I fill the gaps (new translations, flagged for your review) or leave those pages English-only until they're translated?
+3. New es/pt titles, meta descriptions and FAQ answers for about 60 pages: OK for me to write them from the existing translated body text, with a list for you to review?
+4. Privacy and terms: English-only (recommended)?
+5. Is the dismissible suggestion banner wanted, or should only the switcher be offered?
 
 ## Technical details
 
-- Bodies go in a new file `src/data/blog-scheduled-4.ts`, with the same block format as the earlier posts (heading, paragraph, list, rich, postLink). Each entry is registered in `blog-posts.ts` with `category: "Insights"`, `date`/`publishAt` set to today and covers in `covers`.
-- Authors and dates go in `src/data/authors.ts`. es/pt go in the existing blog translation files.
-- LivePostLink/postLink is used for links between posts. The sitemap and llms pick posts up through `publishedPosts`.
-- The tests in `blog-posts.test.ts` get extended: the 4 slugs are live, have an author and match es/pt block counts.
-
----
-
-# Drafts (English)
-
-## 1. Why is my solar portfolio underperforming? A diagnostic checklist for asset managers
-
-**Excerpt:** A step-by-step way to find where the missing energy went, starting with the causes that most often explain the gap.
-
-When a portfolio comes in below budget, the instinct is to blame the weather or the inverters. Often the answer is less dramatic: the data, or the budget itself. This checklist goes through the causes in the order that usually saves the most time. It uses the loss waterfall as the framework: start from the energy you expected and take away each loss in turn until you reach the energy you actually produced.
-
-### How to put a number on each loss
-For every cause below, estimate the lost energy in kWh and multiply it by the tariff or PPA price for that site. That turns a technical list into a ranked commercial one, and tells you where to spend time first.
-
-### 1. Data issues: missing or estimated data, wrong irradiance source
-- **Symptom:** a site looks bad (or suspiciously good) for a month, often after a comms outage or a datalogger change.
-- **How to confirm:** check data completeness per day, which values were estimated, and where irradiance came from (on-site sensor or satellite). A dirty or misaligned sensor makes a healthy plant look like it's underperforming.
-- **Cost:** none in energy, but it can lead you to wrong decisions and wrong reports. Fix this first, or every later step is guesswork.
-
-### 2. Grid and plant downtime
-- **Symptom:** zero output during daylight.
-- **How to confirm:** check grid voltage. If the grid was down, the plant couldn't export (grid downtime). If the grid was up and the plant produced nothing, it's plant downtime. With no voltage data, the cause is unclear.
-- **Cost:** the full expected output for those hours. These are usually the biggest single bars in the waterfall.
-
-### 3. Inverter downtime and underperformance
-- **Symptom:** plant output is positive but low. One or a few inverters are behind.
-- **How to confirm:** compare each inverter's output, relative to its share of DC capacity, against its neighbours on the same site.
-- **Cost:** the share of capacity that is affected, for as long as it lasts. Small per day, large if it goes unnoticed for months.
-
-### 4. Clipping
-- **Symptom:** output flattens at the inverter or plant AC limit around midday.
-- **How to confirm:** output stays within a couple of percent of AC capacity while irradiance keeps rising.
-- **Cost:** usually small and expected by design. It only matters when it's bigger than the simulation assumed.
-
-### 5. Curtailment
-- **Symptom:** the whole plant is low, and output doesn't follow irradiance.
-- **How to confirm:** check grid operator or customer export limits for the period, and whether the shape of the output stops following the sun.
-- **Cost:** depends on the contract. Some curtailment is compensated, so record it separately.
-
-### 6. Soiling
-- **Symptom:** the whole plant is low, but output still follows irradiance.
-- **How to confirm:** look for a gradual decline that recovers after rain or cleaning.
-- **Cost:** grows over time, so compare it with the cost of a cleaning visit.
-
-### 7. Degradation
-- **Symptom:** a slow decline from year to year that doesn't recover.
-- **How to confirm:** compare weather-corrected performance ratio for the same months over several years.
-- **Cost:** small each year, but it compounds. Check it against the module warranty.
-
-### 8. Wrong budget or baseline
-- **Symptom:** a site misses budget every month although nothing above explains it.
-- **How to confirm:** check the simulation behind the budget: capacity, orientation, shading, irradiance source and start date. Compare actual irradiance with the irradiance the budget assumed.
-- **Cost:** nothing physical, but it distorts every report and investor conversation until it's corrected.
-
-### Making it routine
-Run this monthly, not only when someone asks. A loss waterfall per site and per portfolio makes the order of causes visible at a glance. Then [rank the fixes by revenue risk](/blog/rank-solar-alarms-by-revenue-risk) so the team works on what matters most. AMMP OS classifies losses per timestamp into these categories in the PV Loss Analysis, as part of [solar monitoring](/solutions/solar-monitoring).
-
-**FAQ**
-- *What is a loss waterfall?* A chart that starts from expected energy and subtracts each loss category, such as downtime, inverter losses, clipping, curtailment and soiling, until it reaches actual production.
-- *Should I check data quality before equipment?* Yes. Missing, estimated or wrongly sourced irradiance data can make healthy sites look like they're underperforming.
-- *How do I tell soiling from curtailment?* With soiling, output still follows irradiance but stays below potential. With curtailment, it stops following irradiance.
-
-## 2. How to calculate performance ratio across a solar portfolio
-
-**Excerpt:** Performance ratio per IEC 61724, the irradiance question, and why the portfolio number must be energy-weighted.
-
-Performance ratio (PR) tells you how much of the energy the sun made available a plant actually turned into AC output. It's the most common health number in solar, and also one of the most often miscalculated once you have more than one site.
-
-### The formula
-Under IEC 61724-1, PR compares the AC energy produced with what the installed DC capacity would produce at the measured irradiance:
-
-`PR = E_AC / (P_DC × H_POA / 1,000 W/m²)`
-
-E_AC is AC energy, P_DC is installed DC capacity and H_POA is plane-of-array irradiation over the period. Intervals with very low irradiance are usually excluded.
-
-### Which irradiance to use
-- **Plane-of-array sensor on site:** the most precise option, as long as it's clean, correctly tilted and calibrated.
-- **Satellite irradiance:** a useful backup when there's no sensor or it's faulty, but less precise. Treat a PR based on satellite irradiance as indicative, and don't use it to judge small losses.
-
-Always record which source each PR figure used.
-
-### Temperature-corrected PR
-Modules produce less when they're hot, so a plain PR drops in summer even on a healthy plant. Weather-corrected PR adjusts for module temperature using the module's temperature coefficient, which makes plants comparable across seasons and climates.
-
-### Why vendor-portal PR numbers aren't comparable
-Each inverter portal may use a different irradiance source, a different low-irradiance cut-off, AC or DC capacity, and with or without temperature correction. Two sites at "85%" in two portals may not perform the same at all. For portfolio work, calculate PR yourself in one place, with one method, from the raw data. That is one of the [questions to ask before you buy multi-brand monitoring](/blog/multi-brand-solar-monitoring-checklist).
-
-### Aggregating to portfolio level
-Don't average site PRs. Sum the AC energy of all sites and divide it by the sum of their reference yields (capacity × irradiation / 1,000 W/m²). Then large sites count in proportion to their size.
-
-**Worked example (made-up round numbers, for illustration only):**
-- Site A: 1,000 kWp, 150 kWh/m² irradiation → reference 150,000 kWh. Produced 120,000 kWh → PR 80%.
-- Site B: 100 kWp, 150 kWh/m² → reference 15,000 kWh. Produced 13,500 kWh → PR 90%.
-- Simple average: (80% + 90%) / 2 = **85%**, which is misleading.
-- Energy-weighted: 133,500 / 165,000 = **80.9%**, the real portfolio figure.
-
-### Common mistakes
-- Mixing sensor and satellite irradiance without labelling them.
-- Using AC capacity instead of DC capacity.
-- Including night-time or very low-irradiance intervals.
-- Averaging site PRs instead of weighting them by energy.
-- Comparing summer PR with winter PR without temperature correction.
-- Calculating PR over periods with missing data as if they were complete.
-
-AMMP OS calculates both variants per IEC 61724-1. The method is documented in [KPI calculations](/product/documentation/kpi-calculations).
-
-**FAQ**
-- *What is a good performance ratio?* It depends on the technology, climate and method, so compare sites using the same method rather than against a single target.
-- *Should I use weather-corrected PR?* For comparing sites or seasons, yes. It removes the effect of module temperature.
-- *How do I calculate portfolio PR?* Divide the total AC energy by the total reference yield. Don't average site PRs.
-
-## 3. How to detect inverter faults early across many sites (and cut truck rolls)
-
-**Excerpt:** Early signals, grouping repeat alarms and checking remotely first, so technicians only drive out when they need to.
-
-On a large portfolio, inverter faults rarely announce themselves. One unit drops a few percent, another trips and restarts every afternoon, a third stops reporting. Each is small. Together, and over months, they add up to real lost revenue and many wasted site visits.
-
-### Early signals worth watching
-- **Against neighbouring inverters:** same site, same weather, same orientation. An inverter that falls behind its neighbours (relative to DC capacity) is the clearest early sign.
-- **Against expected yield:** compare output with what irradiance says the inverter should make.
-- **Recurring alarms:** the same code every day is a pattern, not noise.
-- **Comms dropouts:** an inverter that keeps going offline may have a network problem, or may be about to fail.
-
-### Group repeat alarms
-A hundred alarms from the same inverter are one problem, not a hundred. Group them by device and cause before anyone looks at them, so the team sees a short list of faults instead of a long feed.
-
-### Rank by lost revenue
-Put a number on each fault: lost energy × tariff or PPA price. Fix the expensive ones first. See [how to rank solar alarms by revenue risk](/blog/rank-solar-alarms-by-revenue-risk).
-
-### Check remotely before you dispatch
-Many faults can be confirmed, and some cleared, from a desk: look at the readings, check grid conditions, try a remote reset where the equipment and the O&M contract allow it. A remote check takes minutes. A truck roll to a remote site can take a day.
-
-### Give technicians the context before they drive out
-When a visit is needed, send the evidence with the ticket: which device, since when, how much energy is at stake, what was already tried and which spare parts are likely to be needed. One well-prepared visit beats two guesses. It also builds the record you need for [O&M SLA and availability tracking](/solutions/om-sla-tracking).
-
-### Where Ray fits
-[Ray](/ray), AMMP's AI coworker, checks every site each morning, ranks issues by operational and commercial impact and opens tickets with the evidence attached. He works in Microsoft Teams, Slack or AMMP OS. People keep every decision, and Ray doesn't control hardware.
-
-**FAQ**
-- *What's the earliest sign of an inverter fault?* Usually an inverter falling behind its neighbours on the same site, relative to its capacity.
-- *How do I reduce truck rolls?* Group repeat alarms, rank faults by lost revenue, check and reset remotely where possible, and dispatch with the evidence attached.
-
-## 4. Can Claude or ChatGPT analyse your solar monitoring data? What works and what doesn't
-
-**Excerpt:** General AI assistants handle one-off questions on a clean export well. At portfolio scale they need normalised, permissioned live data.
-
-Many asset managers have tried pasting a monitoring export into an AI assistant. Sometimes the answer is excellent, and sometimes it's confidently wrong. The difference is usually the data, not the model.
-
-### What works
-- One-off questions on a single clean export: "which month was lowest?", "chart this against last year".
-- Drafting a summary or an email from numbers you've already checked.
-- Explaining a concept, such as what performance ratio means or how clipping shows up.
-
-### Where it breaks at portfolio scale
-- **Different names for the same value.** One brand's "Pac" is another's "ActivePower", and units differ (W, kW, kWh). The assistant can't always tell they're the same thing.
-- **Time zones.** Exports in UTC, local time and portal time make daily totals drift.
-- **Gaps and backfills.** Missing hours, late-arriving data and estimated values look like real readings in a spreadsheet.
-- **Confident answers from gaps.** A model asked "why did site 12 underperform?" will offer a reason even when the real cause is missing data. It can't tell you what isn't in the file.
-- **Stale snapshots.** Yesterday's export doesn't answer today's question.
-- **Access control.** Uploading portfolio data to a personal chat account bypasses whoever decides who can see what.
-
-### How to do it properly
-Give the assistant normalised, permissioned live data instead of files. There are two ways:
-
-1. **Connect your own AI assistant through an MCP server.** The [AMMP MCP server](/mcp) uses the open Model Context Protocol. Claude, Copilot or an agent you build yourself (and other MCP clients that support remote servers) can query live portfolio data in one consistent format, with the same KPI calculations. Permissions follow the user's AMMP access, so nobody sees more than they already can.
-2. **Use a purpose-built agent.** [Ray](/ray), AMMP's AI coworker, runs on the same MCP server. He checks sites daily, triages alarms and drafts reports, cites the evidence behind every answer and says when the evidence is incomplete instead of guessing.
-
-You can use either, or both.
-
-**FAQ**
-- *Can I upload a monitoring export to ChatGPT or Claude?* For one-off questions on a clean export, yes. For portfolio work, normalised live data is more reliable.
-- *What is an MCP server?* A standard way for AI assistants to query a system's data and tools directly, instead of working from uploaded files.
-- *Does the AMMP MCP server respect permissions?* Yes. You sign in with your AMMP account, and your AMMP access controls what the assistant can see.
-
----
-
-es/pt versions will be translated from the approved English text. Ray is "he" throughout.
+- Routing: an optional `{-$locale}` prefix segment (TanStack optional path params) wrapping the existing routes, so one component tree serves `/`, `/es`, `/pt`. Only `es` and `pt` are valid values, so anything else is a 404. The alternative of duplicating route files is avoided.
+- `LanguageProvider` gets its initial language from the route param, so the server and the first client render match (keeps the existing hydration rule). `localStorage` is used only for the banner.
+- AutoTranslate dictionaries become a pure `translateText(lang, s)` used at render time through a `<T>` wrapper or a text-transform in the shared section components. The browser-side MutationObserver stays as a safety net for client-only content.
+- `pageHead()` takes `locale` and returns per-language meta, canonical, hreflang links and JSON-LD. The root `head()` stops setting canonical/og:url for localized paths and derives them from the locale-aware path.
+- `src/lib/sitemap.ts` emits `xhtml:link` alternates. A `localizedPaths()` helper is shared by the sitemap, hreflang, llms files and tests.
