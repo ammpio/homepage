@@ -1,7 +1,7 @@
 // Custom JSX runtime: renders translated text for the current URL language on the server and the client,
 // so Spanish/Portuguese pages carry translated HTML before JavaScript runs.
 // Every string child of a host element becomes <Tx>, which reads the language from context.
-import { createContext, createElement, useContext, type ReactNode } from "react";
+import { createContext, createElement, Fragment, useContext, type ReactNode } from "react";
 import { translateText } from "../translate";
 import { localizePath } from "../locale";
 import type { Language } from "../translations";
@@ -53,7 +53,14 @@ function NoTranslate({ children }: { children?: ReactNode }) {
 }
 
 export function transform(real: Real, type: unknown, props: Record<string, unknown>, key: unknown, rest: unknown[]): unknown {
-  if (typeof type !== "string" || !props) return real(type, props, key, ...rest);
+  if (!props) return real(type, props, key, ...rest);
+  if (typeof type !== "string") {
+    // Library components (router Link, Radix…) render their own host elements outside this runtime,
+    // so translate plain-text children on the way in. asChild components need their element child as is.
+    if (type === Fragment || props["asChild"] || !("children" in props)) return real(type, props, key, ...rest);
+    const wrapped = wrapChildren(props["children"]);
+    return real(type, wrapped === props["children"] ? props : { ...props, children: wrapped }, key, ...rest);
+  }
   // Wrapper elements have a single child, so they are never "static children" in dev mode.
   const wrapRest = rest.length ? [false, ...rest.slice(1)] : rest;
   if (BLOCKED.has(type) || props["data-no-translate"] !== undefined && props["data-no-translate"] !== false) {
