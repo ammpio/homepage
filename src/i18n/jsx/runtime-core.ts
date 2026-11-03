@@ -43,7 +43,7 @@ function LocalizedHost(props: Record<string, unknown>) {
   const { __type, __real, ...rest } = props as { __type: string; __real: Real } & Record<string, unknown>;
   if (lang !== "en") {
     if (!off) for (const a of ATTRS) if (typeof rest[a] === "string") rest[a] = translateText(lang, rest[a] as string);
-    if (__type === "a" && typeof rest["href"] === "string") rest["href"] = localizePath(rest["href"] as string, lang);
+    if (__type === "a" && typeof rest["href"] === "string" && rest["hrefLang"] === undefined) rest["href"] = localizePath(rest["href"] as string, lang);
   }
   return __real(__type, rest) as ReactNode;
 }

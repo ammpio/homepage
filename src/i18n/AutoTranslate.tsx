@@ -1,12 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLanguage } from "./LanguageContext";
-import { runtimeTranslations } from "./runtime-translations";
-import { docsTranslations } from "./docs-translations";
-import { loadSheddingTranslations } from "./loadshedding-translations";
-import { blogBatch4Translations } from "./blog-batch4-translations";
-import { epcTranslations } from "./epc-translations";
-import { compareOmEpcTranslations } from "./compare-om-epc-translations";
-import { productRuntimeTranslations } from "./product-runtime-translations";
+import { translateText } from "./translate";
 
 const blocked = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "INPUT", "OPTION"]);
 const originals = new WeakMap<Text, string>();
@@ -14,12 +8,7 @@ const attributeOriginals = new WeakMap<Element, Map<string, string>>();
 const translatedAttributes = ["placeholder", "aria-label", "title", "alt"] as const;
 
 function translated(value: string, language: "en" | "es" | "pt") {
-  if (language === "en") return value;
-  const whitespace = value.match(/^\s*/)?.[0] ?? "";
-  const ending = value.match(/\s*$/)?.[0] ?? "";
-  const content = value.trim();
-  if (!content) return value;
-  return `${whitespace}${docsTranslations[language][content] ?? epcTranslations[language][content] ?? compareOmEpcTranslations[language][content] ?? loadSheddingTranslations[language][content] ?? blogBatch4Translations[language][content] ?? productRuntimeTranslations[language][content] ?? runtimeTranslations[language][content] ?? content}${ending}`;
+  return translateText(language, value);
 }
 
 function translateRoot(root: ParentNode, language: "en" | "es" | "pt") {
@@ -52,7 +41,7 @@ export function AutoTranslate() {
   const { language } = useLanguage();
   const translating = useRef(false);
   useEffect(() => {
-    document.documentElement.lang = language === "pt" ? "pt-BR" : language === "es" ? "es" : "en-US";
+    document.documentElement.lang = language === "pt" ? "pt-BR" : language;
     const apply = () => { translating.current = true; translateRoot(document.body, language); translating.current = false; };
     apply();
     const observer = new MutationObserver(() => { if (!translating.current) queueMicrotask(apply); });
