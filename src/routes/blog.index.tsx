@@ -5,6 +5,8 @@ import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { featuredPost, publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 import { comparisons } from "@/data/comparisons";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { isLocalizedBlogSlug } from "@/i18n/available";
 
 type Filter = "All" | BlogCategory | "Compare";
 
@@ -30,7 +32,8 @@ function formatDate(iso: string) {
 function BlogIndexPage() {
   const search = Route.useSearch();
   const [activeCategory, setActiveCategory] = useState<Filter>(search.category ?? "All");
-  const blogPosts = publishedPosts();
+  const { language } = useLanguage();
+  const blogPosts = publishedPosts().filter((post) => language === "en" || isLocalizedBlogSlug(post.slug));
   const sorted = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
   const featured = featuredPost(sorted);
   const rest = sorted.filter((post) => post !== featured);

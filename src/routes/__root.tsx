@@ -15,6 +15,10 @@ import { LanguageProvider } from "../i18n/LanguageContext";
 import { AutoTranslate } from "../i18n/AutoTranslate";
 import { CloudflareAnalytics } from "../components/CloudflareAnalytics";
 import { loadDocsIndex } from "../lib/docs-data";
+import { LanguageSuggestion } from "../components/i18n/LanguageSuggestion";
+import { HTML_LANG, OG_LOCALE, absoluteUrl } from "../i18n/locale";
+import { availableLanguages } from "../i18n/available";
+import type { I18nState } from "../router";
 
 function NotFoundComponent() {
   return (
@@ -76,15 +80,24 @@ function ErrorComponent({ error, reset }: import("@tanstack/react-router").Error
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient; i18n: I18nState }>()({
   staticData: { sitemap: false },
   // A failed network call (e.g. during a dev reload or flaky connection) must not blank the whole site; hide the docs link instead.
   loader: async () => ({ hasDocumentation: await loadDocsIndex().then((d) => d.length > 0, () => false) }),
   staleTime: Infinity,
-  head: ({ matches }) => {
+  head: ({ matches, match }) => {
     const last = matches[matches.length - 1];
     const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
-    const canonical = `https://www.ammp.io${path === "/" ? "/" : path}`;
+    const lang = (match.context as { i18n?: I18nState }).i18n?.locale ?? "en";
+    const canonical = absoluteUrl(path, lang);
+    // 404s (no leaf route) get no language alternates.
+    const languages = last && last.routeId !== "__root__" ? availableLanguages(path) : ["en" as const];
+    const alternates = languages.length > 1
+      ? [
+          ...languages.map((l) => ({ rel: "alternate", hrefLang: HTML_LANG[l], href: absoluteUrl(path, l) })),
+          { rel: "alternate", hrefLang: "x-default", href: absoluteUrl(path, "en") },
+        ]
+      : [];
     return {
     meta: [
       { charSet: "utf-8" },
@@ -93,6 +106,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: canonical },
       { property: "og:site_name", content: "AMMP" },
+      { property: "og:locale", content: OG_LOCALE[lang] },
+      ...languages.filter((l) => l !== lang).map((l) => ({ property: "og:locale:alternate", content: OG_LOCALE[l] })),
     ],
     links: [
       {
@@ -105,6 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", href: "/favicon.png?v=2" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "canonical", href: canonical },
+      ...alternates,
     ],
     scripts: [{
       type: "text/javascript",
@@ -128,8 +144,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const lang = (router.options.context as { i18n?: I18nState }).i18n?.locale ?? "en";
   return (
-    <html lang="en">
+    <html lang={HTML_LANG[lang]}>
       <head>
         <HeadContent />
       </head>
@@ -142,13 +160,14 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
+  const { queryClient, i18n } = Route.useRouteContext();
   const { hasDocumentation } = Route.useLoaderData();
 
   return (
-    <LanguageProvider>
+    <LanguageProvider language={i18n.locale}>
       <QueryClientProvider client={queryClient}>
         <AutoTranslate />
+        <LanguageSuggestion />
         <CloudflareAnalytics />
         <SiteShell hasDocumentation={hasDocumentation} />
       </QueryClientProvider>

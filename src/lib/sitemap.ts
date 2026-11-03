@@ -57,6 +57,8 @@ export function sitemapPathForLocation(
 export interface SitemapEntry {
   path: string;
   lastmod?: string;
+  /** hreflang alternates (including this URL itself and x-default). */
+  alternates?: { hreflang: string; path: string }[];
 }
 
 function isSafeSitemapPath(pathname: string): boolean {
@@ -94,8 +96,34 @@ export function sitemapXML(baseURL: string, entries: SitemapEntry[]): string {
     if (seen.has(url.href)) continue;
     seen.add(url.href);
     urls.push(
-      `<url><loc>${escape(url.href)}</loc>${entry.lastmod ? `<lastmod>${escape(entry.lastmod)}</lastmod>` : ""}</url>`,
+      `<url><loc>${escape(url.href)}</loc>${entry.lastmod ? `<lastmod>${escape(entry.lastmod)}</lastmod>` : ""}${(entry.alternates ?? [])
+        .filter((alt) => isSafeSitemapPath(alt.path))
+        .map((alt) => `<xhtml:link rel="alternate" hreflang="${escape(alt.hreflang)}" href="${escape(new URL(alt.path, origin).href)}"/>`)
+        .join("")}</url>`,
     );
   }
-  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.join("")}</urlset>`;
+  return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls.join("")}</urlset>`;
+}
+
+/** Expand English entries into one entry per language, each listing every language version (plus x-default). */
+export function withLanguageVersions(
+  entries: SitemapEntry[],
+  languagesFor: (path: string) => string[],
+  localize: (path: string, lang: string) => string,
+  hreflangOf: (lang: string) => string,
+): SitemapEntry[] {
+  const out: SitemapEntry[] = [];
+  for (const entry of entries) {
+    const langs = languagesFor(entry.path);
+    if (langs.length < 2) {
+      out.push(entry);
+      continue;
+    }
+    const alternates = [
+      ...langs.map((lang) => ({ hreflang: hreflangOf(lang), path: localize(entry.path, lang) })),
+      { hreflang: "x-default", path: entry.path },
+    ];
+    for (const lang of langs) out.push({ ...entry, path: localize(entry.path, lang), alternates });
+  }
+  return out;
 }

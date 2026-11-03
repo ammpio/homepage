@@ -12,4 +12,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Our JSX runtime translates text for /es and /pt during server and client render (src/i18n/jsx).
+  react: { jsxImportSource: "@/i18n/jsx" },
 });

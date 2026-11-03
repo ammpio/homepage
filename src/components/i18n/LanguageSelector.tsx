@@ -5,7 +5,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useRouterState } from "@tanstack/react-router";
+import { useLanguage, hrefForLanguage, STORAGE_KEY } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 
 function FlagUS({ className }: { className?: string }) {
@@ -61,7 +62,8 @@ const languages: { code: Language; Flag: React.FC<{ className?: string }>; label
 ];
 
 export function LanguageSelector({ variant = "ghost" }: { variant?: "ghost" | "outline" }) {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const current = languages.find((l) => l.code === language);
 
   return (
@@ -74,13 +76,16 @@ export function LanguageSelector({ variant = "ghost" }: { variant?: "ghost" | "o
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" data-no-translate>
         {languages.map((lang) => (
-          <DropdownMenuItem
-            key={lang.code}
-            onClick={() => setLanguage(lang.code)}
-            className={language === lang.code ? "bg-accent" : ""}
-          >
-            <lang.Flag className="mr-2 h-3.5 w-5 rounded-sm overflow-hidden" />
-            {lang.label}
+          <DropdownMenuItem key={lang.code} asChild className={language === lang.code ? "bg-accent" : ""}>
+            <a
+              href={hrefForLanguage(pathname, lang.code)}
+              hrefLang={lang.code === "pt" ? "pt-BR" : lang.code}
+              lang={lang.code === "pt" ? "pt-BR" : lang.code}
+              onClick={() => localStorage.setItem(STORAGE_KEY, lang.code)}
+            >
+              <lang.Flag className="mr-2 h-3.5 w-5 rounded-sm overflow-hidden" />
+              {lang.label}
+            </a>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

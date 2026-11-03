@@ -33,7 +33,7 @@ export function softwareApplicationJsonLd() {
   };
 }
 
-const PAGES: [string, string, string][] = [
+export const PAGES: [string, string, string][] = [
   ["Home", "/", "Overview of AMMP and Ray"],
   ["Product", "/product", "AMMP OS Platform and AMMP AI capabilities"],
   ["Meet Ray", "/ray", "Ray, the AI coworker"],
