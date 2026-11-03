@@ -18,7 +18,7 @@
 - New content pages build head() with src/lib/page-head.ts pageHead() (WebPage + optional FAQPage JSON-LD) and are listed in ammp-facts.ts PAGES — why: schema and llms.txt stay consistent.
 - Competitor descriptions for alternatives/comparison pages live in src/data/alternatives.ts — why: one neutral source reused across pages.
 - Links to scheduled blog posts use LivePostLink, which renders nothing until the post is live — why: no early leaks of scheduled posts.
-- IndexNow: key lives in src/lib/indexnow.ts and public/<key>.txt; a daily backend schedule calls /api/public/indexnow-scheduled for newly live posts, and Netlify's deploy webhook calls /api/public/indexnow-deploy — why: the site is request-rendered, so posts go live without a deploy.
+- IndexNow: key lives in src/lib/indexnow.ts and public/<key>.txt; a daily backend schedule calls /api/public/indexnow-scheduled for newly live posts, and Netlify's production deploy webhook from `main` calls /api/public/indexnow-deploy — why: the site is request-rendered, so posts go live without a deploy.
 - Netlify caching lives in public/_headers with only an /assets/* rule (fingerprinted, cached long-term); HTML relies on Netlify's default revalidation — why: Netlify merges matching rules, so a /* rule would send conflicting Cache-Control on assets.
 - Product docs are markdown in content/docs/** rendered at /product/documentation via src/lib/docs-core.ts (pure, tested) and src/lib/docs.server.ts (Vite globs; images are bundled build assets so they work on any host). Only current pages enable documentation navigation and discovery; an empty index is noindex — why: drafts must never be promoted as published documentation.
 
