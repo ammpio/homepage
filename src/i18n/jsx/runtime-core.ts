@@ -54,9 +54,11 @@ function NoTranslate({ children }: { children?: ReactNode }) {
 
 export function transform(real: Real, type: unknown, props: Record<string, unknown>, key: unknown, rest: unknown[]): unknown {
   if (typeof type !== "string" || !props) return real(type, props, key, ...rest);
+  // Wrapper elements have a single child, so they are never "static children" in dev mode.
+  const wrapRest = rest.length ? [false, ...rest.slice(1)] : rest;
   if (BLOCKED.has(type) || props["data-no-translate"] !== undefined && props["data-no-translate"] !== false) {
     const el = real(type, props, undefined, ...rest);
-    return real(NoTranslate, { children: el }, key, ...rest);
+    return real(NoTranslate, { children: el }, key, ...wrapRest);
   }
   let next = props;
   if ("children" in props) {
@@ -66,6 +68,6 @@ export function transform(real: Real, type: unknown, props: Record<string, unkno
   const needsHost =
     (type === "a" && typeof next["href"] === "string" && (next["href"] as string).startsWith("/")) ||
     ATTRS.some((a) => typeof next[a] === "string" && /[A-Za-z]/.test(next[a] as string));
-  if (needsHost) return real(LocalizedHost, { ...next, __type: type, __real: (t: unknown, p: Record<string, unknown>) => real(t, p, undefined, ...rest) }, key, ...rest);
+  if (needsHost) return real(LocalizedHost, { ...next, __type: type, __real: (t: unknown, p: Record<string, unknown>) => real(t, p, undefined, ...rest) }, key, ...wrapRest);
   return real(type, next, key, ...rest);
 }
