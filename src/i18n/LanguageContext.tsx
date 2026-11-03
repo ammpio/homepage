@@ -1,5 +1,8 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useCallback, type ReactNode } from "react";
+import { useRouter } from "@tanstack/react-router";
 import { translations, type Language } from "./translations";
+import { LocaleContext } from "./jsx/runtime-core";
+import { isLocalizablePath, localizePath } from "./locale";
 
 interface LanguageContextType {
   language: Language;
@@ -9,54 +12,37 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const STORAGE_KEY = "ammp-lang";
+export const STORAGE_KEY = "ammp-lang";
 
-function getInitialLanguage(): Language {
-  if (typeof window !== "undefined") {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "en" || saved === "es" || saved === "pt") return saved;
-
-    // Auto-detect from browser language and persist
-    const browserLang = navigator.language?.toLowerCase() ?? "";
-    let detected: Language = "en";
-    if (browserLang.startsWith("es")) detected = "es";
-    else if (browserLang.startsWith("pt")) detected = "pt";
-    localStorage.setItem(STORAGE_KEY, detected);
-    return detected;
-  }
-  return "en";
+/** Public URL of the current page in another language (falls back to that language's home page). */
+export function hrefForLanguage(internalPath: string, lang: Language, suffix = ""): string {
+  if (lang === "en") return `${internalPath}${suffix}`;
+  return isLocalizablePath(internalPath) ? `${localizePath(internalPath, lang)}${suffix}` : `/${lang}`;
 }
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Match the English server render; read browser preferences only after hydration.
-  const [language, setLanguageState] = useState<Language>("en");
+// The language comes from the URL (/es, /pt or English at the root), so server and client render the same.
+export function LanguageProvider({ language, children }: { language: Language; children: ReactNode }) {
+  const router = useRouter();
 
   const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== "undefined") {
-      localStorage.setItem(STORAGE_KEY, lang);
-      document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
-    }
-  }, []);
-
-  // Sync on mount (for SSR hydration)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setLanguageState(getInitialLanguage());
-    }
-  }, []);
+    if (typeof window === "undefined") return;
+    localStorage.setItem(STORAGE_KEY, lang);
+    if (lang === language) return;
+    const loc = router.state.location;
+    window.location.assign(hrefForLanguage(loc.pathname, lang, `${loc.searchStr ?? ""}${loc.hash ? `#${loc.hash}` : ""}`));
+  }, [language, router]);
 
   const t = useCallback(
-    (key: string): string => {
-      return translations[language]?.[key] ?? translations.en[key] ?? key;
-    },
+    (key: string): string => translations[language]?.[key] ?? translations.en[key] ?? key,
     [language]
   );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
+    <LocaleContext.Provider value={language}>
+      <LanguageContext.Provider value={{ language, setLanguage, t }}>
+        {children}
+      </LanguageContext.Provider>
+    </LocaleContext.Provider>
   );
 }
 
