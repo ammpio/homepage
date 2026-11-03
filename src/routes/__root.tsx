@@ -90,7 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient; i18n
     const path = (last?.pathname ?? "/").replace(/\/+$/, "") || "/";
     const lang = (match.context as { i18n?: I18nState }).i18n?.locale ?? "en";
     const canonical = absoluteUrl(path, lang);
-    const languages = availableLanguages(path);
+    // 404s (no leaf route) get no language alternates.
+    const languages = last && last.routeId !== "__root__" ? availableLanguages(path) : ["en" as const];
     const alternates = languages.length > 1
       ? [
           ...languages.map((l) => ({ rel: "alternate", hrefLang: HTML_LANG[l], href: absoluteUrl(path, l) })),

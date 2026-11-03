@@ -5,6 +5,8 @@ import { Band, PageHero, SectionHeading } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
 import { featuredPost, publishedPosts, blogCategories, type BlogCategory } from "@/data/blog-posts";
 import { comparisons } from "@/data/comparisons";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { isLocalizedBlogSlug } from "@/i18n/available";
 
 type Filter = "All" | BlogCategory | "Compare";
 
