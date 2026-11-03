@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter, type AnyRoute } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { localizePath, splitLocale } from "./i18n/locale";
+import { isLocalizablePath, localizePath, splitLocale } from "./i18n/locale";
 import { localizeHead } from "./i18n/head";
 import type { Language } from "./i18n/translations";
 
@@ -38,7 +38,8 @@ export const getRouter = () => {
       // /es/pricing → /pricing (language remembered), English URLs unchanged.
       input: ({ url }) => {
         const { lang, path } = splitLocale(url.pathname);
-        i18n.locale = lang;
+        // English-only pages (privacy, terms…) keep the visitor's language for later navigation.
+        if (lang !== "en" || isLocalizablePath(path)) i18n.locale = lang;
         if (lang === "en") return undefined;
         url.pathname = path;
         return url;
