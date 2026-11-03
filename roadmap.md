@@ -16,7 +16,7 @@
 - [x] Spanish and Portuguese for the 8 new solution/compare/South Africa pages
 - [x] Three Nov/Dec posts scheduled (18 Nov, 25 Nov, 2 Dec)
 - [ ] Original links for Sifted, ESI Africa, Foresight Media, TechLeap press pages — waiting on URLs from user
-- [ ] IndexNow on deploy: waiting on user to add INDEXNOW_DEPLOY_TOKEN and a Netlify "Deploy succeeded" webhook
+- [x] IndexNow on deploy: user confirmed the Netlify webhook works
 - [ ] Author LinkedIn URLs — waiting on user
 - [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to main, agent rules in AGENTS.md).
 - [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
@@ -24,3 +24,4 @@
 - [x] O&M and EPC comparison pages, O&M/client reporting blog section, investor-report checklist (en/es/pt)
 - [x] Four Insights posts (underperformance, PR, inverter faults, AI assistants) live 2 Nov 2026, en/es/pt; ChatGPT added to MCP assistant lists
 - [x] User confirmed `main` is production; the `dev` production plan was dropped. Keep branch notes, docs check and Netlify production IndexNow deployment on `main`.
+- [x] Crawlable /es and /pt URLs: server-rendered translations, hreflang, self canonicals, sitemap alternates, /es and /pt llms.txt, switcher links, suggestion banner, tests; review list of new translations delivered

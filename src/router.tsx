@@ -55,6 +55,6 @@ export const getRouter = () => {
     },
   });
 
-  wrapHeads(router.routesById as Record<string, AnyRoute>);
+  wrapHeads(router.routesById as unknown as Record<string, AnyRoute>);
   return router;
 };

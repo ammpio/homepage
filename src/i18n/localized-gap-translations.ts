@@ -1,5 +1,5 @@
 // Strings added when Spanish/Portuguese got their own URLs (Nov 2026) to fill gaps in existing translations.
-// Newly written (not reviewed yet): see the review list delivered with that change. Lowest priority after hand-written dictionaries.
+// Newly written (not reviewed yet): listed in the translation review file delivered with that change. Lowest priority after hand-written dictionaries.
 export const localizedGapTranslations: Record<"es" | "pt", Record<string, string>> = {
  "es": {
   "\"Break down last month's energy losses for Site X into downtime, clipping, soiling and curtailment.\"": "\"Desglosa las pérdidas de energía del mes pasado para el Sitio X en tiempo de inactividad, clipping, suciedad y curtailment.\"",
