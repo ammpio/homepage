@@ -69,3 +69,18 @@ describe("November 2026 Insights posts", () => {
     expect(JSON.stringify(getBlogPost(slugs[2]!, now)!.body)).toContain("groups repeat alarms into one fix list");
   });
 });
+
+describe("light post schedule used by shared links", () => {
+  it("matches every post's go-live moment", async () => {
+    const { POST_SCHEDULE } = await import("./blog-schedule");
+    expect(POST_SCHEDULE).toEqual(Object.fromEntries(blogPosts.map((p) => [p.slug, p.publishAt ?? null])));
+  });
+});
+
+describe("blog authors", () => {
+  it("links each author to their LinkedIn profile", async () => {
+    const { AUTHORS } = await import("./authors");
+    expect(AUTHORS.andreas).toMatchObject({ name: "Andreas Lehner", jobTitle: "CCO", url: "https://www.linkedin.com/in/lehnerandreas/" });
+    expect(AUTHORS.svet).toMatchObject({ name: "Svet Bajlekov", jobTitle: "CEO & Co-Founder", url: "https://www.linkedin.com/in/bajlekov/" });
+  });
+});
