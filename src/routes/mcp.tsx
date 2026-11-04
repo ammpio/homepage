@@ -47,7 +47,7 @@ function McpPage() {
         <SectionHeading title="The same foundation, open to your own assistant" intro="Ray runs on the AMMP MCP server, which speaks the open Model Context Protocol. Claude, ChatGPT, Cursor, Copilot or an agent you build yourself can query your live portfolio the same way: the model decides which tools to call, runs the queries and answers in natural language." />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {mcpItems.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="glass-soft rounded-2xl p-5"><Icon className="size-5 text-primary" /><h4 className="mt-4 font-semibold">{title}</h4><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>
+            <div key={title} className="glass-soft rounded-2xl p-5"><Icon className="size-5 text-primary" /><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>
           ))}
         </div>
         <div className="mt-6 flex items-start gap-3 rounded-xl border border-border bg-card p-5">

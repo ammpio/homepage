@@ -8,6 +8,7 @@ import { epcTranslations } from "./epc-translations";
 import { compareOmEpcTranslations } from "./compare-om-epc-translations";
 import { productRuntimeTranslations } from "./product-runtime-translations";
 import { localizedGapTranslations } from "./localized-gap-translations";
+import { howToTranslations } from "./howto-translations";
 
 export const sources = [
   docsTranslations,
@@ -18,4 +19,5 @@ export const sources = [
   productRuntimeTranslations,
   runtimeTranslations,
   localizedGapTranslations,
+  howToTranslations,
 ];

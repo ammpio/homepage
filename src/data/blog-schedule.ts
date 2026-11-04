@@ -37,7 +37,6 @@ export const POST_SCHEDULE: Record<string, string | null> = {
   "featured-foresight-media": null,
   "featured-sifted": null,
   "featured-esi-africa": null,
-  "featured-techleap-climate-report": null,
   "featured-tech-eu": null,
   "featured-afrik21": null,
   "featured-silicon-canals": null,
