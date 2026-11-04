@@ -82,9 +82,6 @@ export function Hero() {
         </Reveal>
         <Reveal delay={180}>
           <p className="mx-auto mt-5 max-w-[56ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
-          </p>
-          <p className="mx-auto mt-3 max-w-[60ch] text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
             AMMP is asset management and monitoring software for solar and storage portfolios, used on 10,000+ sites in 30+ countries.
           </p>
         </Reveal>
