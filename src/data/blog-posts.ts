@@ -41,6 +41,8 @@ export type BlogPost = {
   cover?: { src: string; alt: string };
   /** Shown at the end of the post and emitted as FAQPage JSON-LD. */
   faq?: FaqItem[];
+  /** Step-by-step guide: exact visible heading texts emitted as HowTo JSON-LD steps. */
+  howTo?: { name: string; steps: string[] };
   related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites" | "/solutions/solar-monitoring"; title: string; text: string }[];
 };
 
@@ -100,6 +102,7 @@ const meetRayBody: BlogBlock[] = [
 export const blogPosts: BlogPost[] = [
   {
     slug: "why-is-my-solar-portfolio-underperforming",
+    howTo: {"name": "How to diagnose why a solar portfolio is underperforming", "steps": ["1. Data issues: missing or estimated data, wrong irradiance source", "2. Grid and plant downtime", "3. Inverter downtime and underperformance", "4. Clipping", "5. Curtailment", "6. Soiling", "7. Degradation", "8. Wrong budget or baseline"]},
     title: "Why is my solar portfolio underperforming? A diagnostic checklist for asset managers",
     excerpt: 'A step-by-step way to find where the missing energy went, starting with the causes that most often explain the gap.',
     category: "Insights",
@@ -116,6 +119,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "calculate-performance-ratio-solar-portfolio",
+    howTo: {"name": "How to calculate performance ratio across a solar portfolio", "steps": ["The formula", "Which irradiance to use", "Temperature-corrected PR", "Aggregating to portfolio level"]},
     title: "How to calculate performance ratio across a solar portfolio",
     excerpt: 'Performance ratio per IEC 61724, the irradiance question, and why the portfolio number must be energy-weighted.',
     category: "Insights",
@@ -132,6 +136,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "detect-inverter-faults-early-reduce-truck-rolls",
+    howTo: {"name": "How to detect inverter faults early and reduce truck rolls", "steps": ["Early signals worth watching", "Group repeat alarms", "Rank by lost revenue", "Check remotely before you dispatch", "Give technicians the context before they drive out"]},
     title: "How to detect inverter faults early across many sites (and cut truck rolls)",
     excerpt: 'Early signals, grouping repeat alarms and checking remotely first, so technicians only drive out when they need to.',
     category: "Insights",
@@ -164,6 +169,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "monitor-solar-battery-backup-load-shedding-south-africa",
+    howTo: {"name": "How to monitor solar and battery backup sites through load-shedding", "steps": ["KPIs to track", "Checking savings and PPA performance when the grid is down part of the day", "Checking battery charging and discharging against time-of-use tariffs", "What to look for in vendor-neutral monitoring software"]},
     title: "How to monitor solar and battery backup sites through load-shedding: a guide for South African C&I operators",
     excerpt: "Monitoring solar and battery backup sites through grid outages: what to track, how to check savings and what to ask monitoring vendors.",
     category: "Insights",
@@ -195,6 +201,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "track-solar-ppa-performance-guarantees",
+    howTo: {"name": "How to track solar PPA performance guarantees", "steps": ["Step 1: Write the guarantee into the contract terms precisely", "Step 2: Pick the KPI method and use it everywhere", "Step 3: Normalise across brands", "Step 4: Track monthly, even when the guarantee is yearly", "Step 5: Collect evidence as you go", "Step 6: Act before the guarantee is missed"]},
     title: "How to track solar PPA performance guarantees",
     excerpt: "A step-by-step method to define, measure and evidence solar performance guarantees each month, and act before a guarantee is missed.",
     category: "Insights",
@@ -255,6 +262,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "multi-brand-solar-monitoring-checklist",
+    howTo: {"name": "How to evaluate multi-brand solar monitoring", "steps": ["1. Which of my brands connect by cloud API, and which need hardware on site?", "2. How are KPIs calculated across brands?", "3. What happens when a vendor API goes down?", "4. Can alert rules be set per site, per group and per portfolio?", "5. Can you get your data out?"]},
     title: "Five questions to ask before you buy multi-brand solar monitoring",
     excerpt: "A buyer's checklist for renewable energy portfolios with solar and batteries that run more than one inverter brand.",
     category: "Insights",
@@ -770,6 +778,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "monitoring-solution-selection-guide",
+    howTo: {"name": "How to choose a monitoring solution", "steps": ["1. Understanding Your Priorities", "2. Check Integrations and Compatibility", "3. SaaS or CAPEX? Depends on Your Plans for the Future", "4. Trusting the Data", "5. Find a Solution That Supports Your Business Model", "6. Maintain the Right Relationship with Your Monitoring Provider", "7. Future-Proofing with Flexibility", "8. Good Customer Support"]},
     title: "8 Things to Look Out For When Selecting a Monitoring Solution",
     excerpt: "A comprehensive guide to choosing the right monitoring platform for your renewable energy portfolio.",
     category: "Insights",
@@ -1046,29 +1055,6 @@ export const blogPosts: BlogPost[] = [
       { type: "heading", text: "About ESI Africa" },
       { type: "paragraph", text: "ESI Africa is the continent's leading power and energy publication, covering electricity generation, transmission, distribution, and renewable energy. The publication reaches thousands of energy professionals across Africa." },
       { type: "paragraph", text: "Read the full feature to learn about AMMP's impact on African renewable energy markets." },
-    ],
-  },
-  {
-    slug: "featured-techleap-climate-report",
-    title: "Featured in TechLeap Climate Report",
-    excerpt: "AMMP recognized in TechLeap's annual report on leading climate technology companies.",
-    category: "Press",
-    date: "2022-01-19",
-    readTime: "3 min read",
-    body: [
-      { type: "paragraph", text: "AMMP Technologies was recognized in TechLeap's annual Climate Report, which highlights the most promising climate technology companies in the Netherlands and Europe." },
-      { type: "heading", text: "About the Report" },
-      { type: "paragraph", text: "TechLeap's Climate Report is an annual publication that maps the Dutch climate tech ecosystem and identifies companies with the potential to make significant impact on global emissions reduction." },
-      { type: "heading", text: "AMMP's Recognition" },
-      { type: "paragraph", text: "AMMP was featured for our work in enabling better management of distributed renewable energy assets, which is critical for scaling clean energy adoption globally." },
-      { type: "list", items: [
-        "Recognition as a key player in the energy monitoring sector",
-        "Highlighted for our growth and market impact",
-        "Featured alongside other leading Dutch climate tech companies",
-      ] },
-      { type: "heading", text: "About TechLeap" },
-      { type: "paragraph", text: "TechLeap is a Dutch organization that supports the growth of tech startups and scaleups. Their climate initiative focuses specifically on companies working to address climate change through technology." },
-      { type: "paragraph", text: "Access the full TechLeap Climate Report to see the complete analysis of the Dutch climate tech ecosystem." },
     ],
   },
   {
