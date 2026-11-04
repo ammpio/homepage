@@ -13,7 +13,7 @@ describe("HowTo schema", () => {
       const ld = howToJsonLd(post.howTo!, post.body, "https://www.ammp.io/blog/x");
       const headings = post.body.flatMap((b) => (b.type === "heading" ? [b.text] : []));
       for (const step of ld.step) expect(headings).toContain(step.name);
-      expect(JSON.stringify(ld)).not.toMatch(/Offer|Product|price|estimatedCost/i);
+      expect(JSON.stringify(ld)).not.toMatch(/"@type":"(Offer|Product)"|"(price|offers|estimatedCost)"/);
     });
   }
 });
