@@ -1,6 +1,7 @@
 import { createContext, useContext, useCallback, type ReactNode } from "react";
 import { useRouter } from "@tanstack/react-router";
-import { translations, type Language } from "./translations";
+import type { Language } from "./translations";
+import { commonTranslations as translations } from "./translations/common"; // t() only serves header keys; the full set would ship every dictionary
 import { LocaleContext } from "./jsx/runtime-core";
 import { isLocalizablePath, localizePath } from "./locale";
 

@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { loadDictionaries } from "./i18n/translate";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -60,7 +61,7 @@ export default {
     const redirect = legacyRedirect(request);
     if (redirect) return redirect;
     try {
-      const handler = await getServerEntry();
+      const [handler] = await Promise.all([getServerEntry(), loadDictionaries()]);
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {

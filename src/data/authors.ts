@@ -1,9 +1,9 @@
 // Blog bylines and real "last updated" dates. One source for visible text and JSON-LD.
-export type Author = { id: string; name: string; jobTitle: string; url?: string };
+export type Author = { id: string; name: string; jobTitle: string; url: string; bio: string };
 
 export const AUTHORS: Record<"andreas" | "svet", Author> = {
-  andreas: { id: "andreas", name: "Andreas Lehner", jobTitle: "CCO" }, // LinkedIn url pending
-  svet: { id: "svet", name: "Svet Bajlekov", jobTitle: "CEO and co-founder" }, // LinkedIn url pending
+  andreas: { id: "andreas", name: "Andreas Lehner", jobTitle: "CCO", url: "https://www.linkedin.com/in/lehnerandreas/", bio: "Andreas leads commercial work at AMMP, helping asset owners and O&M teams monitor solar and storage portfolios." },
+  svet: { id: "svet", name: "Svet Bajlekov", jobTitle: "CEO & Co-Founder", url: "https://www.linkedin.com/in/bajlekov/", bio: "Svet co-founded AMMP and leads the company as CEO, with a focus on product and how AI agents work alongside renewable energy teams." },
 };
 
 const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {

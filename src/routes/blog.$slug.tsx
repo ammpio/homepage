@@ -51,7 +51,7 @@ export const Route = createFileRoute("/blog/$slug")({
               description,
               datePublished: post.date,
               dateModified: POST_UPDATED[post.slug] ?? post.date,
-              author: (() => { const a = postAuthor(post.slug); return a ? { "@type": "Person", name: a.name, jobTitle: a.jobTitle, ...(a.url ? { url: a.url, sameAs: [a.url] } : {}), worksFor: { "@id": `${SITE}/#organization` } } : { "@type": "Organization", "@id": `${SITE}/#organization`, name: "AMMP" }; })(),
+              author: (() => { const a = postAuthor(post.slug); return a ? { "@type": "Person", name: a.name, jobTitle: a.jobTitle, url: a.url, sameAs: [a.url], worksFor: { "@id": `${SITE}/#organization` } } : { "@type": "Organization", "@id": `${SITE}/#organization`, name: "AMMP" }; })(),
               publisher: { "@type": "Organization", "@id": `${SITE}/#organization`, name: "AMMP Technologies B.V.", url: SITE },
               url,
               mainEntityOfPage: url,
@@ -140,7 +140,7 @@ function ArticlePage() {
           <h1 className="mt-4 font-display text-4xl font-medium leading-[1.1] tracking-[-0.018em] sm:text-5xl">{post.title}</h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">{post.excerpt}</p>
           <p className="mt-6 text-sm text-muted-foreground">
-            {author ? (author.url ? <a href={author.url} target="_blank" rel="noopener" className="font-medium text-foreground underline-offset-4 hover:underline">{author.name}</a> : <span className="font-medium text-foreground">{author.name}</span>) : <span className="font-medium text-foreground">AMMP</span>}
+            {author ? <a href={author.url} target="_blank" rel="author noopener" className="font-medium text-foreground underline underline-offset-4">{author.name}</a> : <span className="font-medium text-foreground">AMMP</span>}
             {author && <span>, {author.jobTitle}</span>} · {post.readTime}
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -186,6 +186,14 @@ function ArticlePage() {
               ))}
             </>
           ) : null}
+          {author && (
+            <aside className="not-prose mt-12 rounded-2xl border border-border bg-card p-6">
+              <p className="eyebrow">About the author</p>
+              <p className="mt-3 font-medium text-foreground"><a href={author.url} target="_blank" rel="author noopener" className="underline-offset-4 hover:underline">{author.name}</a>, {author.jobTitle}</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{author.bio}</p>
+              <a href={author.url} target="_blank" rel="author noopener" className="mt-3 inline-block text-sm font-medium text-foreground underline underline-offset-4">LinkedIn profile</a>
+            </aside>
+          )}
         </Prose>
       </Band>
 

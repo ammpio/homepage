@@ -1,32 +1,22 @@
 // Text-to-text translation used on the server and the client.
 // Exact-match dictionaries: English source text → Spanish/Portuguese.
 import type { Language } from "./translations";
-import { runtimeTranslations } from "./runtime-translations";
-import { docsTranslations } from "./docs-translations";
-import { loadSheddingTranslations } from "./loadshedding-translations";
-import { blogBatch4Translations } from "./blog-batch4-translations";
-import { epcTranslations } from "./epc-translations";
-import { compareOmEpcTranslations } from "./compare-om-epc-translations";
-import { productRuntimeTranslations } from "./product-runtime-translations";
-import { localizedGapTranslations } from "./localized-gap-translations";
 
 type Dict = Record<string, string>;
-const sources: Array<Record<"es" | "pt", Dict>> = [
-  docsTranslations,
-  epcTranslations,
-  compareOmEpcTranslations,
-  loadSheddingTranslations,
-  blogBatch4Translations,
-  productRuntimeTranslations,
-  runtimeTranslations,
-  localizedGapTranslations,
-];
-
+// Dictionaries live in ./dictionaries and load on demand (see loadDictionaries) so English pages ship none of them.
 const merged: Record<"es" | "pt", Map<string, string>> = { es: new Map(), pt: new Map() };
-for (const lang of ["es", "pt"] as const) {
-  for (let i = sources.length - 1; i >= 0; i--) {
-    for (const [k, v] of Object.entries(sources[i]![lang] ?? {})) if (v) merged[lang].set(k, v);
-  }
+let loading: Promise<void> | undefined;
+
+/** Load the Spanish/Portuguese dictionaries. Server: before every request. Browser: before hydration, only on /es or /pt pages. */
+export function loadDictionaries(): Promise<void> {
+  loading ??= import("./dictionaries").then(({ sources }) => {
+    for (const lang of ["es", "pt"] as const) {
+      for (let i = sources.length - 1; i >= 0; i--) {
+        for (const [k, v] of Object.entries((sources[i] as Record<"es" | "pt", Dict>)[lang] ?? {})) if (v) merged[lang].set(k, v);
+      }
+    }
+  });
+  return loading;
 }
 
 /** Translation for an exact (trimmed) source string, or undefined. */
