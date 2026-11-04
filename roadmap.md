@@ -17,7 +17,8 @@
 - [x] Three Nov/Dec posts scheduled (18 Nov, 25 Nov, 2 Dec)
 - [ ] Original links for Sifted, ESI Africa, Foresight Media, TechLeap press pages — waiting on URLs from user
 - [x] IndexNow on deploy: user confirmed the Netlify webhook works
-- [ ] Author LinkedIn URLs — waiting on user
+- [x] Author LinkedIn links, sameAs and author block (Andreas, Svet)
+- [ ] Page weight: split translations/blog content out of shared JS; before/after sizes
 - [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to main, agent rules in AGENTS.md).
 - [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
 - [x] Publish load-shedding post now; add /use-cases/epcs (en/es/pt)
