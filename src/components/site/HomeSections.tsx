@@ -85,7 +85,7 @@ export function Hero() {
             Meet Ray, our AI coworker grounded in your portfolio data, ready to investigate, prioritize and prepare work alongside your team.
           </p>
           <p className="mx-auto mt-3 max-w-[60ch] text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            AMMP is a vendor-agnostic platform for monitoring and managing solar, battery, hybrid, wind and genset portfolios, with Ray, an AI coworker, working on top of your data.
+            AMMP is asset management and monitoring software for solar and storage portfolios, used on 10,000+ sites in 30+ countries.
           </p>
         </Reveal>
         <Reveal delay={270}>
