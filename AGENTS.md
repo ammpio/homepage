@@ -39,3 +39,6 @@
 - Markdown: GitHub-flavoured (tables, fenced code). Callouts: `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`. Link other docs with relative paths (`./ticketing.md`, `../modules/alerting.md#settings`). Images: `![alt text](../images/file.png)`, always with alt text.
 - Check locally with `bunx vitest run src/lib/docs.test.ts`.
 - Docs loaders use src/lib/docs-data.ts (createIsomorphicFn): server reads bundled markdown, client navigation fetches /product/documentation/index.json and /{slug}.json — why: docs must not depend on /_serverFn, which Netlify proxies to Lovable hosting.
+- Spanish/Portuguese exact-match dictionaries are listed in src/i18n/dictionaries.ts and loaded only via loadDictionaries() (server.ts before each request, src/client.tsx before hydrating /es and /pt); never import them statically — why: English pages must not download them (src/lib/bundle-budget.test.ts checks after a build).
+- Shared page sections check post go-live via src/data/blog-schedule.ts (kept in sync with blog-posts.ts by test), never import blog-posts.ts — why: full article text stays out of the code every page loads.
+- Blog author LinkedIn URLs, roles and bios live in src/data/authors.ts and feed the byline, author box and Article JSON-LD — why: one source.

@@ -18,7 +18,7 @@
 - [ ] Original links for Sifted, ESI Africa, Foresight Media, TechLeap press pages — waiting on URLs from user
 - [x] IndexNow on deploy: user confirmed the Netlify webhook works
 - [x] Author LinkedIn links, sameAs and author block (Andreas, Svet)
-- [ ] Page weight: split translations/blog content out of shared JS; before/after sizes
+- [x] Page weight: translations, blog text and backend client out of shared JS (~2.7 MB → ~0.75 MB per page)
 - [x] Product documentation at /product/documentation from content/docs markdown (yaml-only frontmatter, CI docs check on PRs to main, agent rules in AGENTS.md).
 - [ ] Later: point /support at /product/documentation — waiting on the user's go-ahead.
 - [x] Publish load-shedding post now; add /use-cases/epcs (en/es/pt)
