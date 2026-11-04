@@ -105,6 +105,7 @@ function Page() {
       />
 
       <Band tone="grey" className="pt-8! md:pt-12!">
+        <h2 className="sr-only">Pricing modules</h2>
         <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
           <ModuleCard mod={aiModule} popular />
           <ModuleCard mod={osModule} />
