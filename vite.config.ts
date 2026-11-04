@@ -11,6 +11,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // src/client.tsx loads the Spanish/Portuguese dictionary before hydrating /es and /pt pages.
+    client: { entry: "client" },
   },
   // Our JSX runtime translates text for /es and /pt during server and client render (src/i18n/jsx).
   react: { jsxImportSource: "@/i18n/jsx" },
