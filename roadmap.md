@@ -26,3 +26,4 @@
 - [x] Four Insights posts (underperformance, PR, inverter faults, AI assistants) live 2 Nov 2026, en/es/pt; ChatGPT added to MCP assistant lists
 - [x] User confirmed `main` is production; the `dev` production plan was dropped. Keep branch notes, docs check and Netlify production IndexNow deployment on `main`.
 - [x] Crawlable /es and /pt URLs: server-rendered translations, hreflang, self canonicals, sitemap alternates, /es and /pt llms.txt, switcher links, suggestion banner, tests; review list of new translations delivered
+- [ ] Google Search Console: verify published site and submit sitemap
