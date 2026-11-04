@@ -1,8 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { absoluteUrl, isLocalizablePath, localizePath, splitLocale } from "./locale";
 import { availableLanguages } from "./available";
 import { localizeHead } from "./head";
-import { translateHtml, translateText } from "./translate";
+import { loadDictionaries, translateHtml, translateText } from "./translate";
+
+beforeAll(() => loadDictionaries());
 import { sitemapXML, withLanguageVersions } from "@/lib/sitemap";
 import { ENGLISH_ONLY_POSTS } from "./english-only-posts";
 import { publishedPosts } from "@/data/blog-posts";
