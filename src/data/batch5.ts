@@ -68,7 +68,7 @@ export const PPA_FEATURES: Feature[] = [
   { title: "Billing-grade savings and invoices", text: "Savings and PPA invoices calculated from meter, tariff and contract data, ready for the off-taker." },
   { title: "Tariff database", text: "Grid and PPA tariffs, fixed and time-of-use, including demand charges. In South Africa alone the database covers 1,000+ tariffs." },
   { title: "Every tariff and contract", text: "All grid tariff structures are supported and compatible with all contractual arrangements." },
-  { title: "Monthly data freeze", text: "Data for the billing month is frozen, so an invoice never changes after it is sent." },
+  { title: "Monthly data freeze", text: "Each billing month's data is frozen, so billing runs on a stable, reliable data set." },
   { title: "Estimation rules and data-quality flags", text: "Built-in data quality checks, configurable estimation rules, and backup satellite irradiance data when a site sensor is missing. Estimated values are flagged." },
   { title: "Scheduled delivery with your branding", text: "Billing and savings reports go out automatically on the schedule you set, with your branding on reports." },
 ];
@@ -76,7 +76,7 @@ export const PPA_FEATURES: Feature[] = [
 export const PPA_FAQ: FaqItem[] = [
   { q: "How does AMMP calculate PPA invoices?", a: "From meter data, the tariff assigned to each site and the contract terms. All grid tariff structures are supported and compatible with all contractual arrangements." },
   { q: "What happens when meter data is missing?", a: "AMMP OS uses built-in data quality checks, configurable estimation rules, and backup satellite irradiance data when a site sensor is missing. Estimated values are flagged in the report." },
-  { q: "Can an invoice change after it is sent?", a: "No. A monthly data freeze locks the billing month's data, so the invoice and its backup stay the same." },
+  { q: "What is a monthly data freeze?", a: "AMMP freezes each billing month's data, so billing runs on a stable, reliable data set." },
 ];
 
 // ---------- /compare/best-ppa-billing-software ----------
