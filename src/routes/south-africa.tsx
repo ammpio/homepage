@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { BatteryCharging, Clock, Database, Plug, ShieldCheck, Zap } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid, QuoteBand } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
@@ -47,6 +48,19 @@ function Page() {
           { icon: BatteryCharging, title: "Batteries as first-class assets", text: "Battery storage monitored with the same depth as solar." },
           { icon: ShieldCheck, title: "ISO/IEC 27001:2022 certified", text: "Independently audited information security management." },
         ]} />
+      </Band>
+      <Band>
+        <div className="mx-auto max-w-3xl">
+          <SectionHeading title="Alternatives to Power Factors and Huawei FusionSolar in South Africa" />
+          <p className="mt-6 text-base leading-7 text-muted-foreground">Power Factors is renewable asset performance management software. Teams already using it can keep it and add AMMP AI (Ray) on top.</p>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">Huawei FusionSolar is Huawei's own portal. It covers Huawei equipment, so a mixed fleet needs one portal per brand.</p>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">AMMP brings Huawei, SMA, Sungrow, Victron, Deye and other brands into one portal, with 1,000+ South African tariffs and Ray working on top.</p>
+          <div className="mt-6 flex flex-wrap gap-6">
+            <Link to="/compare/power-factors-alternatives" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Power Factors alternatives <ArrowRight className="size-4" /></Link>
+            <Link to="/compare/huawei" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">AMMP vs FusionSolar (Huawei) <ArrowRight className="size-4" /></Link>
+            <Link to="/compare/best-commercial-solar-monitoring-platforms" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Platforms for commercial and industrial portfolios <ArrowRight className="size-4" /></Link>
+          </div>
+        </div>
       </Band>
       <PageCta />
     </>
