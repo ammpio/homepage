@@ -38,6 +38,27 @@ function Page() {
       <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo key={vid.src} src={vid.src} poster={vid.poster} /></div></div></section>
       <RayDay />
 
+      <Band>
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">Root-cause analysis, with evidence</h2>
+          <p className="mt-4 text-lg text-muted-foreground">When a site underperforms, Ray works out why before anyone opens a spreadsheet.</p>
+          <ul className="mt-6 grid gap-3">
+            {[
+              ["Weather or site issue?", "Ray compares actual output with expected yield. When a site has no irradiance sensor, the platform uses backup satellite irradiance data, so a cloudy month isn't mistaken for a fault."],
+              ["Neighbouring inverters", "Ray compares a device against its neighbouring inverters, for example: INV-03 produced 38% less than its neighbouring inverters."],
+              ["Across every brand", "Because every brand lands in one data model, Ray can investigate underperformance across a mixed fleet, not one portal at a time."],
+              ["A diagnosis the team can check", "Ray hands the team a diagnosis with the evidence behind it. People decide what happens next."],
+            ].map(([title, text]) => (
+              <li key={title} className="glass-soft rounded-2xl p-5">
+                <p className="font-medium">{title}</p>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+              </li>
+            ))}
+          </ul>
+          <LivePostLink slug="why-is-my-solar-portfolio-underperforming" label="Why is my solar portfolio underperforming?" className="mt-6" />
+        </div>
+      </Band>
+
       <Band tone="grey">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">Rank alarms by revenue risk</h2>

@@ -30,6 +30,8 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "calculate-performance-ratio-solar-portfolio": "andreas",
   "detect-inverter-faults-early-reduce-truck-rolls": "andreas",
   "can-claude-chatgpt-analyse-solar-monitoring-data": "andreas",
+  "solar-battery-alerts-microsoft-teams-slack": "andreas",
+  "solar-monitoring-africa-nigeria-kenya-south-africa": "andreas",
 };
 
 /** Named author, or undefined when the post is credited to AMMP as the organisation. */

@@ -3,6 +3,7 @@ import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled
 import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
+import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
 
@@ -100,6 +101,37 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "solar-battery-alerts-microsoft-teams-slack",
+    howTo: { name: "How to get solar and battery alerts in Microsoft Teams", steps: ["Step 1: Decide which alerts matter", "Step 2: Choose where alerts go", "Step 3: Allow shared channels in Microsoft Teams", "Step 4: Let Ray post findings with evidence"] },
+    title: "How to get solar and battery alerts in Microsoft Teams (and Slack)",
+    excerpt: "Route solar and battery alerts into Microsoft Teams or Slack in four steps: alert rules, routing, shared channels and Ray's findings with evidence.",
+    category: "Insights",
+    date: "2026-11-09",
+    publishAt: "2026-11-09T00:00:00Z",
+    readTime: computeReadTime(teamsAlertsBody),
+    body: teamsAlertsBody,
+    faq: teamsAlertsFaq,
+    related: [
+      { to: "/solutions/solar-monitoring", title: "Solar monitoring", text: "Multi-brand monitoring with loss analysis across your portfolio." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "solar-monitoring-africa-nigeria-kenya-south-africa",
+    title: "Solar monitoring in Africa: what to look for in Nigeria, Kenya and South Africa",
+    excerpt: "What to check in a solar monitoring platform for C&I sites in Nigeria, Kenya and South Africa: grid outages, diesel hybrids, connectivity and tariffs.",
+    category: "Insights",
+    date: "2026-11-09",
+    publishAt: "2026-11-09T00:00:00Z",
+    readTime: computeReadTime(africaBody),
+    body: africaBody,
+    faq: africaFaq,
+    related: [
+      { to: "/south-africa", title: "AMMP in South Africa", text: "Load-shedding backup sites, 1,000+ South African tariffs and time-of-use battery checks." },
+      { to: "/solutions/hybrid-sites", title: "Hybrid sites", text: "Solar, battery, genset and mini-grid monitoring with AMMP Edge." },
+    ],
+  },
   {
     slug: "why-is-my-solar-portfolio-underperforming",
     howTo: {"name": "How to diagnose why a solar portfolio is underperforming", "steps": ["1. Data issues: missing or estimated data, wrong irradiance source", "2. Grid and plant downtime", "3. Inverter downtime and underperformance", "4. Clipping", "5. Curtailment", "6. Soiling", "7. Degradation", "8. Wrong budget or baseline"]},

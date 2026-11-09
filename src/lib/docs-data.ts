@@ -5,6 +5,16 @@ import { notFound } from "@tanstack/react-router";
 // on client navigation it fetches same-origin JSON routes. No /_serverFn calls, so the docs never
 // depend on a separately hosted server-function endpoint.
 
+/** Same-origin fetch that retries once; if the network still fails, loads the page normally so the server renders it. */
+async function fetchOrReload(url: string, pagePath: string): Promise<Response> {
+  try { return await fetch(url); } catch { /* retry once */ }
+  try { return await fetch(url); } catch (err) {
+    const { splitLocale, localizePath } = await import("@/i18n/locale");
+    window.location.assign(localizePath(pagePath, splitLocale(window.location.pathname).lang));
+    throw err;
+  }
+}
+
 export type DocSummary = { slug: string; title: string; description: string; category: string; updated: string };
 export type DocHeading = { id: string; text: string; depth: 2 | 3 };
 export type DocPageData = { doc: DocSummary; html: string; headings: DocHeading[]; nav: DocSummary[] };
@@ -15,7 +25,7 @@ export const loadDocsIndex = createIsomorphicFn()
     return docsIndexData();
   })
   .client(async (): Promise<DocSummary[]> => {
-    const res = await fetch("/product/documentation/index.json");
+    const res = await fetchOrReload("/product/documentation/index.json", "/product/documentation");
     if (!res.ok) throw new Error(`Docs index failed: ${res.status}`);
     return res.json();
   });
@@ -28,7 +38,7 @@ export const loadDocPage = createIsomorphicFn()
     return data as DocPageData;
   })
   .client(async (slug: string): Promise<DocPageData> => {
-    const res = await fetch(`/product/documentation/${encodeURIComponent(slug)}.json`);
+    const res = await fetchOrReload(`/product/documentation/${encodeURIComponent(slug)}.json`, `/product/documentation/${slug}`);
     if (res.status === 404) throw notFound();
     if (!res.ok) throw new Error(`Docs page failed: ${res.status}`);
     return res.json();

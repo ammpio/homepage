@@ -28,3 +28,4 @@
 - [x] Crawlable /es and /pt URLs: server-rendered translations, hreflang, self canonicals, sitemap alternates, /es and /pt llms.txt, switcher links, suggestion banner, tests; review list of new translations delivered
 - [x] Google Search Console: ammp.io already verified (domain property), sitemap submitted, 0 errors
 - [ ] Homepage search review: title/description + one-line intro — waiting on user approval
+- [x] AI-visibility batch (9 items): Teams/Slack alerts post, Solar-Log alternatives, BESS compare, PPA billing solution + compare, portfolio benchmarking, AI tools compare, Africa post, /south-africa alternatives section, /ray root-cause section (en/es/pt)

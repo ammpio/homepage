@@ -42,8 +42,11 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CompareAmmpVsAlsoenergyRouteImport } from './routes/compare.ammp-vs-alsoenergy'
 import { Route as CompareBazefieldRouteImport } from './routes/compare.bazefield'
+import { Route as CompareBestAiToolsSolarAssetManagersRouteImport } from './routes/compare.best-ai-tools-solar-asset-managers'
+import { Route as CompareBestBessMonitoringSoftwareRouteImport } from './routes/compare.best-bess-monitoring-software'
 import { Route as CompareBestCommercialSolarMonitoringPlatformsRouteImport } from './routes/compare.best-commercial-solar-monitoring-platforms'
 import { Route as CompareBestEpcSolarMonitoringSoftwareRouteImport } from './routes/compare.best-epc-solar-monitoring-software'
+import { Route as CompareBestPpaBillingSoftwareRouteImport } from './routes/compare.best-ppa-billing-software'
 import { Route as CompareBestSolarOmPlatformsRouteImport } from './routes/compare.best-solar-om-platforms'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
 import { Route as CompareDataFirstVsUiFirstRouteImport } from './routes/compare.data-first-vs-ui-first'
@@ -60,6 +63,7 @@ import { Route as ComparePowertrackRouteImport } from './routes/compare.powertra
 import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
 import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
 import { Route as CompareSmaRouteImport } from './routes/compare.sma'
+import { Route as CompareSolarLogAlternativesRouteImport } from './routes/compare.solar-log-alternatives'
 import { Route as CompareSolaredgeRouteImport } from './routes/compare.solaredge'
 import { Route as CompareSungrowRouteImport } from './routes/compare.sungrow'
 import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compare.traditional-monitoring'
@@ -69,6 +73,8 @@ import { Route as CompareVictronRouteImport } from './routes/compare.victron'
 import { Route as SolutionsHybridSitesRouteImport } from './routes/solutions.hybrid-sites'
 import { Route as SolutionsInvestorReportingRouteImport } from './routes/solutions.investor-reporting'
 import { Route as SolutionsOmSlaTrackingRouteImport } from './routes/solutions.om-sla-tracking'
+import { Route as SolutionsPortfolioBenchmarkingRouteImport } from './routes/solutions.portfolio-benchmarking'
+import { Route as SolutionsPpaBillingRouteImport } from './routes/solutions.ppa-billing'
 import { Route as SolutionsSolarMonitoringRouteImport } from './routes/solutions.solar-monitoring'
 import { Route as UseCasesAssetManagersRouteImport } from './routes/use-cases.asset-managers'
 import { Route as UseCasesEpcsRouteImport } from './routes/use-cases.epcs'
@@ -248,6 +254,18 @@ const CompareBazefieldRoute = CompareBazefieldRouteImport.update({
   path: '/compare/bazefield',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareBestAiToolsSolarAssetManagersRoute =
+  CompareBestAiToolsSolarAssetManagersRouteImport.update({
+    id: '/compare/best-ai-tools-solar-asset-managers',
+    path: '/compare/best-ai-tools-solar-asset-managers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareBestBessMonitoringSoftwareRoute =
+  CompareBestBessMonitoringSoftwareRouteImport.update({
+    id: '/compare/best-bess-monitoring-software',
+    path: '/compare/best-bess-monitoring-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompareBestCommercialSolarMonitoringPlatformsRoute =
   CompareBestCommercialSolarMonitoringPlatformsRouteImport.update({
     id: '/compare/best-commercial-solar-monitoring-platforms',
@@ -258,6 +276,12 @@ const CompareBestEpcSolarMonitoringSoftwareRoute =
   CompareBestEpcSolarMonitoringSoftwareRouteImport.update({
     id: '/compare/best-epc-solar-monitoring-software',
     path: '/compare/best-epc-solar-monitoring-software',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareBestPpaBillingSoftwareRoute =
+  CompareBestPpaBillingSoftwareRouteImport.update({
+    id: '/compare/best-ppa-billing-software',
+    path: '/compare/best-ppa-billing-software',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CompareBestSolarOmPlatformsRoute =
@@ -345,6 +369,12 @@ const CompareSmaRoute = CompareSmaRouteImport.update({
   path: '/compare/sma',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareSolarLogAlternativesRoute =
+  CompareSolarLogAlternativesRouteImport.update({
+    id: '/compare/solar-log-alternatives',
+    path: '/compare/solar-log-alternatives',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompareSolaredgeRoute = CompareSolaredgeRouteImport.update({
   id: '/compare/solaredge',
   path: '/compare/solaredge',
@@ -390,6 +420,17 @@ const SolutionsInvestorReportingRoute =
 const SolutionsOmSlaTrackingRoute = SolutionsOmSlaTrackingRouteImport.update({
   id: '/solutions/om-sla-tracking',
   path: '/solutions/om-sla-tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsPortfolioBenchmarkingRoute =
+  SolutionsPortfolioBenchmarkingRouteImport.update({
+    id: '/solutions/portfolio-benchmarking',
+    path: '/solutions/portfolio-benchmarking',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsPpaBillingRoute = SolutionsPpaBillingRouteImport.update({
+  id: '/solutions/ppa-billing',
+  path: '/solutions/ppa-billing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsSolarMonitoringRoute =
@@ -499,8 +540,11 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-ai-tools-solar-asset-managers': typeof CompareBestAiToolsSolarAssetManagersRoute
+  '/compare/best-bess-monitoring-software': typeof CompareBestBessMonitoringSoftwareRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
@@ -517,6 +561,7 @@ export interface FileRoutesByFullPath {
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
+  '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -526,6 +571,8 @@ export interface FileRoutesByFullPath {
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/portfolio-benchmarking': typeof SolutionsPortfolioBenchmarkingRoute
+  '/solutions/ppa-billing': typeof SolutionsPpaBillingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/epcs': typeof UseCasesEpcsRoute
@@ -574,8 +621,11 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-ai-tools-solar-asset-managers': typeof CompareBestAiToolsSolarAssetManagersRoute
+  '/compare/best-bess-monitoring-software': typeof CompareBestBessMonitoringSoftwareRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
@@ -592,6 +642,7 @@ export interface FileRoutesByTo {
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
+  '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -601,6 +652,8 @@ export interface FileRoutesByTo {
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/portfolio-benchmarking': typeof SolutionsPortfolioBenchmarkingRoute
+  '/solutions/ppa-billing': typeof SolutionsPpaBillingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/epcs': typeof UseCasesEpcsRoute
@@ -650,8 +703,11 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/ammp-vs-alsoenergy': typeof CompareAmmpVsAlsoenergyRoute
   '/compare/bazefield': typeof CompareBazefieldRoute
+  '/compare/best-ai-tools-solar-asset-managers': typeof CompareBestAiToolsSolarAssetManagersRoute
+  '/compare/best-bess-monitoring-software': typeof CompareBestBessMonitoringSoftwareRoute
   '/compare/best-commercial-solar-monitoring-platforms': typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
   '/compare/data-first-vs-ui-first': typeof CompareDataFirstVsUiFirstRoute
@@ -668,6 +724,7 @@ export interface FileRoutesById {
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
+  '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -677,6 +734,8 @@ export interface FileRoutesById {
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
+  '/solutions/portfolio-benchmarking': typeof SolutionsPortfolioBenchmarkingRoute
+  '/solutions/ppa-billing': typeof SolutionsPpaBillingRoute
   '/solutions/solar-monitoring': typeof SolutionsSolarMonitoringRoute
   '/use-cases/asset-managers': typeof UseCasesAssetManagersRoute
   '/use-cases/epcs': typeof UseCasesEpcsRoute
@@ -727,8 +786,11 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-ai-tools-solar-asset-managers'
+    | '/compare/best-bess-monitoring-software'
     | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-ppa-billing-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
@@ -745,6 +807,7 @@ export interface FileRouteTypes {
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
+    | '/compare/solar-log-alternatives'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -754,6 +817,8 @@ export interface FileRouteTypes {
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
+    | '/solutions/portfolio-benchmarking'
+    | '/solutions/ppa-billing'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/epcs'
@@ -802,8 +867,11 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-ai-tools-solar-asset-managers'
+    | '/compare/best-bess-monitoring-software'
     | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-ppa-billing-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
@@ -820,6 +888,7 @@ export interface FileRouteTypes {
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
+    | '/compare/solar-log-alternatives'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -829,6 +898,8 @@ export interface FileRouteTypes {
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
+    | '/solutions/portfolio-benchmarking'
+    | '/solutions/ppa-billing'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/epcs'
@@ -877,8 +948,11 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/compare/ammp-vs-alsoenergy'
     | '/compare/bazefield'
+    | '/compare/best-ai-tools-solar-asset-managers'
+    | '/compare/best-bess-monitoring-software'
     | '/compare/best-commercial-solar-monitoring-platforms'
     | '/compare/best-epc-solar-monitoring-software'
+    | '/compare/best-ppa-billing-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
     | '/compare/data-first-vs-ui-first'
@@ -895,6 +969,7 @@ export interface FileRouteTypes {
     | '/compare/pv-operation'
     | '/compare/qos-energy'
     | '/compare/sma'
+    | '/compare/solar-log-alternatives'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -904,6 +979,8 @@ export interface FileRouteTypes {
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
+    | '/solutions/portfolio-benchmarking'
+    | '/solutions/ppa-billing'
     | '/solutions/solar-monitoring'
     | '/use-cases/asset-managers'
     | '/use-cases/epcs'
@@ -953,8 +1030,11 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   CompareAmmpVsAlsoenergyRoute: typeof CompareAmmpVsAlsoenergyRoute
   CompareBazefieldRoute: typeof CompareBazefieldRoute
+  CompareBestAiToolsSolarAssetManagersRoute: typeof CompareBestAiToolsSolarAssetManagersRoute
+  CompareBestBessMonitoringSoftwareRoute: typeof CompareBestBessMonitoringSoftwareRoute
   CompareBestCommercialSolarMonitoringPlatformsRoute: typeof CompareBestCommercialSolarMonitoringPlatformsRoute
   CompareBestEpcSolarMonitoringSoftwareRoute: typeof CompareBestEpcSolarMonitoringSoftwareRoute
+  CompareBestPpaBillingSoftwareRoute: typeof CompareBestPpaBillingSoftwareRoute
   CompareBestSolarOmPlatformsRoute: typeof CompareBestSolarOmPlatformsRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
   CompareDataFirstVsUiFirstRoute: typeof CompareDataFirstVsUiFirstRoute
@@ -971,6 +1051,7 @@ export interface RootRouteChildren {
   ComparePvOperationRoute: typeof ComparePvOperationRoute
   CompareQosEnergyRoute: typeof CompareQosEnergyRoute
   CompareSmaRoute: typeof CompareSmaRoute
+  CompareSolarLogAlternativesRoute: typeof CompareSolarLogAlternativesRoute
   CompareSolaredgeRoute: typeof CompareSolaredgeRoute
   CompareSungrowRoute: typeof CompareSungrowRoute
   CompareTraditionalMonitoringRoute: typeof CompareTraditionalMonitoringRoute
@@ -980,6 +1061,8 @@ export interface RootRouteChildren {
   SolutionsHybridSitesRoute: typeof SolutionsHybridSitesRoute
   SolutionsInvestorReportingRoute: typeof SolutionsInvestorReportingRoute
   SolutionsOmSlaTrackingRoute: typeof SolutionsOmSlaTrackingRoute
+  SolutionsPortfolioBenchmarkingRoute: typeof SolutionsPortfolioBenchmarkingRoute
+  SolutionsPpaBillingRoute: typeof SolutionsPpaBillingRoute
   SolutionsSolarMonitoringRoute: typeof SolutionsSolarMonitoringRoute
   UseCasesAssetManagersRoute: typeof UseCasesAssetManagersRoute
   UseCasesEpcsRoute: typeof UseCasesEpcsRoute
@@ -1229,6 +1312,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareBazefieldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/best-ai-tools-solar-asset-managers': {
+      id: '/compare/best-ai-tools-solar-asset-managers'
+      path: '/compare/best-ai-tools-solar-asset-managers'
+      fullPath: '/compare/best-ai-tools-solar-asset-managers'
+      preLoaderRoute: typeof CompareBestAiToolsSolarAssetManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/best-bess-monitoring-software': {
+      id: '/compare/best-bess-monitoring-software'
+      path: '/compare/best-bess-monitoring-software'
+      fullPath: '/compare/best-bess-monitoring-software'
+      preLoaderRoute: typeof CompareBestBessMonitoringSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/best-commercial-solar-monitoring-platforms': {
       id: '/compare/best-commercial-solar-monitoring-platforms'
       path: '/compare/best-commercial-solar-monitoring-platforms'
@@ -1241,6 +1338,13 @@ declare module '@tanstack/react-router' {
       path: '/compare/best-epc-solar-monitoring-software'
       fullPath: '/compare/best-epc-solar-monitoring-software'
       preLoaderRoute: typeof CompareBestEpcSolarMonitoringSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/best-ppa-billing-software': {
+      id: '/compare/best-ppa-billing-software'
+      path: '/compare/best-ppa-billing-software'
+      fullPath: '/compare/best-ppa-billing-software'
+      preLoaderRoute: typeof CompareBestPpaBillingSoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/best-solar-om-platforms': {
@@ -1355,6 +1459,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareSmaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/solar-log-alternatives': {
+      id: '/compare/solar-log-alternatives'
+      path: '/compare/solar-log-alternatives'
+      fullPath: '/compare/solar-log-alternatives'
+      preLoaderRoute: typeof CompareSolarLogAlternativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/solaredge': {
       id: '/compare/solaredge'
       path: '/compare/solaredge'
@@ -1416,6 +1527,20 @@ declare module '@tanstack/react-router' {
       path: '/solutions/om-sla-tracking'
       fullPath: '/solutions/om-sla-tracking'
       preLoaderRoute: typeof SolutionsOmSlaTrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/portfolio-benchmarking': {
+      id: '/solutions/portfolio-benchmarking'
+      path: '/solutions/portfolio-benchmarking'
+      fullPath: '/solutions/portfolio-benchmarking'
+      preLoaderRoute: typeof SolutionsPortfolioBenchmarkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/ppa-billing': {
+      id: '/solutions/ppa-billing'
+      path: '/solutions/ppa-billing'
+      fullPath: '/solutions/ppa-billing'
+      preLoaderRoute: typeof SolutionsPpaBillingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/solar-monitoring': {
@@ -1545,10 +1670,15 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   CompareAmmpVsAlsoenergyRoute: CompareAmmpVsAlsoenergyRoute,
   CompareBazefieldRoute: CompareBazefieldRoute,
+  CompareBestAiToolsSolarAssetManagersRoute:
+    CompareBestAiToolsSolarAssetManagersRoute,
+  CompareBestBessMonitoringSoftwareRoute:
+    CompareBestBessMonitoringSoftwareRoute,
   CompareBestCommercialSolarMonitoringPlatformsRoute:
     CompareBestCommercialSolarMonitoringPlatformsRoute,
   CompareBestEpcSolarMonitoringSoftwareRoute:
     CompareBestEpcSolarMonitoringSoftwareRoute,
+  CompareBestPpaBillingSoftwareRoute: CompareBestPpaBillingSoftwareRoute,
   CompareBestSolarOmPlatformsRoute: CompareBestSolarOmPlatformsRoute,
   CompareCloudVsOnPremiseRoute: CompareCloudVsOnPremiseRoute,
   CompareDataFirstVsUiFirstRoute: CompareDataFirstVsUiFirstRoute,
@@ -1565,6 +1695,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComparePvOperationRoute: ComparePvOperationRoute,
   CompareQosEnergyRoute: CompareQosEnergyRoute,
   CompareSmaRoute: CompareSmaRoute,
+  CompareSolarLogAlternativesRoute: CompareSolarLogAlternativesRoute,
   CompareSolaredgeRoute: CompareSolaredgeRoute,
   CompareSungrowRoute: CompareSungrowRoute,
   CompareTraditionalMonitoringRoute: CompareTraditionalMonitoringRoute,
@@ -1574,6 +1705,8 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsHybridSitesRoute: SolutionsHybridSitesRoute,
   SolutionsInvestorReportingRoute: SolutionsInvestorReportingRoute,
   SolutionsOmSlaTrackingRoute: SolutionsOmSlaTrackingRoute,
+  SolutionsPortfolioBenchmarkingRoute: SolutionsPortfolioBenchmarkingRoute,
+  SolutionsPpaBillingRoute: SolutionsPpaBillingRoute,
   SolutionsSolarMonitoringRoute: SolutionsSolarMonitoringRoute,
   UseCasesAssetManagersRoute: UseCasesAssetManagersRoute,
   UseCasesEpcsRoute: UseCasesEpcsRoute,
