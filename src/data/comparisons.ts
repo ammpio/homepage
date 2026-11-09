@@ -2,6 +2,10 @@ export type Comparison = { to: string; title: string; excerpt: string };
 
 /** Comparison pages listed under the "Compare" filter on /blog (general topics first, then vendors). */
 export const comparisons: Comparison[] = [
+  { to: "/compare/best-ai-tools-solar-asset-managers", title: "Best AI tools for solar asset managers (2026)", excerpt: "Four kinds of AI tool for solar portfolios, and five criteria to judge any of them." },
+  { to: "/compare/best-bess-monitoring-software", title: "Best BESS monitoring software for C&I sites", excerpt: "Six criteria for battery storage monitoring on commercial and industrial sites." },
+  { to: "/compare/best-ppa-billing-software", title: "Best PPA billing and savings reporting software", excerpt: "Criteria for invoicing C&I solar PPAs and proving savings to clients." },
+  { to: "/compare/solar-log-alternatives", title: "Solar-Log alternatives for multi-site portfolios", excerpt: "Selection criteria and a neutral look at the options for multi-site, multi-brand monitoring." },
   { to: "/compare/best-solar-om-platforms", title: "Best solar and battery O&M platforms compared", excerpt: "Buying criteria for O&M teams running multi-brand portfolios, and a neutral look at the main platforms." },
   { to: "/compare/best-epc-solar-monitoring-software", title: "Best monitoring software for EPCs", excerpt: "What EPCs and installers should look for in client reporting and portfolio visibility, with a neutral look at the main platforms." },
   { to: "/compare/in-house-systems", title: "AMMP vs In-House Systems", excerpt: "Compare AMMP's ready-to-deploy platform to building custom in-house monitoring solutions." },
