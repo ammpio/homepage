@@ -1,11 +1,18 @@
 import { buildDocSet, parseCategories, parseDocFile, renderDocMarkdown, type DocFile } from "./docs-core";
+import { assetUrl } from "./assets";
 
 // Bundled at build time; no file system access at runtime (the server runs on a worker).
 const rawFiles = import.meta.glob("/content/docs/**/*.md", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
 const imageFiles = import.meta.glob("/content/docs/images/*.{png,jpg,jpeg,webp,gif,svg,avif}", { query: "?url", import: "default", eager: true }) as Record<string, string>;
 const categoryFiles = import.meta.glob("/content/docs/_categories.yml", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
 
-const IMAGES: Record<string, string> = Object.fromEntries(Object.entries(imageFiles).map(([p, url]) => [p.split("/").pop()!, url]));
+// CDN copies of docs images (src/assets/docs/<name>.asset.json), served from the same host as other site media.
+const cdnImages = import.meta.glob("/src/assets/docs/*.asset.json", { import: "default", eager: true }) as Record<string, { url: string }>;
+
+const IMAGES: Record<string, string> = {
+  ...Object.fromEntries(Object.entries(imageFiles).map(([p, url]) => [p.split("/").pop()!, url])),
+  ...Object.fromEntries(Object.entries(cdnImages).map(([p, a]) => [p.split("/").pop()!.replace(/\.asset\.json$/, ""), assetUrl(a)])),
+};
 
 let cache: DocFile[] | undefined;
 /** All current (non-draft) docs, sorted. README.md files in content/docs are ignored. */
