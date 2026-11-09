@@ -3,7 +3,7 @@ title: Working with Ray
 description: How Ray is set up for your organisation, how to ask Ray questions in Microsoft Teams, Slack or AMMP OS, and how to get the best answers.
 category: AMMP AI
 order: 20
-updated: 2026-10-28
+updated: 2026-11-09
 status: current
 ---
 
@@ -13,7 +13,7 @@ This page covers how Ray is set up for your organisation and how to work with Ra
 
 AMMP sets Ray up together with you:
 
-1. **Choose where Ray works:** Microsoft Teams, Slack, AMMP OS, or a combination. Ray is added to your Teams or Slack workspace.
+1. **Choose where Ray works:** Microsoft Teams, Slack, AMMP OS, or a combination. Ray is added to your Teams or Slack workspace. For Microsoft Teams shared channels with AMMP, your Microsoft 365 admin first needs to allow them; see [Enabling Microsoft Teams shared channels with AMMP](./microsoft-teams-shared-channels.md).
 2. **Decide what Ray can see.** Ray has its own AMMP account, with permissions like any other user. Your AMMP admin chooses which organisations, asset groups or assets Ray can access. See [Ray: data, permissions and security](./ray-data-and-security.md).
 3. **Add your context.** Share what Ray needs to judge performance well, such as target yields or financial models, contract and SLA terms, and tariffs. The more context Ray has, the sharper its answers.
 4. **Invite Ray to channels.** Add Ray to the channels where your team discusses operations, such as a portfolio-ops channel or a channel per client.
