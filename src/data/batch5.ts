@@ -50,7 +50,7 @@ export const BESS_OPTIONS: Alternative[] = [
 
 export const BESS_AMMP_FIT: Feature[] = [
   { title: "Battery analytics dashboards", text: "State of charge, charging and discharging for every battery, in battery analytics dashboards." },
-  { title: "Battery brands on /integrations", text: "Victron, Huawei, AlphaESS, APSystems, FreedomWon, Ingeteam, Ageto and SolarMD, among 30+ integrations." },
+  { title: "Battery brands", text: "Victron, Huawei, AlphaESS, APSystems, FreedomWon, Ingeteam, Ageto and SolarMD, among 30+ integrations." },
   { title: "Hybrid sites in one view", text: "Solar, battery, genset and mini-grid on one site, with the AMMP Edge datalogger where there is no cloud API." },
   { title: "Time-of-use battery checks", text: "Ray checks each battery's charging and discharging against the site's time-of-use tariff and flags sites that lost money to the wrong window." },
   { title: "Alerts where you work", text: "Alerts go to Microsoft Teams, Slack, email or webhooks." },
