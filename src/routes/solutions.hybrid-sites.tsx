@@ -51,7 +51,10 @@ function Page() {
           Daystar Power runs its solar, battery and genset hybrid sites on AMMP.{" "}
           <Link to="/case-studies" className="font-medium text-foreground hover:underline">Read the Daystar Power case study</Link>.
         </p>
-        <Link to="/integrations" className="mt-4 inline-flex items-center gap-1 text-sm font-medium hover:underline">Supported equipment <ArrowRight className="size-4" /></Link>
+        <div className="mt-4 flex flex-wrap gap-6">
+          <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Supported equipment <ArrowRight className="size-4" /></Link>
+          <Link to="/compare/best-bess-monitoring-software" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">BESS monitoring software compared <ArrowRight className="size-4" /></Link>
+        </div>
       </Band>
       <Band tone="grey">
         <SectionHeading title="Questions about hybrid sites" />

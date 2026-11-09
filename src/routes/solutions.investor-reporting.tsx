@@ -47,6 +47,7 @@ function Page() {
         <div className="mt-8 flex flex-wrap gap-6">
           <Link to="/use-cases/reporting-teams" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">How reporting teams use AMMP <ArrowRight className="size-4" /></Link>
           <LivePostLink slug="solar-investor-reports-with-ai" label="Read: solar investor reports with AI" />
+          <Link to="/solutions/ppa-billing" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">PPA billing and savings verification <ArrowRight className="size-4" /></Link>
         </div>
       </Band>
       <Band>

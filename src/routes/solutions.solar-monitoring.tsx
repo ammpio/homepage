@@ -50,6 +50,7 @@ function Page() {
         <div className="mt-8 flex flex-wrap gap-6">
           <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">All integrations <ArrowRight className="size-4" /></Link>
           <Link to="/compare/vendor-portals" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">AMMP vs manufacturer portals <ArrowRight className="size-4" /></Link>
+          <Link to="/solutions/portfolio-benchmarking" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Benchmark KPIs across sites and brands <ArrowRight className="size-4" /></Link>
         </div>
       </Band>
       <Band tone="grey">
