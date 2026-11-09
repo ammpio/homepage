@@ -1,6 +1,8 @@
 // es/pt runtime translations for the November 2026 AI-visibility batch (new compare/solution pages, two posts, /ray and /south-africa sections).
 export const batch5Translations: Record<"es" | "pt", Record<string, string>> = {
   es: {
+    "Enabling Microsoft Teams shared channels with AMMP": "Cómo habilitar los canales compartidos de Microsoft Teams con AMMP",
+    "AMMP vs FusionSolar (Huawei)": "AMMP vs FusionSolar (Huawei)",
     "An on-site datalogger and monitoring solution, widely used, with the Solar-Log WEB portal.": "Una solución de datalogger y monitoreo en sitio, de uso extendido, con el portal Solar-Log WEB.",
     "Sites built around a Solar-Log datalogger.": "Sitios construidos en torno a un datalogger Solar-Log.",
     "What is Solar-Log?": "¿Qué es Solar-Log?",
@@ -281,6 +283,8 @@ export const batch5Translations: Record<"es" | "pt", Record<string, string>> = {
     "PR (IEC 61724), availability and losses compared across sites and brands": "PR (IEC 61724), disponibilidad y pérdidas comparados entre sitios y marcas",
   },
   pt: {
+    "Enabling Microsoft Teams shared channels with AMMP": "Como habilitar canais compartilhados do Microsoft Teams com a AMMP",
+    "AMMP vs FusionSolar (Huawei)": "AMMP vs FusionSolar (Huawei)",
     "An on-site datalogger and monitoring solution, widely used, with the Solar-Log WEB portal.": "Uma solução de datalogger e monitoramento no local, amplamente usada, com o portal Solar-Log WEB.",
     "Sites built around a Solar-Log datalogger.": "Sites construídos em torno de um datalogger Solar-Log.",
     "What is Solar-Log?": "O que é o Solar-Log?",
