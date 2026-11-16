@@ -4,6 +4,9 @@ import { Band, PageHero, SectionHeading, FeatureGrid, Faq } from "@/components/s
 import { PageCta } from "@/components/site/SiteShell";
 import { LivePostLink } from "@/components/site/LivePostLink";
 import { PPA_FAQ, PPA_FEATURES } from "@/data/batch5";
+import { PPA_VARIANCE, PPA_VARIANCE_FAQ } from "@/data/batch6";
+
+const FAQ = [...PPA_FAQ, ...PPA_VARIANCE_FAQ];
 import { pageHead } from "@/lib/page-head";
 
 export const Route = createFileRoute("/solutions/ppa-billing")({
@@ -12,7 +15,7 @@ export const Route = createFileRoute("/solutions/ppa-billing")({
     path: "/solutions/ppa-billing",
     title: "PPA billing and savings verification for C&I solar — AMMP",
     description: "Billing-grade savings and PPA invoices from meter, tariff and contract data, with a monthly data freeze and scheduled delivery with your branding on reports.",
-    faq: PPA_FAQ,
+    faq: FAQ,
   }),
   component: Page,
 });
@@ -38,8 +41,16 @@ function Page() {
         </div>
       </Band>
       <Band>
+        <SectionHeading title="Variance analysis: weather or site issue?" intro="When actual output and savings differ from the PPA expectation, the first question is whether the weather or the site caused it. Four things to check:" />
+        <FeatureGrid columns={4} features={PPA_VARIANCE} />
+        <p className="mt-8 max-w-3xl text-base leading-7 text-muted-foreground">
+          <Link to="/ray" className="font-medium text-foreground underline underline-offset-4">Ray</Link>, the AI coworker in AMMP AI, investigates the variance and drafts the explanation with the evidence behind it. Your team reviews it before it goes to the off-taker.
+        </p>
+        <LivePostLink slug="why-is-my-solar-portfolio-underperforming" label="Why is my solar portfolio underperforming?" className="mt-6" />
+      </Band>
+      <Band tone="grey">
         <SectionHeading title="Questions about PPA billing" />
-        <Faq items={PPA_FAQ} />
+        <Faq items={FAQ} />
       </Band>
       <PageCta />
     </>

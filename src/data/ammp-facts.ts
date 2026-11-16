@@ -58,6 +58,8 @@ export const PAGES: [string, string, string][] = [
   ["Solar-Log alternatives", "/compare/solar-log-alternatives", "Selection criteria and a neutral look at multi-site monitoring options"],
   ["BESS monitoring software", "/compare/best-bess-monitoring-software", "Battery storage monitoring criteria for commercial and industrial sites"],
   ["PPA billing software", "/compare/best-ppa-billing-software", "PPA billing and savings reporting criteria for C&I solar portfolios"],
+  ["Mini-grid and hybrid monitoring", "/compare/best-mini-grid-hybrid-monitoring", "Solar, battery and genset monitoring criteria for mini-grids and hybrid sites"],
+  ["Solar asset management software", "/compare/best-solar-asset-management-software", "Eight criteria and a neutral look at the main platforms"],
   ["AI tools for solar asset managers", "/compare/best-ai-tools-solar-asset-managers", "Four kinds of AI tool and five criteria to judge them"],
   ["Asset managers", "/use-cases/asset-managers", "Use case"],
   ["O&M providers", "/use-cases/om-providers", "Use case"],

@@ -2,6 +2,8 @@ export type Comparison = { to: string; title: string; excerpt: string };
 
 /** Comparison pages listed under the "Compare" filter on /blog (general topics first, then vendors). */
 export const comparisons: Comparison[] = [
+  { to: "/compare/best-solar-asset-management-software", title: "Best solar asset management software in 2026", excerpt: "Eight criteria and a neutral look at the main platforms." },
+  { to: "/compare/best-mini-grid-hybrid-monitoring", title: "Best mini-grid and hybrid monitoring platforms", excerpt: "Criteria for solar, battery and diesel genset sites." },
   { to: "/compare/best-ai-tools-solar-asset-managers", title: "Best AI tools for solar asset managers (2026)", excerpt: "Four kinds of AI tool for solar portfolios, and five criteria to judge any of them." },
   { to: "/compare/best-bess-monitoring-software", title: "Best BESS monitoring software for C&I sites", excerpt: "Six criteria for battery storage monitoring on commercial and industrial sites." },
   { to: "/compare/best-ppa-billing-software", title: "Best PPA billing and savings reporting software", excerpt: "Criteria for invoicing C&I solar PPAs and proving savings to clients." },

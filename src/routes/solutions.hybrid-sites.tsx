@@ -54,6 +54,7 @@ function Page() {
         <div className="mt-4 flex flex-wrap gap-6">
           <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Supported equipment <ArrowRight className="size-4" /></Link>
           <Link to="/compare/best-bess-monitoring-software" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">BESS monitoring software compared <ArrowRight className="size-4" /></Link>
+          <Link to="/compare/best-mini-grid-hybrid-monitoring" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Mini-grid and hybrid monitoring compared <ArrowRight className="size-4" /></Link>
         </div>
       </Band>
       <Band tone="grey">
