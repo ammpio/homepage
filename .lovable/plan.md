@@ -1,93 +1,49 @@
-# AI-visibility batch: 9 items (plan + drafts for approval)
+# AI-visibility batch 6: mini-grid compare, SLA audit guide, asset management compare, PPA variance
 
-All new pages ship in English, Spanish and Portuguese in one go (`/es/...`, `/pt/...`), with hreflang, sitemap entries, llms.txt (+ /es, /pt), llms-full.txt, page schema, IndexNow on the next `main` deploy. Blog posts: author Andreas Lehner (CCO), today's date, published now.
+Standing rules apply (site/docs facts only, neutral competitors from existing /compare pages, 10,000+ / 30+ / 30+, no prices, case-study-linked customers only, "your branding on reports" only). Every new page ships en/es/pt in the same build.
 
 ## URLs
 
-| # | Type | URL |
-|---|---|---|
-| 1 | Blog (HowTo + FAQ) | /blog/solar-battery-alerts-microsoft-teams-slack |
-| 2 | Compare | /compare/solar-log-alternatives |
-| 3 | Compare | /compare/best-bess-monitoring-software |
-| 4a | Solution | /solutions/ppa-billing |
-| 4b | Compare | /compare/best-ppa-billing-software |
-| 5 | Solution | /solutions/portfolio-benchmarking |
-| 6 | Compare | /compare/best-ai-tools-solar-asset-managers |
-| 7 | Blog (FAQ) | /blog/solar-monitoring-africa-nigeria-kenya-south-africa |
-| 8 | New section | /south-africa |
-| 9 | New section | /ray |
+| Item | English | Spanish | Portuguese |
+|---|---|---|---|
+| 1 | /compare/best-mini-grid-hybrid-monitoring | /es/compare/best-mini-grid-hybrid-monitoring | /pt/compare/best-mini-grid-hybrid-monitoring |
+| 2 | /blog/audit-om-contractor-sla-compliance | /es/blog/... | /pt/blog/... |
+| 3 | /compare/best-solar-asset-management-software | /es/compare/... | /pt/compare/... |
+| 4 | /solutions/ppa-billing (existing, new section + FAQs) | /es/solutions/ppa-billing | /pt/solutions/ppa-billing |
 
-Spanish and Portuguese pages use the same address with /es or /pt in front (for example /es/compare/solar-log-alternatives).
+## 1. Best mini-grid and hybrid monitoring platforms
+- H1: "Best mini-grid and hybrid monitoring platforms: solar, battery and diesel genset".
+- Criteria sections: solar + battery + genset in one view; genset visibility limited to what /solutions/hybrid-sites says ("run hours and output alongside solar and storage") — no fuel-consumption or fuel-level claim; unreliable connectivity and data gaps (data quality checks, estimation rules, satellite irradiance backup); AMMP Edge for equipment without a cloud API; alert routing (Microsoft Teams, Slack, email, webhooks; rule levels as confirmed last batch); reporting for investors and financiers.
+- Options: AMMP; Huawei FusionSolar (neutral line from /compare/huawei, linked); vendor portals (from /compare/vendor-portals); generic categories (in-house systems, traditional monitoring) from existing compare pages.
+- Links: /solutions/hybrid-sites, /blog/solar-monitoring-africa-nigeria-kenya-south-africa, Daystar Power case study (only customer named).
+- FAQ (4) + FAQPage schema.
 
-## Fact check against the site (what I can and can't write)
+## 2. How to audit your O&M contractor's SLA compliance (blog, Andreas Lehner)
+- Seven numbered H2 steps matching your list; HowTo JSON-LD built from the exact visible headings via the existing howTo.steps mechanism.
+- Step content is general practice (contract definitions, exclusions, response vs repair time, liquidated damages wording already on the site); AMMP claims limited to existing ones: ticket assignments, deadlines and reminders, availability KPIs (IEC 61724 docs), data quality checks, Export Center/API/MCP for evidence.
+- "Where Ray fits" paragraph: measures performance against contract terms, drafts the claim with evidence, a named person approves before anything is sent.
+- Links: /solutions/om-sla-tracking, /blog/track-solar-ppa-performance-guarantees. FAQ (4) + FAQPage; cover image in existing style; published today, listed on blog index, sitemap, llms.
 
-Supported today:
-- Alerts: filter by asset group and asset; suppression rules scoped to portfolio, asset groups or assets; noisy vendor alerts can be suppressed; Standard Alerts cover communication failures, battery state of charge and PV performance; notifications to Microsoft Teams, Slack, email, webhooks (custom alerts are set up via support@ammp.io).
-- Ray: checks every site each morning, groups repeat alarms, opens tickets, people decide, doesn't control hardware.
-- Batteries: state of charge, charging and discharging (hybrid sites); Ray's time-of-use battery checks (South Africa); tariff database of 1,000+ South African tariffs.
-- PPA/savings: Energy Savings Hub, grid and PPA tariffs, fixed and time-of-use, demand charge savings, invoice backup; data quality checks, configurable estimation rules, satellite irradiance backup; "your branding on reports".
-- KPIs: IEC 61724-1 PR (weather-corrected and not), loss waterfall and Sankey, satellite irradiance mode, energy-weighted portfolio PR (blog post).
+## 3. Best solar asset management software in 2026
+- Criteria: multi-brand data, KPI consistency (IEC 61724), O&M and SLA tracking, financial/PPA reporting, investor reporting, AI assistance, data access (API, MCP server and Export Center), fit for distributed C&I vs utility-scale.
+- Options, each using only its existing /compare line and linked: Power Factors (with Ray-on-top note as before), AlsoEnergy, meteocontrol, Solar-Log (Solar-Log WEB), Huawei FusionSolar, QOS Energy, Bazefield, Univers, PV Operation, PowerTrack; plus vendor portals and in-house systems.
+- Links to all other best-of compare pages and /solutions pages. FAQ (4) + FAQPage. Added to blog Compare tab.
 
-NOT found on the site (I will leave these out unless you confirm):
-- "Alert rules at portfolio, asset group and asset level" and "KPI-based alert rules" as a self-serve feature (docs say custom alerts go through support).
-- "Billing-grade" savings, "all tariff structures and contract types", "monthly data freeze", "scheduled report delivery".
-- "Availability" and "specific yield" as named KPIs, "portfolio/sub-portfolio/site/device dashboards".
-- PCS/inverter integration for batteries, safety/thermal alarm routing, cycling counts.
-- Ray comparing neighbouring inverters or using satellite irradiance to separate weather from site issues.
-- Anything about Nigeria (connectivity, diesel hybrids, tariffs) or Kenya beyond them being markets AMMP serves.
+## 4. /solutions/ppa-billing: "Variance analysis: weather or site issue?"
+- Weather side: irradiance vs expected yield; satellite irradiance as the platform's backup when no site sensor.
+- Site side: downtime, underperformance vs neighbouring inverters, curtailment (see question 2).
+- Ray investigates the variance and drafts the explanation with evidence for review.
+- Links /ray and /blog/why-is-my-solar-portfolio-underperforming. Two new FAQ entries (FAQPage updated).
+
+## Shared wiring
+- Footer links for items 1 and 3; cross-links from /solutions/hybrid-sites, /solutions/om-sla-tracking, /compare/best-solar-om-platforms and related best-of pages.
+- ammp-facts PAGES, sitemap with hreflang, llms.txt (+ /es, /pt), llms-full.txt, comparisons.ts Compare tab, es/pt dictionaries.
+- Tests: i18n SSR no-JS, sitemap crawl, HowTo, heading order, bundle budget, docs tests. IndexNow fires on next main deploy.
 
 ## Open questions
-
-1. Solar-Log: beyond "on-site datalogger and monitoring, widely used" there's nothing on our compare pages. Do you want other options listed besides Solar-Log, meteocontrol, vendor portals and AMMP? Is Solar-Log's own portal (Solar-Log WEB) okay to name?
-2. Alerts: can I say customers set KPI alert rules at portfolio, group and asset level themselves, or keep "set up with our team"?
-3. PPA billing: confirm or drop each of: billing-grade, all tariff structures/contract types, monthly data freeze, scheduled delivery.
-4. Benchmarking: confirm availability, specific yield, and the four dashboard levels.
-5. BESS: confirm PCS integration, safety/thermal alarm routing, cycle tracking. Which BESS brands can I name (only those on /integrations?).
-6. BESS compare / PPA compare / AI tools compare: which competitors should appear? Our pages only describe meteocontrol, Power Factors, AlsoEnergy, Bazefield, Univers, vendor portals, QOS, etc. in general terms; none say anything about batteries, PPA billing or AI. My proposal: criteria-led pages with AMMP plus categories ("vendor portals", "spreadsheet/ERP billing", "general assistants via MCP such as Claude and ChatGPT"), no named competitor feature claims.
-7. Ray root cause: can I say Ray compares neighbouring inverters and uses satellite irradiance and expected yield to separate weather from site issues?
-8. Africa post: any facts you want for Nigeria and Kenya (connectivity, diesel hybrids, grid)? Otherwise I write them as general "what to check" questions, no market claims.
-9. /south-africa section: Huawei FusionSolar is only described as a vendor portal (lock-in angle). Okay to also link /compare/huawei?
-
-## Drafts (English; final copy follows your answers)
-
-### 1. How to get solar and battery alerts in Microsoft Teams (and Slack)
-Intro: Alerts that land in a separate portal get missed. Routing them into the channel your team already uses means the right person sees a communication failure or a low battery in minutes.
-- H2 Why route alerts into Teams or Slack
-- H2 Step 1: Decide which alerts matter (Standard Alerts: communication failures, battery state of charge, PV performance; suppression rules for planned maintenance and noisy vendor alerts, scoped to portfolio, asset groups or assets)
-- H2 Step 2: Choose where alerts go (Microsoft Teams, Slack, email, webhooks; each message shows alert name, state, site, parameter, value, time; red = triggered, green = cleared)
-- H2 Step 3: Allow shared channels in Microsoft Teams (link to the docs page)
-- H2 Step 4: Let Ray post findings with evidence (checks every site each morning, groups repeat alarms, opens tickets; people decide)
-- FAQ: "Can I get solar alerts in Microsoft Teams?" Yes, AMMP sends alerts to Teams channels, and Ray can post findings there. "Does AMMP work with Slack?" Yes, alerts and Ray both work in Slack.
-Links: /solutions/solar-monitoring, /ray, Teams docs page.
-
-### 2. Solar-Log alternatives for multi-site portfolio monitoring
-Same layout as the meteocontrol page: 5 criteria (multi-brand, one data model, alerts and tickets, reporting with your branding, data access via API, MCP server and Export Center), options table: Solar-Log ("an on-site datalogger and monitoring solution, widely used"; fits: sites built around its datalogger), meteocontrol, vendor portals, AMMP. FAQ x2.
-
-### 3. Best BESS monitoring software for C&I sites
-Six criteria as you listed; AMMP covered only on supported points (state of charge, charging/discharging, solar + battery + genset in one view, Ray time-of-use checks, alert routing, reporting). Links: battery cheat sheet, /solutions/hybrid-sites, /south-africa. FAQ x2.
-
-### 4a. PPA billing and savings verification for C&I solar
-Hero: "Back up every PPA invoice with meter, tariff and contract data." Sections: tariffs (grid and PPA, fixed and time-of-use, demand charges, 1,000+ South African tariffs), data you can trust (quality checks, estimation rules, satellite backup), reports with your branding. Links: /blog/automated-ppa-billing-solar, /solutions/investor-reporting. FAQ x2.
-
-### 4b. Best PPA billing and savings reporting software for C&I portfolios
-Criteria-led: tariff coverage, time-of-use and demand charges, data quality handling, client-facing reports, audit trail to meter data, exports. Options as categories (see question 6).
-
-### 5. Benchmark solar KPIs across sites and brands
-One data model across brands, IEC 61724-1 PR (weather-corrected and not, irradiance below 50 W/m2 excluded), loss waterfall and Sankey, energy-weighted portfolio PR. Links: PR blog post, KPI docs. FAQ x2.
-
-### 6. Best AI tools for solar asset managers (2026)
-Four categories, no ranking; criteria table (live portfolio data, evidence per finding, human approval, permissions, where it runs). AMMP: Ray in Teams/Slack/platform; MCP server for Claude and ChatGPT. Other vendors only per question 6.
-
-### 7. Solar monitoring in Africa: Nigeria, Kenya and South Africa
-Sections: why one platform across countries, grid reliability and load-shedding, diesel hybrids, connectivity, tariffs (1,000+ SA tariffs), checklist. Links: /south-africa, /solutions/hybrid-sites, load-shedding post. FAQ x2.
-
-### 8. /south-africa: "Alternatives to Power Factors and Huawei FusionSolar in South Africa"
-Two short neutral paragraphs reusing the existing lines (Power Factors: "renewable asset performance management software"; FusionSolar: Huawei's own portal), plus AMMP across brands with Ray on top. Links to both compare pages.
-
-### 9. /ray: "Root-cause analysis"
-Expected yield vs actual, underperformance across brands, a diagnosis with evidence handed to the team; neighbouring inverters and satellite only if you confirm (question 7). Link to the underperformance post.
-
-## Technical details
-- New routes follow existing compare/solution files and `pageHead()`; posts go in the blog data with `howTo.steps` for post 1, FAQ arrays, Article schema via authors.ts.
-- Neutral descriptions added to `src/data/alternatives.ts`; facts and pages registered in `ammp-facts.ts` PAGES; comparisons list for the blog Compare tab; footer links under Compare/Solutions.
-- es/pt dictionary entries for every new string; run i18n SSR tests, sitemap crawl test and HowTo test.
+1. Genset fuel: the site states only "run hours and output" for gensets (the fuel-sensor docs page was removed). OK to say nothing about fuel, or is there a confirmed fuel statement you want used?
+2. Curtailment: not currently stated on ppa-billing or product pages. May I mention it as a general cause to check (no AMMP feature claim), or drop it?
+3. "Donors": the site mentions investors/financiers but not donors. Use "investors and financiers" only, or is "donor reporting" a confirmed use?
+4. Mini-grid options: any named competitor besides Huawei? Only ones with an existing /compare page can be described; others would need your facts.
+5. Asset-management compare: include all compare-page vendors listed above, or limit to the six you named?
+6. SLA guide: can "response and repair times from ticket timestamps" be presented as AMMP-capable (ticket created/closed times), or kept as general practice?
