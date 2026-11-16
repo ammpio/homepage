@@ -1,4 +1,4 @@
-// es/pt runtime translations for the Engineering with AI podcast post (scheduled 25 Nov 2026).
+// es/pt runtime translations for the Engineering with AI podcast post (published 16 Nov 2026).
 export const blogPodcastTranslations: Record<"es" | "pt", Record<string, string>> = {
   "es": {
     "AI agents in our Slack, and what they taught us about Ray": "Agentes de IA en nuestro Slack, y lo que nos enseñaron sobre Ray",
