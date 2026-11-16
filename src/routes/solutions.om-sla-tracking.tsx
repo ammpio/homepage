@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Clock, FileCheck, Gauge, ScrollText, UserCheck } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid, Faq } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
+import { LivePostLink } from "@/components/site/LivePostLink";
 import { pageHead } from "@/lib/page-head";
 
 const FAQ = [
@@ -49,6 +50,7 @@ function Page() {
         <div className="mt-8 flex flex-wrap gap-6">
           <Link to="/use-cases/asset-managers" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">For asset managers <ArrowRight className="size-4" /></Link>
           <Link to="/use-cases/om-providers" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">For O&M providers <ArrowRight className="size-4" /></Link>
+          <LivePostLink slug="audit-om-contractor-sla-compliance" label="How to audit your O&M contractor's SLA compliance" />
         </div>
       </Band>
       <Band tone="grey">
