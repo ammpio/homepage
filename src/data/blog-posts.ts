@@ -3,6 +3,7 @@ import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled
 import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
+import { podcastAgentsBody, covers7 } from "./blog-scheduled-7";
 import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
@@ -45,6 +46,8 @@ export type BlogPost = {
   faq?: FaqItem[];
   /** Step-by-step guide: exact visible heading texts emitted as HowTo JSON-LD steps. */
   howTo?: { name: string; steps: string[] };
+  /** People or works the post is about, emitted as Article "mentions" JSON-LD. */
+  mentions?: { type: "Person" | "PodcastEpisode"; name: string; url: string; jobTitle?: string }[];
   related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites" | "/solutions/solar-monitoring"; title: string; text: string }[];
 };
 
@@ -102,6 +105,24 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "svet-engineering-with-ai-podcast-agents-in-slack",
+    title: "AI agents in our Slack, and what they taught us about Ray",
+    excerpt: "Our co-founder and CEO Svet Bajlekov joined Kyle Hodgson on the Engineering with AI podcast to talk about the AI agents that work in AMMP's Slack, and how that experience shaped Ray, our AI coworker for renewable energy teams.",
+    category: "Insights",
+    date: "2026-11-25",
+    publishAt: "2026-11-25T08:00:00Z",
+    readTime: computeReadTime(podcastAgentsBody),
+    body: podcastAgentsBody,
+    cover: covers7.podcast,
+    mentions: [
+      { type: "Person", name: "Svet Bajlekov", jobTitle: "CEO & Co-Founder", url: "https://www.linkedin.com/in/bajlekov/" },
+      { type: "PodcastEpisode", name: "Svet Bajlekov discovered agents in his Slack (Engineering with AI)", url: "https://engwith.ai/episodes/svet-bajlekov-discovered-agents-in-his-slack" },
+    ],
+    related: [
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
   {
     slug: "audit-om-contractor-sla-compliance",
     howTo: { name: "How to audit your O&M contractor's SLA compliance", steps: ["Step 1: Read the contract terms", "Step 2: Pick the data sources", "Step 3: Calculate availability the way the contract defines it", "Step 4: Measure response and repair times from ticket timestamps", "Step 5: Handle data gaps", "Step 6: Assemble the evidence", "Step 7: Review with the contractor"] },
