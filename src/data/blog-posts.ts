@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Our co-founder and CEO Svet Bajlekov joined Kyle Hodgson on the Engineering with AI podcast to talk about the AI agents that work in AMMP's Slack, and how that experience shaped Ray, our AI coworker for renewable energy teams.",
     category: "Insights",
     date: "2026-11-25",
-    publishAt: "2026-11-25T08:00:00Z",
+    publishAt: "2026-11-01T08:00:00Z",
     readTime: computeReadTime(podcastAgentsBody),
     body: podcastAgentsBody,
     cover: covers7.podcast,
