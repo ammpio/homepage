@@ -22,7 +22,7 @@ export const slaAuditBody: BlogBlock[] = [
   { type: "heading", text: "Step 3: Calculate availability the way the contract defines it" },
   { type: "rich", parts: [
     "Calculate availability with the contract's formula, not your platform's default. Apply the exclusions from step 1 and keep the calculation per period, so a single bad month is visible. For consistent definitions across sites, see the ",
-    { a: "KPI calculations in the AMMP documentation", href: "/product/documentation" },
+    { a: "KPI calculations in the AMMP documentation", href: "/product/documentation/kpi-calculations" },
     ".",
   ] },
   { type: "heading", text: "Step 4: Measure response and repair times from ticket timestamps" },
