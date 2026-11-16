@@ -3,6 +3,7 @@ import { checklistBody, alarmsBody, reportsBody, covers } from "./blog-scheduled
 import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-scheduled-2";
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
+import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
 export type BlogCategory = "Customers" | "Product" | "Insights" | "Press" | "Awards";
@@ -101,6 +102,23 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "audit-om-contractor-sla-compliance",
+    howTo: { name: "How to audit your O&M contractor's SLA compliance", steps: ["Step 1: Read the contract terms", "Step 2: Pick the data sources", "Step 3: Calculate availability the way the contract defines it", "Step 4: Measure response and repair times from ticket timestamps", "Step 5: Handle data gaps", "Step 6: Assemble the evidence", "Step 7: Review with the contractor"] },
+    title: "How to audit your O&M contractor's SLA compliance: availability, response time and evidence",
+    excerpt: "A seven-step SLA audit for solar O&M contracts: contract terms, data sources, availability, response and repair times, data gaps and evidence.",
+    category: "Insights",
+    date: "2026-11-16",
+    publishAt: "2026-11-16T00:00:00Z",
+    readTime: computeReadTime(slaAuditBody),
+    body: slaAuditBody,
+    faq: slaAuditFaq,
+    cover: covers6.sla,
+    related: [
+      { to: "/solutions/om-sla-tracking", title: "O&M SLA tracking", text: "Contractor availability and response times against contract terms." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
   {
     slug: "solar-battery-alerts-microsoft-teams-slack",
     howTo: { name: "How to get solar and battery alerts in Microsoft Teams", steps: ["Step 1: Decide which alerts matter", "Step 2: Choose where alerts go", "Step 3: Allow shared channels in Microsoft Teams", "Step 4: Let Ray post findings with evidence"] },
