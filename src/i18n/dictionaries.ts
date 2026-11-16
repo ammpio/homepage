@@ -10,6 +10,7 @@ import { productRuntimeTranslations } from "./product-runtime-translations";
 import { localizedGapTranslations } from "./localized-gap-translations";
 import { howToTranslations } from "./howto-translations";
 import { batch5Translations } from "./batch5-translations";
+import { batch6Translations } from "./batch6-translations";
 
 export const sources = [
   docsTranslations,
@@ -22,4 +23,5 @@ export const sources = [
   localizedGapTranslations,
   howToTranslations,
   batch5Translations,
+  batch6Translations,
 ];

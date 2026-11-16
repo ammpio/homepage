@@ -29,3 +29,4 @@
 - [x] Google Search Console: ammp.io already verified (domain property), sitemap submitted, 0 errors
 - [ ] Homepage search review: title/description + one-line intro — waiting on user approval
 - [x] AI-visibility batch (9 items): Teams/Slack alerts post, Solar-Log alternatives, BESS compare, PPA billing solution + compare, portfolio benchmarking, AI tools compare, Africa post, /south-africa alternatives section, /ray root-cause section (en/es/pt)
+- [x] AI-visibility batch 6: mini-grid/hybrid compare, SLA audit guide (HowTo), solar asset management compare, PPA variance section (en/es/pt)
