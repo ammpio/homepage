@@ -1,6 +1,7 @@
 // es/pt runtime translations for the mid-November 2026 AI-visibility batch (mini-grid and asset management compares, SLA audit guide, PPA variance section).
 export const batch6Translations: Record<"es" | "pt", Record<string, string>> = {
   "es": {
+    "16 November 2026": "16 de noviembre de 2026",
     "Huawei FusionSolar": "Huawei FusionSolar",
     "Huawei's own monitoring portal. It monitors Huawei hardware only.": "El portal de monitoreo propio de Huawei. Solo monitorea hardware de Huawei.",
     "Sites that run only Huawei equipment.": "Sitios que solo usan equipos Huawei.",
@@ -146,6 +147,7 @@ export const batch6Translations: Record<"es" | "pt", Record<string, string>> = {
     "Contractor availability and response times against contract terms.": "Disponibilidad y tiempos de respuesta del contratista frente a los términos del contrato."
   },
   "pt": {
+    "16 November 2026": "16 de novembro de 2026",
     "Huawei FusionSolar": "Huawei FusionSolar",
     "Huawei's own monitoring portal. It monitors Huawei hardware only.": "O portal de monitoramento próprio da Huawei. Monitora apenas hardware da Huawei.",
     "Sites that run only Huawei equipment.": "Sites que usam apenas equipamentos Huawei.",
