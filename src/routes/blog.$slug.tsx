@@ -57,6 +57,7 @@ export const Route = createFileRoute("/blog/$slug")({
               url,
               mainEntityOfPage: url,
               ...(image ? { image } : {}),
+              ...(post.mentions?.length ? { mentions: post.mentions.map((m) => ({ "@type": m.type, name: m.name, url: m.url, ...(m.jobTitle ? { jobTitle: m.jobTitle } : {}) })) } : {}),
             }),
           }, ...(post.howTo ? [{ type: "application/ld+json", children: JSON.stringify(howToJsonLd(post.howTo, post.body, url)) }] : []), ...(post.faq?.length ? [{ type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(post.faq)) }] : [])]
         : [],

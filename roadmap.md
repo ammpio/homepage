@@ -30,3 +30,4 @@
 - [ ] Homepage search review: title/description + one-line intro — waiting on user approval
 - [x] AI-visibility batch (9 items): Teams/Slack alerts post, Solar-Log alternatives, BESS compare, PPA billing solution + compare, portfolio benchmarking, AI tools compare, Africa post, /south-africa alternatives section, /ray root-cause section (en/es/pt)
 - [x] AI-visibility batch 6: mini-grid/hybrid compare, SLA audit guide (HowTo), solar asset management compare, PPA variance section (en/es/pt)
+- [x] Scheduled podcast post /blog/svet-engineering-with-ai-podcast-agents-in-slack (25 Nov 2026 08:00 UTC, en/es/pt)
