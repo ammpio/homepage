@@ -28,6 +28,8 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as RayRouteImport } from './routes/ray'
+import { Route as RayDemoRouteImport } from './routes/ray-demo'
+import { Route as RayPartnersRouteImport } from './routes/ray-partners'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SouthAfricaRouteImport } from './routes/south-africa'
@@ -184,6 +186,16 @@ const ProductRoute = ProductRouteImport.update({
 const RayRoute = RayRouteImport.update({
   id: '/ray',
   path: '/ray',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayDemoRoute = RayDemoRouteImport.update({
+  id: '/ray-demo',
+  path: '/ray-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayPartnersRoute = RayPartnersRouteImport.update({
+  id: '/ray-partners',
+  path: '/ray-partners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SecurityRoute = SecurityRouteImport.update({
@@ -541,6 +553,8 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
+  '/ray-demo': typeof RayDemoRoute
+  '/ray-partners': typeof RayPartnersRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
@@ -624,6 +638,8 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
+  '/ray-demo': typeof RayDemoRoute
+  '/ray-partners': typeof RayPartnersRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
@@ -708,6 +724,8 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRoute
   '/ray': typeof RayRoute
+  '/ray-demo': typeof RayDemoRoute
+  '/ray-partners': typeof RayPartnersRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
@@ -793,6 +811,8 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/product'
     | '/ray'
+    | '/ray-demo'
+    | '/ray-partners'
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
@@ -876,6 +896,8 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/product'
     | '/ray'
+    | '/ray-demo'
+    | '/ray-partners'
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
@@ -959,6 +981,8 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/product'
     | '/ray'
+    | '/ray-demo'
+    | '/ray-partners'
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
@@ -1043,6 +1067,8 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRoute
   RayRoute: typeof RayRoute
+  RayDemoRoute: typeof RayDemoRoute
+  RayPartnersRoute: typeof RayPartnersRoute
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SouthAfricaRoute: typeof SouthAfricaRoute
@@ -1240,6 +1266,20 @@ declare module '@tanstack/react-router' {
       path: '/ray'
       fullPath: '/ray'
       preLoaderRoute: typeof RayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-demo': {
+      id: '/ray-demo'
+      path: '/ray-demo'
+      fullPath: '/ray-demo'
+      preLoaderRoute: typeof RayDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-partners': {
+      id: '/ray-partners'
+      path: '/ray-partners'
+      fullPath: '/ray-partners'
+      preLoaderRoute: typeof RayPartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/security': {
@@ -1699,6 +1739,8 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRoute,
   RayRoute: RayRoute,
+  RayDemoRoute: RayDemoRoute,
+  RayPartnersRoute: RayPartnersRoute,
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SouthAfricaRoute: SouthAfricaRoute,
