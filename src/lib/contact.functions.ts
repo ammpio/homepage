@@ -7,6 +7,10 @@ const schema = z.object({
   company: z.string().trim().max(200).optional().default(""),
   message: z.string().trim().min(1).max(5000),
   turnstileToken: z.string().min(1),
+  utm_source: z.string().trim().max(200).optional(),
+  utm_medium: z.string().trim().max(200).optional(),
+  utm_campaign: z.string().trim().max(200).optional(),
+  source_page: z.string().trim().max(200).optional(),
 });
 
 export const submitContact = createServerFn({ method: "POST" })
@@ -34,6 +38,10 @@ export const submitContact = createServerFn({ method: "POST" })
         email: data.email,
         company: data.company || null,
         message: data.message,
+        utm_source: data.utm_source || null,
+        utm_medium: data.utm_medium || null,
+        utm_campaign: data.utm_campaign || null,
+        source_page: data.source_page || null,
       })
       .select("id")
       .single();

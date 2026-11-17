@@ -366,3 +366,6 @@ main:has([data-compare-table]) section > .site-container > .max-w-3xl { margin-i
 .docs-callout-note, .docs-callout-tip { border-left-color: var(--muted-foreground); }
 .docs-callout-important { border-left-color: var(--foreground); }
 .docs-callout-warning, .docs-callout-caution { border-left-color: var(--primary); }
+
+/* Event landing pages (/ray-demo, /ray-partners): requested pink headline words */
+.site-luminous main h1 .event-highlight { color: var(--color-primary); }

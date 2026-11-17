@@ -22,6 +22,10 @@ export type Database = {
           id: string
           message: string
           name: string
+          source_page: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
         }
         Insert: {
           company?: string | null
@@ -30,6 +34,10 @@ export type Database = {
           id?: string
           message: string
           name: string
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Update: {
           company?: string | null
@@ -38,6 +46,10 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
