@@ -11,7 +11,7 @@ export const HTML_LANG: Record<Language, string> = { en: "en", es: "es", pt: "pt
 export const OG_LOCALE: Record<Language, string> = { en: "en_US", es: "es_ES", pt: "pt_BR" };
 
 // Pages that stay English-only: legal text, redirects/downloads, beta/trial sign-up, machine endpoints.
-const ENGLISH_ONLY_EXACT = new Set(["/privacy", "/terms", "/beta", "/trial", "/stratopi-image", "/unipi-image", "/support", "/sitemap.xml", "/llms-full.txt"]);
+const ENGLISH_ONLY_EXACT = new Set(["/privacy", "/terms", "/beta", "/trial", "/stratopi-image", "/unipi-image", "/support", "/ray-demo", "/ray-partners", "/sitemap.xml", "/llms-full.txt"]);
 const ENGLISH_ONLY_PREFIX = ["/api/", "/lovable/", "/_serverFn", "/_server", "/__l5e", "/assets/"];
 
 function clean(path: string): string {
