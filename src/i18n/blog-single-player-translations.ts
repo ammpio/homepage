@@ -1,6 +1,7 @@
 // es/pt runtime translations for Svet's "Single-player AI" post (published 17 Nov 2026).
 export const blogSinglePlayerTranslations: Record<"es" | "pt", Record<string, string>> = {
   "es": {
+    "One person working alone with a private AI chat, next to a team sharing an open channel with an AI agent at its centre": "Una persona trabajando sola con un chat privado de IA, junto a un equipo que comparte un canal abierto con un agente de IA en el centro",
     "Single-player AI: why most teams still use AI alone, and what changes when they don't": "Single-player AI: por qué la mayoría de los equipos todavía usa la IA en solitario, y qué cambia cuando no lo hace",
     "Almost everyone at work uses AI now, and almost all of it happens in private chats. This has a hidden cost. What would it look like if we collaborated with AI in the open?": "Casi todo el mundo usa ya IA en el trabajo, y casi todo ocurre en chats privados. Esto tiene un coste oculto. ¿Cómo sería colaborar con la IA a la vista de todos?",
     "Most of us use AI every day at work. Almost all of it happens in private.": "La mayoría de nosotros usamos IA cada día en el trabajo. Casi todo ocurre en privado.",
@@ -30,6 +31,7 @@ export const blogSinglePlayerTranslations: Record<"es" | "pt", Record<string, st
     "More on Ray: ": "Más sobre Ray: ",
   },
   "pt": {
+    "One person working alone with a private AI chat, next to a team sharing an open channel with an AI agent at its centre": "Uma pessoa trabalhando sozinha com um chat privado de IA, ao lado de uma equipe que compartilha um canal aberto com um agente de IA no centro",
     "Single-player AI: why most teams still use AI alone, and what changes when they don't": "Single-player AI: por que a maioria das equipes ainda usa IA sozinha, e o que muda quando isso deixa de acontecer",
     "Almost everyone at work uses AI now, and almost all of it happens in private chats. This has a hidden cost. What would it look like if we collaborated with AI in the open?": "Quase todo mundo já usa IA no trabalho, e quase tudo acontece em chats privados. Isso tem um custo oculto. Como seria colaborar com a IA às claras?",
     "Most of us use AI every day at work. Almost all of it happens in private.": "A maioria de nós usa IA todos os dias no trabalho. Quase tudo acontece no privado.",

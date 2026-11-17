@@ -1,4 +1,10 @@
 import type { BlogBlock } from "./blog-posts";
+import cover from "@/assets/blog-single-player-ai-cover.jpg.asset.json";
+import { assetUrl } from "@/lib/assets";
+
+export const covers8 = {
+  singlePlayer: { src: assetUrl(cover), alt: "One person working alone with a private AI chat, next to a team sharing an open channel with an AI agent at its centre" },
+};
 
 // Svet Bajlekov's "Single-player AI" post. English text approved word for word by Svet — do not edit.
 export const singlePlayerBody: BlogBlock[] = [

@@ -4,7 +4,7 @@ import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-schedule
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
 import { podcastAgentsBody, covers7 } from "./blog-scheduled-7";
-import { singlePlayerBody } from "./blog-scheduled-8";
+import { singlePlayerBody, covers8 } from "./blog-scheduled-8";
 import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-11-17",
     readTime: computeReadTime(singlePlayerBody),
     body: singlePlayerBody,
-    cover: covers4.ai,
+    cover: covers8.singlePlayer,
     related: [
       { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
     ],
