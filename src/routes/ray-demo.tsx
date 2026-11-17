@@ -47,7 +47,7 @@ function Page() {
           <div>
             <p className="eyebrow">Sustainable Solutions Düsseldorf · Stand P1.2</p>
             <h1 className="mt-4 font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl">
-              What did you miss <span className="text-primary">last night?</span>
+              What did you miss <span className="event-highlight">last night?</span>
             </h1>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">Ray knows before your team logs on. Your AI coworker for renewable energy portfolios, in Microsoft Teams or Slack.</p>
             <div className="mt-7 flex flex-wrap gap-3">

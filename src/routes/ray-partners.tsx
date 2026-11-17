@@ -38,7 +38,7 @@ function Page() {
           <div>
             <p className="eyebrow">For energy hardware & platform makers</p>
             <h1 className="mt-4 font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl">
-              Give your hardware an <span className="text-primary">AI coworker.</span>
+              Give your hardware an <span className="event-highlight">AI coworker.</span>
             </h1>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">Offer Ray to your customers, on top of the devices and cloud platform they already use.</p>
             <a href="#pilot" className="button button-pink mt-7">Become a pilot partner <ArrowRight className="size-4" /></a>
