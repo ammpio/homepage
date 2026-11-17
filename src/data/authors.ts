@@ -32,6 +32,7 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "can-claude-chatgpt-analyse-solar-monitoring-data": "andreas",
   "solar-battery-alerts-microsoft-teams-slack": "andreas",
   "svet-engineering-with-ai-podcast-agents-in-slack": "andreas",
+  "single-player-ai-teams": "svet",
   "audit-om-contractor-sla-compliance": "andreas",
   "solar-monitoring-africa-nigeria-kenya-south-africa": "andreas",
 };

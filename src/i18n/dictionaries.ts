@@ -12,6 +12,7 @@ import { howToTranslations } from "./howto-translations";
 import { batch5Translations } from "./batch5-translations";
 import { batch6Translations } from "./batch6-translations";
 import { blogPodcastTranslations } from "./blog-podcast-translations";
+import { blogSinglePlayerTranslations } from "./blog-single-player-translations";
 
 export const sources = [
   docsTranslations,
@@ -26,4 +27,5 @@ export const sources = [
   batch5Translations,
   batch6Translations,
   blogPodcastTranslations,
+  blogSinglePlayerTranslations,
 ];

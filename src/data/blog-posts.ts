@@ -4,6 +4,7 @@ import { billingBody, guaranteesBody, toolsBody, covers2 } from "./blog-schedule
 import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
 import { podcastAgentsBody, covers7 } from "./blog-scheduled-7";
+import { singlePlayerBody } from "./blog-scheduled-8";
 import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
@@ -105,6 +106,19 @@ const meetRayBody: BlogBlock[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "single-player-ai-teams",
+    title: "Single-player AI: why most teams still use AI alone, and what changes when they don't",
+    excerpt: "Almost everyone at work uses AI now, and almost all of it happens in private chats. This has a hidden cost. What would it look like if we collaborated with AI in the open?",
+    category: "Insights",
+    date: "2026-11-17",
+    readTime: computeReadTime(singlePlayerBody),
+    body: singlePlayerBody,
+    cover: covers4.ai,
+    related: [
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
   {
     slug: "svet-engineering-with-ai-podcast-agents-in-slack",
     title: "AI agents in our Slack, and what they taught us about Ray",

@@ -2,6 +2,7 @@
 // Lightweight copy for links in shared page sections, so they don't ship every post's full text.
 // Must match src/data/blog-posts.ts (blog-posts.test.ts fails when they drift): add a line for each new post.
 export const POST_SCHEDULE: Record<string, string | null> = {
+  "single-player-ai-teams": null,
   "svet-engineering-with-ai-podcast-agents-in-slack": "2026-11-16T16:40:00Z",
   "audit-om-contractor-sla-compliance": "2026-11-16T00:00:00Z",
   "solar-battery-alerts-microsoft-teams-slack": "2026-11-09T00:00:00Z",
