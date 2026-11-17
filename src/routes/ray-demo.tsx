@@ -61,9 +61,9 @@ function Hub() {
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
           <RayIcon className="size-24" /><p className="mt-2 font-medium">Ray</p>
         </div>
-        <div className="absolute left-1/2 top-0 w-60 -translate-x-1/2"><Group g={groups[0]} /></div>
-        <div className="absolute bottom-0 left-0 w-60"><Group g={groups[1]} /></div>
-        <div className="absolute bottom-0 right-0 w-60"><Group g={groups[2]} /></div>
+        <div className="absolute left-1/2 top-0 w-60 -translate-x-1/2"><Group g={groups[0]!} /></div>
+        <div className="absolute bottom-0 left-0 w-60"><Group g={groups[1]!} /></div>
+        <div className="absolute bottom-0 right-0 w-60"><Group g={groups[2]!} /></div>
       </div>
     </div>
   );
