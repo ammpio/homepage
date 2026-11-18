@@ -1,36 +1,57 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, Calendar, Cloud, Cpu, Database, Plug, UserX, Users } from "lucide-react";
-import { Band, PageHero } from "@/components/site/sections";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowDown, Bell, Calendar, Cloud, Cpu, Database, FileText, ListOrdered, MessageSquare, Plug, PlugZap, Search, ShieldCheck, UserX, Users, Handshake, type LucideIcon } from "lucide-react";
+import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import { RayIcon } from "@/components/site/RayIcon";
-import { EventContactForm, EventStrip, HendrikCard } from "@/components/event/EventParts";
+import { EventContactForm, EventStrip, HendrikCard, IconCards, SectionTitle, StepRow } from "@/components/event/EventParts";
 
 export const Route = createFileRoute("/ray-partners")({
   staticData: { sitemap: false },
   head: () => ({ meta: [
     { title: "Ray for hardware and platform makers — AMMP" },
-    { name: "description", content: "Offer Ray, the AI coworker by AMMP, to your customers on top of the devices and cloud platform they already use." },
+    { name: "description", content: "Offer Ray, AMMP's AI coworker, on top of the devices and cloud platform your customers already use." },
     { name: "robots", content: "noindex" },
-    { property: "og:title", content: "Ray for hardware and platform makers" },
-    { property: "og:description", content: "Pilot partners for 2027: offer Ray to your customers." },
+    { property: "og:title", content: "Give your customers an AI coworker" },
+    { property: "og:description", content: "Pilot partners for 2027: offer Ray on top of your devices and cloud platform." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ]}),
   component: Page,
 });
 
-const points = [
-  { icon: Database, text: "Built on data from 10,000+ sites" },
-  { icon: Plug, text: "Connects through your existing cloud API" },
-  { icon: UserX, text: "No AI team to build or run" },
+const why = [
+  { icon: Database, title: "Built on data from 10,000+ sites" },
+  { icon: Plug, title: "Connects through your cloud API" },
+  { icon: UserX, title: "No in-house AI team needed" },
+  { icon: ShieldCheck, title: "ISO 27001-certified" },
+];
+
+const uses = [
+  { icon: Bell, title: "Alerts", text: "Your customers hear about faults and trips, with the ticket already open." },
+  { icon: MessageSquare, title: "Answers", text: "Your customers ask about any site and get the evidence behind every answer." },
+  { icon: FileText, title: "Reports", text: "Your customers get monthly and investor reports drafted from live data." },
+  { icon: ListOrdered, title: "Priorities", text: "Your customers fix the most expensive problem first, not the loudest one." },
+];
+
+const pilot = [
+  { icon: PlugZap, title: "Connect", text: "We connect to your cloud API." },
+  { icon: Search, title: "Run", text: "Ray runs on a group of your customers' sites." },
+  { icon: Handshake, title: "Review", text: "We review the results together and agree on next steps." },
+];
+
+const faq = [
+  { q: "What do you need from us?", a: "Access to your cloud API. AMMP connects through APIs to manufacturers' cloud platforms, so no additional hardware is needed." },
+  { q: "Where do customers use Ray?", a: "In Microsoft Teams, Slack and AMMP OS." },
+  { q: "How is data secured?", a: <>AMMP Technologies is ISO/IEC 27001:2022 certified. Data is encrypted in transit and at rest, and customer data is never used to train external AI models. More on our <Link to="/security" className="underline">security page</Link>.</> },
+  { q: "Who do we talk to?", a: "Hendrik Broering, CPO & Co-Founder: hendrik.broering@ammp.io. Or meet us at Stand P1.2." },
 ];
 
 function Arrow() {
   return <div className="flex justify-center py-1.5" aria-hidden><span className="grid size-7 place-items-center rounded-full bg-foreground text-background"><ArrowDown className="size-4" strokeWidth={3} /></span></div>;
 }
 
-function Step({ icon: Icon, title, sub }: { icon: typeof Cpu; title: string; sub?: string }) {
+function Step({ icon: Icon, title, sub }: { icon: LucideIcon; title: string; sub?: string }) {
   return (
-    <div className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+    <div className="glass flex items-center justify-center gap-3 rounded-2xl px-4 py-3 text-center">
       <Icon className="size-5 shrink-0 text-primary" />
       <div><p className="font-medium">{title}</p>{sub && <p className="text-sm text-muted-foreground">{sub}</p>}</div>
     </div>
@@ -42,14 +63,14 @@ function Flow() {
     <div className="mx-auto w-full max-w-sm">
       <Step icon={Cpu} title="Your devices" />
       <Arrow />
-      <Step icon={Cloud} title="Your cloud platform" sub="no new hardware" />
+      <Step icon={Cloud} title="Your cloud platform" />
       <Arrow />
-      <div className="flex items-center gap-3 rounded-2xl bg-primary px-4 py-3 text-primary-foreground shadow-lg">
+      <div className="flex items-center justify-center gap-3 rounded-2xl bg-primary px-4 py-3 text-primary-foreground shadow-lg">
         <RayIcon className="size-9 shrink-0 ring-2 ring-primary-foreground/60" />
         <p className="font-medium">Ray, the AI coworker by AMMP</p>
       </div>
       <Arrow />
-      <Step icon={Users} title="Your customers" sub="in Teams, Slack or AMMP OS" />
+      <Step icon={Users} title="Your customers" />
     </div>
   );
 }
@@ -58,21 +79,29 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Sustainable Solutions Düsseldorf · Stand P1.2"
-        title="Ray for hardware and platform makers."
-        intro="Offer Ray to your customers, on top of the devices and cloud platform they already use."
+        eyebrow="For hardware & platform makers"
+        title="Give your customers an AI coworker."
+        intro="Offer Ray on top of the devices and cloud platform your customers already use. No new hardware."
         primary={{ label: "Become a pilot partner", to: "#pilot" }}
         primaryVariant="pink"
         aside={<Flow />}
       />
       <Band tone="white">
-        <ul className="grid gap-4 md:grid-cols-3">
-          {points.map(({ icon: Icon, text }) => (
-            <li key={text} className="glass flex items-center gap-3 rounded-2xl p-5"><Icon className="size-5 shrink-0 text-primary" /><span className="font-medium">{text}</span></li>
-          ))}
-        </ul>
+        <SectionTitle title="Why partner with AMMP" />
+        <IconCards items={why} />
       </Band>
       <Band tone="grey">
+        <SectionTitle title="What your customers get" />
+        <IconCards items={uses} />
+      </Band>
+      <Band tone="white">
+        <SectionTitle title="How a pilot works" />
+        <StepRow steps={pilot} />
+      </Band>
+      <Band tone="grey">
+        <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /></div>
+      </Band>
+      <Band tone="white">
         <div id="pilot" className="scroll-mt-24">
           <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">Pilot partners for 2027</h2>
           <p className="mt-3 text-lg text-muted-foreground">We're picking a small group of OEMs to pilot Ray with.</p>

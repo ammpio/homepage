@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, Mail, type LucideIcon } from "lucide-react";
 import { submitContact } from "@/lib/contact.functions";
 
 const TURNSTILE_SITE_KEY = "0x4AAAAAAFQPfF249vmbtO0n";
@@ -111,5 +111,57 @@ export function EventContactForm({ sourcePage, withDeviceTypes = false }: { sour
         {state === "sending" ? "Sending…" : "Send"} <ArrowRight className="size-4" />
       </button>
     </form>
+  );
+}
+
+/* Shared booth-page building blocks (/ray-demo, /ray-partners). */
+
+export function SectionTitle({ title, intro }: { title: string; intro?: string }) {
+  return (
+    <div className="max-w-3xl">
+      <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">{title}</h2>
+      {intro && <p className="mt-3 text-lg text-muted-foreground">{intro}</p>}
+    </div>
+  );
+}
+
+function FilledArrow() {
+  return (
+    <span aria-hidden className="mx-auto grid size-8 shrink-0 place-items-center self-center rounded-full bg-foreground text-background">
+      <ArrowDown className="size-4 md:hidden" strokeWidth={3} />
+      <ArrowRight className="hidden size-4 md:block" strokeWidth={3} />
+    </span>
+  );
+}
+
+/** Steps in a row with filled arrows between them; stacked on phones. */
+export function StepRow({ steps }: { steps: { icon: LucideIcon; title: string; text: string }[] }) {
+  return (
+    <ol className="mt-8 flex flex-col gap-3 md:flex-row md:items-stretch">
+      {steps.map(({ icon: Icon, title, text }, i) => (
+        <li key={title} className="contents">
+          {i > 0 && <FilledArrow />}
+          <div className="glass flex-1 rounded-2xl p-5">
+            <Icon className="size-5 text-primary" />
+            <p className="mt-3 font-medium">{title}</p>
+            <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function IconCards({ items, columns = 4 }: { items: { icon: LucideIcon; title: string; text?: string }[]; columns?: 3 | 4 }) {
+  return (
+    <div className={`mt-8 grid gap-4 sm:grid-cols-2 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
+      {items.map(({ icon: Icon, title, text }) => (
+        <div key={title} className="glass rounded-2xl p-5">
+          <Icon className="size-5 text-primary" />
+          <p className="mt-3 font-medium">{title}</p>
+          {text && <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>}
+        </div>
+      ))}
+    </div>
   );
 }

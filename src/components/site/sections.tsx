@@ -132,7 +132,7 @@ export function QuoteBand({ quote, author }: { quote: string; author?: string })
   );
 }
 
-export function Faq({ items }: { items: { q: string; a: string }[] }) {
+export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
   return (
     <div className="glass-strong mt-10 divide-y divide-border/60 overflow-hidden rounded-2xl">
       {items.map(({ q, a }) => (
