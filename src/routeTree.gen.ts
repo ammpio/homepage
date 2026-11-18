@@ -33,6 +33,8 @@ import { Route as RayPartnersRouteImport } from './routes/ray-partners'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SouthAfricaRouteImport } from './routes/south-africa'
+import { Route as Ssd26RouteImport } from './routes/ssd26'
+import { Route as Ssd26PartnersRouteImport } from './routes/ssd26-partners'
 import { Route as StratopiImageRouteImport } from './routes/stratopi-image'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SwitchRouteImport } from './routes/switch'
@@ -211,6 +213,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SouthAfricaRoute = SouthAfricaRouteImport.update({
   id: '/south-africa',
   path: '/south-africa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Ssd26Route = Ssd26RouteImport.update({
+  id: '/ssd26',
+  path: '/ssd26',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Ssd26PartnersRoute = Ssd26PartnersRouteImport.update({
+  id: '/ssd26-partners',
+  path: '/ssd26-partners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StratopiImageRoute = StratopiImageRouteImport.update({
@@ -558,6 +570,8 @@ export interface FileRoutesByFullPath {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
+  '/ssd26': typeof Ssd26Route
+  '/ssd26-partners': typeof Ssd26PartnersRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -643,6 +657,8 @@ export interface FileRoutesByTo {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
+  '/ssd26': typeof Ssd26Route
+  '/ssd26-partners': typeof Ssd26PartnersRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -729,6 +745,8 @@ export interface FileRoutesById {
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/south-africa': typeof SouthAfricaRoute
+  '/ssd26': typeof Ssd26Route
+  '/ssd26-partners': typeof Ssd26PartnersRoute
   '/stratopi-image': typeof StratopiImageRoute
   '/support': typeof SupportRoute
   '/switch': typeof SwitchRoute
@@ -816,6 +834,8 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
+    | '/ssd26'
+    | '/ssd26-partners'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -901,6 +921,8 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
+    | '/ssd26'
+    | '/ssd26-partners'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -986,6 +1008,8 @@ export interface FileRouteTypes {
     | '/security'
     | '/sitemap.xml'
     | '/south-africa'
+    | '/ssd26'
+    | '/ssd26-partners'
     | '/stratopi-image'
     | '/support'
     | '/switch'
@@ -1072,6 +1096,8 @@ export interface RootRouteChildren {
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SouthAfricaRoute: typeof SouthAfricaRoute
+  Ssd26Route: typeof Ssd26Route
+  Ssd26PartnersRoute: typeof Ssd26PartnersRoute
   StratopiImageRoute: typeof StratopiImageRoute
   SupportRoute: typeof SupportRoute
   SwitchRoute: typeof SwitchRoute
@@ -1301,6 +1327,20 @@ declare module '@tanstack/react-router' {
       path: '/south-africa'
       fullPath: '/south-africa'
       preLoaderRoute: typeof SouthAfricaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ssd26': {
+      id: '/ssd26'
+      path: '/ssd26'
+      fullPath: '/ssd26'
+      preLoaderRoute: typeof Ssd26RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ssd26-partners': {
+      id: '/ssd26-partners'
+      path: '/ssd26-partners'
+      fullPath: '/ssd26-partners'
+      preLoaderRoute: typeof Ssd26PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/stratopi-image': {
@@ -1744,6 +1784,8 @@ const rootRouteChildren: RootRouteChildren = {
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SouthAfricaRoute: SouthAfricaRoute,
+  Ssd26Route: Ssd26Route,
+  Ssd26PartnersRoute: Ssd26PartnersRoute,
   StratopiImageRoute: StratopiImageRoute,
   SupportRoute: SupportRoute,
   SwitchRoute: SwitchRoute,

@@ -114,7 +114,7 @@ export function EventContactForm({ sourcePage, withDeviceTypes = false }: { sour
   );
 }
 
-/* Shared booth-page building blocks (/ray-demo, /ray-partners). */
+/* Shared booth-page building blocks (/ssd26, /ssd26-partners). */
 
 export function SectionTitle({ title, intro }: { title: string; intro?: string }) {
   return (
