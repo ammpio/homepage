@@ -86,6 +86,9 @@ function Page() {
         stacked
         aside={<ChatMock />}
       />
+      <Band tone="grey">
+        <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>
+      </Band>
       <Band tone="white">
         <SectionTitle title="How Ray works" />
         <StepRow steps={steps} />
@@ -113,9 +116,6 @@ function Page() {
       </Band>
       <DataFoundation />
       <PlatformModules />
-      <Band tone="grey">
-        <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>
-      </Band>
       <Band tone="white">
         <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /><p className="mt-8 text-center text-sm"><Link to="/faq" className="font-medium underline">Read the full FAQ</Link></p></div>
       </Band>
