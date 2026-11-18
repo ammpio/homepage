@@ -93,7 +93,7 @@ function Page() {
         <TeamUseCases compact />
       </Band>
       <Band tone="grey">
-        <SectionTitle title="Works with your devices, and the rest of the fleet" intro="AMMP connects through your cloud API, so no additional hardware is needed. Your devices sit in one view next to everything else on site." />
+        <SectionTitle title="Works with your devices, and the rest of the fleet" intro="AMMP connects through your cloud API, so no additional hardware is needed." />
         <TechCoverage oem />
       </Band>
       <Band tone="white">
