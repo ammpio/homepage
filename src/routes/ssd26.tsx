@@ -111,9 +111,7 @@ function Page() {
         <SectionTitle title="Built for every team" />
         <TeamUseCases />
       </Band>
-      <Band tone="white">
-        <PlatformModules />
-      </Band>
+      <PlatformModules />
       <Band tone="grey">
         <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>
       </Band>
