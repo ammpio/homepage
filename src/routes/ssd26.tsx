@@ -52,22 +52,17 @@ const faq = [
 
 function ChatMock() {
   return (
-    <div className="glass-strong mx-auto w-full max-w-md overflow-hidden rounded-2xl">
-      <div className="border-b border-border/60 px-4 py-2.5 text-sm"><span className="font-medium"># portfolio-ops</span> <span className="text-muted-foreground">· Microsoft Teams</span></div>
-      <div className="space-y-4 p-4">
-        <div className="flex gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-muted text-xs font-semibold">You</span>
-          <p className="self-center rounded-2xl rounded-tl-sm bg-muted px-3 py-2 text-sm">Why is Elmwood Mall behind budget?</p>
+    <div className="mx-auto w-full max-w-md rounded-2xl border border-border/60 bg-background/70 p-5 text-left">
+      <p className="text-xs text-muted-foreground"># portfolio-ops · Microsoft Teams</p>
+      <p className="ml-auto mt-4 w-fit rounded-xl bg-muted px-3 py-2 text-sm">Why is Elmwood Mall behind budget?</p>
+      <div className="mt-4 flex gap-3">
+        <RayIcon className="size-8 shrink-0 ring-2 ring-primary/20" />
+        <div>
+          <p className="text-sm"><span className="font-semibold">Ray</span></p>
+          <p className="mt-1 text-sm leading-relaxed">Inverter 3 is down since Monday. Ticket's open.</p>
         </div>
-        <div className="flex gap-3">
-          <RayIcon className="size-9 shrink-0" />
-          <div>
-            <p className="text-xs font-medium">Ray</p>
-            <p className="mt-1 rounded-2xl rounded-tl-sm border border-border/60 bg-background px-3 py-2 text-sm">Inverter 3 is down since Monday. Ticket's open.</p>
-          </div>
-        </div>
-        <p className="text-right text-[11px] text-muted-foreground">Illustrative example</p>
       </div>
+      <p className="mt-4 text-right text-[11px] text-muted-foreground">Illustrative example</p>
     </div>
   );
 }
