@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, Bell, Calendar, Cloud, Cpu, Database, FileText, ListOrdered, MessageSquare, Plug, PlugZap, Search, ShieldCheck, UserX, Users, Handshake, type LucideIcon } from "lucide-react";
+import { ArrowDown, Bell, Calendar, Cloud, Cpu, Database, FileText, ListOrdered, MessageSquare, Plug, ShieldCheck, UserX, Users, type LucideIcon } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import { TeamUseCases, TechCoverage } from "@/components/event/UseCaseBlocks";
 import { RayIcon } from "@/components/site/RayIcon";
-import { EventContactForm, EventStrip, HendrikCard, IconCards, SectionTitle, StepRow } from "@/components/event/EventParts";
+import { EventContactForm, EventStrip, HendrikCard, IconCards, SectionTitle, } from "@/components/event/EventParts";
 
 export const Route = createFileRoute("/ssd26-partners")({
   staticData: { sitemap: false },
@@ -31,12 +31,6 @@ const uses = [
   { icon: MessageSquare, title: "Answers", text: "Your customers ask about any site and get the evidence behind every answer." },
   { icon: FileText, title: "Reports", text: "Your customers get monthly and investor reports drafted from live data." },
   { icon: ListOrdered, title: "Priorities", text: "Your customers fix the most expensive problem first, not the loudest one." },
-];
-
-const pilot = [
-  { icon: PlugZap, title: "Connect", text: "We connect to your cloud API." },
-  { icon: Search, title: "Run", text: "Ray runs on a group of your customers' sites." },
-  { icon: Handshake, title: "Review", text: "We review the results together and agree on next steps." },
 ];
 
 const faq = [
@@ -83,10 +77,8 @@ function Page() {
         eyebrow="Sustainable Solutions Düsseldorf · Hall 13/14, Stand P1.2"
         title="Give your customers an AI coworker."
         intro="Offer Ray on top of the devices and cloud platform your customers already use. No new hardware."
-        primary={{ label: "Become a pilot partner", to: "#pilot" }}
-        primaryVariant="pink"
         stacked
-        aside={<Flow />}
+        aside={<div><Flow /><div className="mt-8 flex justify-center"><a href="#pilot" className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-lg hover:opacity-90">Become a pilot partner</a></div></div>}
       />
       <Band tone="white">
         <SectionTitle title="Why partner with AMMP" />
@@ -97,21 +89,17 @@ function Page() {
         <IconCards items={uses} />
       </Band>
       <Band tone="white">
-        <SectionTitle title="Who Ray helps at your customers" />
-        <TeamUseCases />
+        <SectionTitle title="Who Ray helps at your customers" intro="Your customers run teams that need answers from your device data every day." />
+        <TeamUseCases compact />
       </Band>
       <Band tone="grey">
-        <SectionTitle title="Works across your customers' fleets" />
-        <TechCoverage />
+        <SectionTitle title="Works with your devices, and the rest of the fleet" intro="AMMP connects through your cloud API, so no additional hardware is needed. Your devices sit in one view next to everything else on site." />
+        <TechCoverage oem />
       </Band>
       <Band tone="white">
-        <SectionTitle title="How a pilot works" />
-        <StepRow steps={pilot} />
+        <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /><p className="mt-8 text-center text-sm"><Link to="/faq" className="font-medium underline">Read the full FAQ</Link></p></div>
       </Band>
       <Band tone="grey">
-        <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /></div>
-      </Band>
-      <Band tone="white">
         <div id="pilot" className="scroll-mt-24">
           <SectionTitle title="Pilot partners for 2027" intro="We're picking a small group of OEMs to pilot Ray with." />
           <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-2">

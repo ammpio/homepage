@@ -118,7 +118,7 @@ function Page() {
         <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>
       </Band>
       <Band tone="white">
-        <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /></div>
+        <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /><p className="mt-8 text-center text-sm"><Link to="/faq" className="font-medium underline">Read the full FAQ</Link></p></div>
       </Band>
       <Band tone="grey">
         <div id="book" className="scroll-mt-24"><SectionTitle title="Book a 20-minute demo" /></div>
