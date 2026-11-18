@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BarChart3, Battery, Bell, Briefcase, CheckCircle2, Database, FileText, Layers, ListOrdered, MessageSquare, MessagesSquare, Monitor, Receipt, ScanSearch, Sun, Users, Wind, Wrench, type LucideIcon } from "lucide-react";
+import { Bell, CheckCircle2, Database, FileText, ListOrdered, MessageSquare, ScanSearch } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeetingCard } from "@/components/site/BookMeeting";
 import { HeroVideo } from "@/components/site/RaySections";
@@ -35,12 +35,6 @@ const uses = [
   { icon: MessageSquare, title: "Answers", text: "Ask about any site. Ray answers with the evidence behind every answer." },
   { icon: FileText, title: "Reports", text: "Ray drafts monthly and investor reports from live portfolio data." },
   { icon: ListOrdered, title: "Priorities", text: "Ray ranks open issues by revenue at risk, so the team fixes the most expensive problem first." },
-];
-
-const groups: { title: string; items: [string, LucideIcon][] }[] = [
-  { title: "Your portfolio", items: [["Solar", Sun], ["Wind", Wind], ["Storage", Battery], ["Hybrid", Layers]] },
-  { title: "Your tools", items: [["Monitoring", Monitor], ["CRM", Database], ["ERP", Receipt], ["Teams & Slack", MessagesSquare]] },
-  { title: "Your teams", items: [["O&M", Wrench], ["Asset management", BarChart3], ["Finance", Briefcase], ["Executives", Users]] },
 ];
 
 const faq = [
@@ -96,19 +90,6 @@ function Page() {
       <Band tone="grey">
         <SectionTitle title="What Ray gets done" />
         <IconCards items={uses} />
-      </Band>
-      <Band tone="white">
-        <SectionTitle title="Ray joins your team" />
-        <div className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-3">
-          {groups.map((g) => (
-            <div key={g.title} className="glass rounded-2xl p-6">
-              <p className="text-center font-medium">{g.title}</p>
-              <ul className="mt-3 grid grid-cols-2 gap-2">
-                {g.items.map(([label, Icon]) => <li key={label} className="flex items-center gap-2 text-sm"><Icon className="size-4 shrink-0 text-primary" />{label}</li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
       </Band>
       <Band tone="grey">
         <SectionTitle title="Built for every team" />
