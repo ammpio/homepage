@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BarChart3, Battery, Bell, Briefcase, CheckCircle2, Database, FileText, Layers, ListOrdered, MessageSquare, MessagesSquare, Monitor, Receipt, ScanSearch, Sun, Users, Wind, Wrench, type LucideIcon } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
-import { BookMeeting } from "@/components/site/BookMeeting";
+import { BookMeetingCard } from "@/components/site/BookMeeting";
 import { HeroVideo } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 import { EventStrip, HendrikCard, IconCards, SectionTitle, StepRow } from "@/components/event/EventParts";
@@ -123,7 +123,7 @@ function Page() {
         <div id="book" className="scroll-mt-24"><SectionTitle title="Book a demo" /></div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div><HendrikCard /></div>
-          <div className="overflow-hidden rounded-2xl border border-border/50 bg-background"><BookMeeting /></div>
+          <BookMeetingCard />
         </div>
       </Band>
       <EventStrip />
