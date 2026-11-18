@@ -65,6 +65,7 @@ import { Route as CompareMeteocontrolRouteImport } from './routes/compare.meteoc
 import { Route as CompareMeteocontrolAlternativesRouteImport } from './routes/compare.meteocontrol-alternatives'
 import { Route as CompareOpenVsProprietaryRouteImport } from './routes/compare.open-vs-proprietary'
 import { Route as ComparePowerFactorsAlternativesRouteImport } from './routes/compare.power-factors-alternatives'
+import { Route as ComparePowerFactorsAlternativesSouthAfricaRouteImport } from './routes/compare.power-factors-alternatives-south-africa'
 import { Route as ComparePowertrackRouteImport } from './routes/compare.powertrack'
 import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-operation'
 import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
@@ -76,6 +77,7 @@ import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compa
 import { Route as CompareUniversRouteImport } from './routes/compare.univers'
 import { Route as CompareVendorPortalsRouteImport } from './routes/compare.vendor-portals'
 import { Route as CompareVictronRouteImport } from './routes/compare.victron'
+import { Route as SolutionsBackupPowerMonitoringRouteImport } from './routes/solutions.backup-power-monitoring'
 import { Route as SolutionsHybridSitesRouteImport } from './routes/solutions.hybrid-sites'
 import { Route as SolutionsInvestorReportingRouteImport } from './routes/solutions.investor-reporting'
 import { Route as SolutionsOmSlaTrackingRouteImport } from './routes/solutions.om-sla-tracking'
@@ -387,6 +389,12 @@ const ComparePowerFactorsAlternativesRoute =
     path: '/compare/power-factors-alternatives',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ComparePowerFactorsAlternativesSouthAfricaRoute =
+  ComparePowerFactorsAlternativesSouthAfricaRouteImport.update({
+    id: '/compare/power-factors-alternatives-south-africa',
+    path: '/compare/power-factors-alternatives-south-africa',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ComparePowertrackRoute = ComparePowertrackRouteImport.update({
   id: '/compare/powertrack',
   path: '/compare/powertrack',
@@ -444,6 +452,12 @@ const CompareVictronRoute = CompareVictronRouteImport.update({
   path: '/compare/victron',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsBackupPowerMonitoringRoute =
+  SolutionsBackupPowerMonitoringRouteImport.update({
+    id: '/solutions/backup-power-monitoring',
+    path: '/solutions/backup-power-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SolutionsHybridSitesRoute = SolutionsHybridSitesRouteImport.update({
   id: '/solutions/hybrid-sites',
   path: '/solutions/hybrid-sites',
@@ -601,6 +615,7 @@ export interface FileRoutesByFullPath {
   '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
+  '/compare/power-factors-alternatives-south-africa': typeof ComparePowerFactorsAlternativesSouthAfricaRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -612,6 +627,7 @@ export interface FileRoutesByFullPath {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/backup-power-monitoring': typeof SolutionsBackupPowerMonitoringRoute
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
@@ -688,6 +704,7 @@ export interface FileRoutesByTo {
   '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
+  '/compare/power-factors-alternatives-south-africa': typeof ComparePowerFactorsAlternativesSouthAfricaRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -699,6 +716,7 @@ export interface FileRoutesByTo {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/backup-power-monitoring': typeof SolutionsBackupPowerMonitoringRoute
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
@@ -776,6 +794,7 @@ export interface FileRoutesById {
   '/compare/meteocontrol-alternatives': typeof CompareMeteocontrolAlternativesRoute
   '/compare/open-vs-proprietary': typeof CompareOpenVsProprietaryRoute
   '/compare/power-factors-alternatives': typeof ComparePowerFactorsAlternativesRoute
+  '/compare/power-factors-alternatives-south-africa': typeof ComparePowerFactorsAlternativesSouthAfricaRoute
   '/compare/powertrack': typeof ComparePowertrackRoute
   '/compare/pv-operation': typeof ComparePvOperationRoute
   '/compare/qos-energy': typeof CompareQosEnergyRoute
@@ -787,6 +806,7 @@ export interface FileRoutesById {
   '/compare/univers': typeof CompareUniversRoute
   '/compare/vendor-portals': typeof CompareVendorPortalsRoute
   '/compare/victron': typeof CompareVictronRoute
+  '/solutions/backup-power-monitoring': typeof SolutionsBackupPowerMonitoringRoute
   '/solutions/hybrid-sites': typeof SolutionsHybridSitesRoute
   '/solutions/investor-reporting': typeof SolutionsInvestorReportingRoute
   '/solutions/om-sla-tracking': typeof SolutionsOmSlaTrackingRoute
@@ -865,6 +885,7 @@ export interface FileRouteTypes {
     | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
     | '/compare/power-factors-alternatives'
+    | '/compare/power-factors-alternatives-south-africa'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -876,6 +897,7 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/backup-power-monitoring'
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
@@ -952,6 +974,7 @@ export interface FileRouteTypes {
     | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
     | '/compare/power-factors-alternatives'
+    | '/compare/power-factors-alternatives-south-africa'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -963,6 +986,7 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/backup-power-monitoring'
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
@@ -1039,6 +1063,7 @@ export interface FileRouteTypes {
     | '/compare/meteocontrol-alternatives'
     | '/compare/open-vs-proprietary'
     | '/compare/power-factors-alternatives'
+    | '/compare/power-factors-alternatives-south-africa'
     | '/compare/powertrack'
     | '/compare/pv-operation'
     | '/compare/qos-energy'
@@ -1050,6 +1075,7 @@ export interface FileRouteTypes {
     | '/compare/univers'
     | '/compare/vendor-portals'
     | '/compare/victron'
+    | '/solutions/backup-power-monitoring'
     | '/solutions/hybrid-sites'
     | '/solutions/investor-reporting'
     | '/solutions/om-sla-tracking'
@@ -1127,6 +1153,7 @@ export interface RootRouteChildren {
   CompareMeteocontrolAlternativesRoute: typeof CompareMeteocontrolAlternativesRoute
   CompareOpenVsProprietaryRoute: typeof CompareOpenVsProprietaryRoute
   ComparePowerFactorsAlternativesRoute: typeof ComparePowerFactorsAlternativesRoute
+  ComparePowerFactorsAlternativesSouthAfricaRoute: typeof ComparePowerFactorsAlternativesSouthAfricaRoute
   ComparePowertrackRoute: typeof ComparePowertrackRoute
   ComparePvOperationRoute: typeof ComparePvOperationRoute
   CompareQosEnergyRoute: typeof CompareQosEnergyRoute
@@ -1138,6 +1165,7 @@ export interface RootRouteChildren {
   CompareUniversRoute: typeof CompareUniversRoute
   CompareVendorPortalsRoute: typeof CompareVendorPortalsRoute
   CompareVictronRoute: typeof CompareVictronRoute
+  SolutionsBackupPowerMonitoringRoute: typeof SolutionsBackupPowerMonitoringRoute
   SolutionsHybridSitesRoute: typeof SolutionsHybridSitesRoute
   SolutionsInvestorReportingRoute: typeof SolutionsInvestorReportingRoute
   SolutionsOmSlaTrackingRoute: typeof SolutionsOmSlaTrackingRoute
@@ -1553,6 +1581,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComparePowerFactorsAlternativesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/power-factors-alternatives-south-africa': {
+      id: '/compare/power-factors-alternatives-south-africa'
+      path: '/compare/power-factors-alternatives-south-africa'
+      fullPath: '/compare/power-factors-alternatives-south-africa'
+      preLoaderRoute: typeof ComparePowerFactorsAlternativesSouthAfricaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/powertrack': {
       id: '/compare/powertrack'
       path: '/compare/powertrack'
@@ -1628,6 +1663,13 @@ declare module '@tanstack/react-router' {
       path: '/compare/victron'
       fullPath: '/compare/victron'
       preLoaderRoute: typeof CompareVictronRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/backup-power-monitoring': {
+      id: '/solutions/backup-power-monitoring'
+      path: '/solutions/backup-power-monitoring'
+      fullPath: '/solutions/backup-power-monitoring'
+      preLoaderRoute: typeof SolutionsBackupPowerMonitoringRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/hybrid-sites': {
@@ -1821,6 +1863,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompareMeteocontrolAlternativesRoute: CompareMeteocontrolAlternativesRoute,
   CompareOpenVsProprietaryRoute: CompareOpenVsProprietaryRoute,
   ComparePowerFactorsAlternativesRoute: ComparePowerFactorsAlternativesRoute,
+  ComparePowerFactorsAlternativesSouthAfricaRoute:
+    ComparePowerFactorsAlternativesSouthAfricaRoute,
   ComparePowertrackRoute: ComparePowertrackRoute,
   ComparePvOperationRoute: ComparePvOperationRoute,
   CompareQosEnergyRoute: CompareQosEnergyRoute,
@@ -1832,6 +1876,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversRoute: CompareUniversRoute,
   CompareVendorPortalsRoute: CompareVendorPortalsRoute,
   CompareVictronRoute: CompareVictronRoute,
+  SolutionsBackupPowerMonitoringRoute: SolutionsBackupPowerMonitoringRoute,
   SolutionsHybridSitesRoute: SolutionsHybridSitesRoute,
   SolutionsInvestorReportingRoute: SolutionsInvestorReportingRoute,
   SolutionsOmSlaTrackingRoute: SolutionsOmSlaTrackingRoute,

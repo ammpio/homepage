@@ -33,7 +33,10 @@ function Page() {
           { icon: Bot, title: "Keep Power Factors, add Ray", text: "AMMP AI (Ray) can run on top of an existing monitoring stack such as Power Factors. Ray checks every site daily, ranks issues by impact and drafts reports, without replacing your current system." },
           { icon: Repeat, title: "Switch to AMMP OS Platform", text: "Move monitoring, alerting, ticketing, reporting and commercials to AMMP OS Platform, with Ray working on top." },
         ]} />
-        <Link to="/switch" className="mt-8 inline-flex items-center gap-1 text-sm font-medium hover:underline">How switching works <ArrowRight className="size-4" /></Link>
+        <div className="mt-8 flex flex-wrap gap-6">
+          <Link to="/switch" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">How switching works <ArrowRight className="size-4" /></Link>
+          <Link to="/compare/power-factors-alternatives-south-africa" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Power Factors alternatives in South Africa <ArrowRight className="size-4" /></Link>
+        </div>
       </Band>
       <Band>
         <SectionHeading title="What to look for" />

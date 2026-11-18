@@ -34,6 +34,7 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "svet-engineering-with-ai-podcast-agents-in-slack": "andreas",
   "single-player-ai-teams": "svet",
   "audit-om-contractor-sla-compliance": "andreas",
+  "solar-ppa-guarantee-exceptions": "andreas",
   "solar-monitoring-africa-nigeria-kenya-south-africa": "andreas",
 };
 

@@ -33,6 +33,9 @@ function Page() {
           { icon: Database, title: "1,000+ South African tariffs", text: "The AMMP tariff database covers 1,000+ South African tariff structures, so savings and billing use the right rates." },
           { icon: Clock, title: "Time-of-use battery checks", text: "Ray checks each battery's charging and discharging against the site's time-of-use tariff and flags sites that lost money to the wrong window." },
         ]} />
+        <div className="mt-8 flex justify-center">
+          <Link to="/solutions/backup-power-monitoring" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Backup power monitoring for branch networks <ArrowRight className="size-4" /></Link>
+        </div>
       </Band>
       <Band>
         <SectionHeading title="Trusted by South African operators" center />
@@ -56,6 +59,7 @@ function Page() {
           <p className="mt-4 text-base leading-7 text-muted-foreground">Huawei FusionSolar is Huawei's own portal. It covers Huawei equipment, so a mixed fleet needs one portal per brand.</p>
           <p className="mt-4 text-base leading-7 text-muted-foreground">AMMP brings Huawei, SMA, Sungrow, Victron, Deye and other brands into one portal, with 1,000+ South African tariffs and Ray working on top.</p>
           <div className="mt-6 flex flex-wrap gap-6">
+            <Link to="/compare/power-factors-alternatives-south-africa" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Power Factors alternatives in South Africa <ArrowRight className="size-4" /></Link>
             <Link to="/compare/power-factors-alternatives" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Power Factors alternatives <ArrowRight className="size-4" /></Link>
             <Link to="/compare/huawei" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">AMMP vs FusionSolar (Huawei) <ArrowRight className="size-4" /></Link>
             <Link to="/compare/best-commercial-solar-monitoring-platforms" className="inline-flex items-center gap-1 text-sm font-medium hover:underline">Platforms for commercial and industrial portfolios <ArrowRight className="size-4" /></Link>

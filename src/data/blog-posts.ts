@@ -5,6 +5,8 @@ import { loadSheddingBody, covers3 } from "./blog-scheduled-3";
 import { underperfBody, underperfFaq, prBody, prFaq, inverterBody, inverterFaq, aiBody, aiFaq, covers4 } from "./blog-scheduled-4";
 import { podcastAgentsBody, covers7 } from "./blog-scheduled-7";
 import { singlePlayerBody, covers8 } from "./blog-scheduled-8";
+import { ppaExceptionsBody, covers9, PPA_EXCEPTIONS_STEPS } from "./blog-scheduled-9";
+import { PPA_EXCEPTIONS_FAQ } from "./batch7";
 import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
@@ -49,7 +51,7 @@ export type BlogPost = {
   howTo?: { name: string; steps: string[] };
   /** People or works the post is about, emitted as Article "mentions" JSON-LD. */
   mentions?: { type: "Person" | "PodcastEpisode"; name: string; url: string; jobTitle?: string }[];
-  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites" | "/solutions/solar-monitoring"; title: string; text: string }[];
+  related?: { to: "/ray" | "/mcp" | "/product" | "/integrations" | "/case-studies" | "/solutions/investor-reporting" | "/solutions/om-sla-tracking" | "/south-africa" | "/solutions/hybrid-sites" | "/solutions/solar-monitoring" | "/solutions/ppa-billing"; title: string; text: string }[];
 };
 
 /** Estimates read time from all text in a post at ~220 words per minute. */
@@ -134,6 +136,22 @@ export const blogPosts: BlogPost[] = [
       { type: "PodcastEpisode", name: "Svet Bajlekov discovered agents in his Slack (Engineering with AI)", url: "https://engwith.ai/episodes/svet-bajlekov-discovered-agents-in-his-slack" },
     ],
     related: [
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "solar-ppa-guarantee-exceptions",
+    howTo: { name: "How to document and track solar PPA guarantee exceptions", steps: PPA_EXCEPTIONS_STEPS },
+    title: "Solar PPA guarantee exceptions: how to document and track them across a portfolio",
+    excerpt: "What usually counts as a PPA guarantee exception, why each needs evidence when it happens, and a monthly routine that works across sites and brands.",
+    category: "Insights",
+    date: "2026-11-18",
+    readTime: computeReadTime(ppaExceptionsBody),
+    body: ppaExceptionsBody,
+    faq: PPA_EXCEPTIONS_FAQ,
+    cover: covers9.ppaExceptions,
+    related: [
+      { to: "/solutions/ppa-billing", title: "PPA billing", text: "Billing-grade savings and PPA invoices from meter, tariff and contract data." },
       { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
     ],
   },
