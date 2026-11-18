@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDown, Bell, Calendar, Cloud, Cpu, Database, FileText, ListOrdered, MessageSquare, Plug, PlugZap, Search, ShieldCheck, UserX, Users, Handshake, type LucideIcon } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
+import { TeamUseCases, TechCoverage } from "@/components/event/UseCaseBlocks";
 import { RayIcon } from "@/components/site/RayIcon";
 import { EventContactForm, EventStrip, HendrikCard, IconCards, SectionTitle, StepRow } from "@/components/event/EventParts";
 
@@ -94,6 +95,14 @@ function Page() {
       <Band tone="grey">
         <SectionTitle title="What your customers get" />
         <IconCards items={uses} />
+      </Band>
+      <Band tone="white">
+        <SectionTitle title="Who Ray helps at your customers" />
+        <TeamUseCases />
+      </Band>
+      <Band tone="grey">
+        <SectionTitle title="Works across your customers' fleets" />
+        <TechCoverage />
       </Band>
       <Band tone="white">
         <SectionTitle title="How a pilot works" />
