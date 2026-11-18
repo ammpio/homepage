@@ -78,9 +78,13 @@ function Page() {
         primaryVariant="pink"
         secondary={{ label: "Meet Ray", to: "/ray" }}
         stacked
-        aside={<ChatMock />}
+        aside={
+          <>
+            <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>
+            <div className="mt-8"><ChatMock /></div>
+          </>
+        }
       />
-      <section className="pb-8"><div className="site-container"><div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div></div></section>
       <Band tone="white">
         <SectionTitle title="How Ray works" />
         <StepRow steps={steps} />
