@@ -5,7 +5,8 @@ import { BookMeeting } from "@/components/site/BookMeeting";
 import { HeroVideo } from "@/components/site/RaySections";
 import { RayIcon } from "@/components/site/RayIcon";
 import { EventStrip, HendrikCard, IconCards, SectionTitle, StepRow } from "@/components/event/EventParts";
-import { TeamUseCases, TechCoverage } from "@/components/event/UseCaseBlocks";
+import { TeamUseCases } from "@/components/event/UseCaseBlocks";
+import { PlatformModules } from "@/components/site/HomeSections";
 import { assetUrl } from "@/lib/assets";
 import rayCinematic from "@/assets/Ray_launch_1080p_master_subtitled.mp4.asset.json";
 import rayCinematicPoster from "@/assets/ray-launch-thumbnail.webp.asset.json";
@@ -111,8 +112,7 @@ function Page() {
         <TeamUseCases />
       </Band>
       <Band tone="white">
-        <SectionTitle title="Works across your portfolio" />
-        <TechCoverage />
+        <PlatformModules />
       </Band>
       <Band tone="grey">
         <div className="mx-auto max-w-5xl"><HeroVideo src={assetUrl(rayCinematic)} poster={assetUrl(rayCinematicPoster)} /></div>

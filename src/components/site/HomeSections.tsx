@@ -341,6 +341,64 @@ export function Details() {
   );
 }
 
+/* "Everything in the platform": module cards + supported technologies + integrations.
+   Shared by the homepage and the /ssd26 event page so both stay identical. */
+export function PlatformModules() {
+  const tech = ["Solar PV", "Battery storage", "Hybrid and mini-grids", "Wind", "Diesel gensets", "Meters and weather stations"];
+  const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "Fronius", "Victron", "GoodWe", "Solis", "Deye", "Growatt", "AlphaESS", "SigEnergy"];
+  const modules = [
+    { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device.", tab: "monitoring" },
+    { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution.", tab: "ticketing" },
+    { icon: Bell, title: "Alerting", body: "Rules that reach the right person quickly.", tab: "alerting" },
+    { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports.", tab: "reporting" },
+    { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance.", tab: "commercials" },
+    { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools.", tab: "integrations" },
+    { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit.", tab: "customizations" },
+    { icon: Code, title: "API", body: "Your data in your own systems.", tab: "api" },
+    { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant.", tab: "api" },
+  ] as const;
+  return (
+    <section className="py-16 lg:py-32">
+      <div className="site-container">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <h2 className={h2Class}>Everything in the platform</h2>
+          <Link to="/product" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">Product tour <ArrowRight className="size-4" /></Link>
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {modules.map((m, i) => (
+            <Reveal key={m.title} delay={(i % 3) * 90}>
+              <Link to="/product" search={{ tab: m.tab }} hash="category-content" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
+                <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  <span className="block text-sm font-semibold text-foreground">{m.title}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{m.body}</span>
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-16 grid gap-5 lg:grid-cols-2">
+          <div className="glass rounded-3xl p-7">
+            <h3 className="font-display text-xl font-medium">Supported technologies</h3>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {tech.map((t) => <span key={t} className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-sm">{t}</span>)}
+            </div>
+          </div>
+          <div className="glass rounded-3xl p-7">
+            <div className="flex items-baseline justify-between gap-4">
+              <h3 className="font-display text-xl font-medium">Integrations</h3>
+              <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See all 30+ <ArrowRight className="size-4" /></Link>
+            </div>
+            <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4">
+              {vendors.map((v) => <span key={v} className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-center text-sm">{v}</span>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function Results() {
   const results = [
     { value: "99.9%", label: "platform uptime", customer: "Daystar Power" },
