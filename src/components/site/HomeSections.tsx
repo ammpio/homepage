@@ -217,32 +217,6 @@ export function Details() {
     { icon: Wrench, title: "O&M teams", text: "Receive prioritized issues with the context needed to plan the right response.", to: "/use-cases/om-providers" as const },
     { icon: FileText, title: "Reporting teams", text: "Turn standardized portfolio data into clear, reviewable reporting outputs.", to: "/use-cases/reporting-teams" as const },
   ];
-  const tech = ["Solar PV", "Battery storage", "Hybrid and mini-grids", "Wind", "Diesel gensets", "Meters and weather stations"];
-  const vendors = ["Huawei", "SMA", "SolarEdge", "Sungrow", "Fronius", "Victron", "GoodWe", "Solis", "Deye", "Growatt", "AlphaESS", "SigEnergy"];
-  const sources = [
-    { icon: Sun, label: "Assets and alerts" },
-    { icon: BatteryCharging, label: "PV, BESS and hybrid" },
-    { icon: Gauge, label: "KPIs and obligations" },
-    { icon: Activity, label: "Time-series data" },
-  ];
-  const modules = [
-    { icon: Monitor, title: "Monitoring", body: "Live performance across every site and device.", tab: "monitoring" },
-    { icon: Ticket, title: "Ticketing", body: "Work tracked from fault to resolution.", tab: "ticketing" },
-    { icon: Bell, title: "Alerting", body: "Rules that reach the right person quickly.", tab: "alerting" },
-    { icon: FileOutput, title: "Reporting", body: "Scheduled operational and investor reports.", tab: "reporting" },
-    { icon: DollarSign, title: "Commercials", body: "Savings, billing and contract performance.", tab: "commercials" },
-    { icon: Plug, title: "Integrations", body: "30+ vendors and third-party tools.", tab: "integrations" },
-    { icon: Settings, title: "Customizations", body: "Dashboards, KPIs and views built to fit.", tab: "customizations" },
-    { icon: Code, title: "API", body: "Your data in your own systems.", tab: "api" },
-    { icon: Server, title: "MCP server", body: "Portfolio context for any AI assistant.", tab: "api" },
-  ] as const;
-  const arrow = (label: string, delay = "0s") => (
-    <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0">
-      <ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: delay }} />
-      <span className="lg:hidden">{label}</span>
-      <ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" style={{ animationDelay: delay }} />
-    </div>
-  );
   return (
     <>
       <section className="py-16 lg:py-32">
@@ -263,81 +237,64 @@ export function Details() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-32">
-        <div className="site-container">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI is only as good as its data foundation</h2>
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath Ray is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
-          </div>
-          <div className="mx-auto mt-14 max-w-6xl">
-            <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.3fr_auto_1fr]">
-              <div className="grid grid-cols-2 gap-3">
-                {sources.map(({ icon: Icon, label }, i) => (
-                  <Reveal key={label} delay={i * 90} className="h-full">
-                    <div className="glass flex h-full items-center gap-2 rounded-2xl p-3 lg:min-h-28 lg:flex-col lg:items-start lg:justify-between lg:p-4">
-                      <Icon className="h-5 w-5 text-muted-foreground" />
-                      <p className="text-sm font-semibold">{label}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-              {arrow("Feeds into")}
-              <div className="glass-strong relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center">
-                <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-foreground/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] backdrop-blur-sm"><Database className="h-7 w-7" strokeWidth={1.25} /></div>
-                <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP OS</h3>
-                <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
-                <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
-              </div>
-              {arrow("Powers", "1.3s")}
-              <div className="grid gap-3">
-                <Reveal delay={550}><div className="glass rounded-2xl p-5"><Sparkles className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Ray, your AI coworker</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP OS</p></div></Reveal>
-                <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AMMP OS tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 lg:py-32">
-        <div className="site-container">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className={h2Class}>Everything in the platform</h2>
-            <Link to="/product" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">Product tour <ArrowRight className="size-4" /></Link>
-          </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {modules.map((m, i) => (
-              <Reveal key={m.title} delay={(i % 3) * 90}>
-                <Link to="/product" search={{ tab: m.tab }} hash="category-content" className="glass flex items-start gap-3 rounded-2xl p-4 transition-transform duration-300 hover:-translate-y-1">
-                  <m.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span>
-                    <span className="block text-sm font-semibold text-foreground">{m.title}</span>
-                    <span className="mt-1 block text-sm text-muted-foreground">{m.body}</span>
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-16 grid gap-5 lg:grid-cols-2">
-            <div className="glass rounded-3xl p-7">
-              <h3 className="font-display text-xl font-medium">Supported technologies</h3>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {tech.map((t) => <span key={t} className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-sm">{t}</span>)}
-              </div>
-            </div>
-            <div className="glass rounded-3xl p-7">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-display text-xl font-medium">Integrations</h3>
-                <Link to="/integrations" className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:underline">See all 30+ <ArrowRight className="size-4" /></Link>
-              </div>
-              <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4">
-                {vendors.map((v) => <span key={v} className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-center text-sm">{v}</span>)}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DataFoundation />
+      <PlatformModules />
     </>
+  );
+}
+
+/* "AI is only as good as its data foundation": sources feed AMMP OS, which powers Ray and the AMMP OS tools.
+   Shared by the homepage and the /ssd26 event page so both stay identical. */
+export function DataFoundation() {
+  const sources = [
+    { icon: Sun, label: "Assets and alerts" },
+    { icon: BatteryCharging, label: "PV, BESS and hybrid" },
+    { icon: Gauge, label: "KPIs and obligations" },
+    { icon: Activity, label: "Time-series data" },
+  ];
+  const arrow = (label: string, delay = "0s") => (
+    <div className="flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground lg:gap-0">
+      <ArrowDown className="arrow-pulse h-5 w-5 text-primary lg:hidden" style={{ animationDelay: delay }} />
+      <span className="lg:hidden">{label}</span>
+      <ArrowRight className="arrow-pulse hidden h-5 w-5 text-primary lg:block" style={{ animationDelay: delay }} />
+    </div>
+  );
+  return (
+    <section className="py-16 lg:py-32">
+      <div className="site-container">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className={`max-w-3xl text-balance ${h2Class}`}>AI is only as good as its data foundation</h2>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">Underneath Ray is the monitoring, workflow and data infrastructure AMMP has built across thousands of renewable energy systems.</p>
+        </div>
+        <div className="mx-auto mt-14 max-w-6xl">
+          <div className="grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1.3fr_auto_1fr]">
+            <div className="grid grid-cols-2 gap-3">
+              {sources.map(({ icon: Icon, label }, i) => (
+                <Reveal key={label} delay={i * 90} className="h-full">
+                  <div className="glass flex h-full items-center gap-2 rounded-2xl p-3 lg:min-h-28 lg:flex-col lg:items-start lg:justify-between lg:p-4">
+                    <Icon className="h-5 w-5 text-muted-foreground" />
+                    <p className="text-sm font-semibold">{label}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            {arrow("Feeds into")}
+            <div className="glass-strong relative flex min-h-64 flex-col items-center justify-center rounded-3xl p-8 text-center">
+              <div aria-hidden className="glow-orb absolute inset-x-10 top-6 h-24 bg-glow-magenta/70" />
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-background/70 text-foreground/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] backdrop-blur-sm"><Database className="h-7 w-7" strokeWidth={1.25} /></div>
+              <h3 className="relative mt-5 font-display text-2xl font-medium">AMMP OS</h3>
+              <p className="relative mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">One structured operational context across your entire renewable energy portfolio.</p>
+              <div className="glass-soft relative mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground"><LockKeyhole className="h-3.5 w-3.5" />Permission-aware</div>
+            </div>
+            {arrow("Powers", "1.3s")}
+            <div className="grid gap-3">
+              <Reveal delay={550}><div className="glass rounded-2xl p-5"><Sparkles className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">Ray, your AI coworker</p><p className="mt-1 text-sm text-muted-foreground">Slack · Teams · AMMP OS</p></div></Reveal>
+              <Reveal delay={680}><div className="glass rounded-2xl p-5"><PlugZap className="h-5 w-5 text-primary" /><p className="mt-4 font-semibold">AMMP OS tools</p><p className="mt-1 text-sm text-muted-foreground">Dashboards, reports and workflows</p></div></Reveal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
