@@ -41,7 +41,7 @@ const faq = [
 ];
 
 function Arrow() {
-  return <div className="flex justify-center py-1.5" aria-hidden><span className="grid size-7 place-items-center rounded-full bg-foreground text-background"><ArrowDown className="size-4" strokeWidth={3} /></span></div>;
+  return <div className="flex justify-center py-3" aria-hidden><span className="grid size-7 place-items-center rounded-full bg-foreground text-background"><ArrowDown className="size-4" strokeWidth={3} /></span></div>;
 }
 
 function Step({ icon: Icon, title, sub }: { icon: LucideIcon; title: string; sub?: string }) {
