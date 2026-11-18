@@ -116,7 +116,7 @@ function Page() {
         <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /><p className="mt-8 text-center text-sm"><Link to="/faq" className="font-medium underline">Read the full FAQ</Link></p></div>
       </Band>
       <Band tone="grey">
-        <div id="book" className="scroll-mt-24"><SectionTitle title="Book a 20-minute demo" /></div>
+        <div id="book" className="scroll-mt-24"><SectionTitle title="Book a demo" /></div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div><HendrikCard /></div>
           <div className="overflow-hidden rounded-2xl border border-border/50 bg-background"><BookMeeting /></div>
