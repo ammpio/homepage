@@ -6,7 +6,7 @@ export const covers9 = {
   ppaExceptions: { src: assetUrl(cover), alt: "A row of solar panels next to a monthly calendar with a few days marked and a clipped document with charts as evidence" },
 };
 
-export const PPA_EXCEPTIONS_STEPS = [
+export const PPA_EXCEPTIONS_STEPS: [string, string, string, string] = [
   "Step 1: List the exceptions your contract allows",
   "Step 2: Capture evidence when it happens",
   "Step 3: Run a monthly exceptions routine",
