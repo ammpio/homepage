@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BarChart3, Battery, Bell, Briefcase, Calendar, CheckCircle2, Database, FileText, Layers, ListOrdered, MessageSquare, MessagesSquare, Monitor, Receipt, ScanSearch, Sun, Users, Wind, Wrench, type LucideIcon } from "lucide-react";
+import { BarChart3, Battery, Bell, Briefcase, CheckCircle2, Database, FileText, Layers, ListOrdered, MessageSquare, MessagesSquare, Monitor, Receipt, ScanSearch, Sun, Users, Wind, Wrench, type LucideIcon } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import { HeroVideo } from "@/components/site/RaySections";
@@ -81,6 +81,7 @@ function Page() {
         primary={{ label: "Book a 20-minute demo", to: "#book" }}
         primaryVariant="pink"
         secondary={{ label: "Meet Ray", to: "/ray" }}
+        stacked
         aside={<ChatMock />}
       />
       <Band tone="white">
@@ -93,10 +94,10 @@ function Page() {
       </Band>
       <Band tone="white">
         <SectionTitle title="Ray joins your team" />
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-4 md:grid-cols-3">
           {groups.map((g) => (
-            <div key={g.title} className="glass rounded-2xl p-5">
-              <p className="font-medium">{g.title}</p>
+            <div key={g.title} className="glass rounded-2xl p-6">
+              <p className="text-center font-medium">{g.title}</p>
               <ul className="mt-3 grid grid-cols-2 gap-2">
                 {g.items.map(([label, Icon]) => <li key={label} className="flex items-center gap-2 text-sm"><Icon className="size-4 shrink-0 text-primary" />{label}</li>)}
               </ul>
@@ -111,11 +112,9 @@ function Page() {
         <div className="mx-auto max-w-3xl"><SectionTitle title="Questions" /><Faq items={faq} /></div>
       </Band>
       <Band tone="grey">
-        <div id="book" className="grid scroll-mt-24 gap-8 lg:grid-cols-[1fr_1.4fr]">
-          <div className="space-y-5">
-            <h2 className="flex items-center gap-2 font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl"><Calendar className="size-7 text-primary" />Book a 20-minute demo</h2>
-            <HendrikCard />
-          </div>
+        <div id="book" className="scroll-mt-24"><SectionTitle title="Book a 20-minute demo" /></div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-[1fr_1.4fr]">
+          <div><HendrikCard /></div>
           <div className="overflow-hidden rounded-2xl border border-border/50 bg-background"><BookMeeting /></div>
         </div>
       </Band>

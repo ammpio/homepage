@@ -13,22 +13,23 @@ export function Band({ tone = "white", className = "", children }: { tone?: "whi
   );
 }
 
-export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, primaryVariant, secondary, aside }: {
+export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, primaryVariant, secondary, aside, stacked = false }: {
   eyebrow?: string; title: string; highlight?: string; titleEnd?: string; intro: string;
-  primary?: { label: string; to: string }; primaryVariant?: "ink" | "pink"; secondary?: { label: string; to: string }; aside?: ReactNode;
+  primary?: { label: string; to: string }; primaryVariant?: "ink" | "pink"; secondary?: { label: string; to: string }; aside?: ReactNode; stacked?: boolean;
 }) {
+  const side = aside && !stacked;
   return (
     <section className="luminous-hero relative overflow-hidden py-16 md:py-24">
       <div aria-hidden className="glow-orb orb-drift absolute -right-32 -top-48 size-[30rem] bg-glow-magenta/30" />
-      <div className={`site-container relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
-        <div className={aside ? "" : "mx-auto max-w-4xl text-center [&>*]:mx-auto"}>
+      <div className={`site-container relative ${side ? "grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]" : ""}`}>
+        <div className={side ? "" : "mx-auto max-w-4xl text-center [&>*]:mx-auto"}>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           <h1 className="mt-4 max-w-4xl font-display text-4xl font-medium leading-[1.08] tracking-[-0.018em] sm:text-5xl lg:text-[3.4rem]">
             {title} {highlight && <span>{highlight}</span>} {titleEnd}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{intro}</p>
           {(primary || secondary) && (
-            <div className={`mt-8 flex flex-wrap gap-3 ${aside ? "" : "justify-center"}`}>
+            <div className={`mt-8 flex flex-wrap gap-3 ${side ? "" : "justify-center"}`}>
               {primary && (primary.to.startsWith("#")
                 ? <a href={primary.to} className={`button ${primaryVariant === "pink" ? "button-pink" : "button-primary"}`}>{primary.label}<ArrowRight className="size-4" /></a>
                 : <Link to={primary.to} className={`button ${primaryVariant === "pink" ? "button-pink" : "button-primary"}`}>{primary.label}<ArrowRight className="size-4" /></Link>)}
@@ -36,7 +37,7 @@ export function PageHero({ eyebrow, title, highlight, titleEnd, intro, primary, 
             </div>
           )}
         </div>
-        {aside}
+        {aside && (stacked ? <div className="mt-12">{aside}</div> : aside)}
       </div>
     </section>
   );

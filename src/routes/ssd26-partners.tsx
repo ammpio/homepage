@@ -84,6 +84,7 @@ function Page() {
         intro="Offer Ray on top of the devices and cloud platform your customers already use. No new hardware."
         primary={{ label: "Become a pilot partner", to: "#pilot" }}
         primaryVariant="pink"
+        stacked
         aside={<Flow />}
       />
       <Band tone="white">
@@ -103,9 +104,8 @@ function Page() {
       </Band>
       <Band tone="white">
         <div id="pilot" className="scroll-mt-24">
-          <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">Pilot partners for 2027</h2>
-          <p className="mt-3 text-lg text-muted-foreground">We're picking a small group of OEMs to pilot Ray with.</p>
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <SectionTitle title="Pilot partners for 2027" intro="We're picking a small group of OEMs to pilot Ray with." />
+          <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-2">
             <div className="space-y-5">
               <div className="glass-strong rounded-2xl p-5 sm:p-6"><EventContactForm sourcePage="/ssd26-partners" withDeviceTypes /></div>
               <HendrikCard />

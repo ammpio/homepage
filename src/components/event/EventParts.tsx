@@ -118,8 +118,8 @@ export function EventContactForm({ sourcePage, withDeviceTypes = false }: { sour
 
 export function SectionTitle({ title, intro }: { title: string; intro?: string }) {
   return (
-    <div className="max-w-3xl">
-      <h2 className="font-display text-3xl font-medium tracking-[-0.015em] sm:text-4xl">{title}</h2>
+    <div className="mx-auto max-w-3xl text-center">
+      <h2 className="font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] sm:text-4xl lg:text-5xl">{title}</h2>
       {intro && <p className="mt-3 text-lg text-muted-foreground">{intro}</p>}
     </div>
   );
@@ -137,12 +137,12 @@ function FilledArrow() {
 /** Steps in a row with filled arrows between them; stacked on phones. */
 export function StepRow({ steps }: { steps: { icon: LucideIcon; title: string; text: string }[] }) {
   return (
-    <ol className="mt-8 flex flex-col gap-3 md:flex-row md:items-stretch">
+    <ol className="mx-auto mt-12 flex max-w-5xl flex-col gap-3 md:flex-row md:items-stretch">
       {steps.map(({ icon: Icon, title, text }, i) => (
         <li key={title} className="contents">
           {i > 0 && <FilledArrow />}
-          <div className="glass flex-1 rounded-2xl p-5">
-            <Icon className="size-5 text-primary" />
+          <div className="glass flex-1 rounded-2xl p-6 text-center">
+            <Icon className="mx-auto size-6 text-primary" />
             <p className="mt-3 font-medium">{title}</p>
             <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
           </div>
@@ -154,10 +154,10 @@ export function StepRow({ steps }: { steps: { icon: LucideIcon; title: string; t
 
 export function IconCards({ items, columns = 4 }: { items: { icon: LucideIcon; title: string; text?: string }[]; columns?: 3 | 4 }) {
   return (
-    <div className={`mt-8 grid gap-4 sm:grid-cols-2 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
+    <div className={`mx-auto mt-12 grid max-w-6xl gap-4 sm:grid-cols-2 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
       {items.map(({ icon: Icon, title, text }) => (
-        <div key={title} className="glass rounded-2xl p-5">
-          <Icon className="size-5 text-primary" />
+        <div key={title} className="glass rounded-2xl p-6 text-center">
+          <Icon className="mx-auto size-6 text-primary" />
           <p className="mt-3 font-medium">{title}</p>
           {text && <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>}
         </div>
