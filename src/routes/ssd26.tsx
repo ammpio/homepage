@@ -71,7 +71,7 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Sustainable Solutions Düsseldorf · Hall 13/14, Stand P1.2"
+        eyebrow="SUSTAINABLE SOLUTIONS DÜSSELDORF"
         title="Put AI to work across your energy portfolio."
         intro="Meet Ray, AMMP's AI coworker. Ray reads your data, spots what matters and gets it done with your team, in Teams, Slack and AMMP OS."
         primary={{ label: "Book a 20-minute demo", to: "#book" }}
