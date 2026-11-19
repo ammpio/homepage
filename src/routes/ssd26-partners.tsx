@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, Bell, Calendar, Cloud, Cpu, Database, FileText, ListOrdered, MessageSquare, Plug, ShieldCheck, UserX, Users, type LucideIcon } from "lucide-react";
+import { ArrowDown, ArrowRight, Calendar, Cloud, Cpu, Lightbulb, Plug, Users, type LucideIcon } from "lucide-react";
 import { Band, Faq, PageHero } from "@/components/site/sections";
 import { BookMeeting } from "@/components/site/BookMeeting";
 import { TeamUseCases, TechCoverage } from "@/components/event/UseCaseBlocks";
@@ -19,18 +19,23 @@ export const Route = createFileRoute("/ssd26-partners")({
   component: Page,
 });
 
-const why = [
-  { icon: Database, title: "Built on data from 10,000+ sites" },
-  { icon: Plug, title: "Connects through your cloud API" },
-  { icon: UserX, title: "No in-house AI team needed" },
-  { icon: ShieldCheck, title: "ISO 27001-certified" },
+const flow = [
+  ["Inverter 4 tripped", "Ticket opened"],
+  ["Monthly report due", "Draft ready"],
+  ["Yield below budget", "Cause found"],
+  ["Why is my yield down?", "Answered"],
 ];
 
-const uses = [
-  { icon: Bell, title: "Alerts", text: "Your customers hear about faults and trips, with the ticket already open." },
-  { icon: MessageSquare, title: "Answers", text: "Your customers ask about any site and get the evidence behind every answer." },
-  { icon: FileText, title: "Reports", text: "Your customers get monthly and investor reports drafted from live data." },
-  { icon: ListOrdered, title: "Priorities", text: "Your customers fix the most expensive problem first, not the loudest one." },
+const stats = [
+  ["10,000+", "sites already run on AMMP"],
+  ["1", "API connection to your cloud"],
+  ["0", "AI engineers to hire"],
+];
+
+const offers = [
+  { icon: Cpu, title: "Embedded AI agents", text: "Ray works inside the tools your customers already use: Microsoft Teams, Slack and AMMP OS." },
+  { icon: Plug, title: "MCP servers", text: "Connect AI assistants to your customers' site data through AMMP's MCP server." },
+  { icon: Lightbulb, title: "AI strategy" },
 ];
 
 const faq = [
@@ -74,19 +79,35 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Sustainable Solutions Düsseldorf · Hall 13/14, Stand P1.2"
-        title="Give your customers an AI coworker."
+        eyebrow="For hardware & platform makers"
+        title="AI is reshaping monitoring. We help OEMs bring it to their users."
         intro="Offer Ray on top of the devices and cloud platform your customers already use. No new hardware."
         stacked
         aside={<div><Flow /><div className="mt-8 flex justify-center"><a href="#pilot" className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-lg hover:opacity-90">Become a pilot partner</a></div></div>}
       />
       <Band tone="white">
-        <SectionTitle title="Why partner with AMMP" />
-        <IconCards items={why} />
+        <SectionTitle title="Ray doesn't wait to be asked." intro="It spots the issue, does the work, and answers when asked." />
+        <div className="mx-auto mt-12 max-w-2xl space-y-3">
+          {flow.map(([from, to]) => (
+            <div key={from} className="glass grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl px-4 py-3 text-sm sm:text-base">
+              <p className="text-right">{from}</p>
+              <ArrowRight className="size-4 text-primary" aria-hidden />
+              <p className="font-medium">{to}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3">
+          {stats.map(([n, l]) => (
+            <div key={l} className="glass rounded-2xl p-6 text-center">
+              <p className="font-display text-4xl font-medium">{n}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{l}</p>
+            </div>
+          ))}
+        </div>
       </Band>
       <Band tone="grey">
-        <SectionTitle title="What your customers get" />
-        <IconCards items={uses} />
+        <SectionTitle title="We help OEMs bring AI to their users" />
+        <IconCards items={offers} columns={3} />
       </Band>
       <Band tone="white">
         <SectionTitle title="Who Ray helps at your customers" intro="Your customers run teams that need answers from your device data every day." />
