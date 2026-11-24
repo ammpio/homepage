@@ -177,8 +177,6 @@ export const brazilBody: BlogBlock[] = [
     { a: "AMMP vs PV Operation", href: "/compare/pv-operation" },
     ". For reports, see ",
     { a: "investor reporting", href: "/solutions/investor-reporting" },
-    ". Energea, an investor in renewable energy, ",
-    { a: "chose AMMP OS", href: "/blog/energea" },
     ". More about AMMP in Brazil: ",
     { a: "AMMP in Brazil", href: "/brazil" },
     ".",
