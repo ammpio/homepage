@@ -43,3 +43,4 @@
 - Shared page sections check post go-live via src/data/blog-schedule.ts (kept in sync with blog-posts.ts by test), never import blog-posts.ts — why: full article text stays out of the code every page loads.
 - Blog author LinkedIn URLs, roles and bios live in src/data/authors.ts and feed the byline, author box and Article JSON-LD — why: one source.
 - Step-by-step blog posts list `howTo.steps` as exact visible heading texts; src/lib/howto.ts builds HowTo JSON-LD from them (tested in src/lib/howto.test.ts), and src/i18n/sitemap-crawl.test.ts checks every sitemap URL returns 200 without redirect and skips no heading level — why: schema must match visible text and the sitemap must list only final URLs.
+- Translated es/pt slugs live in SLUG_ALIASES in src/i18n/locale.ts (internal path stays English; localizePath/splitLocale map both ways) — why: router, canonical, hreflang and sitemap share one mapping.
