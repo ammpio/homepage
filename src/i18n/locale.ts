@@ -14,6 +14,17 @@ export const OG_LOCALE: Record<Language, string> = { en: "en_US", es: "es_ES", p
 const ENGLISH_ONLY_EXACT = new Set(["/privacy", "/terms", "/beta", "/trial", "/stratopi-image", "/unipi-image", "/support", "/ray-demo", "/ray-partners", "/ssd26", "/ssd26-partners", "/sitemap.xml", "/llms-full.txt"]);
 const ENGLISH_ONLY_PREFIX = ["/api/", "/lovable/", "/_serverFn", "/_server", "/__l5e", "/assets/"];
 
+// Pages whose Spanish/Portuguese URL uses a translated slug (internal path is the English one).
+const SLUG_ALIASES: Record<string, Partial<Record<Exclude<Language, "en">, string>>> = {
+  "/blog/open-api-solar-monitoring-platforms-brazil": {
+    es: "/blog/plataformas-monitoreo-solar-api-abierta-brasil",
+    pt: "/blog/plataformas-monitoramento-solar-api-aberta-brasil",
+  },
+};
+const ALIAS_TO_PATH = new Map<string, string>(
+  Object.entries(SLUG_ALIASES).flatMap(([path, byLang]) => Object.entries(byLang).map(([lang, alias]) => [`${lang}:${alias}`, path] as [string, string])),
+);
+
 function clean(path: string): string {
   const p = path.replace(/\/+$/, "");
   return p === "" ? "/" : p;
@@ -34,9 +45,11 @@ export function isLocalizablePath(path: string): boolean {
 export function splitLocale(pathname: string): { lang: Language; path: string } {
   const m = /^\/(es|pt)(\/.*)?$/.exec(pathname);
   if (!m) return { lang: "en", path: pathname || "/" };
-  const path = m[2] || "/";
+  const lang = m[1] as Language;
+  const raw = m[2] || "/";
+  const path = ALIAS_TO_PATH.get(`${lang}:${clean(raw)}`) ?? raw;
   if (!isLocalizablePath(path)) return { lang: "en", path: pathname };
-  return { lang: m[1] as Language, path };
+  return { lang, path };
 }
 
 /** Public path of an internal path in a language. English-only paths keep their English URL. */
@@ -45,7 +58,8 @@ export function localizePath(path: string, lang: Language): string {
   const [pathname = "/", rest = ""] = splitOnce(path);
   if (/^\/(es|pt)(\/|$)/.test(pathname)) return path;
   if (!isLocalizablePath(pathname)) return path;
-  return `/${lang}${pathname === "/" ? "" : pathname}${rest}`;
+  const aliased = SLUG_ALIASES[clean(pathname)]?.[lang] ?? pathname;
+  return `/${lang}${aliased === "/" ? "" : aliased}${rest}`;
 }
 
 function splitOnce(path: string): [string, string] {

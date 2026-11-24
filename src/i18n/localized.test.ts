@@ -72,3 +72,12 @@ describe("sitemap language versions", () => {
     expect(xml).not.toContain("/es/privacy");
   });
 });
+
+describe("translated slugs", () => {
+  it("maps the Brazil post to its Portuguese and Spanish slugs and back", () => {
+    expect(localizePath("/blog/open-api-solar-monitoring-platforms-brazil", "pt")).toBe("/pt/blog/plataformas-monitoramento-solar-api-aberta-brasil");
+    expect(localizePath("/blog/open-api-solar-monitoring-platforms-brazil", "es")).toBe("/es/blog/plataformas-monitoreo-solar-api-abierta-brasil");
+    expect(splitLocale("/pt/blog/plataformas-monitoramento-solar-api-aberta-brasil")).toEqual({ lang: "pt", path: "/blog/open-api-solar-monitoring-platforms-brazil" });
+    expect(splitLocale("/es/blog/plataformas-monitoreo-solar-api-abierta-brasil")).toEqual({ lang: "es", path: "/blog/open-api-solar-monitoring-platforms-brazil" });
+  });
+});

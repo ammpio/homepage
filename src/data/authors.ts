@@ -34,6 +34,12 @@ const POST_AUTHOR: Record<string, keyof typeof AUTHORS> = {
   "svet-engineering-with-ai-podcast-agents-in-slack": "andreas",
   "single-player-ai-teams": "svet",
   "audit-om-contractor-sla-compliance": "andreas",
+  "solar-monitoring-data-warehouse-api": "andreas",
+  "solar-monitoring-software-rfp-checklist": "andreas",
+  "benchmark-solar-portfolio-p50-energy-yield-reports": "andreas",
+  "open-api-solar-monitoring-platforms-brazil": "andreas",
+  "germany-multi-brand-pv-portfolio-monitoring": "andreas",
+  "uk-solar-bess-monitoring-platform-checklist": "andreas",
   "solar-ppa-guarantee-exceptions": "andreas",
   "solar-monitoring-africa-nigeria-kenya-south-africa": "andreas",
 };

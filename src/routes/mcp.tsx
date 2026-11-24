@@ -55,6 +55,7 @@ function McpPage() {
           <p className="text-sm text-muted-foreground">Permissions and scope follow your existing AMMP access controls. An assistant can only see what the connected user can already see.</p>
         </div>
         <Link to="/blog/$slug" params={{ slug: "mcp-server-beta" }} className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">Read the announcement <ArrowRight className="size-4" /></Link>
+        <Link to="/blog/$slug" params={{ slug: "solar-monitoring-data-warehouse-api" }} className="mt-3 flex items-center gap-1 text-sm font-medium text-primary">Pipe data into a data warehouse via API <ArrowRight className="size-4" /></Link>
       </Band>
 
       <Band>

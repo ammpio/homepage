@@ -62,6 +62,8 @@ export const PAGES: [string, string, string][] = [
   ["PPA billing software", "/compare/best-ppa-billing-software", "PPA billing and savings reporting criteria for C&I solar portfolios"],
   ["Mini-grid and hybrid monitoring", "/compare/best-mini-grid-hybrid-monitoring", "Solar, battery and genset monitoring criteria for mini-grids and hybrid sites"],
   ["Solar asset management software", "/compare/best-solar-asset-management-software", "Eight criteria and a neutral look at the main platforms"],
+  ["Renewable portfolio management software in Europe", "/compare/best-renewable-portfolio-management-software-europe", "Six criteria and a neutral look at the options for European portfolios"],
+  ["Solar, wind and battery on one platform", "/compare/solar-wind-battery-single-platform", "What to look for in a mixed renewable portfolio"],
   ["AI tools for solar asset managers", "/compare/best-ai-tools-solar-asset-managers", "Four kinds of AI tool and five criteria to judge them"],
   ["Asset managers", "/use-cases/asset-managers", "Use case"],
   ["O&M providers", "/use-cases/om-providers", "Use case"],

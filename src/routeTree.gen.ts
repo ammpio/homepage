@@ -52,6 +52,7 @@ import { Route as CompareBestCommercialSolarMonitoringPlatformsRouteImport } fro
 import { Route as CompareBestEpcSolarMonitoringSoftwareRouteImport } from './routes/compare.best-epc-solar-monitoring-software'
 import { Route as CompareBestMiniGridHybridMonitoringRouteImport } from './routes/compare.best-mini-grid-hybrid-monitoring'
 import { Route as CompareBestPpaBillingSoftwareRouteImport } from './routes/compare.best-ppa-billing-software'
+import { Route as CompareBestRenewablePortfolioManagementSoftwareEuropeRouteImport } from './routes/compare.best-renewable-portfolio-management-software-europe'
 import { Route as CompareBestSolarAssetManagementSoftwareRouteImport } from './routes/compare.best-solar-asset-management-software'
 import { Route as CompareBestSolarOmPlatformsRouteImport } from './routes/compare.best-solar-om-platforms'
 import { Route as CompareCloudVsOnPremiseRouteImport } from './routes/compare.cloud-vs-on-premise'
@@ -71,6 +72,7 @@ import { Route as ComparePvOperationRouteImport } from './routes/compare.pv-oper
 import { Route as CompareQosEnergyRouteImport } from './routes/compare.qos-energy'
 import { Route as CompareSmaRouteImport } from './routes/compare.sma'
 import { Route as CompareSolarLogAlternativesRouteImport } from './routes/compare.solar-log-alternatives'
+import { Route as CompareSolarWindBatterySinglePlatformRouteImport } from './routes/compare.solar-wind-battery-single-platform'
 import { Route as CompareSolaredgeRouteImport } from './routes/compare.solaredge'
 import { Route as CompareSungrowRouteImport } from './routes/compare.sungrow'
 import { Route as CompareTraditionalMonitoringRouteImport } from './routes/compare.traditional-monitoring'
@@ -318,6 +320,12 @@ const CompareBestPpaBillingSoftwareRoute =
     path: '/compare/best-ppa-billing-software',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CompareBestRenewablePortfolioManagementSoftwareEuropeRoute =
+  CompareBestRenewablePortfolioManagementSoftwareEuropeRouteImport.update({
+    id: '/compare/best-renewable-portfolio-management-software-europe',
+    path: '/compare/best-renewable-portfolio-management-software-europe',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CompareBestSolarAssetManagementSoftwareRoute =
   CompareBestSolarAssetManagementSoftwareRouteImport.update({
     id: '/compare/best-solar-asset-management-software',
@@ -419,6 +427,12 @@ const CompareSolarLogAlternativesRoute =
   CompareSolarLogAlternativesRouteImport.update({
     id: '/compare/solar-log-alternatives',
     path: '/compare/solar-log-alternatives',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CompareSolarWindBatterySinglePlatformRoute =
+  CompareSolarWindBatterySinglePlatformRouteImport.update({
+    id: '/compare/solar-wind-battery-single-platform',
+    path: '/compare/solar-wind-battery-single-platform',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CompareSolaredgeRoute = CompareSolaredgeRouteImport.update({
@@ -602,6 +616,7 @@ export interface FileRoutesByFullPath {
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
   '/compare/best-mini-grid-hybrid-monitoring': typeof CompareBestMiniGridHybridMonitoringRoute
   '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
+  '/compare/best-renewable-portfolio-management-software-europe': typeof CompareBestRenewablePortfolioManagementSoftwareEuropeRoute
   '/compare/best-solar-asset-management-software': typeof CompareBestSolarAssetManagementSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -621,6 +636,7 @@ export interface FileRoutesByFullPath {
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
   '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
+  '/compare/solar-wind-battery-single-platform': typeof CompareSolarWindBatterySinglePlatformRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -691,6 +707,7 @@ export interface FileRoutesByTo {
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
   '/compare/best-mini-grid-hybrid-monitoring': typeof CompareBestMiniGridHybridMonitoringRoute
   '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
+  '/compare/best-renewable-portfolio-management-software-europe': typeof CompareBestRenewablePortfolioManagementSoftwareEuropeRoute
   '/compare/best-solar-asset-management-software': typeof CompareBestSolarAssetManagementSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -710,6 +727,7 @@ export interface FileRoutesByTo {
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
   '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
+  '/compare/solar-wind-battery-single-platform': typeof CompareSolarWindBatterySinglePlatformRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -781,6 +799,7 @@ export interface FileRoutesById {
   '/compare/best-epc-solar-monitoring-software': typeof CompareBestEpcSolarMonitoringSoftwareRoute
   '/compare/best-mini-grid-hybrid-monitoring': typeof CompareBestMiniGridHybridMonitoringRoute
   '/compare/best-ppa-billing-software': typeof CompareBestPpaBillingSoftwareRoute
+  '/compare/best-renewable-portfolio-management-software-europe': typeof CompareBestRenewablePortfolioManagementSoftwareEuropeRoute
   '/compare/best-solar-asset-management-software': typeof CompareBestSolarAssetManagementSoftwareRoute
   '/compare/best-solar-om-platforms': typeof CompareBestSolarOmPlatformsRoute
   '/compare/cloud-vs-on-premise': typeof CompareCloudVsOnPremiseRoute
@@ -800,6 +819,7 @@ export interface FileRoutesById {
   '/compare/qos-energy': typeof CompareQosEnergyRoute
   '/compare/sma': typeof CompareSmaRoute
   '/compare/solar-log-alternatives': typeof CompareSolarLogAlternativesRoute
+  '/compare/solar-wind-battery-single-platform': typeof CompareSolarWindBatterySinglePlatformRoute
   '/compare/solaredge': typeof CompareSolaredgeRoute
   '/compare/sungrow': typeof CompareSungrowRoute
   '/compare/traditional-monitoring': typeof CompareTraditionalMonitoringRoute
@@ -872,6 +892,7 @@ export interface FileRouteTypes {
     | '/compare/best-epc-solar-monitoring-software'
     | '/compare/best-mini-grid-hybrid-monitoring'
     | '/compare/best-ppa-billing-software'
+    | '/compare/best-renewable-portfolio-management-software-europe'
     | '/compare/best-solar-asset-management-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
@@ -891,6 +912,7 @@ export interface FileRouteTypes {
     | '/compare/qos-energy'
     | '/compare/sma'
     | '/compare/solar-log-alternatives'
+    | '/compare/solar-wind-battery-single-platform'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -961,6 +983,7 @@ export interface FileRouteTypes {
     | '/compare/best-epc-solar-monitoring-software'
     | '/compare/best-mini-grid-hybrid-monitoring'
     | '/compare/best-ppa-billing-software'
+    | '/compare/best-renewable-portfolio-management-software-europe'
     | '/compare/best-solar-asset-management-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
@@ -980,6 +1003,7 @@ export interface FileRouteTypes {
     | '/compare/qos-energy'
     | '/compare/sma'
     | '/compare/solar-log-alternatives'
+    | '/compare/solar-wind-battery-single-platform'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -1050,6 +1074,7 @@ export interface FileRouteTypes {
     | '/compare/best-epc-solar-monitoring-software'
     | '/compare/best-mini-grid-hybrid-monitoring'
     | '/compare/best-ppa-billing-software'
+    | '/compare/best-renewable-portfolio-management-software-europe'
     | '/compare/best-solar-asset-management-software'
     | '/compare/best-solar-om-platforms'
     | '/compare/cloud-vs-on-premise'
@@ -1069,6 +1094,7 @@ export interface FileRouteTypes {
     | '/compare/qos-energy'
     | '/compare/sma'
     | '/compare/solar-log-alternatives'
+    | '/compare/solar-wind-battery-single-platform'
     | '/compare/solaredge'
     | '/compare/sungrow'
     | '/compare/traditional-monitoring'
@@ -1140,6 +1166,7 @@ export interface RootRouteChildren {
   CompareBestEpcSolarMonitoringSoftwareRoute: typeof CompareBestEpcSolarMonitoringSoftwareRoute
   CompareBestMiniGridHybridMonitoringRoute: typeof CompareBestMiniGridHybridMonitoringRoute
   CompareBestPpaBillingSoftwareRoute: typeof CompareBestPpaBillingSoftwareRoute
+  CompareBestRenewablePortfolioManagementSoftwareEuropeRoute: typeof CompareBestRenewablePortfolioManagementSoftwareEuropeRoute
   CompareBestSolarAssetManagementSoftwareRoute: typeof CompareBestSolarAssetManagementSoftwareRoute
   CompareBestSolarOmPlatformsRoute: typeof CompareBestSolarOmPlatformsRoute
   CompareCloudVsOnPremiseRoute: typeof CompareCloudVsOnPremiseRoute
@@ -1159,6 +1186,7 @@ export interface RootRouteChildren {
   CompareQosEnergyRoute: typeof CompareQosEnergyRoute
   CompareSmaRoute: typeof CompareSmaRoute
   CompareSolarLogAlternativesRoute: typeof CompareSolarLogAlternativesRoute
+  CompareSolarWindBatterySinglePlatformRoute: typeof CompareSolarWindBatterySinglePlatformRoute
   CompareSolaredgeRoute: typeof CompareSolaredgeRoute
   CompareSungrowRoute: typeof CompareSungrowRoute
   CompareTraditionalMonitoringRoute: typeof CompareTraditionalMonitoringRoute
@@ -1490,6 +1518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareBestPpaBillingSoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/best-renewable-portfolio-management-software-europe': {
+      id: '/compare/best-renewable-portfolio-management-software-europe'
+      path: '/compare/best-renewable-portfolio-management-software-europe'
+      fullPath: '/compare/best-renewable-portfolio-management-software-europe'
+      preLoaderRoute: typeof CompareBestRenewablePortfolioManagementSoftwareEuropeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/compare/best-solar-asset-management-software': {
       id: '/compare/best-solar-asset-management-software'
       path: '/compare/best-solar-asset-management-software'
@@ -1621,6 +1656,13 @@ declare module '@tanstack/react-router' {
       path: '/compare/solar-log-alternatives'
       fullPath: '/compare/solar-log-alternatives'
       preLoaderRoute: typeof CompareSolarLogAlternativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/solar-wind-battery-single-platform': {
+      id: '/compare/solar-wind-battery-single-platform'
+      path: '/compare/solar-wind-battery-single-platform'
+      fullPath: '/compare/solar-wind-battery-single-platform'
+      preLoaderRoute: typeof CompareSolarWindBatterySinglePlatformRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare/solaredge': {
@@ -1849,6 +1891,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompareBestMiniGridHybridMonitoringRoute:
     CompareBestMiniGridHybridMonitoringRoute,
   CompareBestPpaBillingSoftwareRoute: CompareBestPpaBillingSoftwareRoute,
+  CompareBestRenewablePortfolioManagementSoftwareEuropeRoute:
+    CompareBestRenewablePortfolioManagementSoftwareEuropeRoute,
   CompareBestSolarAssetManagementSoftwareRoute:
     CompareBestSolarAssetManagementSoftwareRoute,
   CompareBestSolarOmPlatformsRoute: CompareBestSolarOmPlatformsRoute,
@@ -1870,6 +1914,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompareQosEnergyRoute: CompareQosEnergyRoute,
   CompareSmaRoute: CompareSmaRoute,
   CompareSolarLogAlternativesRoute: CompareSolarLogAlternativesRoute,
+  CompareSolarWindBatterySinglePlatformRoute:
+    CompareSolarWindBatterySinglePlatformRoute,
   CompareSolaredgeRoute: CompareSolaredgeRoute,
   CompareSungrowRoute: CompareSungrowRoute,
   CompareTraditionalMonitoringRoute: CompareTraditionalMonitoringRoute,

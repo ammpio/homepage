@@ -7,6 +7,8 @@ import { podcastAgentsBody, covers7 } from "./blog-scheduled-7";
 import { singlePlayerBody, covers8 } from "./blog-scheduled-8";
 import { ppaExceptionsBody, covers9, PPA_EXCEPTIONS_STEPS } from "./blog-scheduled-9";
 import { PPA_EXCEPTIONS_FAQ } from "./batch7";
+import { warehouseBody, rfpBody, p50Body, brazilBody, germanyBody, ukBody, covers10, WAREHOUSE_STEPS, P50_STEPS, UK_STEPS } from "./blog-scheduled-10";
+import { WAREHOUSE_FAQ, RFP_FAQ, P50_FAQ, BRAZIL_FAQ, GERMANY_FAQ, UK_FAQ } from "./batch8";
 import { slaAuditBody, slaAuditFaq, covers6 } from "./blog-scheduled-6";
 import { teamsAlertsBody, teamsAlertsFaq, africaBody, africaFaq } from "./blog-scheduled-5";
 import type { FaqItem } from "./faq";
@@ -137,6 +139,99 @@ export const blogPosts: BlogPost[] = [
     ],
     related: [
       { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "solar-monitoring-data-warehouse-api",
+    howTo: { name: "How to pipe solar monitoring data into a data warehouse via API", steps: WAREHOUSE_STEPS },
+    title: "How to pipe solar monitoring data into a data warehouse via API for portfolio analytics",
+    excerpt: "What to pull, how to authenticate, load only new data, schedule refreshes and normalise across brands, with the AMMP Data API as the example.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(warehouseBody),
+    body: warehouseBody,
+    faq: WAREHOUSE_FAQ,
+    cover: covers10.warehouse,
+    related: [
+      { to: "/mcp", title: "AMMP MCP server", text: "Connect your own AI assistant to live, permissioned portfolio data." },
+      { to: "/integrations", title: "Integrations", text: "30+ integrations across inverter, battery and meter brands." },
+    ],
+  },
+  {
+    slug: "solar-monitoring-software-rfp-checklist",
+    title: "What an RFP for solar monitoring software should include when you manage multiple owners' sites",
+    excerpt: "Nine areas to cover in a monitoring software RFP for O&M providers and EPCs, and what a good answer looks like for each.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(rfpBody),
+    body: rfpBody,
+    faq: RFP_FAQ,
+    cover: covers10.rfp,
+    related: [
+      { to: "/solutions/om-sla-tracking", title: "O&M SLA tracking", text: "Contractor availability and response times against contract terms." },
+      { to: "/product", title: "AMMP OS Platform", text: "Monitoring, alerting, ticketing, reporting and commercials in one place." },
+    ],
+  },
+  {
+    slug: "benchmark-solar-portfolio-p50-energy-yield-reports",
+    howTo: { name: "How to reconcile energy yield reports with actual performance", steps: P50_STEPS },
+    title: "How to benchmark a solar portfolio against P50 and reconcile energy yield reports with actual performance",
+    excerpt: "What P50 and P90 mean, why yield reports and live data diverge, and a monthly routine to reconcile them.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(p50Body),
+    body: p50Body,
+    faq: P50_FAQ,
+    cover: covers10.p50,
+    related: [
+      { to: "/solutions/investor-reporting", title: "Investor reporting", text: "Scheduled reports with the same KPIs for every site." },
+      { to: "/ray", title: "Meet Ray", text: "The AI coworker who works on top of your portfolio data." },
+    ],
+  },
+  {
+    slug: "open-api-solar-monitoring-platforms-brazil",
+    title: "How to compare solar monitoring platforms with an open API for funds and investors in Brazil",
+    excerpt: "Five criteria for investors in distributed generation in Brazil, from open API and data ownership to SLA with O&M, and a neutral look at the options.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(brazilBody),
+    body: brazilBody,
+    faq: BRAZIL_FAQ,
+    cover: covers10.brazil,
+    related: [
+      { to: "/solutions/investor-reporting", title: "Investor reporting", text: "Scheduled reports with the same KPIs for every site." },
+      { to: "/case-studies", title: "Case studies", text: "How portfolio owners run their sites with AMMP." },
+    ],
+  },
+  {
+    slug: "germany-multi-brand-pv-portfolio-monitoring",
+    title: "Monitoring a PV portfolio with multiple inverter brands in Germany: rooftop, ground-mount and direct marketing data needs",
+    excerpt: "The data a German PV portfolio needs for rooftop and ground-mount plants, Direktvermarktung, the Marktstammdatenregister and Redispatch.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(germanyBody),
+    body: germanyBody,
+    faq: GERMANY_FAQ,
+    cover: covers10.germany,
+    related: [
+      { to: "/integrations", title: "Integrations", text: "30+ integrations across inverter, battery and meter brands." },
+      { to: "/solutions/solar-monitoring", title: "Solar monitoring", text: "Multi-brand monitoring with loss analysis across your portfolio." },
+    ],
+  },
+  {
+    slug: "uk-solar-bess-monitoring-platform-checklist",
+    howTo: { name: "How to evaluate a solar and BESS monitoring platform for a UK portfolio", steps: UK_STEPS },
+    title: "Checklist for evaluating solar and BESS monitoring platforms for a UK portfolio",
+    excerpt: "A five-part checklist for UK commercial rooftop, battery storage and multi-client portfolios.",
+    category: "Insights",
+    date: "2026-11-24",
+    readTime: computeReadTime(ukBody),
+    body: ukBody,
+    faq: UK_FAQ,
+    cover: covers10.uk,
+    related: [
+      { to: "/solutions/hybrid-sites", title: "Hybrid sites", text: "Solar, battery, genset and mini-grid monitoring with AMMP Edge." },
+      { to: "/solutions/investor-reporting", title: "Investor reporting", text: "Scheduled reports with the same KPIs for every site." },
     ],
   },
   {

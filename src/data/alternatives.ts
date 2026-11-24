@@ -89,3 +89,22 @@ export const MULTI_BRAND_FAQ = [
     a: "Use a vendor-neutral monitoring platform that connects each brand through its cloud API or a datalogger, calculates KPIs such as performance ratio and availability the same way for every brand, and routes alerts to where your team works, such as Microsoft Teams or Slack. AMMP is one option: it has 30+ integrations, including Huawei, SMA and Sungrow, and uses the AMMP Edge datalogger for equipment without an API.",
   },
 ];
+
+// Named on the Europe portfolio software page only. No /compare page exists, so one neutral category line each, no feature claims.
+export const THREE_E: Alternative = {
+  name: "3E",
+  description: "A renewable energy consultancy and software provider.",
+  fits: "Teams that already work with 3E.",
+};
+
+export const DNV: Alternative = {
+  name: "DNV",
+  description: "An independent engineering and advisory firm that also offers software for renewable energy.",
+  fits: "Teams that already work with DNV.",
+};
+
+export const GREENPOWERMONITOR: Alternative = {
+  name: "GreenPowerMonitor",
+  description: "A monitoring and asset management software provider for renewable energy.",
+  fits: "Teams that already work with GreenPowerMonitor.",
+};

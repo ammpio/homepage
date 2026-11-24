@@ -1,5 +1,5 @@
 import { RayDay } from "@/components/site/RaySections";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ClipboardCheck, Users, FileBarChart, Wrench, CheckCircle2 } from "lucide-react";
 import { Band, PageHero, SectionHeading, FeatureGrid } from "@/components/site/sections";
 import { PageCta } from "@/components/site/SiteShell";
@@ -60,6 +60,7 @@ function Page() {
             </li>
           ))}
         </ul>
+        <Link to="/blog/$slug" params={{ slug: "solar-monitoring-software-rfp-checklist" }} className="mt-8 inline-block text-sm font-medium underline underline-offset-4">What to include in a monitoring software RFP</Link>
       </Band>
 
 
