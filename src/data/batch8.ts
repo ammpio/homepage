@@ -17,7 +17,7 @@ export const RFP_FAQ: FaqItem[] = [
 export const P50_FAQ: FaqItem[] = [
   { q: "What is the difference between P50 and P90?", a: "P50 is the annual energy a plant is expected to exceed in half of all years. P90 is the level it should exceed in nine years out of ten." },
   { q: "Why does my plant produce less than the P50 estimate?", a: "Common reasons are lower irradiance than the long-term average, downtime, degradation, curtailment and soiling. Separate weather-driven shortfalls from plant faults before acting." },
-  { q: "Does AMMP import P50 budgets from yield reports?", a: "AMMP compares actual against expected yield and benchmarks sites on performance ratio and availability. Keep your yield report figures in your own records for the comparison." },
+  { q: "Does AMMP import P50 budgets from yield reports?", a: "Yes. Each site has a target yield, usually taken from the PVsyst simulation in the yield report, set under Target Yield at daily or monthly resolution. AMMP then reports the yield target ratio (actual energy ÷ target yield) and splits the gap into irradiance underperformance (actual irradiance vs the simulation) and remaining loss (plant issues)." },
 ];
 
 export const BRAZIL_FAQ: FaqItem[] = [
