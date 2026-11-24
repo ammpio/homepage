@@ -139,7 +139,8 @@ export const p50Body: BlogBlock[] = [
   { type: "paragraph", text: "Write down the cause of each gap. Over a year, this record shows whether a plant is really underperforming or just had poor weather." },
   { type: "heading", text: "Where AMMP helps" },
   { type: "rich", parts: [
-    "AMMP compares actual against expected yield, and calculates performance ratio and availability the same way across sites and brands. Each site has a target yield from its yield report, usually the PVsyst simulation. AMMP reports the yield target ratio and splits any gap into irradiance underperformance and remaining loss from plant issues (",
+    "AMMP compares actual against expected yield, and calculates performance ratio and availability the same way across sites and brands. ",
+    "Each site has a target yield from its yield report, usually the PVsyst simulation. AMMP reports the yield target ratio and splits any gap into irradiance underperformance and remaining loss from plant issues (",
     { a: "how AMMP calculates KPIs", href: "/product/documentation/kpi-calculations" },
     "). ",
     { a: "Portfolio benchmarking", href: "/solutions/portfolio-benchmarking" },
